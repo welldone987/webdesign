@@ -50,6 +50,26 @@ for (const [index, photo] of photos.entries()) {
     }
     slugs.add(photo.slug);
   }
+
+  if (photo.previewSrc) {
+    if (!String(photo.previewSrc).startsWith('/images/photography/')) {
+      throw new Error(`Photo at index ${index} must use a public photography preview path.`);
+    }
+
+    if (typeof photo.previewWidth !== 'number' || typeof photo.previewHeight !== 'number') {
+      throw new Error(`Photo at index ${index} must use numeric previewWidth and previewHeight.`);
+    }
+
+    const previewPath = path.join(appRoot, 'public', photo.previewSrc.replace(/^\//, ''));
+    const previewStats = await stat(previewPath);
+    if (previewStats.size > maxBytes) {
+      throw new Error(`Photo preview at index ${index} exceeds 15MB: ${photo.previewSrc}`);
+    }
+  }
+
+  if (photo.placeholder && !String(photo.placeholder).startsWith('data:image/')) {
+    throw new Error(`Photo at index ${index} has an invalid placeholder data URL.`);
+  }
 }
 
 console.log(`Validated ${photos.length} photo records.`);

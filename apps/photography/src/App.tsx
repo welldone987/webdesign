@@ -6,6 +6,7 @@ import type { Photo, ThemeSummary } from './types/photography.ts';
 const allPhotos = photos as Photo[];
 const missingText = '已消失';
 const allCollectionSlug = 'all';
+const preloadedImages = new Set<string>();
 const themeAccents = {
   warm: { accent: '#C99567', soft: '#EBD7BF' },
   azure: { accent: '#7F9FB0', soft: '#D7E4E9' },
@@ -14,6 +15,44 @@ const themeAccents = {
 } as const;
 
 type View = 'home' | 'guide' | 'showcase';
+
+function getPreviewSrc(photo: Photo) {
+  return photo.previewSrc ?? photo.src;
+}
+
+function getPreviewWidth(photo: Photo) {
+  return photo.previewWidth ?? photo.width;
+}
+
+function getPreviewHeight(photo: Photo) {
+  return photo.previewHeight ?? photo.height;
+}
+
+function shouldSkipIdlePreload() {
+  const connection = (navigator as Navigator & { connection?: { saveData?: boolean } }).connection;
+  return Boolean(connection?.saveData);
+}
+
+function preloadImage(src: string) {
+  if (!src || preloadedImages.has(src)) {
+    return;
+  }
+
+  preloadedImages.add(src);
+  const image = new Image();
+  image.decoding = 'async';
+  image.src = src;
+}
+
+function requestIdleTask(callback: () => void) {
+  if (typeof window.requestIdleCallback === 'function') {
+    const handle = window.requestIdleCallback(callback, { timeout: 1800 });
+    return () => window.cancelIdleCallback(handle);
+  }
+
+  const handle = globalThis.setTimeout(callback, 300);
+  return () => globalThis.clearTimeout(handle);
+}
 
 function buildThemes(items: Photo[]): ThemeSummary[] {
   const themeMap = new Map<string, ThemeSummary>();
@@ -44,6 +83,7 @@ function App() {
   const [view, setView] = useState<View>('home');
   const [activeThemeSlug, setActiveThemeSlug] = useState(allPhotos[0]?.themeSlug ?? 'warm');
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
+  const photoTriggerRef = useRef<HTMLButtonElement | null>(null);
   const themes = useMemo(() => buildThemes(allPhotos), []);
   const activeTheme = themes.find((theme) => theme.slug === activeThemeSlug) ?? themes[0];
   const activePhotos =
@@ -58,6 +98,22 @@ function App() {
     setActiveThemeSlug(themeSlug);
     setView('showcase');
     window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+  };
+
+  const openPhoto = (photo: Photo, trigger: HTMLButtonElement) => {
+    photoTriggerRef.current = trigger;
+    preloadImage(photo.src);
+    setSelectedPhoto(photo);
+  };
+
+  const selectPhoto = (photo: Photo) => {
+    preloadImage(photo.src);
+    setSelectedPhoto(photo);
+  };
+
+  const closePhoto = () => {
+    setSelectedPhoto(null);
+    window.requestAnimationFrame(() => photoTriggerRef.current?.focus());
   };
 
   return (
@@ -81,7 +137,7 @@ function App() {
             activeThemeSlug={activeThemeSlug}
             key="showcase"
             onBack={() => setView('guide')}
-            onOpenPhoto={setSelectedPhoto}
+            onOpenPhoto={openPhoto}
             onSelectTheme={openShowcase}
             photos={activePhotos}
             themes={themes}
@@ -89,8 +145,8 @@ function App() {
         ) : null}
       </AnimatePresence>
       <PhotoDetailOverlay
-        onClose={() => setSelectedPhoto(null)}
-        onSelectPhoto={setSelectedPhoto}
+        onClose={closePhoto}
+        onSelectPhoto={selectPhoto}
         photos={activePhotos}
         selectedPhoto={selectedPhoto}
       />
@@ -252,7 +308,7 @@ type ShowcaseViewProps = {
   photos: Photo[];
   onBack: () => void;
   onSelectTheme: (themeSlug: string) => void;
-  onOpenPhoto: (photo: Photo) => void;
+  onOpenPhoto: (photo: Photo, trigger: HTMLButtonElement) => void;
 };
 
 function ShowcaseView({
@@ -269,6 +325,16 @@ function ShowcaseView({
   const displayName = isAllPhotos ? '全部图片' : activeTheme.name;
   const displaySubtitle = isAllPhotos ? 'All Photographs' : activeTheme.subtitle;
 
+  useEffect(() => {
+    if (shouldSkipIdlePreload()) {
+      return;
+    }
+
+    return requestIdleTask(() => {
+      photos.slice(0, 9).forEach((photo) => preloadImage(getPreviewSrc(photo)));
+    });
+  }, [photos]);
+
   return (
     <motion.main
       animate={{ opacity: 1 }}
@@ -279,45 +345,47 @@ function ShowcaseView({
       transition={{ duration: 0.4 }}
     >
       <TopBar onBack={onBack} title="Selected Works" />
-      <div className="mx-auto grid max-w-[1500px] gap-8 lg:grid-cols-[260px_minmax(0,1fr)]">
+      <div className="mx-auto grid max-w-[1500px] gap-8 lg:grid-cols-[340px_minmax(0,1fr)]">
         <aside className="lg:sticky lg:top-8 lg:h-[calc(100vh-4rem)]">
-          <nav className="border-r border-ink/10 pr-6 font-serif text-sm text-ink/64" aria-label="展示页目录">
+          <nav className="border-b border-ink/10 pb-5 font-serif text-sm text-ink/64 lg:border-b-0 lg:border-r lg:pb-0 lg:pr-8" aria-label="展示页目录">
             <a className="block py-2 text-ink underline underline-offset-4" href="#intro">
               摄影集网站简介
             </a>
             <div className="mt-8">
-              <p className="mb-3 font-sans text-xs uppercase tracking-[0.18em] text-ink/36">四个主题的展示</p>
-              {themes.map((theme) => (
+              <p className="mb-3 font-serif text-base font-semibold text-ink">呈现</p>
+              <div className="scrollbar-thin -mx-1 flex gap-2 overflow-x-auto px-1 pb-2 lg:mx-0 lg:block lg:space-y-2 lg:overflow-visible lg:px-0 lg:pb-0">
+                {themes.map((theme) => (
+                  <button
+                    aria-pressed={theme.slug === activeThemeSlug}
+                    className="block min-h-11 min-w-24 shrink-0 border px-3 py-2 text-left transition hover:text-ink focus:outline-none focus:ring-2 focus:ring-umber lg:w-full"
+                    key={theme.slug}
+                    onClick={() => onSelectTheme(theme.slug)}
+                    style={
+                      theme.slug === activeThemeSlug
+                        ? {
+                            backgroundColor: themeAccents[theme.slug as keyof typeof themeAccents]?.soft,
+                            borderColor: themeAccents[theme.slug as keyof typeof themeAccents]?.accent,
+                          }
+                        : { borderColor: 'transparent' }
+                    }
+                    type="button"
+                  >
+                    <span className={theme.slug === activeThemeSlug ? 'text-ink' : undefined}>{theme.name}</span>
+                    <span className="ml-3 font-sans text-xs tracking-[0.14em] opacity-45">
+                      {theme.subtitle}
+                    </span>
+                  </button>
+                ))}
                 <button
-                  aria-pressed={theme.slug === activeThemeSlug}
-                  className="block min-h-10 w-full border px-2 py-2 text-left transition hover:text-ink focus:outline-none focus:ring-2 focus:ring-umber"
-                  key={theme.slug}
-                  onClick={() => onSelectTheme(theme.slug)}
-                  style={
-                    theme.slug === activeThemeSlug
-                      ? {
-                          backgroundColor: themeAccents[theme.slug as keyof typeof themeAccents]?.soft,
-                          borderColor: themeAccents[theme.slug as keyof typeof themeAccents]?.accent,
-                        }
-                      : { borderColor: 'transparent' }
-                  }
+                  aria-pressed={isAllPhotos}
+                  className="block min-h-11 min-w-28 shrink-0 border border-transparent px-3 py-2 text-left transition hover:text-ink focus:outline-none focus:ring-2 focus:ring-umber lg:mt-3 lg:w-full lg:border-t-ink/10 lg:py-3"
+                  onClick={() => onSelectTheme(allCollectionSlug)}
                   type="button"
                 >
-                  <span className={theme.slug === activeThemeSlug ? 'text-ink' : undefined}>{theme.name}</span>
-                  <span className="ml-3 font-sans text-xs tracking-[0.14em] opacity-45">
-                    {theme.subtitle}
-                  </span>
+                  <span className={isAllPhotos ? 'text-ink' : undefined}>全部图片</span>
+                  <span className="ml-3 font-sans text-xs tracking-[0.14em] opacity-45">All Photographs</span>
                 </button>
-              ))}
-              <button
-                aria-pressed={isAllPhotos}
-                className="mt-3 block min-h-10 w-full border border-transparent border-t-ink/10 px-2 py-3 text-left transition hover:text-ink focus:outline-none focus:ring-2 focus:ring-umber"
-                onClick={() => onSelectTheme(allCollectionSlug)}
-                type="button"
-              >
-                <span className={isAllPhotos ? 'text-ink' : undefined}>全部图片</span>
-                <span className="ml-3 font-sans text-xs tracking-[0.14em] opacity-45">All Photographs</span>
-              </button>
+              </div>
             </div>
             <a className="mt-8 block py-2 transition hover:text-ink" href="#profile">
               个人简介
@@ -342,25 +410,24 @@ function ShowcaseView({
             </p>
           </header>
 
-          <div className="columns-1 gap-5 sm:columns-2 xl:columns-3 2xl:columns-4">
+          <div className="columns-2 gap-3 lg:columns-3 lg:gap-5">
             {photos.map((photo, index) => (
               <motion.button
                 animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
-                className="group mb-5 block w-full break-inside-avoid text-left focus:outline-none focus:ring-2 focus:ring-umber focus:ring-offset-4 focus:ring-offset-porcelain"
+                className="group mb-3 block w-full break-inside-avoid text-left focus:outline-none focus:ring-2 focus:ring-umber focus:ring-offset-4 focus:ring-offset-porcelain lg:mb-5"
                 initial={prefersReducedMotion ? undefined : { opacity: 0, y: 18 }}
                 key={photo.slug ?? photo.src}
-                onClick={() => onOpenPhoto(photo)}
+                onClick={(event) => onOpenPhoto(photo, event.currentTarget)}
+                onFocus={() => preloadImage(getPreviewSrc(photo))}
+                onMouseEnter={() => {
+                  if (window.matchMedia('(hover: hover)').matches) {
+                    preloadImage(photo.src);
+                  }
+                }}
                 transition={{ delay: Math.min(index * 0.025, 0.35), duration: 0.45, ease: 'easeOut' }}
                 type="button"
               >
-                <img
-                  alt={photo.alt}
-                  className="w-full bg-paper object-cover transition duration-500 group-hover:brightness-[0.94]"
-                  height={photo.height}
-                  loading={index < 6 ? 'eager' : 'lazy'}
-                  src={photo.src}
-                  width={photo.width}
-                />
+                <ProgressiveImage photo={photo} priority={index < 6} />
               </motion.button>
             ))}
           </div>
@@ -374,6 +441,90 @@ function ShowcaseView({
         </section>
       </div>
     </motion.main>
+  );
+}
+
+type ProgressiveImageProps = {
+  photo: Photo;
+  priority?: boolean;
+};
+
+function ProgressiveImage({ photo, priority = false }: ProgressiveImageProps) {
+  const containerRef = useRef<HTMLSpanElement>(null);
+  const [shouldLoad, setShouldLoad] = useState(priority);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
+  const previewSrc = getPreviewSrc(photo);
+  const previewWidth = getPreviewWidth(photo);
+  const previewHeight = getPreviewHeight(photo);
+
+  useEffect(() => {
+    if (priority || shouldLoad) {
+      return;
+    }
+
+    const element = containerRef.current;
+    if (!element) {
+      return;
+    }
+
+    if (!('IntersectionObserver' in window)) {
+      setShouldLoad(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setShouldLoad(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '0px 0px 600px 0px' },
+    );
+
+    observer.observe(element);
+    return () => observer.disconnect();
+  }, [priority, shouldLoad]);
+
+  useEffect(() => {
+    if (priority) {
+      preloadImage(previewSrc);
+    }
+  }, [previewSrc, priority]);
+
+  return (
+    <span
+      className="relative block w-full overflow-hidden bg-paper"
+      ref={containerRef}
+      style={{ aspectRatio: `${previewWidth} / ${previewHeight}` }}
+    >
+      {photo.placeholder ? (
+        <img
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full scale-105 object-cover blur-xl"
+          draggable={false}
+          src={photo.placeholder}
+        />
+      ) : null}
+      {shouldLoad ? (
+        <img
+          alt={photo.alt}
+          className="absolute inset-0 h-full w-full object-cover transition group-hover:brightness-[0.94]"
+          decoding="async"
+          height={previewHeight}
+          loading={priority ? 'eager' : 'lazy'}
+          onLoad={() => setIsLoaded(true)}
+          src={previewSrc}
+          style={{
+            opacity: isLoaded ? 1 : 0,
+            transitionDuration: prefersReducedMotion ? '1ms' : '450ms',
+          }}
+          width={previewWidth}
+        />
+      ) : null}
+    </span>
   );
 }
 
@@ -430,9 +581,45 @@ function PhotoDetailOverlay({ photos, selectedPhoto, onSelectPhoto, onClose }: P
       return;
     }
 
+    if (!shouldSkipIdlePreload()) {
+      return requestIdleTask(() => {
+        if (previousPhoto) {
+          preloadImage(previousPhoto.src);
+        }
+        if (nextPhoto) {
+          preloadImage(nextPhoto.src);
+        }
+      });
+    }
+  }, [nextPhoto, previousPhoto, selectedPhoto]);
+
+  useEffect(() => {
+    if (!selectedPhoto) {
+      return;
+    }
+
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         onClose();
+      }
+      if (event.key === 'Tab') {
+        const focusable = Array.from(
+          document.querySelectorAll<HTMLButtonElement>('[data-photo-detail-control="true"]'),
+        ).filter((element) => !element.disabled);
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (!first || !last) {
+          return;
+        }
+
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
       }
       if (event.key === 'ArrowLeft' && previousPhoto) {
         event.preventDefault();
@@ -475,6 +662,7 @@ function PhotoDetailOverlay({ photos, selectedPhoto, onSelectPhoto, onClose }: P
           <button
             aria-label="关闭图片详情"
             className="absolute left-4 top-4 z-10 min-h-11 border border-porcelain/60 bg-ink/35 px-4 py-2 font-serif text-porcelain focus:outline-none focus:ring-2 focus:ring-porcelain sm:left-8 sm:top-8"
+            data-photo-detail-control="true"
             onClick={onClose}
             ref={closeRef}
             type="button"
@@ -509,13 +697,7 @@ function PhotoDetailOverlay({ photos, selectedPhoto, onSelectPhoto, onClose }: P
               {hasMissing ? <p className="mt-5 text-lg leading-8">不过回忆还在</p> : null}
             </section>
             <figure className={figureClass}>
-              <img
-                alt={selectedPhoto.alt}
-                className={imageClass}
-                height={selectedPhoto.height}
-                src={selectedPhoto.src}
-                width={selectedPhoto.width}
-              />
+              <ProgressiveDetailImage className={imageClass} photo={selectedPhoto} />
             </figure>
           </motion.div>
         </motion.div>
@@ -529,6 +711,65 @@ type PhotoSwitchButtonProps = {
   onClick: () => void;
 };
 
+type ProgressiveDetailImageProps = {
+  photo: Photo;
+  className: string;
+};
+
+function ProgressiveDetailImage({ photo, className }: ProgressiveDetailImageProps) {
+  const [largeLoaded, setLargeLoaded] = useState(false);
+  const [largeFailed, setLargeFailed] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
+  const previewSrc = getPreviewSrc(photo);
+
+  useEffect(() => {
+    setLargeLoaded(false);
+    setLargeFailed(false);
+
+    const image = new Image();
+    image.decoding = 'async';
+    image.onload = () => setLargeLoaded(true);
+    image.onerror = () => {
+      setLargeFailed(true);
+      console.warn(`Failed to load full-size photo: ${photo.src}`);
+    };
+    image.src = photo.src;
+
+    return () => {
+      image.onload = null;
+      image.onerror = null;
+    };
+  }, [photo.src]);
+
+  return (
+    <span className="relative block">
+      <img
+        alt={photo.alt}
+        className={className}
+        decoding="async"
+        height={getPreviewHeight(photo)}
+        src={previewSrc}
+        width={getPreviewWidth(photo)}
+      />
+      {!largeFailed ? (
+        <img
+          alt=""
+          aria-hidden="true"
+          className="absolute inset-0 h-full w-full object-contain transition-opacity"
+          decoding="async"
+          height={photo.height}
+          src={photo.src}
+          style={{
+            opacity: largeLoaded ? 1 : 0,
+            transitionDuration: prefersReducedMotion ? '1ms' : '450ms',
+          }}
+          width={photo.width}
+        />
+      ) : null}
+    </span>
+  );
+}
+
 function PhotoSwitchButton({ direction, onClick }: PhotoSwitchButtonProps) {
   const isPrevious = direction === 'previous';
 
@@ -538,6 +779,7 @@ function PhotoSwitchButton({ direction, onClick }: PhotoSwitchButtonProps) {
       className={`absolute top-1/2 z-20 grid h-12 w-12 -translate-y-1/2 place-items-center border border-ink/70 bg-porcelain/82 font-numeric-serif text-3xl leading-none text-ink shadow-sm backdrop-blur transition hover:bg-porcelain focus:outline-none focus:ring-2 focus:ring-umber focus:ring-offset-2 focus:ring-offset-transparent sm:h-14 sm:w-14 ${
         isPrevious ? 'left-3 sm:left-8' : 'right-3 sm:right-8'
       }`}
+      data-photo-detail-control="true"
       onClick={onClick}
       type="button"
     >

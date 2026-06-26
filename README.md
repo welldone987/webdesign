@@ -149,9 +149,13 @@ apps/photography/
     images/
       photography/
         warm/
+          preview/
         azure/
+          preview/
         bloom/
+          preview/
         umbrage/
+          preview/
   src/
     App.tsx
     main.tsx
@@ -217,7 +221,7 @@ selectedPhoto    当前打开详情界面的照片，默认为 null
 
 - 主页：展示摄影集标题和四个主题封面。
 - 引导页：横向滚动选择四个主题，主题英文分别为 Apricity、Azure、Lush、Penumbra。
-- 展示页：左侧目录包含摄影集简介、四个主题、全部图片、个人简介；右侧使用瀑布流展示当前主题或全部图片。
+- 展示页：左侧目录包含摄影集简介、呈现、全部图片、个人简介；右侧使用瀑布流展示当前主题或全部图片。
 - 二级图片详情界面：点击瀑布流图片打开，背景虚化，左侧显示标题和 EXIF 信息，右侧显示留白包裹的大图。
 
 详情界面当前行为：
@@ -226,6 +230,7 @@ selectedPhoto    当前打开详情界面的照片，默认为 null
 - 自动聚焦关闭按钮。
 - 支持 Escape 关闭，并支持左右方向键在当前图库内切换上一张/下一张。
 - 左右切换按钮使用方形轮廓；首张隐藏上一张按钮，末张隐藏下一张按钮。
+- 瀑布流先加载 900px 预览图和 LQIP 占位图，详情页先显示预览图，再淡入覆盖完整大图。
 - 缺失 EXIF 字段显示 `已消失`，并显示“不过回忆还在”。
 - 不显示图片原始文件名。
 - 二级详情界面按图片方向只保留横构图、竖构图两种比例；竖图沿用较高展示比例，横图使用更收敛的卡片和图片尺寸。
@@ -271,9 +276,12 @@ apps/photography/src/types/photography.ts
 ```ts
 export type Photo = {
   src: string;
+  previewSrc?: string;
   alt: string;
   width: number;
   height: number;
+  previewWidth?: number;
+  previewHeight?: number;
   category: string;
   themeSlug: string;
   themeSubtitle: string;
@@ -289,8 +297,10 @@ export type Photo = {
   order?: number;
   slug?: string;
   originalFile?: string;
+  placeholder?: string;
   optimized?: boolean;
   sizeBytes?: number;
+  previewSizeBytes?: number;
 };
 ```
 
@@ -300,6 +310,10 @@ export type Photo = {
 themeSlug         主题标识
 themeSubtitle     主题英文词
 themeDescription  主题说明
+previewSrc        瀑布流预览图路径，当前由 prepare:photos 生成
+previewWidth      预览图宽度
+previewHeight     预览图高度
+placeholder       极小 Base64 LQIP 占位图
 date              拍摄日期
 aperture          光圈
 shutterSpeed      快门
@@ -311,6 +325,7 @@ slug              作品唯一标识
 originalFile      源文件名，仅用于维护，不在详情界面显示
 optimized         是否经过压缩
 sizeBytes         站点图片大小
+previewSizeBytes  预览图大小
 ```
 
 新增摄影作品时，优先改两类文件：
@@ -342,6 +357,8 @@ apps/photography/src/data/photos.json
 - 每张照片必须包含 `src`、`alt`、`width`、`height`、`category`、`title`、`year`。
 - `width` 和 `height` 必须是数字。
 - 图片路径必须指向 `public/images/photography/`。
+- 如果存在 `previewSrc`，预览图路径必须指向 `public/images/photography/`，且 `previewWidth`、`previewHeight` 必须是数字。
+- 如果存在 `placeholder`，必须是 `data:image/` 开头的 data URL。
 - 单张站点图片不得超过 15MB。
 - 如果存在 `slug`，则所有 `slug` 必须唯一。
 - 实际图片文件内容不得重复，避免同一张图片出现在多个主题。
@@ -548,13 +565,14 @@ Node.js version: 24.18.0
 
 1. 将源图放入根目录 `资源/摄影图片/暖`、`湛`、`盛`、`郁` 对应主题文件夹。
 2. 运行 `npm --workspace @personal-websites/photography run prepare:photos`。
-3. 脚本会输出 `apps/photography/public/images/photography/` 和 `apps/photography/src/data/photos.json`。
+3. 脚本会输出 `apps/photography/public/images/photography/`、各主题 `preview/` 子目录和 `apps/photography/src/data/photos.json`。
 4. 超过 15MB 的源图会用低损失 JPEG 参数压缩到 15MB 以内；不超过 15MB 的源图不压缩。
-5. EXIF 缺失时，详情页会在对应字段显示 `已消失`，并显示“不过回忆还在”。
-6. 如需更精确标题、alt、日期或曝光信息，可在 `photos.json` 中手工补录。
-7. 运行 `npm run validate:photos`。
-8. 运行 `npm run typecheck:photography`。
-9. 运行 `npm run build:photography`。
+5. 脚本会为每张图生成最长边约 900px 的预览图和极小 Base64 LQIP 占位图。
+6. EXIF 缺失时，详情页会在对应字段显示 `已消失`，并显示“不过回忆还在”。
+7. 如需更精确标题、alt、日期或曝光信息，可在 `photos.json` 中手工补录。
+8. 运行 `npm run validate:photos`。
+9. 运行 `npm run typecheck:photography`。
+10. 运行 `npm run build:photography`。
 
 `资源/` 是外部素材暂存区，不参与构建和版本管理。站点只引用复制到 `public/` 下的文件。
 
@@ -609,6 +627,7 @@ Node.js version: 24.18.0
 - 新增四个真实摄影主题：暖、湛、盛、郁。
 - 新增主页、引导页、展示页三段体验。
 - 新增瀑布流展示与二级图片详情界面。
+- 新增瀑布流预览图、LQIP 占位图、IntersectionObserver 提前加载和详情页大图渐进覆盖加载。
 - 新增照片准备脚本和元数据校验脚本。
 - 新增 `apps/home` 与 `apps/resume` 占位目录。
 

@@ -1,8 +1,11 @@
 export type Photo = {
   src: string;
+  previewSrc?: string;
   alt: string;
   width: number;
   height: number;
+  previewWidth?: number;
+  previewHeight?: number;
   category: string;
   themeSlug: string;
   themeSubtitle: string;
@@ -18,8 +21,10 @@ export type Photo = {
   order?: number;
   slug?: string;
   originalFile?: string;
+  placeholder?: string;
   optimized?: boolean;
   sizeBytes?: number;
+  previewSizeBytes?: number;
 };
 
 export type ThemeSummary = {

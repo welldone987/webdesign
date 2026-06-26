@@ -11,6 +11,8 @@ const sourceRoot = path.join(repoRoot, '资源', '摄影图片');
 const publicRoot = path.join(appRoot, 'public', 'images', 'photography');
 const photosFile = path.join(appRoot, 'src', 'data', 'photos.json');
 const maxBytes = 15 * 1024 * 1024;
+const previewMaxSize = 900;
+const placeholderWidth = 36;
 
 const themes = [
   {
@@ -163,6 +165,42 @@ async function copyOrCompress(inputFile, outputFile, sourceStats, imageMetadata)
   return compressLargeJpeg(inputFile, outputFile, imageMetadata);
 }
 
+async function createPreview(inputFile, outputFile) {
+  await sharp(inputFile, { limitInputPixels: false })
+    .rotate()
+    .resize({
+      width: previewMaxSize,
+      height: previewMaxSize,
+      fit: 'inside',
+      withoutEnlargement: true,
+    })
+    .jpeg({ quality: 84, mozjpeg: true })
+    .toFile(outputFile);
+
+  const previewStats = await stat(outputFile);
+  const previewMetadata = await sharp(outputFile, { limitInputPixels: false }).metadata();
+
+  return {
+    width: previewMetadata.width,
+    height: previewMetadata.height,
+    bytes: previewStats.size,
+  };
+}
+
+async function createPlaceholder(inputFile) {
+  const buffer = await sharp(inputFile, { limitInputPixels: false })
+    .rotate()
+    .resize({
+      width: placeholderWidth,
+      withoutEnlargement: true,
+    })
+    .blur(1.2)
+    .jpeg({ quality: 42, mozjpeg: true })
+    .toBuffer();
+
+  return `data:image/jpeg;base64,${buffer.toString('base64')}`;
+}
+
 await rm(publicRoot, { recursive: true, force: true });
 await mkdir(publicRoot, { recursive: true });
 
@@ -172,7 +210,9 @@ const seenOriginalFiles = new Set();
 for (const theme of themes) {
   const sourceDir = path.join(sourceRoot, theme.name);
   const outputDir = path.join(publicRoot, theme.slug);
+  const previewDir = path.join(outputDir, 'preview');
   await mkdir(outputDir, { recursive: true });
+  await mkdir(previewDir, { recursive: true });
 
   const sourceFiles = (await readdir(sourceDir, { withFileTypes: true }))
     .filter((entry) => entry.isFile() && imageExtensions.has(path.extname(entry.name).toLowerCase()))
@@ -194,7 +234,9 @@ for (const theme of themes) {
 
     const inputFile = path.join(sourceDir, fileName);
     const outputName = `${theme.slug}-${String(themeIndex).padStart(2, '0')}.jpg`;
+    const previewName = `${theme.slug}-${String(themeIndex).padStart(2, '0')}-preview.jpg`;
     const outputFile = path.join(outputDir, outputName);
+    const previewFile = path.join(previewDir, previewName);
     const sourceStats = await stat(inputFile);
     const sourceImage = sharp(inputFile, { limitInputPixels: false });
     const inputMetadata = await sourceImage.metadata();
@@ -202,17 +244,23 @@ for (const theme of themes) {
 
     const result = await copyOrCompress(inputFile, outputFile, sourceStats, inputMetadata);
     const outputMetadata = await sharp(outputFile, { limitInputPixels: false }).metadata();
+    const preview = await createPreview(outputFile, previewFile);
+    const placeholder = await createPlaceholder(outputFile);
     const title = `${theme.name} ${String(themeIndex).padStart(2, '0')}`;
 
     photos.push({
       src: `/images/photography/${theme.slug}/${outputName}`,
+      previewSrc: `/images/photography/${theme.slug}/preview/${previewName}`,
       alt: `${theme.name}主题摄影作品 ${themeIndex}`,
       width: outputMetadata.width,
       height: outputMetadata.height,
+      previewWidth: preview.width,
+      previewHeight: preview.height,
       category: theme.name,
       themeSlug: theme.slug,
       themeSubtitle: theme.subtitle,
       themeDescription: theme.description,
+      placeholder,
       title,
       year: exif.date ? Number(exif.date.slice(0, 4)) : 2026,
       date: exif.date,
@@ -225,6 +273,7 @@ for (const theme of themes) {
       originalFile: fileName,
       optimized: result.optimized,
       sizeBytes: result.bytes,
+      previewSizeBytes: preview.bytes,
     });
 
     console.log(
