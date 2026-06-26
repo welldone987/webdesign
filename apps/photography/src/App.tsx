@@ -4,7 +4,14 @@ import photos from './data/photos.json';
 import type { Photo, ThemeSummary } from './types/photography.ts';
 
 const allPhotos = photos as Photo[];
-const missingText = ':信息已消失';
+const missingText = '已消失';
+const allCollectionSlug = 'all';
+const themeAccents = {
+  warm: { accent: '#C99567', soft: '#EBD7BF' },
+  azure: { accent: '#7F9FB0', soft: '#D7E4E9' },
+  bloom: { accent: '#8F9F76', soft: '#DEE7D2' },
+  umbrage: { accent: '#8F8B84', soft: '#E0DDD7' },
+} as const;
 
 type View = 'home' | 'guide' | 'showcase';
 
@@ -39,7 +46,8 @@ function App() {
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
   const themes = useMemo(() => buildThemes(allPhotos), []);
   const activeTheme = themes.find((theme) => theme.slug === activeThemeSlug) ?? themes[0];
-  const activePhotos = allPhotos.filter((photo) => photo.themeSlug === activeTheme?.slug);
+  const activePhotos =
+    activeThemeSlug === allCollectionSlug ? allPhotos : allPhotos.filter((photo) => photo.themeSlug === activeTheme?.slug);
 
   const openGuide = () => {
     setView('guide');
@@ -70,6 +78,7 @@ function App() {
         {view === 'showcase' && activeTheme ? (
           <ShowcaseView
             activeTheme={activeTheme}
+            activeThemeSlug={activeThemeSlug}
             key="showcase"
             onBack={() => setView('guide')}
             onOpenPhoto={setSelectedPhoto}
@@ -79,7 +88,12 @@ function App() {
           />
         ) : null}
       </AnimatePresence>
-      <PhotoDetailOverlay photo={selectedPhoto} onClose={() => setSelectedPhoto(null)} />
+      <PhotoDetailOverlay
+        onClose={() => setSelectedPhoto(null)}
+        onSelectPhoto={setSelectedPhoto}
+        photos={activePhotos}
+        selectedPhoto={selectedPhoto}
+      />
     </div>
   );
 }
@@ -152,8 +166,8 @@ function HomeView({ themes, onEnter }: HomeViewProps) {
                 width={theme.cover.width}
               />
               <figcaption className="absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-ink/55 to-transparent p-4 text-porcelain">
-                <span className="font-serif text-5xl opacity-75">{theme.name}</span>
-                <span className="max-w-[7rem] text-right text-xs uppercase tracking-[0.2em] opacity-80">
+                <span className="font-serif text-5xl opacity-85">{theme.name}</span>
+                <span className="max-w-[7rem] text-right text-2xl tracking-[0.04em] opacity-42">
                   {theme.subtitle}
                 </span>
               </figcaption>
@@ -210,11 +224,13 @@ function GuideView({ themes, onBack, onSelectTheme }: GuideViewProps) {
                 />
                 <span className="absolute inset-0 bg-gradient-to-t from-ink/70 via-ink/8 to-transparent" />
                 <span className="absolute bottom-7 left-7 right-7 flex items-end justify-between gap-5 text-porcelain">
-                  <span className="font-serif text-[clamp(5rem,12vw,10rem)] leading-none opacity-65">
+                  <span className="font-serif text-[clamp(5rem,12vw,10rem)] leading-none opacity-86">
                     {theme.name}
                   </span>
                   <span className="pb-3 text-right">
-                    <span className="block text-sm uppercase tracking-[0.24em] opacity-80">{theme.subtitle}</span>
+                    <span className="block text-[clamp(2.5rem,6vw,5rem)] leading-none tracking-[0.04em] opacity-36">
+                      {theme.subtitle}
+                    </span>
                     <span className="mt-3 block max-w-52 font-serif text-base leading-6 opacity-90">
                       {theme.description}
                     </span>
@@ -232,6 +248,7 @@ function GuideView({ themes, onBack, onSelectTheme }: GuideViewProps) {
 type ShowcaseViewProps = {
   themes: ThemeSummary[];
   activeTheme: ThemeSummary;
+  activeThemeSlug: string;
   photos: Photo[];
   onBack: () => void;
   onSelectTheme: (themeSlug: string) => void;
@@ -241,12 +258,16 @@ type ShowcaseViewProps = {
 function ShowcaseView({
   themes,
   activeTheme,
+  activeThemeSlug,
   photos,
   onBack,
   onSelectTheme,
   onOpenPhoto,
 }: ShowcaseViewProps) {
   const prefersReducedMotion = useReducedMotion();
+  const isAllPhotos = activeThemeSlug === allCollectionSlug;
+  const displayName = isAllPhotos ? '全部图片' : activeTheme.name;
+  const displaySubtitle = isAllPhotos ? 'All Photographs' : activeTheme.subtitle;
 
   return (
     <motion.main
@@ -268,18 +289,35 @@ function ShowcaseView({
               <p className="mb-3 font-sans text-xs uppercase tracking-[0.18em] text-ink/36">四个主题的展示</p>
               {themes.map((theme) => (
                 <button
-                  aria-pressed={theme.slug === activeTheme.slug}
-                  className="block min-h-10 w-full py-2 text-left transition hover:text-ink focus:outline-none focus:ring-2 focus:ring-umber"
+                  aria-pressed={theme.slug === activeThemeSlug}
+                  className="block min-h-10 w-full border px-2 py-2 text-left transition hover:text-ink focus:outline-none focus:ring-2 focus:ring-umber"
                   key={theme.slug}
                   onClick={() => onSelectTheme(theme.slug)}
+                  style={
+                    theme.slug === activeThemeSlug
+                      ? {
+                          backgroundColor: themeAccents[theme.slug as keyof typeof themeAccents]?.soft,
+                          borderColor: themeAccents[theme.slug as keyof typeof themeAccents]?.accent,
+                        }
+                      : { borderColor: 'transparent' }
+                  }
                   type="button"
                 >
-                  <span className={theme.slug === activeTheme.slug ? 'text-ink' : undefined}>{theme.name}</span>
-                  <span className="ml-3 font-sans text-xs uppercase tracking-[0.14em] opacity-60">
+                  <span className={theme.slug === activeThemeSlug ? 'text-ink' : undefined}>{theme.name}</span>
+                  <span className="ml-3 font-sans text-xs tracking-[0.14em] opacity-45">
                     {theme.subtitle}
                   </span>
                 </button>
               ))}
+              <button
+                aria-pressed={isAllPhotos}
+                className="mt-3 block min-h-10 w-full border border-transparent border-t-ink/10 px-2 py-3 text-left transition hover:text-ink focus:outline-none focus:ring-2 focus:ring-umber"
+                onClick={() => onSelectTheme(allCollectionSlug)}
+                type="button"
+              >
+                <span className={isAllPhotos ? 'text-ink' : undefined}>全部图片</span>
+                <span className="ml-3 font-sans text-xs tracking-[0.14em] opacity-45">All Photographs</span>
+              </button>
             </div>
             <a className="mt-8 block py-2 transition hover:text-ink" href="#profile">
               个人简介
@@ -292,15 +330,15 @@ function ShowcaseView({
             <div>
               <p className="font-sans text-xs uppercase tracking-[0.22em] text-moss">Photography Archive</p>
               <h1 className="mt-4 font-serif text-5xl leading-none text-ink sm:text-7xl">
-                {activeTheme.name}
-                <span className="ml-5 align-middle font-sans text-xs uppercase tracking-[0.24em] text-ink/45">
-                  {activeTheme.subtitle}
+                {displayName}
+                <span className="ml-5 align-middle font-sans text-[0.5em] tracking-[0.08em] text-ink/38">
+                  {displaySubtitle}
                 </span>
               </h1>
             </div>
             <p className="max-w-2xl font-serif text-lg leading-8 text-ink/68">
               这是一组以个人观看经验整理的摄影集。界面保持留白，让目录、瀑布流和大图详情服务于照片本身。
-              当前主题包含 {activeTheme.count} 张作品。
+              当前{isAllPhotos ? '图库' : '主题'}包含 {photos.length} 张作品。
             </p>
           </header>
 
@@ -340,54 +378,96 @@ function ShowcaseView({
 }
 
 type PhotoDetailOverlayProps = {
-  photo: Photo | null;
+  photos: Photo[];
+  selectedPhoto: Photo | null;
+  onSelectPhoto: (photo: Photo) => void;
   onClose: () => void;
 };
 
-function PhotoDetailOverlay({ photo, onClose }: PhotoDetailOverlayProps) {
+function PhotoDetailOverlay({ photos, selectedPhoto, onSelectPhoto, onClose }: PhotoDetailOverlayProps) {
   const closeRef = useRef<HTMLButtonElement>(null);
+  const wasOpenRef = useRef(false);
   const prefersReducedMotion = useReducedMotion();
+  const selectedIndex = selectedPhoto
+    ? photos.findIndex((photo) => (selectedPhoto.slug ? photo.slug === selectedPhoto.slug : photo.src === selectedPhoto.src))
+    : -1;
+  const previousPhoto = selectedIndex > 0 ? photos[selectedIndex - 1] : undefined;
+  const nextPhoto = selectedIndex >= 0 && selectedIndex < photos.length - 1 ? photos[selectedIndex + 1] : undefined;
+  const isLandscape = selectedPhoto ? selectedPhoto.width >= selectedPhoto.height : false;
+  const detailCardClass = isLandscape
+    ? 'relative grid max-h-[calc(100vh-2rem)] w-full max-w-5xl overflow-y-auto bg-porcelain shadow-2xl md:h-[min(72vh,760px)] md:w-[min(78vw,1240px)] md:max-h-[760px] md:grid-cols-[0.75fr_1.25fr] md:overflow-hidden'
+    : 'relative grid max-h-[calc(100vh-2rem)] w-full max-w-6xl overflow-y-auto bg-porcelain shadow-2xl md:max-h-[calc(100vh-4rem)] md:grid-cols-[0.82fr_1.18fr] md:overflow-hidden';
+  const infoPanelClass = isLandscape
+    ? 'order-2 overflow-y-auto p-7 font-serif text-ink md:order-1 md:p-10 lg:p-12'
+    : 'order-2 overflow-y-auto p-7 font-serif text-ink md:order-1 md:p-10';
+  const figureClass = isLandscape
+    ? 'order-1 flex min-h-[280px] items-center justify-center bg-porcelain p-4 sm:p-6 md:order-2 md:h-full md:min-h-0 md:p-10'
+    : 'order-1 flex min-h-0 items-center justify-center bg-porcelain p-4 sm:p-6 md:order-2 md:p-8';
+  const imageClass = isLandscape
+    ? 'max-h-[48vh] w-full object-contain md:max-h-full'
+    : 'max-h-[52vh] w-auto max-w-full object-contain md:max-h-[calc(100vh-8rem)]';
 
   useEffect(() => {
-    if (!photo) {
+    if (!selectedPhoto) {
+      wasOpenRef.current = false;
       return;
     }
 
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
-    closeRef.current?.focus();
+    if (!wasOpenRef.current) {
+      closeRef.current?.focus();
+    }
+    wasOpenRef.current = true;
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [selectedPhoto]);
+
+  useEffect(() => {
+    if (!selectedPhoto) {
+      return;
+    }
 
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         onClose();
       }
+      if (event.key === 'ArrowLeft' && previousPhoto) {
+        event.preventDefault();
+        onSelectPhoto(previousPhoto);
+      }
+      if (event.key === 'ArrowRight' && nextPhoto) {
+        event.preventDefault();
+        onSelectPhoto(nextPhoto);
+      }
     };
 
     document.addEventListener('keydown', handleKeyDown);
     return () => {
-      document.body.style.overflow = previousOverflow;
       document.removeEventListener('keydown', handleKeyDown);
     };
-  }, [onClose, photo]);
+  }, [nextPhoto, onClose, onSelectPhoto, previousPhoto, selectedPhoto]);
 
-  const details = photo
+  const details = selectedPhoto
     ? [
-        ['光圈', photo.aperture],
-        ['快门', photo.shutterSpeed],
-        ['感光度', photo.iso],
-        ['拍摄日期', photo.date],
+        ['光圈', selectedPhoto.aperture],
+        ['快门', selectedPhoto.shutterSpeed],
+        ['感光度', selectedPhoto.iso],
+        ['拍摄日期', selectedPhoto.date],
       ]
     : [];
   const hasMissing = details.some(([, value]) => !value);
 
   return (
     <AnimatePresence>
-      {photo ? (
+      {selectedPhoto ? (
         <motion.div
           animate={{ opacity: 1 }}
           aria-labelledby="photo-detail-title"
           aria-modal="true"
-          className="fixed inset-0 z-50 bg-ink/45 p-4 backdrop-blur-md sm:p-8"
+          className="fixed inset-0 z-50 grid place-items-center bg-ink/45 p-4 backdrop-blur-md sm:p-8"
           exit={{ opacity: 0 }}
           initial={{ opacity: 0 }}
           role="dialog"
@@ -401,44 +481,68 @@ function PhotoDetailOverlay({ photo, onClose }: PhotoDetailOverlayProps) {
           >
             关闭
           </button>
+          {previousPhoto ? (
+            <PhotoSwitchButton direction="previous" onClick={() => onSelectPhoto(previousPhoto)} />
+          ) : null}
+          {nextPhoto ? <PhotoSwitchButton direction="next" onClick={() => onSelectPhoto(nextPhoto)} /> : null}
           <motion.div
             animate={prefersReducedMotion ? undefined : { opacity: 1, scale: 1, y: 0 }}
-            className="mx-auto grid h-full max-w-6xl overflow-hidden bg-porcelain shadow-2xl md:grid-cols-[0.82fr_1.18fr]"
+            className={detailCardClass}
             exit={prefersReducedMotion ? undefined : { opacity: 0, scale: 0.98, y: 12 }}
             initial={prefersReducedMotion ? undefined : { opacity: 0, scale: 0.98, y: 12 }}
             transition={{ duration: 0.28, ease: 'easeOut' }}
           >
-            <section className="order-2 overflow-y-auto p-7 font-serif text-ink md:order-1 md:p-10">
-              <p className="text-sm uppercase tracking-[0.2em] text-moss">{photo.category}</p>
+            <section className={infoPanelClass}>
+              <p className="text-sm tracking-[0.2em] text-moss">{selectedPhoto.category}</p>
               <h2 className="mt-5 text-4xl leading-tight" id="photo-detail-title">
-                {photo.title}
+                <span>{selectedPhoto.category}</span>
+                <span className="font-numeric-serif ml-4">{selectedPhoto.title.replace(selectedPhoto.category, '').trim()}</span>
               </h2>
               <dl className="mt-10 space-y-5 text-lg leading-8">
                 {details.map(([label, value]) => (
                   <div className="border-b border-ink/10 pb-4" key={label}>
                     <dt className="font-sans text-xs uppercase tracking-[0.2em] text-ink/42">{label}</dt>
-                    <dd className="mt-1">{value || missingText}</dd>
+                    <dd className="font-numeric-serif mt-1">{value || missingText}</dd>
                   </div>
                 ))}
               </dl>
               {hasMissing ? <p className="mt-5 text-lg leading-8">不过回忆还在</p> : null}
-              <p className="mt-10 font-sans text-xs uppercase tracking-[0.16em] text-ink/36">
-                {photo.originalFile}
-              </p>
             </section>
-            <figure className="order-1 grid min-h-0 bg-ink md:order-2">
+            <figure className={figureClass}>
               <img
-                alt={photo.alt}
-                className="h-full max-h-[54vh] w-full object-contain md:max-h-none"
-                height={photo.height}
-                src={photo.src}
-                width={photo.width}
+                alt={selectedPhoto.alt}
+                className={imageClass}
+                height={selectedPhoto.height}
+                src={selectedPhoto.src}
+                width={selectedPhoto.width}
               />
             </figure>
           </motion.div>
         </motion.div>
       ) : null}
     </AnimatePresence>
+  );
+}
+
+type PhotoSwitchButtonProps = {
+  direction: 'previous' | 'next';
+  onClick: () => void;
+};
+
+function PhotoSwitchButton({ direction, onClick }: PhotoSwitchButtonProps) {
+  const isPrevious = direction === 'previous';
+
+  return (
+    <button
+      aria-label={isPrevious ? '查看上一张照片' : '查看下一张照片'}
+      className={`absolute top-1/2 z-20 grid h-12 w-12 -translate-y-1/2 place-items-center border border-ink/70 bg-porcelain/82 font-numeric-serif text-3xl leading-none text-ink shadow-sm backdrop-blur transition hover:bg-porcelain focus:outline-none focus:ring-2 focus:ring-umber focus:ring-offset-2 focus:ring-offset-transparent sm:h-14 sm:w-14 ${
+        isPrevious ? 'left-3 sm:left-8' : 'right-3 sm:right-8'
+      }`}
+      onClick={onClick}
+      type="button"
+    >
+      {isPrevious ? '<' : '>'}
+    </button>
   );
 }
 

@@ -16,30 +16,35 @@ const themes = [
   {
     name: '暖',
     slug: 'warm',
-    subtitle: 'Warmth remains',
+    subtitle: 'Apricity',
     description: '偏向柔和、亲近与温度的画面。',
   },
   {
     name: '湛',
     slug: 'azure',
-    subtitle: 'Clear blue hour',
+    subtitle: 'Azure',
     description: '更清透、冷静、带有空气感的影像。',
   },
   {
     name: '盛',
     slug: 'bloom',
-    subtitle: 'Full bloom',
+    subtitle: 'Lush',
     description: '明亮、丰盛、带有展开感的瞬间。',
   },
   {
     name: '郁',
     slug: 'umbrage',
-    subtitle: 'Deep shade',
+    subtitle: 'Penumbra',
     description: '更深、更密、更内向的观看经验。',
   },
 ];
 
 const imageExtensions = new Set(['.jpg', '.jpeg', '.png', '.webp']);
+const excludedSourceIndexes = new Map([
+  ['warm', new Set([1, 4, 5])],
+  ['bloom', new Set([9])],
+  ['umbrage', new Set([5])],
+]);
 
 function formatDate(value) {
   if (!value) {
@@ -162,20 +167,33 @@ await rm(publicRoot, { recursive: true, force: true });
 await mkdir(publicRoot, { recursive: true });
 
 const photos = [];
+const seenOriginalFiles = new Set();
 
 for (const theme of themes) {
   const sourceDir = path.join(sourceRoot, theme.name);
   const outputDir = path.join(publicRoot, theme.slug);
   await mkdir(outputDir, { recursive: true });
 
-  const files = (await readdir(sourceDir, { withFileTypes: true }))
+  const sourceFiles = (await readdir(sourceDir, { withFileTypes: true }))
     .filter((entry) => entry.isFile() && imageExtensions.has(path.extname(entry.name).toLowerCase()))
     .map((entry) => entry.name)
     .sort((a, b) => a.localeCompare(b, 'zh-CN', { numeric: true }));
 
-  for (const [index, fileName] of files.entries()) {
+  const excludedIndexes = excludedSourceIndexes.get(theme.slug) ?? new Set();
+  const files = sourceFiles.filter((_, index) => !excludedIndexes.has(index + 1));
+  let themeIndex = 0;
+
+  for (const fileName of files) {
+    const originalKey = fileName.toLowerCase();
+    if (seenOriginalFiles.has(originalKey)) {
+      console.log(`${theme.name}: skipped duplicate source ${fileName}`);
+      continue;
+    }
+    seenOriginalFiles.add(originalKey);
+    themeIndex += 1;
+
     const inputFile = path.join(sourceDir, fileName);
-    const outputName = `${theme.slug}-${String(index + 1).padStart(2, '0')}.jpg`;
+    const outputName = `${theme.slug}-${String(themeIndex).padStart(2, '0')}.jpg`;
     const outputFile = path.join(outputDir, outputName);
     const sourceStats = await stat(inputFile);
     const sourceImage = sharp(inputFile, { limitInputPixels: false });
@@ -184,11 +202,11 @@ for (const theme of themes) {
 
     const result = await copyOrCompress(inputFile, outputFile, sourceStats, inputMetadata);
     const outputMetadata = await sharp(outputFile, { limitInputPixels: false }).metadata();
-    const title = `${theme.name} ${String(index + 1).padStart(2, '0')}`;
+    const title = `${theme.name} ${String(themeIndex).padStart(2, '0')}`;
 
     photos.push({
       src: `/images/photography/${theme.slug}/${outputName}`,
-      alt: `${theme.name}主题摄影作品 ${index + 1}`,
+      alt: `${theme.name}主题摄影作品 ${themeIndex}`,
       width: outputMetadata.width,
       height: outputMetadata.height,
       category: theme.name,
@@ -201,16 +219,16 @@ for (const theme of themes) {
       aperture: exif.aperture,
       shutterSpeed: exif.shutterSpeed,
       iso: exif.iso,
-      featured: index === 0,
+      featured: themeIndex === 1,
       order: photos.length + 1,
-      slug: `${theme.slug}-${String(index + 1).padStart(2, '0')}`,
+      slug: `${theme.slug}-${String(themeIndex).padStart(2, '0')}`,
       originalFile: fileName,
       optimized: result.optimized,
       sizeBytes: result.bytes,
     });
 
     console.log(
-      `${theme.name} ${index + 1}/${files.length}: ${fileName} -> ${outputName} ${
+      `${theme.name} ${themeIndex}/${files.length}: ${fileName} -> ${outputName} ${
         result.optimized ? 'optimized' : 'copied'
       }`,
     );

@@ -1,4 +1,5 @@
 import { readFile, stat } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -13,6 +14,7 @@ if (!Array.isArray(photos)) {
 }
 
 const slugs = new Set();
+const imageHashes = new Map();
 
 for (const [index, photo] of photos.entries()) {
   for (const field of requiredFields) {
@@ -34,6 +36,13 @@ for (const [index, photo] of photos.entries()) {
   if (imageStats.size > maxBytes) {
     throw new Error(`Photo at index ${index} exceeds 15MB: ${photo.src}`);
   }
+
+  const imageHash = createHash('sha256').update(await readFile(imagePath)).digest('hex');
+  const duplicateSrc = imageHashes.get(imageHash);
+  if (duplicateSrc) {
+    throw new Error(`Duplicate image content: ${duplicateSrc} and ${photo.src}`);
+  }
+  imageHashes.set(imageHash, photo.src);
 
   if (photo.slug) {
     if (slugs.has(photo.slug)) {

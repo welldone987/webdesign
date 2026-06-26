@@ -30,6 +30,11 @@ a {
   font-family: Georgia, "Times New Roman", "Songti SC", "SimSun", serif;
 }
 
+.font-numeric-serif {
+  font-family: Cambria, "Times New Roman", Georgia, serif;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
 .scrollbar-thin {
   scrollbar-color: rgba(28, 27, 24, 0.28) transparent;
   scrollbar-width: thin;

@@ -189,108 +189,47 @@ React 入口文件，负责挂载 `App`，并引入全局样式。
 apps/photography/src/App.tsx
 ```
 
-摄影站主组件，负责组织页面数据流和页面模块：
+摄影站主组件，负责组织三段式摄影集体验和页面数据流：
 
 ```text
 photos.json
   ↓
 Photo[]
   ↓
-计算分类 categories
+计算四个主题 themes
   ↓
-根据 activeCategory 过滤 visiblePhotos
+根据 activeThemeSlug 过滤当前主题或全部图片
   ↓
-渲染 Hero / CategoryNav / GalleryGrid / AboutPhotography / Footer / PhotoViewer
+渲染主页 / 引导页 / 展示页 / 二级图片详情界面
 ```
 
-`App.tsx` 当前维护两个主要状态：
+`App.tsx` 当前维护三个主要状态：
 
 ```text
-activeCategory  当前分类，默认“全部”
-selectedPhoto   当前打开查看器的照片，默认为 null
+view             当前页面阶段：home / guide / showcase
+activeThemeSlug  当前展示主题，支持 all 表示全部图片
+selectedPhoto    当前打开详情界面的照片，默认为 null
 ```
 
-## 7. 摄影站组件说明
+## 7. 摄影站体验说明
 
-```text
-Layout.tsx
-```
+当前摄影站入口由 `App.tsx` 组织为：
 
-页面外层布局组件。当前主要负责提供统一的页面容器结构。
+- 主页：展示摄影集标题和四个主题封面。
+- 引导页：横向滚动选择四个主题，主题英文分别为 Apricity、Azure、Lush、Penumbra。
+- 展示页：左侧目录包含摄影集简介、四个主题、全部图片、个人简介；右侧使用瀑布流展示当前主题或全部图片。
+- 二级图片详情界面：点击瀑布流图片打开，背景虚化，左侧显示标题和 EXIF 信息，右侧显示留白包裹的大图。
 
-```text
-Hero.tsx
-```
+详情界面当前行为：
 
-首屏区域组件。接收 `featuredPhotos`，从中取封面图和辅助图展示。当前包含：
-
-- 顶部导航
-- 联系入口 `mailto:hello@example.com`
-- 摄影集标题
-- 简短介绍
-- 两张首屏展示图片
-- Framer Motion 进入动效
-- `useReducedMotion` 适配 reduced-motion 偏好
-
-```text
-CategoryNav.tsx
-```
-
-摄影分类导航组件。接收：
-
-```text
-categories
-activeCategory
-onChange
-```
-
-当前使用 sticky 顶部导航形式，支持横向滚动。按钮使用 `aria-pressed` 表示当前选中分类。
-
-```text
-GalleryGrid.tsx
-```
-
-作品网格组件。接收过滤后的 `photos` 和 `onOpenPhoto`。当前行为：
-
-- 当分类下没有作品时显示空状态。
-- 使用响应式网格布局展示图片。
-- 前两张图 `loading="eager"`，其余图片 `loading="lazy"`。
-- 点击图片后通过 `onOpenPhoto(photo)` 打开查看器。
-- 使用 Framer Motion 做轻量进入动效。
-- 使用 `useReducedMotion` 尊重用户动效偏好。
-
-```text
-PhotoViewer.tsx
-```
-
-图片查看器组件。接收：
-
-```text
-photo
-onClose
-```
-
-当前行为：
-
-- `photo` 为 `null` 时不渲染。
 - 打开时使用 `role="dialog"` 和 `aria-modal="true"`。
 - 自动聚焦关闭按钮。
-- 支持 Escape 关闭。
-- 显示大图、标题、分类、地点和年份。
-- 使用 `AnimatePresence` 和 Framer Motion 做打开/关闭过渡。
-- 使用 `useReducedMotion` 适配 reduced-motion 偏好。
-
-```text
-AboutPhotography.tsx
-```
-
-摄影介绍区域。用于放置摄影方向、内容说明或个人介绍。后续修改站点介绍时优先改这里。
-
-```text
-Footer.tsx
-```
-
-页脚组件。用于展示版权、联系方式或站点尾部信息。
+- 支持 Escape 关闭，并支持左右方向键在当前图库内切换上一张/下一张。
+- 左右切换按钮使用方形轮廓；首张隐藏上一张按钮，末张隐藏下一张按钮。
+- 缺失 EXIF 字段显示 `已消失`，并显示“不过回忆还在”。
+- 不显示图片原始文件名。
+- 二级详情界面按图片方向只保留横构图、竖构图两种比例；竖图沿用较高展示比例，横图使用更收敛的卡片和图片尺寸。
+- 图片四边保留白边。
 
 ## 8. 数据结构
 
@@ -300,7 +239,14 @@ Footer.tsx
 apps/photography/src/data/photos.json
 ```
 
-当前是示例数据，共 3 张占位作品，图片对应 `public/images/photography/` 下的 SVG 文件。
+当前是真实摄影作品数据，共 54 张，按四个主题组织：
+
+```text
+暖 17 张
+湛 21 张
+盛 9 张
+郁 7 张
+```
 
 每张照片至少需要以下字段：
 
@@ -329,22 +275,42 @@ export type Photo = {
   width: number;
   height: number;
   category: string;
+  themeSlug: string;
+  themeSubtitle: string;
+  themeDescription: string;
   title: string;
   year: number;
+  date?: string;
+  aperture?: string;
+  shutterSpeed?: string;
+  iso?: string;
   location?: string;
   featured?: boolean;
   order?: number;
   slug?: string;
+  originalFile?: string;
+  optimized?: boolean;
+  sizeBytes?: number;
 };
 ```
 
 可选字段说明：
 
 ```text
-location  拍摄地点
-featured  是否作为首屏 featured 图片候选
-order     排序字段
-slug      作品唯一标识
+themeSlug         主题标识
+themeSubtitle     主题英文词
+themeDescription  主题说明
+date              拍摄日期
+aperture          光圈
+shutterSpeed      快门
+iso               感光度
+location          拍摄地点
+featured          是否作为主题封面候选
+order             排序字段
+slug              作品唯一标识
+originalFile      源文件名，仅用于维护，不在详情界面显示
+optimized         是否经过压缩
+sizeBytes         站点图片大小
 ```
 
 新增摄影作品时，优先改两类文件：
@@ -375,7 +341,10 @@ apps/photography/src/data/photos.json
 - `photos.json` 必须是数组。
 - 每张照片必须包含 `src`、`alt`、`width`、`height`、`category`、`title`、`year`。
 - `width` 和 `height` 必须是数字。
+- 图片路径必须指向 `public/images/photography/`。
+- 单张站点图片不得超过 15MB。
 - 如果存在 `slug`，则所有 `slug` 必须唯一。
+- 实际图片文件内容不得重复，避免同一张图片出现在多个主题。
 
 运行命令：
 
@@ -392,7 +361,7 @@ npm run validate:photos
 通过时会输出类似：
 
 ```text
-Validated 3 photo records.
+Validated 54 photo records.
 ```
 
 ## 10. 样式与视觉实现
@@ -420,7 +389,16 @@ Tailwind 扫描范围：
 ./src/**/*.{ts,tsx}
 ```
 
-视觉上当前以摄影作品为主体，使用简洁深浅对比、响应式网格和轻量动效。真实作品上线前，`public/images/photography/` 中的 SVG 仅用于验证布局和交互流程。
+视觉上当前以摄影作品为主体，使用米白偏白底色、黑色点缀、克制莫兰迪重点色和轻量动效。主题中文保持高不透明度，英文以约一半字号和更低不透明度作为辅助标识。
+
+四个主题强调色作为后续统一色彩来源：
+
+```text
+暖  accent #C99567  soft #EBD7BF
+湛  accent #7F9FB0  soft #D7E4E9
+盛  accent #8F9F76  soft #DEE7D2
+郁  accent #8F8B84  soft #E0DDD7
+```
 
 ## 11. 技术栈与依赖
 
@@ -474,6 +452,14 @@ npm install
 ```bash
 npm run dev:photography
 ```
+
+开发服务器固定为：
+
+```text
+http://127.0.0.1:5174/
+```
+
+如果该端口已有旧服务占用，先结束旧的 5174 端口进程，再重新运行开发命令。
 
 从 `资源/摄影图片` 生成站点图片和照片元数据：
 
@@ -564,7 +550,7 @@ Node.js version: 24.18.0
 2. 运行 `npm --workspace @personal-websites/photography run prepare:photos`。
 3. 脚本会输出 `apps/photography/public/images/photography/` 和 `apps/photography/src/data/photos.json`。
 4. 超过 15MB 的源图会用低损失 JPEG 参数压缩到 15MB 以内；不超过 15MB 的源图不压缩。
-5. EXIF 缺失时，详情页会在对应字段显示 `:信息已消失`，并显示“不过回忆还在”。
+5. EXIF 缺失时，详情页会在对应字段显示 `已消失`，并显示“不过回忆还在”。
 6. 如需更精确标题、alt、日期或曝光信息，可在 `photos.json` 中手工补录。
 7. 运行 `npm run validate:photos`。
 8. 运行 `npm run typecheck:photography`。
