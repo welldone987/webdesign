@@ -1,0 +1,18 @@
+{
+  "name": "personal-websites",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev:photography": "npm --workspace @personal-websites/photography run dev",
+    "typecheck:photography": "npm --workspace @personal-websites/photography run typecheck",
+    "build:photography": "npm --workspace @personal-websites/photography run build",
+    "validate:photos": "npm --workspace @personal-websites/photography run validate:photos"
+  },
+  "engines": {
+    "node": ">=24 <25",
+    "npm": ">=11"
+  }
+}

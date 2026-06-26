@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#111111"/>
+  <rect x="80" y="70" width="1040" height="490" fill="#f2eadf"/>
+  <rect x="120" y="110" width="450" height="410" fill="#202020"/>
+  <rect x="620" y="110" width="460" height="190" fill="#5f7f78"/>
+  <rect x="620" y="330" width="220" height="190" fill="#b66f43"/>
+  <rect x="860" y="330" width="220" height="190" fill="#2c4858"/>
+  <text x="120" y="580" fill="#f2eadf" font-family="Georgia, serif" font-size="48">Personal Photography</text>
+</svg>

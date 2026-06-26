@@ -1,0 +1,40 @@
+[
+  {
+    "src": "/images/photography/sample-portrait.svg",
+    "alt": "窗边侧光下的人像剪影",
+    "width": 1200,
+    "height": 1600,
+    "category": "人像",
+    "title": "窗边",
+    "year": 2026,
+    "location": "Shanghai",
+    "featured": true,
+    "order": 1,
+    "slug": "window-portrait"
+  },
+  {
+    "src": "/images/photography/sample-street.svg",
+    "alt": "雨后街道路口的行人与霓虹反光",
+    "width": 1600,
+    "height": 1100,
+    "category": "街拍",
+    "title": "雨后路口",
+    "year": 2026,
+    "location": "Shanghai",
+    "featured": true,
+    "order": 2,
+    "slug": "after-rain-crossing"
+  },
+  {
+    "src": "/images/photography/sample-landscape.svg",
+    "alt": "远山和湖面在清晨薄雾中的层次",
+    "width": 1600,
+    "height": 1000,
+    "category": "风景",
+    "title": "薄雾山线",
+    "year": 2025,
+    "location": "Yunnan",
+    "order": 3,
+    "slug": "mist-mountain-line"
+  }
+]
