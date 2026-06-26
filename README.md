@@ -141,26 +141,20 @@ apps/photography/
   tsconfig.json
   vite.config.ts
   scripts/
+    prepare-photos.mjs
     validate-photos.mjs
   public/
     favicon.svg
     og-image.svg
     images/
       photography/
-        sample-landscape.svg
-        sample-portrait.svg
-        sample-street.svg
+        warm/
+        azure/
+        bloom/
+        umbrage/
   src/
     App.tsx
     main.tsx
-    components/
-      AboutPhotography.tsx
-      CategoryNav.tsx
-      Footer.tsx
-      GalleryGrid.tsx
-      Hero.tsx
-      Layout.tsx
-      PhotoViewer.tsx
     data/
       photos.json
     styles/
@@ -449,6 +443,8 @@ postcss
 autoprefixer
 @types/react
 @types/react-dom
+sharp
+exifr
 ```
 
 依赖声明位置：
@@ -479,6 +475,12 @@ npm install
 npm run dev:photography
 ```
 
+从 `资源/摄影图片` 生成站点图片和照片元数据：
+
+```bash
+npm --workspace @personal-websites/photography run prepare:photos
+```
+
 校验照片元数据：
 
 ```bash
@@ -502,6 +504,7 @@ npm run build:photography
 ```bash
 npm install
 npm run dev
+npm run prepare:photos
 npm run validate:photos
 npm run typecheck
 npm run build
@@ -557,18 +560,17 @@ Node.js version: 24.18.0
 
 新增或替换摄影作品时，建议按这个顺序处理：
 
-1. 将压缩后的 WebP、AVIF、SVG 或其他网页适用图片放入 `apps/photography/public/images/photography/`。
-2. 在 `apps/photography/src/data/photos.json` 中新增或修改对应记录。
-3. 确认 `src` 使用 `/images/photography/...` 形式。
-4. 为每张图片填写有意义的 `alt`。
-5. 填写准确的 `width` 和 `height`，避免页面布局跳动。
-6. 如需作为首屏候选，设置 `featured: true`。
-7. 如使用 `slug`，确保唯一。
-8. 运行 `npm run validate:photos`。
-9. 运行 `npm run typecheck:photography`。
-10. 运行 `npm run build:photography`。
+1. 将源图放入根目录 `资源/摄影图片/暖`、`湛`、`盛`、`郁` 对应主题文件夹。
+2. 运行 `npm --workspace @personal-websites/photography run prepare:photos`。
+3. 脚本会输出 `apps/photography/public/images/photography/` 和 `apps/photography/src/data/photos.json`。
+4. 超过 15MB 的源图会用低损失 JPEG 参数压缩到 15MB 以内；不超过 15MB 的源图不压缩。
+5. EXIF 缺失时，详情页会在对应字段显示 `:信息已消失`，并显示“不过回忆还在”。
+6. 如需更精确标题、alt、日期或曝光信息，可在 `photos.json` 中手工补录。
+7. 运行 `npm run validate:photos`。
+8. 运行 `npm run typecheck:photography`。
+9. 运行 `npm run build:photography`。
 
-不要提交未经压缩的摄影原图。`public/` 下的资源不会被 Vite 自动压缩，应在提交前完成图片优化，或后续增加独立图片优化脚本。
+`资源/` 是外部素材暂存区，不参与构建和版本管理。站点只引用复制到 `public/` 下的文件。
 
 ## 16. Review 时重点看什么
 
@@ -605,7 +607,7 @@ Node.js version: 24.18.0
 
 ## 17. 当前状态
 
-当前仓库已完成摄影站第一版工程骨架初始化。
+当前仓库已完成摄影站第一版工程骨架，并已替换为三段式摄影集体验。
 
 已完成：
 
@@ -618,18 +620,15 @@ Node.js version: 24.18.0
 - 建立 npm workspace。
 - 使用 `.nvmrc` 锁定 Node.js 版本。
 - 初始化 `apps/photography` React + Vite + TypeScript + Tailwind 应用。
-- 新增摄影作品示例数据。
-- 新增 SVG 占位图片、favicon 和 Open Graph 图片。
-- 新增首屏、分类导航、图库、图片查看器、介绍区和页脚组件。
-- 新增照片元数据校验脚本。
+- 新增四个真实摄影主题：暖、湛、盛、郁。
+- 新增主页、引导页、展示页三段体验。
+- 新增瀑布流展示与二级图片详情界面。
+- 新增照片准备脚本和元数据校验脚本。
 - 新增 `apps/home` 与 `apps/resume` 占位目录。
 
 当前限制：
 
-- 真实摄影作品尚未替换，占位图仅用于验证结构。
-- 当前联系邮箱仍是 `hello@example.com` 占位。
 - 暂未配置 Vitest 或 Playwright。
-- 暂未配置图片压缩脚本。
 - 暂未绑定自定义域名。
 - 暂未开发主页网站和简历网站。
 

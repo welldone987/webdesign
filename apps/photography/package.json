@@ -8,6 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
+    "prepare:photos": "node scripts/prepare-photos.mjs",
     "validate:photos": "node scripts/validate-photos.mjs"
   },
   "dependencies": {
@@ -20,7 +21,9 @@
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.3",
     "autoprefixer": "^10.5.2",
+    "exifr": "^7.1.3",
     "postcss": "^8.5.15",
+    "sharp": "^0.35.2",
     "tailwindcss": "^3.4.17",
     "typescript": "^5.9.3",
     "vite": "^8.1.0"

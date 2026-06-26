@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
   font-family: "Aptos", "Segoe UI", sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -18,6 +18,7 @@ html {
 body {
   margin: 0;
   min-width: 320px;
+  background: #f8f5ef;
 }
 
 button,
@@ -26,7 +27,24 @@ a {
 }
 
 .font-serif {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: Georgia, "Times New Roman", "Songti SC", "SimSun", serif;
+}
+
+.scrollbar-thin {
+  scrollbar-color: rgba(28, 27, 24, 0.28) transparent;
+  scrollbar-width: thin;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  height: 8px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(28, 27, 24, 0.28);
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 @media (prefers-reduced-motion: reduce) {
