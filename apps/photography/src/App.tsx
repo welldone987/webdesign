@@ -85,6 +85,7 @@ function App() {
   const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
   const photoTriggerRef = useRef<HTMLButtonElement | null>(null);
   const themes = useMemo(() => buildThemes(allPhotos), []);
+  const umbragePhotos = useMemo(() => allPhotos.filter((photo) => photo.themeSlug === 'umbrage'), []);
   const activeTheme = themes.find((theme) => theme.slug === activeThemeSlug) ?? themes[0];
   const activePhotos =
     activeThemeSlug === allCollectionSlug ? allPhotos : allPhotos.filter((photo) => photo.themeSlug === activeTheme?.slug);
@@ -126,7 +127,7 @@ function App() {
       </a>
       <AnimatePresence mode="wait">
         {view === 'home' ? (
-          <HomeView key="home" onEnter={openGuide} themes={themes} />
+          <HomeView key="home" onEnter={openGuide} photos={umbragePhotos} />
         ) : null}
         {view === 'guide' ? (
           <GuideView key="guide" onBack={() => setView('home')} onSelectTheme={openShowcase} themes={themes} />
@@ -155,83 +156,146 @@ function App() {
 }
 
 type HomeViewProps = {
-  themes: ThemeSummary[];
+  photos: Photo[];
   onEnter: () => void;
 };
 
-function HomeView({ themes, onEnter }: HomeViewProps) {
+function HomeView({ photos, onEnter }: HomeViewProps) {
   const prefersReducedMotion = useReducedMotion();
-  const cover = themes[0]?.cover;
+  const animationPhotos = photos.length > 0 ? photos : allPhotos.slice(0, 7);
 
   return (
     <motion.main
       animate={{ opacity: 1 }}
-      className="relative isolate min-h-screen overflow-hidden"
+      className="relative isolate min-h-screen overflow-hidden bg-[#f7f7f4] text-black"
       exit={{ opacity: 0 }}
       id="main-content"
       initial={{ opacity: 0 }}
       transition={{ duration: 0.45 }}
     >
-      <DecorativeMarks />
-      {cover ? (
-        <img
-          alt=""
-          className="absolute inset-y-0 right-0 z-[-2] hidden h-full w-[54vw] object-cover opacity-20 lg:block"
-          height={cover.height}
-          src={cover.src}
-          width={cover.width}
+      <HomeFrameMarks />
+      <section className="relative mx-auto min-h-screen max-w-[1600px] px-5 py-5 sm:px-8 lg:px-10">
+        <div
+          aria-hidden="true"
+          className="absolute left-0 top-0 z-20 hidden h-screen w-5 bg-black sm:block lg:w-7"
         />
-      ) : null}
-      <section className="mx-auto grid min-h-screen max-w-7xl content-center px-6 py-14 sm:px-10 lg:grid-cols-[0.95fr_1.05fr] lg:gap-16">
+        <div
+          aria-hidden="true"
+          className="absolute left-0 top-[clamp(5.5rem,12vw,8.4rem)] z-20 h-px w-full bg-black/28"
+        />
+
+        <motion.h1
+          animate={prefersReducedMotion ? undefined : { opacity: 1, x: 0 }}
+          aria-label="All About Photography"
+          className="relative z-10 max-w-[min(94vw,75rem)] pt-8 font-sans text-[2.8rem] font-black uppercase leading-[0.84] tracking-normal text-black sm:pt-10 sm:text-[6.5rem] sm:leading-[0.78] lg:text-[8.8rem] xl:text-[9.6rem] 2xl:text-[11rem]"
+          initial={prefersReducedMotion ? undefined : { opacity: 0, x: -28 }}
+          transition={{ duration: 0.75, ease: 'easeOut' }}
+        >
+          <span className="relative block w-fit overflow-hidden pb-[0.09em]">
+            ALL
+            <span className="absolute left-0 right-[-8vw] top-[0.46em] h-px bg-black/34" />
+          </span>
+          <span className="relative block w-fit overflow-hidden pb-[0.09em]">
+            ABOUT
+            <span className="absolute left-0 right-[-8vw] top-[0.46em] h-px bg-black/34" />
+          </span>
+          <span className="relative block w-fit overflow-hidden pb-[0.09em]">
+            PHOTOGRAPHY
+            <span className="absolute left-0 right-[-8vw] top-[0.46em] h-px bg-black/34" />
+          </span>
+        </motion.h1>
+
+        <PhotoStackMotion photos={animationPhotos} prefersReducedMotion={Boolean(prefersReducedMotion)} />
+
         <motion.div
           animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
-          initial={prefersReducedMotion ? undefined : { opacity: 0, y: 18 }}
-          transition={{ duration: 0.7, ease: 'easeOut' }}
+          className="absolute bottom-8 right-5 z-30 flex items-end gap-5 sm:bottom-10 sm:right-8 lg:right-12"
+          initial={prefersReducedMotion ? undefined : { opacity: 0, y: 20 }}
+          transition={{ delay: 0.28, duration: 0.6, ease: 'easeOut' }}
         >
-          <p className="font-sans text-xs uppercase tracking-[0.28em] text-umber">Personal Photography Archive</p>
-          <h1 className="mt-7 max-w-3xl font-serif text-[clamp(4.5rem,16vw,12rem)] leading-[0.82] text-ink">
-            摄影集
-          </h1>
-          <p className="mt-8 max-w-xl font-serif text-xl leading-9 text-ink/72">
-            四组影像从温度、清澈、盛放与阴翳出发，整理成一个安静、克制、以照片为中心的观看入口。
-          </p>
           <button
-            className="mt-12 min-h-12 border border-ink bg-ink px-8 py-4 font-serif text-base text-porcelain transition hover:bg-transparent hover:text-ink focus:outline-none focus:ring-2 focus:ring-umber focus:ring-offset-4 focus:ring-offset-porcelain"
+            className="min-h-12 border border-black bg-black px-5 py-3 font-serif text-base text-[#f7f7f4] transition hover:bg-transparent hover:text-black focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-4 focus:ring-offset-[#f7f7f4]"
             onClick={onEnter}
             type="button"
           >
-            进入引导
+            进入
           </button>
+          <p
+            aria-label="無摄影集"
+            className="font-serif text-[3.4rem] leading-[0.9] text-black [writing-mode:vertical-rl] sm:text-[5.5rem] lg:text-[6.5rem]"
+          >
+            無摄影集
+          </p>
         </motion.div>
-
-        <div className="mt-14 grid grid-cols-2 gap-4 lg:mt-0 lg:self-end">
-          {themes.slice(0, 4).map((theme, index) => (
-            <motion.figure
-              animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
-              className="relative overflow-hidden bg-paper"
-              initial={prefersReducedMotion ? undefined : { opacity: 0, y: 22 }}
-              key={theme.slug}
-              transition={{ delay: 0.12 + index * 0.08, duration: 0.55, ease: 'easeOut' }}
-            >
-              <img
-                alt={theme.cover.alt}
-                className="aspect-[4/5] w-full object-cover"
-                height={theme.cover.height}
-                loading={index < 2 ? 'eager' : 'lazy'}
-                src={theme.cover.src}
-                width={theme.cover.width}
-              />
-              <figcaption className="absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-ink/55 to-transparent p-4 text-porcelain">
-                <span className="font-serif text-5xl opacity-85">{theme.name}</span>
-                <span className="max-w-[7rem] text-right text-2xl tracking-[0.04em] opacity-42">
-                  {theme.subtitle}
-                </span>
-              </figcaption>
-            </motion.figure>
-          ))}
-        </div>
       </section>
     </motion.main>
+  );
+}
+
+type PhotoStackMotionProps = {
+  photos: Photo[];
+  prefersReducedMotion: boolean;
+};
+
+function PhotoStackMotion({ photos, prefersReducedMotion }: PhotoStackMotionProps) {
+  const stackPhotos = photos.slice(0, 7);
+
+  return (
+    <motion.div
+      animate={prefersReducedMotion ? undefined : { opacity: 1, rotate: -5, y: [0, -10, 0] }}
+      aria-hidden="true"
+      className="absolute right-[-14vw] top-[42vh] z-0 h-[42vh] w-[74vw] max-w-[920px] -translate-y-1/2 sm:right-[-6vw] sm:top-[50vh] sm:h-[48vh] sm:w-[62vw] lg:right-[3vw] lg:top-[55vh] lg:h-[56vh] lg:w-[50vw]"
+      initial={prefersReducedMotion ? undefined : { opacity: 0, rotate: -2, y: 28 }}
+      transition={
+        prefersReducedMotion
+          ? undefined
+          : {
+              opacity: { duration: 0.7, ease: 'easeOut' },
+              rotate: { duration: 0.7, ease: 'easeOut' },
+              y: { duration: 8, ease: 'easeInOut', repeat: Infinity },
+            }
+      }
+    >
+      <div className="absolute inset-0 bg-black shadow-[0_28px_80px_rgba(0,0,0,0.18)]" />
+      {stackPhotos.map((photo, index) => {
+        const angle = -24 + index * 8;
+        const offsetX = -18 + index * 8;
+        const offsetY = 26 - index * 9;
+        const widthClass = index % 3 === 0 ? 'w-[52%]' : index % 3 === 1 ? 'w-[46%]' : 'w-[58%]';
+        const heightClass = index % 2 === 0 ? 'h-[44%]' : 'h-[54%]';
+
+        return (
+          <motion.div
+            animate={prefersReducedMotion ? undefined : { y: [0, index % 2 === 0 ? 12 : -10, 0] }}
+            className={`absolute left-1/2 top-1/2 ${widthClass} ${heightClass} overflow-hidden border border-white/65 bg-zinc-100 mix-blend-luminosity`}
+            initial={false}
+            key={photo.slug ?? photo.src}
+            style={{
+              transform: `translate(${offsetX - 50}%, ${offsetY - 50}%) rotate(${angle}deg) skewY(-8deg)`,
+              zIndex: index + 1,
+            }}
+            transition={
+              prefersReducedMotion
+                ? undefined
+                : { delay: index * 0.12, duration: 5.5 + index * 0.45, ease: 'easeInOut', repeat: Infinity }
+            }
+          >
+            <img
+              alt=""
+              className="h-full w-full scale-125 object-cover grayscale blur-[3px] contrast-125"
+              draggable={false}
+              height={getPreviewHeight(photo)}
+              loading={index < 3 ? 'eager' : 'lazy'}
+              src={getPreviewSrc(photo)}
+              width={getPreviewWidth(photo)}
+            />
+            <span className="absolute inset-0 bg-black/28" />
+          </motion.div>
+        );
+      })}
+      <div className="absolute bottom-[-8%] left-[13%] h-[3px] w-[62%] rotate-[-18deg] bg-black" />
+      <div className="absolute right-[12%] top-[5%] h-[2px] w-[34%] rotate-[-32deg] bg-white/80" />
+    </motion.div>
   );
 }
 
@@ -808,17 +872,16 @@ function TopBar({ title, onBack }: TopBarProps) {
   );
 }
 
-function DecorativeMarks() {
+function HomeFrameMarks() {
   return (
-    <svg
+    <div
       aria-hidden="true"
-      className="pointer-events-none absolute left-8 top-8 z-[-1] h-40 w-40 text-moss/35"
-      fill="none"
-      viewBox="0 0 160 160"
+      className="pointer-events-none absolute inset-0 z-0"
     >
-      <path d="M20 96C44 28 96 18 132 52C96 54 72 76 64 126C48 118 34 108 20 96Z" fill="currentColor" />
-      <path d="M38 111C70 88 99 76 139 82" stroke="#1c1b18" strokeOpacity="0.22" strokeWidth="2" />
-    </svg>
+      <div className="absolute left-0 top-0 h-[6px] w-full bg-[#d7e4e2]" />
+      <div className="absolute bottom-[18vh] left-[8vw] h-px w-[38vw] bg-black/14" />
+      <div className="absolute bottom-[14vh] right-[8vw] h-px w-[26vw] bg-black/14" />
+    </div>
   );
 }
 
