@@ -12,6 +12,8 @@
     "typecheck:photography": "npm --workspace @personal-websites/photography run typecheck",
     "build:photography": "npm --workspace @personal-websites/photography run build",
     "validate:photos": "npm --workspace @personal-websites/photography run validate:photos",
+    "test:e2e:photography": "npm --workspace @personal-websites/photography run test:e2e",
+    "test:e2e:photography:ui": "npm --workspace @personal-websites/photography run test:e2e:ui",
     "check:photography": "npm run diff:photos && npm run validate:photos && npm run typecheck:photography && npm run build:photography",
     "verify:photography": "npm run check:photography"
   },

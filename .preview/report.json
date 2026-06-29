@@ -1,0 +1,146 @@
+[
+  {
+    "viewport": "320",
+    "stage": "home",
+    "file": "E:\\project-for-code\\2026_6_26_webdesign\\.preview\\screenshots\\home-320.png",
+    "horizontalOverflow": 0,
+    "buttonCount": 1,
+    "minButtonHeight": 50,
+    "hasDialog": false
+  },
+  {
+    "viewport": "320",
+    "stage": "guide",
+    "file": "E:\\project-for-code\\2026_6_26_webdesign\\.preview\\screenshots\\guide-320.png",
+    "horizontalOverflow": 0,
+    "buttonCount": 5,
+    "minButtonHeight": 44,
+    "hasDialog": false
+  },
+  {
+    "viewport": "320",
+    "stage": "showcase",
+    "file": "E:\\project-for-code\\2026_6_26_webdesign\\.preview\\screenshots\\showcase-320.png",
+    "horizontalOverflow": 0,
+    "buttonCount": 23,
+    "minButtonHeight": 44,
+    "hasDialog": false
+  },
+  {
+    "viewport": "320",
+    "stage": "detail",
+    "file": "E:\\project-for-code\\2026_6_26_webdesign\\.preview\\screenshots\\detail-320.png",
+    "horizontalOverflow": 0,
+    "buttonCount": 25,
+    "minButtonHeight": 44,
+    "hasDialog": true
+  },
+  {
+    "viewport": "390",
+    "stage": "home",
+    "file": "E:\\project-for-code\\2026_6_26_webdesign\\.preview\\screenshots\\home-390.png",
+    "horizontalOverflow": 0,
+    "buttonCount": 1,
+    "minButtonHeight": 50,
+    "hasDialog": false
+  },
+  {
+    "viewport": "390",
+    "stage": "guide",
+    "file": "E:\\project-for-code\\2026_6_26_webdesign\\.preview\\screenshots\\guide-390.png",
+    "horizontalOverflow": 0,
+    "buttonCount": 5,
+    "minButtonHeight": 44,
+    "hasDialog": false
+  },
+  {
+    "viewport": "390",
+    "stage": "showcase",
+    "file": "E:\\project-for-code\\2026_6_26_webdesign\\.preview\\screenshots\\showcase-390.png",
+    "horizontalOverflow": 0,
+    "buttonCount": 23,
+    "minButtonHeight": 44,
+    "hasDialog": false
+  },
+  {
+    "viewport": "390",
+    "stage": "detail",
+    "file": "E:\\project-for-code\\2026_6_26_webdesign\\.preview\\screenshots\\detail-390.png",
+    "horizontalOverflow": 0,
+    "buttonCount": 25,
+    "minButtonHeight": 44,
+    "hasDialog": true
+  },
+  {
+    "viewport": "430",
+    "stage": "home",
+    "file": "E:\\project-for-code\\2026_6_26_webdesign\\.preview\\screenshots\\home-430.png",
+    "horizontalOverflow": 0,
+    "buttonCount": 1,
+    "minButtonHeight": 50,
+    "hasDialog": false
+  },
+  {
+    "viewport": "430",
+    "stage": "guide",
+    "file": "E:\\project-for-code\\2026_6_26_webdesign\\.preview\\screenshots\\guide-430.png",
+    "horizontalOverflow": 0,
+    "buttonCount": 5,
+    "minButtonHeight": 44.000003814697266,
+    "hasDialog": false
+  },
+  {
+    "viewport": "430",
+    "stage": "showcase",
+    "file": "E:\\project-for-code\\2026_6_26_webdesign\\.preview\\screenshots\\showcase-430.png",
+    "horizontalOverflow": 0,
+    "buttonCount": 23,
+    "minButtonHeight": 44,
+    "hasDialog": false
+  },
+  {
+    "viewport": "430",
+    "stage": "detail",
+    "file": "E:\\project-for-code\\2026_6_26_webdesign\\.preview\\screenshots\\detail-430.png",
+    "horizontalOverflow": 0,
+    "buttonCount": 25,
+    "minButtonHeight": 44,
+    "hasDialog": true
+  },
+  {
+    "viewport": "1440",
+    "stage": "home",
+    "file": "E:\\project-for-code\\2026_6_26_webdesign\\.preview\\screenshots\\home-1440.png",
+    "horizontalOverflow": 0,
+    "buttonCount": 1,
+    "minButtonHeight": 50,
+    "hasDialog": false
+  },
+  {
+    "viewport": "1440",
+    "stage": "guide",
+    "file": "E:\\project-for-code\\2026_6_26_webdesign\\.preview\\screenshots\\guide-1440.png",
+    "horizontalOverflow": 0,
+    "buttonCount": 5,
+    "minButtonHeight": 44,
+    "hasDialog": false
+  },
+  {
+    "viewport": "1440",
+    "stage": "showcase",
+    "file": "E:\\project-for-code\\2026_6_26_webdesign\\.preview\\screenshots\\showcase-1440.png",
+    "horizontalOverflow": 0,
+    "buttonCount": 23,
+    "minButtonHeight": 44,
+    "hasDialog": false
+  },
+  {
+    "viewport": "1440",
+    "stage": "detail",
+    "file": "E:\\project-for-code\\2026_6_26_webdesign\\.preview\\screenshots\\detail-1440.png",
+    "horizontalOverflow": 0,
+    "buttonCount": 25,
+    "minButtonHeight": 44,
+    "hasDialog": true
+  }
+]
