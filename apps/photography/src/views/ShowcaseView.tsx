@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { TopBar } from '../components/TopBar.tsx';
 import { allCollectionSlug } from '../data/themes.ts';
@@ -18,6 +18,8 @@ type ShowcaseViewProps = {
   onOpenPhoto: (photo: Photo, trigger: HTMLButtonElement) => void;
 };
 
+type MobileMenuSection = 'overview' | 'presentation' | 'profile';
+
 export function ShowcaseView({
   themes,
   activeTheme,
@@ -30,6 +32,11 @@ export function ShowcaseView({
   const isAllPhotos = activeThemeSlug === allCollectionSlug;
   const displayName = isAllPhotos ? '全部图片' : activeTheme.name;
   const displaySubtitle = isAllPhotos ? 'All Photographs' : activeTheme.subtitle;
+  const [mobileMenuSection, setMobileMenuSection] = useState<MobileMenuSection>('presentation');
+  const topLevelItemClass =
+    'min-h-11 px-1 font-serif text-base font-semibold leading-none transition hover:text-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-umber';
+  const mobilePrimaryItemClass = `${topLevelItemClass} border-b-2`;
+  const desktopTopLevelItemClass = `${topLevelItemClass} block w-full text-left`;
 
   useEffect(() => {
     if (shouldSkipIdlePreload()) {
@@ -55,23 +62,75 @@ export function ShowcaseView({
         <aside className="sticky top-0 z-30 min-w-0 overflow-hidden bg-porcelain/95 py-2 backdrop-blur lg:top-8 lg:h-[calc(100vh-4rem)] lg:bg-transparent lg:py-0 lg:backdrop-blur-0">
           <nav
             aria-label="展示页目录"
-            className="min-w-0 border-b border-ink/10 pb-5 font-serif text-sm text-ink/64 lg:border-b-0 lg:border-r lg:pb-0 lg:pr-8"
+            className="min-w-0 border-b border-ink/10 pb-3 text-ink/64 lg:border-b-0 lg:border-r lg:pb-0 lg:pr-8"
           >
-            <a className="block py-2 text-ink underline underline-offset-4" href="#intro">
-              摄影集网站简介
-            </a>
-            <div className="mt-8">
-              <p className="mb-3 font-serif text-base font-semibold text-ink">呈现</p>
-              <ThemeRail
-                activeThemeSlug={activeThemeSlug}
-                isAllPhotos={isAllPhotos}
-                onSelectTheme={onSelectTheme}
-                themes={themes}
-              />
+            <div className="lg:hidden">
+              <div className="grid grid-cols-3 gap-4">
+                <a
+                  className={`${mobilePrimaryItemClass} ${
+                    mobileMenuSection === 'overview'
+                      ? 'border-ink text-ink'
+                      : 'border-transparent text-ink/66'
+                  }`}
+                  href="#intro"
+                  onClick={() => setMobileMenuSection('overview')}
+                >
+                  总览
+                </a>
+                <button
+                  aria-controls="mobile-theme-menu"
+                  aria-expanded={mobileMenuSection === 'presentation'}
+                  className={`${mobilePrimaryItemClass} text-left ${
+                    mobileMenuSection === 'presentation'
+                      ? 'border-ink text-ink'
+                      : 'border-transparent text-ink/66'
+                  }`}
+                  onClick={() => setMobileMenuSection('presentation')}
+                  type="button"
+                >
+                  呈现
+                </button>
+                <a
+                  className={`${mobilePrimaryItemClass} ${
+                    mobileMenuSection === 'profile'
+                      ? 'border-ink text-ink'
+                      : 'border-transparent text-ink/66'
+                  }`}
+                  href="#profile"
+                  onClick={() => setMobileMenuSection('profile')}
+                >
+                  个人简介
+                </a>
+              </div>
+              {mobileMenuSection === 'presentation' ? (
+                <div className="mt-3" id="mobile-theme-menu">
+                  <ThemeRail
+                    activeThemeSlug={activeThemeSlug}
+                    isAllPhotos={isAllPhotos}
+                    onSelectTheme={onSelectTheme}
+                    themes={themes}
+                  />
+                </div>
+              ) : null}
             </div>
-            <a className="mt-8 block py-2 transition hover:text-ink" href="#profile">
-              个人简介
-            </a>
+
+            <div className="hidden lg:block">
+              <a className={`${desktopTopLevelItemClass} text-ink underline underline-offset-4`} href="#intro">
+                总览
+              </a>
+              <div className="mt-8">
+                <p className={`${desktopTopLevelItemClass} mb-3 text-ink`}>呈现</p>
+                <ThemeRail
+                  activeThemeSlug={activeThemeSlug}
+                  isAllPhotos={isAllPhotos}
+                  onSelectTheme={onSelectTheme}
+                  themes={themes}
+                />
+              </div>
+              <a className={`${desktopTopLevelItemClass} mt-8 text-ink/64`} href="#profile">
+                个人简介
+              </a>
+            </div>
           </nav>
         </aside>
 
