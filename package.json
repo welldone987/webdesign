@@ -7,9 +7,13 @@
   ],
   "scripts": {
     "dev:photography": "npm --workspace @personal-websites/photography run dev",
+    "prepare:photos": "npm --workspace @personal-websites/photography run prepare:photos",
+    "diff:photos": "npm --workspace @personal-websites/photography run diff:photos",
     "typecheck:photography": "npm --workspace @personal-websites/photography run typecheck",
     "build:photography": "npm --workspace @personal-websites/photography run build",
-    "validate:photos": "npm --workspace @personal-websites/photography run validate:photos"
+    "validate:photos": "npm --workspace @personal-websites/photography run validate:photos",
+    "check:photography": "npm run diff:photos && npm run validate:photos && npm run typecheck:photography && npm run build:photography",
+    "verify:photography": "npm run check:photography"
   },
   "engines": {
     "node": ">=24 <25",

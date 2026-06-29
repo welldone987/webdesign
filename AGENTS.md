@@ -1,11 +1,11 @@
 # 仓库开发规范
 
-本仓库是静态个人网站 monorepo。AI 或开发者开始任何结构、实现、样式、测试、部署、依赖或内容资产相关工作前，必须先阅读本文件。`规范.md` 保留为简洁摘要；若两者冲突，以本文件为准。修改技术结构、依赖、构建流程或当前状态时，同步更新 `README.md`。
+本仓库当前定位为静态摄影作品集网站。AI 或开发者开始任何结构、实现、样式、测试、部署、依赖或内容资产相关工作前，必须先阅读本文件。本文件是当前唯一的仓库开发规范入口。
 
 ## 1. 项目定位
 
-- 当前重点：`apps/photography` 摄影集网站。
-- 后续预留：`apps/home` 主页网站、`apps/resume` 简历网站。
+- 当前唯一站点：`apps/photography` 摄影集网站。
+- 不再保留主页站或简历站占位；不要新增非摄影站应用、依赖或部署流程。
 - 站点类型：静态网站，不引入后端、数据库、登录、访问统计或服务端依赖。
 - 技术栈：React + Vite + TypeScript + Tailwind CSS，动效使用 Framer Motion。
 - 包管理：npm workspace，提交 `package-lock.json`。
@@ -25,8 +25,6 @@
 ```text
 apps/
   photography/   # 当前实现重点
-  home/          # 后续主页网站占位
-  resume/        # 后续简历网站占位
 资源/            # 用户手动管理的外部素材暂存区，不参与构建和版本管理
 ```
 
@@ -48,7 +46,7 @@ apps/photography/
 
 - 访问根路径直达摄影站主页。
 - 页面流程：主页 -> 引导页 -> 展示页。
-- 引导页含四个横向滚动主题控件，对应 `暖`、`湛`、`盛`、`郁` 四个资源主题。
+- 引导页含四个横向滚动主题控件，对应 `暖`、`湛`、`盛`、`郁` 四个资源主题；`郁` 的英文代号为 `Pall`。
 - 展示页左侧为目录：摄影集网站简介、四个主题展示、个人简介；右侧为瀑布流图片。
 - 点击瀑布流图片打开二级详情界面：一级界面背景虚化，详情左侧为信息，右侧为大图。
 - 详情信息使用衬线体；曝光三要素和拍摄日期来自 EXIF 或 `photos.json` 手工补录。
@@ -131,10 +129,12 @@ sizeBytes
 ```bash
 npm install
 npm run dev:photography
+npm run diff:photos
 npm --workspace @personal-websites/photography run prepare:photos
 npm run validate:photos
 npm run typecheck:photography
 npm run build:photography
+npm run check:photography
 ```
 
 也可在 `apps/photography` 内运行：
@@ -142,6 +142,7 @@ npm run build:photography
 ```bash
 npm run dev
 npm run prepare:photos
+npm run diff:photos
 npm run validate:photos
 npm run typecheck
 npm run build
@@ -150,21 +151,21 @@ npm run build
 最低质量门槛：
 
 ```bash
+npm run diff:photos
 npm run validate:photos
 npm run typecheck:photography
 npm run build:photography
 ```
 
-`npm run test` 仅在 Vitest 配置后要求通过。
+`npm run check:photography` 是提交前优先使用的固定验收入口，当前聚合图片差异检查、照片元数据校验、TypeScript 检查和生产构建。`npm run test` 仅在 Vitest 或 Playwright 配置后要求通过。
 
 ## 10. 文档维护
 
-- 修改结构、依赖、构建流程、开发命令、部署方式或当前状态时，同步更新 `README.md`。
-- 修改统一开发规则时，同步更新本文件，并保持 `规范.md` 为简洁摘要。
+- 修改统一开发规则、项目结构、依赖、构建流程、开发命令、部署方式或当前状态时，同步更新本文件。
 - PR 或交付说明需列出可见变化和已运行的验证命令。
 
 ## 11. 提交规则
 
-- 提交信息使用简洁祈使句，例如 `Build photography showcase`。
+- 提交信息使用中文，简洁说明版本或主要内容，例如 `docs: 收敛为纯摄影站规范`。
 - 提交前检查 `git status`，确认没有意外文件。
 - 不要把 `资源/`、`node_modules/`、`dist/`、本地 env 或日志提交进仓库。

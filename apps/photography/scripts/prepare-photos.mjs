@@ -36,7 +36,7 @@ const themes = [
   {
     name: '郁',
     slug: 'umbrage',
-    subtitle: 'Penumbra',
+    subtitle: 'Pall',
     description: '更深、更密、更内向的观看经验。',
   },
 ];
