@@ -37,7 +37,13 @@ apps/photography/
   public/images/photography/  # 站点实际加载的摄影图片
   scripts/                    # 内容准备与校验脚本
   src/
+    app/                       # 应用状态编排与视图状态类型
+    views/                     # 页面级结构：主页、引导页、展示页
+    patterns/                  # 组合能力：瀑布流、渐进图片、详情弹层、主题轨道
+    components/                # 小型可复用控件
     data/                     # 摄影作品元数据
+    lib/                       # 图片、数据和焦点等纯逻辑
+    motion/                    # 动效偏好和过渡工具
     styles/                   # 全局样式
     types/                    # TypeScript 类型
 ```
