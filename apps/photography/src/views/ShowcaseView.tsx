@@ -26,6 +26,7 @@ export function ShowcaseView({
   onOpenPhoto,
 }: ShowcaseViewProps) {
   const [activeSection, setActiveSection] = useState<ShowcaseSection>('presentation');
+  const activeTheme = themes.find((theme) => theme.slug === activeThemeSlug) ?? themes[0];
   const topLevelItemClass =
     'min-h-11 px-1 font-serif text-base font-semibold leading-none transition hover:text-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-umber';
   const mobilePrimaryItemClass = `${topLevelItemClass} border-b-2`;
@@ -141,7 +142,24 @@ export function ShowcaseView({
         </aside>
 
         <section className="min-w-0 pb-16">
-          {activeSection === 'presentation' ? <MasonryGallery onOpenPhoto={onOpenPhoto} photos={photos} /> : null}
+          {activeSection === 'presentation' ? (
+            <>
+              {activeTheme ? (
+                <header className="hidden border-b border-ink/10 pb-8 lg:block">
+                  <p className="font-serif text-sm uppercase tracking-[0.32em] text-ink/45">Photography Archive</p>
+                  <h1 className="mt-5 flex items-baseline gap-7 text-ink">
+                    <span className="font-serif text-6xl leading-none xl:text-7xl">{activeTheme.name}</span>
+                    <span className="font-sans text-5xl leading-none tracking-normal xl:text-6xl">
+                      {activeTheme.subtitle}
+                    </span>
+                  </h1>
+                </header>
+              ) : null}
+              <div className={activeTheme ? 'lg:pt-11' : undefined}>
+                <MasonryGallery onOpenPhoto={onOpenPhoto} photos={photos} />
+              </div>
+            </>
+          ) : null}
 
           {activeSection === 'profile' ? (
             <section className="mx-auto max-w-3xl border-t border-ink/10 py-12" id="profile">

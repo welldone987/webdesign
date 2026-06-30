@@ -43,7 +43,8 @@ apps/photography/
     App.tsx                    # 兼容入口，只导出 PhotographyApp
     main.tsx
     app/                       # 应用状态编排与视图状态
-    views/                     # 页面级结构：Home、Guide、Showcase
+    pages/                     # 平级页面入口：HomePage、ThemeGalleryPage，未来可加 ZinePage
+    views/                     # 页面内部视图结构：Home、Showcase 等
     patterns/                  # 组合能力：瀑布流、渐进图片、详情弹层、主题轨道
     components/                # 小型可复用控件
     data/                      # photos.json、themes.ts
@@ -53,16 +54,18 @@ apps/photography/
     types/                     # TypeScript 类型
 ```
 
-依赖方向：`app -> views -> patterns -> components/lib/data/types`。禁止 `components` 依赖 `views`，禁止 `lib` 依赖 UI，禁止组件硬编码单张照片。
+依赖方向：`app -> pages -> views -> patterns -> components/lib/data/types`。禁止 `components` 依赖 `views` 或 `pages`，禁止 `lib` 依赖 UI，禁止组件硬编码单张照片。
 
 ## 4. 摄影站体验要求
 
-- 页面流程：主页 -> 引导页 -> 展示页 -> 图片详情弹层。
+- 页面结构：当前由 `homepage` 和基于主题的相册展示页组成，二者在代码层面是平级页面；未来可能新增 `zine` 展示页，也应作为平级页面加入 `pages/`。
+- `homepage` 是多屏滚动首页，不再承担相册瀑布流本体；它可以通过滑动呈现视觉导向、动画导向、平面设计式内容，并通过主题目录、主题卡片等控件跳转到相册展示页。
+- 基于主题的相册展示页负责照片浏览、主题切换和图片详情弹层，不与 `homepage` 内容混写。
 - 四个主题：`暖 / Apricity`、`湛 / Azure`、`盛 / Lush`、`郁 / Pall`。
 - 展示页桌面端保留目录与三列瀑布流；移动端使用顶部主题轨道与两列瀑布流，不做桌面侧栏压缩版。
 - 图片详情弹层：背景虚化，桌面左右布局，移动端优先保证大图、关闭和切换按钮可触达。
 - 缺失 EXIF 字段显示 `已消失`，并显示“不过回忆还在”。
-- 视觉方向：米白底、黑色结构线、克制莫兰第重点色，照片是主角，动效克制。
+- 视觉方向：首页以黑白主导、细结构线、大号无衬线排版和克制莫兰迪重点色为主，可使用 SVG、网格、编号、色块和滚动动效形成个人艺术作品集与未来 ZINE 的导向感；主题相册展示页底色使用纯白，界面控件白底黑字，保留克制莫兰迪重点色作为状态提示，照片是主角，动效克制。
 
 ## 5. 数据与图片流程
 
