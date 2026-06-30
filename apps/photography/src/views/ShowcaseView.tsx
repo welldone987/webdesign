@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { TopBar } from '../components/TopBar.tsx';
-import { allCollectionSlug } from '../data/themes.ts';
 import { getPreviewSrc } from '../lib/photos.ts';
 import { preloadImage, requestIdleTask, shouldSkipIdlePreload } from '../lib/imagePreload.ts';
 import { MasonryGallery } from '../patterns/MasonryGallery.tsx';
@@ -10,29 +8,24 @@ import type { Photo, ThemeSummary } from '../types/photography.ts';
 
 type ShowcaseViewProps = {
   themes: ThemeSummary[];
-  activeTheme: ThemeSummary;
   activeThemeSlug: string;
   photos: Photo[];
-  onBack: () => void;
+  onHome: () => void;
   onSelectTheme: (themeSlug: string) => void;
   onOpenPhoto: (photo: Photo, trigger: HTMLButtonElement) => void;
 };
 
-type MobileMenuSection = 'overview' | 'presentation' | 'profile';
+type ShowcaseSection = 'presentation' | 'profile';
 
 export function ShowcaseView({
   themes,
-  activeTheme,
   activeThemeSlug,
   photos,
-  onBack,
+  onHome,
   onSelectTheme,
   onOpenPhoto,
 }: ShowcaseViewProps) {
-  const isAllPhotos = activeThemeSlug === allCollectionSlug;
-  const displayName = isAllPhotos ? '全部图片' : activeTheme.name;
-  const displaySubtitle = isAllPhotos ? 'All Photographs' : activeTheme.subtitle;
-  const [mobileMenuSection, setMobileMenuSection] = useState<MobileMenuSection>('presentation');
+  const [activeSection, setActiveSection] = useState<ShowcaseSection>('presentation');
   const topLevelItemClass =
     'min-h-11 px-1 font-serif text-base font-semibold leading-none transition hover:text-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-umber';
   const mobilePrimaryItemClass = `${topLevelItemClass} border-b-2`;
@@ -48,6 +41,11 @@ export function ShowcaseView({
     });
   }, [photos]);
 
+  const handleSelectTheme = (themeSlug: string) => {
+    setActiveSection('presentation');
+    onSelectTheme(themeSlug);
+  };
+
   return (
     <motion.main
       animate={{ opacity: 1 }}
@@ -57,7 +55,6 @@ export function ShowcaseView({
       initial={{ opacity: 0 }}
       transition={{ duration: 0.4 }}
     >
-      <TopBar onBack={onBack} title="Selected Works" />
       <div className="mx-auto grid max-w-[1500px] min-w-0 gap-8 lg:grid-cols-[340px_minmax(0,1fr)]">
         <aside className="sticky top-0 z-30 min-w-0 overflow-hidden bg-porcelain/95 py-2 backdrop-blur lg:top-8 lg:h-[calc(100vh-4rem)] lg:bg-transparent lg:py-0 lg:backdrop-blur-0">
           <nav
@@ -66,48 +63,43 @@ export function ShowcaseView({
           >
             <div className="lg:hidden">
               <div className="grid grid-cols-3 gap-3 text-center">
-                <a
-                  className={`${mobilePrimaryItemClass} grid place-items-center ${
-                    mobileMenuSection === 'overview'
-                      ? 'border-ink text-ink'
-                      : 'border-transparent text-ink/66'
-                  }`}
-                  href="#intro"
-                  onClick={() => setMobileMenuSection('overview')}
+                <button
+                  className={`${mobilePrimaryItemClass} grid place-items-center border-transparent text-ink/66`}
+                  onClick={onHome}
+                  type="button"
                 >
                   总览
-                </a>
+                </button>
                 <button
                   aria-controls="mobile-theme-menu"
-                  aria-expanded={mobileMenuSection === 'presentation'}
+                  aria-expanded={activeSection === 'presentation'}
                   className={`${mobilePrimaryItemClass} grid place-items-center ${
-                    mobileMenuSection === 'presentation'
+                    activeSection === 'presentation'
                       ? 'border-ink text-ink'
                       : 'border-transparent text-ink/66'
                   }`}
-                  onClick={() => setMobileMenuSection('presentation')}
+                  onClick={() => setActiveSection('presentation')}
                   type="button"
                 >
                   呈现
                 </button>
-                <a
+                <button
                   className={`${mobilePrimaryItemClass} grid place-items-center ${
-                    mobileMenuSection === 'profile'
+                    activeSection === 'profile'
                       ? 'border-ink text-ink'
                       : 'border-transparent text-ink/66'
                   }`}
-                  href="#profile"
-                  onClick={() => setMobileMenuSection('profile')}
+                  onClick={() => setActiveSection('profile')}
+                  type="button"
                 >
                   个人简介
-                </a>
+                </button>
               </div>
-              {mobileMenuSection === 'presentation' ? (
+              {activeSection === 'presentation' ? (
                 <div className="mt-3" id="mobile-theme-menu">
                   <ThemeRail
                     activeThemeSlug={activeThemeSlug}
-                    isAllPhotos={isAllPhotos}
-                    onSelectTheme={onSelectTheme}
+                    onSelectTheme={handleSelectTheme}
                     themes={themes}
                   />
                 </div>
@@ -115,46 +107,54 @@ export function ShowcaseView({
             </div>
 
             <div className="hidden lg:block">
-              <a className={`${desktopTopLevelItemClass} text-ink underline underline-offset-4`} href="#intro">
+              <button className={`${desktopTopLevelItemClass} text-ink/64`} onClick={onHome} type="button">
                 总览
-              </a>
+              </button>
               <div className="mt-8">
-                <p className={`${desktopTopLevelItemClass} mb-3 text-ink`}>呈现</p>
+                <button
+                  aria-expanded={activeSection === 'presentation'}
+                  className={`${desktopTopLevelItemClass} mb-3 ${
+                    activeSection === 'presentation' ? 'text-ink underline underline-offset-4' : 'text-ink/64'
+                  }`}
+                  onClick={() => setActiveSection('presentation')}
+                  type="button"
+                >
+                  呈现
+                </button>
                 <ThemeRail
                   activeThemeSlug={activeThemeSlug}
-                  isAllPhotos={isAllPhotos}
-                  onSelectTheme={onSelectTheme}
+                  onSelectTheme={handleSelectTheme}
                   themes={themes}
                 />
               </div>
-              <a className={`${desktopTopLevelItemClass} mt-8 text-ink/64`} href="#profile">
+              <button
+                className={`${desktopTopLevelItemClass} mt-8 ${
+                  activeSection === 'profile' ? 'text-ink underline underline-offset-4' : 'text-ink/64'
+                }`}
+                onClick={() => setActiveSection('profile')}
+                type="button"
+              >
                 个人简介
-              </a>
+              </button>
             </div>
           </nav>
         </aside>
 
-        <section className="min-w-0">
-          <header className="mb-12 border-b border-ink/10 pb-8" id="intro">
-            <div>
-              <p className="font-sans text-xs uppercase tracking-[0.22em] text-moss">Photography Archive</p>
-              <h1 className="mt-4 font-serif text-5xl leading-none text-ink sm:text-7xl">
-                {displayName}
-                <span className="ml-5 align-middle font-sans text-[0.5em] tracking-[0.08em] text-ink/38">
-                  {displaySubtitle}
-                </span>
-              </h1>
-            </div>
-          </header>
+        <section className="min-w-0 pb-16">
+          {activeSection === 'presentation' ? <MasonryGallery onOpenPhoto={onOpenPhoto} photos={photos} /> : null}
 
-          <MasonryGallery onOpenPhoto={onOpenPhoto} photos={photos} />
+          {activeSection === 'profile' ? (
+            <section className="mx-auto max-w-3xl border-t border-ink/10 py-12" id="profile">
+              <h1 className="font-serif text-4xl leading-tight sm:text-5xl">个人简介</h1>
+              <p className="mt-6 font-serif text-xl leading-9 text-ink/65">
+                拍摄是整理记忆的方式。偏好安静的光、可停留的细节，以及画面里没有被立即说完的部分。
+              </p>
+            </section>
+          ) : null}
 
-          <section className="mt-20 border-t border-ink/10 py-10" id="profile">
-            <h2 className="font-serif text-3xl">个人简介</h2>
-            <p className="mt-4 max-w-2xl font-serif text-lg leading-8 text-ink/65">
-              拍摄是整理记忆的方式。偏好安静的光、可停留的细节，以及画面里没有被立即说完的部分。
-            </p>
-          </section>
+          <footer className="mt-16 border-t border-ink/10 pt-6 text-center font-sans text-[0.68rem] tracking-[0.12em] text-ink/42">
+            ©2026 InNothing. All Rights Reserved.
+          </footer>
         </section>
       </div>
     </motion.main>

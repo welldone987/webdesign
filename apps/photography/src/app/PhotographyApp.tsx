@@ -69,10 +69,9 @@ export function PhotographyApp() {
         ) : null}
         {view === 'showcase' && activeTheme ? (
           <ShowcaseView
-            activeTheme={activeTheme}
             activeThemeSlug={activeThemeSlug}
             key="showcase"
-            onBack={() => setView('guide')}
+            onHome={() => setView('home')}
             onOpenPhoto={openPhoto}
             onSelectTheme={openShowcase}
             photos={activePhotos}
