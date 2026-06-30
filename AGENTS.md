@@ -93,7 +93,7 @@ npm run validate:photos
 - `diff:photos` 只报告，不改文件，用于确认资源变化。
 - `prepare:photos` 从 `资源/摄影图片` 生成站点图片和 `photos.json`。
 - `validate:photos` 校验路径、尺寸、大小、slug、重复、主题代号和 public 引用。
-- 当前单张站点图片不超过 15MB。
+- 当前单张站点主图和预览图都必须不超过 5MB；`prepare:photos` 会统一以高保真 JPEG 重编码并在必要时等比缩放，不能绕过脚本手动放入未压缩大图。
 - 所有可见照片必须有具体、有意义的 `alt`。
 
 ## 6. 代码风格

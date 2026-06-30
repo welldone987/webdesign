@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, type MouseEvent, type PointerEvent } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { CloseButton } from '../components/CloseButton.tsx';
 import { ExifRow } from '../components/ExifRow.tsx';
@@ -22,6 +22,7 @@ type DetailOverlayProps = {
 export function DetailOverlay({ photos, selectedPhoto, onSelectPhoto, onClose }: DetailOverlayProps) {
   const closeRef = useRef<HTMLButtonElement>(null);
   const wasOpenRef = useRef(false);
+  const swipeStartRef = useRef<{ x: number; y: number; pointerId: number; ignore: boolean } | null>(null);
   const prefersReducedMotion = useReducedMotionPreference();
   const selectedIndex = selectedPhoto ? findPhotoIndex(photos, selectedPhoto) : -1;
   const previousPhoto = selectedIndex > 0 ? photos[selectedIndex - 1] : undefined;
@@ -39,6 +40,45 @@ export function DetailOverlay({ photos, selectedPhoto, onSelectPhoto, onClose }:
   const imageClass = isLandscape
     ? 'max-h-[48vh] w-full object-contain md:max-h-full'
     : 'max-h-[52vh] w-auto max-w-full object-contain md:max-h-[calc(100vh-8rem)]';
+
+  const handleBackdropClick = (event: MouseEvent<HTMLDivElement>) => {
+    if (event.target === event.currentTarget && window.matchMedia('(min-width: 768px)').matches) {
+      onClose();
+    }
+  };
+
+  const handlePointerDown = (event: PointerEvent<HTMLDivElement>) => {
+    if (!window.matchMedia('(max-width: 767px)').matches || event.pointerType === 'mouse') {
+      swipeStartRef.current = null;
+      return;
+    }
+
+    const target = event.target as HTMLElement;
+    swipeStartRef.current = {
+      x: event.clientX,
+      y: event.clientY,
+      pointerId: event.pointerId,
+      ignore: Boolean(target.closest('[data-photo-detail-control="true"]')),
+    };
+  };
+
+  const handlePointerUp = (event: PointerEvent<HTMLDivElement>) => {
+    const start = swipeStartRef.current;
+    swipeStartRef.current = null;
+
+    if (!start || start.ignore || start.pointerId !== event.pointerId) {
+      return;
+    }
+
+    const deltaX = event.clientX - start.x;
+    const deltaY = event.clientY - start.y;
+    const horizontalDistance = Math.abs(deltaX);
+    const verticalDistance = Math.abs(deltaY);
+
+    if (horizontalDistance >= 90 && horizontalDistance > verticalDistance * 1.8 && verticalDistance <= 70) {
+      onClose();
+    }
+  };
 
   useEffect(() => {
     if (!selectedPhoto) {
@@ -137,6 +177,12 @@ export function DetailOverlay({ photos, selectedPhoto, onSelectPhoto, onClose }:
           className="fixed inset-0 z-50 grid place-items-center bg-ink/45 px-3 pb-20 pt-16 backdrop-blur-md sm:p-8"
           exit={{ opacity: 0 }}
           initial={{ opacity: 0 }}
+          onClick={handleBackdropClick}
+          onPointerCancel={() => {
+            swipeStartRef.current = null;
+          }}
+          onPointerDown={handlePointerDown}
+          onPointerUp={handlePointerUp}
           role="dialog"
         >
           <CloseButton buttonRef={closeRef} onClose={onClose} />

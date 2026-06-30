@@ -23,7 +23,7 @@ export function GuideView({ themes, onBack, onSelectTheme }: GuideViewProps) {
     >
       <TopBar onBack={onBack} title="Guide" />
       <section className="mx-auto flex min-h-[calc(100vh-8rem)] max-w-7xl flex-col justify-center">
-        <p className="font-serif text-2xl text-ink/70">选择一个主题开始观看</p>
+        <p className="font-serif text-2xl text-ink/70">从一种光线进入这组照片</p>
         <div className="relative mt-10">
           <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-porcelain to-transparent" />
           <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-gradient-to-l from-porcelain to-transparent" />

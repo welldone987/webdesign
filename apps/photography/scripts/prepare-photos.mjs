@@ -10,7 +10,7 @@ const repoRoot = path.resolve(appRoot, '..', '..');
 const sourceRoot = path.join(repoRoot, '资源', '摄影图片');
 const publicRoot = path.join(appRoot, 'public', 'images', 'photography');
 const photosFile = path.join(appRoot, 'src', 'data', 'photos.json');
-const maxBytes = 15 * 1024 * 1024;
+const maxBytes = 5 * 1024 * 1024;
 const previewMaxSize = 900;
 const placeholderWidth = 36;
 
@@ -19,25 +19,25 @@ const themes = [
     name: '暖',
     slug: 'warm',
     subtitle: 'Apricity',
-    description: '偏向柔和、亲近与温度的画面。',
+    description: '柔和的光、近处的温度，以及日常里安静停留的瞬间。',
   },
   {
     name: '湛',
     slug: 'azure',
     subtitle: 'Azure',
-    description: '更清透、冷静、带有空气感的影像。',
+    description: '清透、冷静，保留天空与水面之间的呼吸感。',
   },
   {
     name: '盛',
     slug: 'bloom',
     subtitle: 'Lush',
-    description: '明亮、丰盛、带有展开感的瞬间。',
+    description: '明亮而丰盛，记录色彩舒展、生命向外生长的片刻。',
   },
   {
     name: '郁',
     slug: 'umbrage',
     subtitle: 'Pall',
-    description: '更深、更密、更内向的观看经验。',
+    description: '更深、更密，把视线收回到阴影、纹理与未说完的部分。',
   },
 ];
 
@@ -102,8 +102,8 @@ async function readExif(inputFile) {
   }
 }
 
-async function compressLargeJpeg(inputFile, outputFile, imageMetadata) {
-  const qualities = [96, 94, 92, 90, 88, 86, 84, 82];
+async function optimizeJpegToBudget(inputFile, outputFile, imageMetadata) {
+  const qualities = [92, 90, 88, 86, 84, 82, 80, 78, 76];
   const base = sharp(inputFile, { limitInputPixels: false }).rotate();
   const tempFile = `${outputFile}.${process.pid}.tmp`;
 
@@ -124,11 +124,11 @@ async function compressLargeJpeg(inputFile, outputFile, imageMetadata) {
 
   const width = imageMetadata.width ?? 2400;
   const height = imageMetadata.height ?? 1600;
-  let scale = 0.96;
+  let scale = 0.92;
 
-  while (scale >= 0.64) {
-    const resizedWidth = Math.max(1200, Math.round(width * scale));
-    const resizedHeight = Math.max(1200, Math.round(height * scale));
+  while (scale >= 0.48) {
+    const resizedWidth = Math.max(1800, Math.round(width * scale));
+    const resizedHeight = Math.max(1800, Math.round(height * scale));
 
     await rm(tempFile, { force: true });
     await sharp(inputFile, { limitInputPixels: false })
@@ -139,30 +139,47 @@ async function compressLargeJpeg(inputFile, outputFile, imageMetadata) {
         fit: 'inside',
         withoutEnlargement: true,
       })
-      .jpeg({ quality: 86, mozjpeg: true, chromaSubsampling: '4:4:4' })
+      .jpeg({ quality: 82, mozjpeg: true, chromaSubsampling: '4:4:4' })
       .toFile(tempFile);
 
     const outputStats = await stat(tempFile);
     if (outputStats.size <= maxBytes) {
       await rm(outputFile, { force: true });
       await rename(tempFile, outputFile);
-      return { optimized: true, quality: 86, resized: true, bytes: outputStats.size };
+      return { optimized: true, quality: 82, resized: true, bytes: outputStats.size };
     }
 
     scale -= 0.04;
   }
 
+  for (const quality of [74, 72, 70]) {
+    await rm(tempFile, { force: true });
+    await sharp(inputFile, { limitInputPixels: false })
+      .rotate()
+      .resize({
+        width: 1800,
+        height: 1800,
+        fit: 'inside',
+        withoutEnlargement: true,
+      })
+      .jpeg({ quality, mozjpeg: true, chromaSubsampling: '4:4:4' })
+      .toFile(tempFile);
+
+    const outputStats = await stat(tempFile);
+    if (outputStats.size <= maxBytes) {
+      await rm(outputFile, { force: true });
+      await rename(tempFile, outputFile);
+      return { optimized: true, quality, resized: true, bytes: outputStats.size };
+    }
+  }
+
   await rm(tempFile, { force: true });
-  throw new Error(`Unable to compress ${inputFile} below 15MB.`);
+  throw new Error(`Unable to compress ${inputFile} below 5MB.`);
 }
 
 async function copyOrCompress(inputFile, outputFile, sourceStats, imageMetadata) {
-  if (sourceStats.size <= maxBytes) {
-    await copyFile(inputFile, outputFile);
-    return { optimized: false, bytes: sourceStats.size };
-  }
-
-  return compressLargeJpeg(inputFile, outputFile, imageMetadata);
+  const result = await optimizeJpegToBudget(inputFile, outputFile, imageMetadata);
+  return { ...result, sourceBytes: sourceStats.size };
 }
 
 async function createPreview(inputFile, outputFile) {

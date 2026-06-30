@@ -7,7 +7,7 @@ const requiredFields = ['src', 'alt', 'width', 'height', 'category', 'title', 'y
 const fileUrl = new URL('../src/data/photos.json', import.meta.url);
 const photos = JSON.parse(await readFile(fileUrl, 'utf8'));
 const appRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const maxBytes = 15 * 1024 * 1024;
+const maxBytes = 5 * 1024 * 1024;
 
 if (!Array.isArray(photos)) {
   throw new Error('photos.json must contain an array.');
@@ -34,7 +34,7 @@ for (const [index, photo] of photos.entries()) {
   const imagePath = path.join(appRoot, 'public', photo.src.replace(/^\//, ''));
   const imageStats = await stat(imagePath);
   if (imageStats.size > maxBytes) {
-    throw new Error(`Photo at index ${index} exceeds 15MB: ${photo.src}`);
+    throw new Error(`Photo at index ${index} exceeds 5MB: ${photo.src}`);
   }
 
   const imageHash = createHash('sha256').update(await readFile(imagePath)).digest('hex');
@@ -63,7 +63,7 @@ for (const [index, photo] of photos.entries()) {
     const previewPath = path.join(appRoot, 'public', photo.previewSrc.replace(/^\//, ''));
     const previewStats = await stat(previewPath);
     if (previewStats.size > maxBytes) {
-      throw new Error(`Photo preview at index ${index} exceeds 15MB: ${photo.previewSrc}`);
+      throw new Error(`Photo preview at index ${index} exceeds 5MB: ${photo.previewSrc}`);
     }
   }
 

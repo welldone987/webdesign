@@ -59,7 +59,7 @@ export function HomeView({ photos, fallbackPhotos, onEnter }: HomeViewProps) {
             onClick={onEnter}
             type="button"
           >
-            进入
+            开始观看
           </button>
           <p
             aria-label="無摄影集"

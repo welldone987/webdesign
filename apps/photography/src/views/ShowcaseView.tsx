@@ -65,9 +65,9 @@ export function ShowcaseView({
             className="min-w-0 border-b border-ink/10 pb-3 text-ink/64 lg:border-b-0 lg:border-r lg:pb-0 lg:pr-8"
           >
             <div className="lg:hidden">
-              <div className="grid grid-cols-3 gap-4">
+              <div className="grid grid-cols-3 gap-3 text-center">
                 <a
-                  className={`${mobilePrimaryItemClass} ${
+                  className={`${mobilePrimaryItemClass} grid place-items-center ${
                     mobileMenuSection === 'overview'
                       ? 'border-ink text-ink'
                       : 'border-transparent text-ink/66'
@@ -80,7 +80,7 @@ export function ShowcaseView({
                 <button
                   aria-controls="mobile-theme-menu"
                   aria-expanded={mobileMenuSection === 'presentation'}
-                  className={`${mobilePrimaryItemClass} text-left ${
+                  className={`${mobilePrimaryItemClass} grid place-items-center ${
                     mobileMenuSection === 'presentation'
                       ? 'border-ink text-ink'
                       : 'border-transparent text-ink/66'
@@ -91,7 +91,7 @@ export function ShowcaseView({
                   呈现
                 </button>
                 <a
-                  className={`${mobilePrimaryItemClass} ${
+                  className={`${mobilePrimaryItemClass} grid place-items-center ${
                     mobileMenuSection === 'profile'
                       ? 'border-ink text-ink'
                       : 'border-transparent text-ink/66'
@@ -135,7 +135,7 @@ export function ShowcaseView({
         </aside>
 
         <section className="min-w-0">
-          <header className="mb-12 grid gap-6 border-b border-ink/10 pb-8 md:grid-cols-[0.8fr_1fr]" id="intro">
+          <header className="mb-12 border-b border-ink/10 pb-8" id="intro">
             <div>
               <p className="font-sans text-xs uppercase tracking-[0.22em] text-moss">Photography Archive</p>
               <h1 className="mt-4 font-serif text-5xl leading-none text-ink sm:text-7xl">
@@ -145,10 +145,6 @@ export function ShowcaseView({
                 </span>
               </h1>
             </div>
-            <p className="max-w-2xl font-serif text-lg leading-8 text-ink/68">
-              这是一组以个人观看经验整理的摄影集。界面保持留白，让目录、瀑布流和大图详情服务于照片本身。
-              当前{isAllPhotos ? '图库' : '主题'}包含 {photos.length} 张作品。
-            </p>
           </header>
 
           <MasonryGallery onOpenPhoto={onOpenPhoto} photos={photos} />
@@ -156,7 +152,7 @@ export function ShowcaseView({
           <section className="mt-20 border-t border-ink/10 py-10" id="profile">
             <h2 className="font-serif text-3xl">个人简介</h2>
             <p className="mt-4 max-w-2xl font-serif text-lg leading-8 text-ink/65">
-              一个持续整理影像的人。偏好安静的光、可停留的细节，以及照片中没有被立即说完的部分。
+              拍摄是整理记忆的方式。偏好安静的光、可停留的细节，以及画面里没有被立即说完的部分。
             </p>
           </section>
         </section>

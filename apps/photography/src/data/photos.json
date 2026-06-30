@@ -10,17 +10,17 @@
     "category": "暖",
     "themeSlug": "warm",
     "themeSubtitle": "Apricity",
-    "themeDescription": "偏向柔和、亲近与温度的画面。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAYACQDASIAAhEBAxEB/8QAGQABAQEAAwAAAAAAAAAAAAAAAAQDAQIG/8QAFwEBAQEBAAAAAAAAAAAAAAAAAQMAAv/aAAwDAQACEAMQAAAA8x22olfTLOB4oSMLheZgpgMf/8QAHxAAAgMAAgIDAAAAAAAAAAAAAQIAAxESIQRBIjFC/9oACAEBAAE/AMNv0sSko4w9wtWOJZfl7l11QU4uweVxGBZ4p47mRqxvIdGWu47zY9hP5gZPcWwrK7zYme4LNU7Hhyf/xAAXEQADAQAAAAAAAAAAAAAAAAAAEBGB/9oACAECAQE/ALFhH//EABoRAQADAAMAAAAAAAAAAAAAAAEAAhEQITH/2gAIAQMBAT8AKlhd7ImenAuwZhP/2Q==",
+    "themeDescription": "柔和的光、近处的温度，以及日常里安静停留的瞬间。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAYACQDASIAAhEBAxEB/8QAGQABAQEAAwAAAAAAAAAAAAAAAAQDAQIG/8QAFwEBAQEBAAAAAAAAAAAAAAAAAQMAAv/aAAwDAQACEAMQAAAA8x22olfTLOB4oSMLheZgpgMf/8QAHxAAAgMAAgIDAAAAAAAAAAAAAQIAAxESIQRBIjFC/9oACAEBAAE/AMNv0sSko4w9wtWOJZfl7l11QU4oMHlcRgUTxTx3MjVjeQ6Mtdx3mx7CfzAyZ3FsKyu82JnuCzVOx4cn/8QAFxEAAwEAAAAAAAAAAAAAAAAAABARgf/aAAgBAgEBPwCxYR//xAAaEQEAAwADAAAAAAAAAAAAAAABAAIRECEx/9oACAEDAQE/ACpYXeyJnpwLsGYT/9k=",
     "title": "暖 01",
     "year": 2026,
     "featured": true,
     "order": 1,
     "slug": "warm-01",
     "originalFile": "1782304071819.jpg",
-    "optimized": false,
-    "sizeBytes": 11693615,
-    "previewSizeBytes": 137337
+    "optimized": true,
+    "sizeBytes": 4647950,
+    "previewSizeBytes": 137338
   },
   {
     "src": "/images/photography/warm/warm-02.jpg",
@@ -33,17 +33,17 @@
     "category": "暖",
     "themeSlug": "warm",
     "themeSubtitle": "Apricity",
-    "themeDescription": "偏向柔和、亲近与温度的画面。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAXACQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAQFBgID/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgED/9oADAMBAAIQAxAAAADLyvC8DiQdDQywXRjS2RlpMyRZVDQf/8QAHhAAAgIDAQEBAQAAAAAAAAAAAQIAAwQREgUiMkL/2gAIAQEAAT8AspAQMJjYSWLto3n0fy0sxUVtdR6+W0DH7Otg63MfHDJ8vH8+wVB1Y7lyOjkNH/U9JEWqtVUD6mKjIicqsue1amOhL+mYky0Hsz//xAAYEQEAAwEAAAAAAAAAAAAAAAABABAhQf/aAAgBAgEBPwBcgrXCFf/EABgRAQADAQAAAAAAAAAAAAAAAAEAEBFB/9oACAEDAQE/AANmFdY1/9k=",
+    "themeDescription": "柔和的光、近处的温度，以及日常里安静停留的瞬间。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAXACQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAQFBgID/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgED/9oADAMBAAIQAxAAAADLyvC8DiQdDQywXRjS2RlpMyRZVDQf/8QAHhAAAgIDAQEBAQAAAAAAAAAAAQIAAwQREgUiMkL/2gAIAQEAAT8AspAQMJjYSWLto3n0fy0sxUVtdR6+W0DH7Otg63MfH6T5eP59gqDqx3LkdHIaP+p6SItVaqoH1MVGRE5VZc9q1MdCX9MxJloPZn//xAAYEQEAAwEAAAAAAAAAAAAAAAABABAhQf/aAAgBAgEBPwBcgrXCFf/EABgRAQADAQAAAAAAAAAAAAAAAAEAEBFB/9oACAEDAQE/AANmFdY1/9k=",
     "title": "暖 02",
     "year": 2026,
     "featured": false,
     "order": 2,
     "slug": "warm-02",
     "originalFile": "1782304072143.jpg",
-    "optimized": false,
-    "sizeBytes": 11078051,
-    "previewSizeBytes": 84419
+    "optimized": true,
+    "sizeBytes": 4560245,
+    "previewSizeBytes": 84531
   },
   {
     "src": "/images/photography/warm/warm-03.jpg",
@@ -56,8 +56,8 @@
     "category": "暖",
     "themeSlug": "warm",
     "themeSubtitle": "Apricity",
-    "themeDescription": "偏向柔和、亲近与温度的画面。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAYACQDASIAAhEBAxEB/8QAGgABAAIDAQAAAAAAAAAAAAAAAAMFAQIEBv/EABgBAAMBAQAAAAAAAAAAAAAAAAECBAMF/9oADAMBAAIQAxAAAACCei7pa7yej68XlVoN5aY6EGQDoA3/xAAkEAACAQMCBgMAAAAAAAAAAAAAAgEDBBEFIQYVIiMxYTJCUv/aAAgBAQABPwBaWRbeZKVnkax2GtNyhf1E9i6s0fUTXWSfiPxDDJ0oc7f8ENIq1Gj0dtfLZJrxEYVSIqvuf//EABsRAAICAwEAAAAAAAAAAAAAAAARAQMCEkET/9oACAECAQE/AM8bOHnZ1s1vJFEjP//EABsRAAICAwEAAAAAAAAAAAAAAAABAhEDEkFS/9oACAEDAQE/AIPH1jn5qjbGI2aKP//Z",
+    "themeDescription": "柔和的光、近处的温度，以及日常里安静停留的瞬间。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAYACQDASIAAhEBAxEB/8QAGgABAAIDAQAAAAAAAAAAAAAAAAMFAQIEBv/EABgBAAMBAQAAAAAAAAAAAAAAAAECBAMF/9oADAMBAAIQAxAAAACCei7pa7yej68XlVoN5aY6EGQDoA3/xAAkEAACAQMCBgMAAAAAAAAAAAAAAgEDBBEFIQYVIiMxYTJCUv/aAAgBAQABPwBaWRbeZKVnkax2GtNyhf1E9i6sy/UTXmSfiPxDlOlDnb/ghpFWo0ejtr5bJNeIjCqRFV9z/8QAGxEAAgIDAQAAAAAAAAAAAAAAABEBAwISQRP/2gAIAQIBAT8Azxs4ednWzW8kUSM//8QAGhEAAgMBAQAAAAAAAAAAAAAAAAECAxESUf/aAAgBAwEBPwCDrHPzMOqxHTRh/9k=",
     "title": "暖 03",
     "year": 2025,
     "date": "2025-11-07",
@@ -68,9 +68,9 @@
     "order": 3,
     "slug": "warm-03",
     "originalFile": "DSC_0034-已增强-降噪.jpg",
-    "optimized": false,
-    "sizeBytes": 6345372,
-    "previewSizeBytes": 31386
+    "optimized": true,
+    "sizeBytes": 1672463,
+    "previewSizeBytes": 31373
   },
   {
     "src": "/images/photography/warm/warm-04.jpg",
@@ -83,7 +83,7 @@
     "category": "暖",
     "themeSlug": "warm",
     "themeSubtitle": "Apricity",
-    "themeDescription": "偏向柔和、亲近与温度的画面。",
+    "themeDescription": "柔和的光、近处的温度，以及日常里安静停留的瞬间。",
     "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAbACQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAABAUAAgMG/8QAFwEBAQEBAAAAAAAAAAAAAAAAAgEABP/aAAwDAQACEAMQAAAA5Zur2KPZhsJU02gXPXJDUZ2Xl7ZTKHo//8QAIRAAAQQCAgIDAAAAAAAAAAAAAQACAwQREiExBTIkQmH/2gAIAQEAAT8AcPjNP6oIBNTVSgwHntTVmOjIRoxKyWhmjegVTsyNGv1VWTaVoViWPR7W+yZLgcqUk9qvIWFVbQjl2wrNrd5LGlCV68g0BwwFH0ofdOKJOV//xAAZEQADAQEBAAAAAAAAAAAAAAAAARECMRL/2gAIAQIBAT8AXBcKzGvWE50sKf/EABwRAAICAgMAAAAAAAAAAAAAAAABAhESEyExYv/aAAgBAwEBPwB9jRSJxxm0JZcWaPR//9k=",
     "title": "暖 04",
     "year": 2025,
@@ -95,9 +95,9 @@
     "order": 4,
     "slug": "warm-04",
     "originalFile": "DSC_0045-已增强-降噪.jpg",
-    "optimized": false,
-    "sizeBytes": 12788474,
-    "previewSizeBytes": 43234
+    "optimized": true,
+    "sizeBytes": 3148552,
+    "previewSizeBytes": 43227
   },
   {
     "src": "/images/photography/warm/warm-05.jpg",
@@ -110,8 +110,8 @@
     "category": "暖",
     "themeSlug": "warm",
     "themeSubtitle": "Apricity",
-    "themeDescription": "偏向柔和、亲近与温度的画面。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAXACQDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAAQFAgMG/8QAFwEAAwEAAAAAAAAAAAAAAAAAAQIDAP/aAAwDAQACEAMQAAAA87QwzKz6dmRmWMBlJZBhQ5AtXwAn/8QAIBAAAgEDBQEBAAAAAAAAAAAAAQIAAwQREhMhIlEUMf/aAAgBAQABPwCjS3AW8lvQNcdILV0UK0cbNd19jIQeHlo6jqcciWIw7qGx2jANVRtcvAPr4jU7gE9YjYP7A6jkMcylcBNOcyrdblXWPZvkgT//xAAWEQEBAQAAAAAAAAAAAAAAAAABACD/2gAIAQIBAT8AYz//xAAaEQACAgMAAAAAAAAAAAAAAAABAgAQERIh/9oACAEDAQE/AFOBGOy0DGPBX//Z",
+    "themeDescription": "柔和的光、近处的温度，以及日常里安静停留的瞬间。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAXACQDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAAQFAgMG/8QAFwEAAwEAAAAAAAAAAAAAAAAAAQIDAP/aAAwDAQACEAMQAAAA87QwzKz6dmRmWMBlJZBhQ5AtXwAn/8QAIBAAAgEDBQEBAAAAAAAAAAAAAQIAAwQREhMhIlEUMf/aAAgBAQABPwCjR3AW8lvQNcdILV0AVo42a7r7GQg8PLR1HU45EsRh3UNjtGAaqja5eAfXxGp3AJ6RGwf2B1HIY5lK40ac5lW63KusezfJAn//xAAWEQEBAQAAAAAAAAAAAAAAAAABACD/2gAIAQIBAT8AYz//xAAaEQACAgMAAAAAAAAAAAAAAAABAgAQERIh/9oACAEDAQE/AFOBGOy0DGPBX//Z",
     "title": "暖 05",
     "year": 2025,
     "date": "2025-11-09",
@@ -122,9 +122,9 @@
     "order": 5,
     "slug": "warm-05",
     "originalFile": "DSC_0155.jpg",
-    "optimized": false,
-    "sizeBytes": 13619275,
-    "previewSizeBytes": 61324
+    "optimized": true,
+    "sizeBytes": 4593376,
+    "previewSizeBytes": 61295
   },
   {
     "src": "/images/photography/warm/warm-06.jpg",
@@ -137,8 +137,8 @@
     "category": "暖",
     "themeSlug": "warm",
     "themeSubtitle": "Apricity",
-    "themeDescription": "偏向柔和、亲近与温度的画面。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAYACQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAMEBQEG/8QAFwEBAQEBAAAAAAAAAAAAAAAAAgEAA//aAAwDAQACEAMQAAAA0rPkp+S18CxNHiuLPQdEKMoXXG3/xAAfEAABBAMAAwEAAAAAAAAAAAACAAEDEQQSIQUTMSL/2gAIAQEAAT8Ah8jAf5LiE8c3rZlkx4+xMI9UsFGVMnhG/qHHnLtOgiyBqrRZWkmpXaybeFpBRbWmkKummmFvpKb1Eds1ugzhANCj4ikxyd3pf//EABoRAQEAAgMAAAAAAAAAAAAAAAEAERITUYH/2gAIAQIBAT8A5GVvbU6kLF//xAAaEQEBAAIDAAAAAAAAAAAAAAABABAREhNh/9oACAEDAQE/AOvyAMcmG3f/2Q==",
+    "themeDescription": "柔和的光、近处的温度，以及日常里安静停留的瞬间。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAYACQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAMEBQEG/8QAFwEBAQEBAAAAAAAAAAAAAAAAAgEAA//aAAwDAQACEAMQAAAA0rPkp+S18CxNHiuLPQdEKMoXXG3/xAAfEAABBAMAAwEAAAAAAAAAAAACAAEDEQQSIQUTIjH/2gAIAQEAAT8Ah8jAfyXEJ45vWzLJjx9iYR6pYKMqZPANocecu06CLIGqtFlaSaldrJt4WkFFtaaQq6aaYW/SU3qI7ZrdBnCAaFHxFJjk7vS//8QAGhEAAgIDAAAAAAAAAAAAAAAAAAEREhMhUf/aAAgBAgEBPwDIyWb6VQ0iD//EABsRAQEAAQUAAAAAAAAAAAAAAAEAEBESE1Fh/9oACAEDAQE/AOPyAMbnuFtb/9k=",
     "title": "暖 06",
     "year": 2025,
     "date": "2025-11-09",
@@ -150,8 +150,8 @@
     "slug": "warm-06",
     "originalFile": "DSC_0160.jpg",
     "optimized": true,
-    "sizeBytes": 11707797,
-    "previewSizeBytes": 72469
+    "sizeBytes": 4846899,
+    "previewSizeBytes": 72423
   },
   {
     "src": "/images/photography/warm/warm-07.jpg",
@@ -164,8 +164,8 @@
     "category": "暖",
     "themeSlug": "warm",
     "themeSubtitle": "Apricity",
-    "themeDescription": "偏向柔和、亲近与温度的画面。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAzACQDASIAAhEBAxEB/8QAGgAAAwEBAQEAAAAAAAAAAAAAAAMFBgQBAv/EABcBAQEBAQAAAAAAAAAAAAAAAAABAgP/2gAMAwEAAhADEAAAAMZoc9a57VZVSM2cpXFS7PIW5vykUskX6WYftc8z1EWfBixu0NRygzpYFf/EACIQAAICAgEEAwEAAAAAAAAAAAECAAMRIQQFEiIxExRRMv/aAAgBAQABPwBSARKFBqBl9tiWhVMqpygJ/JyEAtbzEBwZRd3UY9Tj8XjvarO0JRQ2PQnIZGucj9hBE4+DXuG0UsN51Kb1IctZ7GhLP7MHTlbYEalKvEKTPp/OAFG8SvozptzPo1k6zOGFZFAYCDi0keQBgqSqzxWchi9ZULiLW6DHeIOR8OlUxeoXspI1BzOULAxJxBzC/tDH7Cx3ATg7lKqQMiP4nUDsc7hJz7n/xAAbEQACAwADAAAAAAAAAAAAAAAAAQIQESAiQf/aAAgBAgEBPwCZ4qlJCfU2sM4f/8QAGhEAAgMBAQAAAAAAAAAAAAAAAQIAEBESQf/aAAgBAwEBPwBSADFbrTQSc4xNbfsFf//Z",
+    "themeDescription": "柔和的光、近处的温度，以及日常里安静停留的瞬间。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAzACQDASIAAhEBAxEB/8QAGgAAAwEBAQEAAAAAAAAAAAAAAAMFBgQBAv/EABcBAQEBAQAAAAAAAAAAAAAAAAABAgP/2gAMAwEAAhADEAAAAMZoc9a57VZVSjNnKacVLs8hbm/KRSyRfpZh+1zzPURZ8GLG7Q1HKDOlgV//xAAiEAACAgICAgMBAQAAAAAAAAABAgADBBEhMQUiEhNRFDL/2gAIAQEAAT8AUgEShQagZfbYloVT2ZVTtAT+TIQfa3uIDoyi75Ua6mPi472qztCUUNroTIZGucj9hBEx9GvmG0UsOd8Sm9SHLWdjgSz/AGYPHK3IEalKvUKTP4/vACjR1K/DOh25hwaz1uYYVkUBgIMWkj2AMFSVWeqzIYvWVC6i1ug18xBkfTwqmL5C9lOjrUGZlCwMSdQZhftDH+BYncBOjzKVUgbEf1I1A7HfMJO+5//EABsRAAIDAAMAAAAAAAAAAAAAAAABAhARICJB/9oACAECAQE/AJniqUkJ9Tawzh//xAAaEQACAwEBAAAAAAAAAAAAAAABAgAQERJB/9oACAEDAQE/AFIGxW600EnOMTW37B7X/9k=",
     "title": "暖 07",
     "year": 2025,
     "date": "2025-11-20",
@@ -176,9 +176,9 @@
     "order": 7,
     "slug": "warm-07",
     "originalFile": "DSC_0284.jpg",
-    "optimized": false,
-    "sizeBytes": 12372495,
-    "previewSizeBytes": 55041
+    "optimized": true,
+    "sizeBytes": 3669355,
+    "previewSizeBytes": 55049
   },
   {
     "src": "/images/photography/warm/warm-08.jpg",
@@ -191,8 +191,8 @@
     "category": "暖",
     "themeSlug": "warm",
     "themeSubtitle": "Apricity",
-    "themeDescription": "偏向柔和、亲近与温度的画面。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAXACQDASIAAhEBAxEB/8QAGgABAAIDAQAAAAAAAAAAAAAAAAMEAQIFBv/EABcBAAMBAAAAAAAAAAAAAAAAAAABAgP/2gAMAwEAAhADEAAAAPJWI5ZrqUtZI0qKTXLIRjQaAP/EAB8QAAICAwACAwAAAAAAAAAAAAECAAMEERIQISIxMv/aAAgBAQABPwAAmVUO59CcV41XTD3DmqT+DLXRn2JUVB+4ct0s+JlOSbGK2NsSy/HQHWiYzdMTFsKmF9t1OzvY8//EABkRAQACAwAAAAAAAAAAAAAAAAEQEQASQf/aAAgBAgEBPwBXmbI1UVP/xAAZEQEBAQADAAAAAAAAAAAAAAABERAAEkH/2gAIAQMBAT8AA951paBld//Z",
+    "themeDescription": "柔和的光、近处的温度，以及日常里安静停留的瞬间。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAXACQDASIAAhEBAxEB/8QAGgABAAIDAQAAAAAAAAAAAAAAAAMEAQIFBv/EABcBAAMBAAAAAAAAAAAAAAAAAAABAgP/2gAMAwEAAhADEAAAAPJWI5ZrqUtZI1qKTXHIRjQaAP/EAB8QAAICAwACAwAAAAAAAAAAAAECAAMEERIQISIxMv/aAAgBAQABPwAAmVUO59CcV41XTD3DmqT+DLXRn2JUVB+4ct0s+JlOSbGK2NsSy/HQHWiYzdMTFsKmF9t1OzvY8//EABkRAQACAwAAAAAAAAAAAAAAAAEQEQASQf/aAAgBAgEBPwBXmbI1UVP/xAAZEQEBAQADAAAAAAAAAAAAAAABERAAEkH/2gAIAQMBAT8AA951paBld//Z",
     "title": "暖 08",
     "year": 2025,
     "date": "2025-11-20",
@@ -203,9 +203,9 @@
     "order": 8,
     "slug": "warm-08",
     "originalFile": "DSC_0465.jpg",
-    "optimized": false,
-    "sizeBytes": 9159442,
-    "previewSizeBytes": 34429
+    "optimized": true,
+    "sizeBytes": 3191124,
+    "previewSizeBytes": 34441
   },
   {
     "src": "/images/photography/warm/warm-09.jpg",
@@ -218,8 +218,8 @@
     "category": "暖",
     "themeSlug": "warm",
     "themeSubtitle": "Apricity",
-    "themeDescription": "偏向柔和、亲近与温度的画面。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAYACQDASIAAhEBAxEB/8QAGgABAAIDAQAAAAAAAAAAAAAAAAMEAQIFBv/EABcBAQEBAQAAAAAAAAAAAAAAAAEDBAL/2gAMAwEAAhADEAAAAPMWZOlm1VMW+OOFZeEcwmlYeQT/xAAgEAACAgIBBQEAAAAAAAAAAAABAgADBBEhEBITMTJB/9oACAEBAAE/ABew+lMTI16pMXLt/KDHybQNtVqNmjfzLLKtr6iZOOqjhZZm1hCV1MjO85C+ljeAGMwJHM700OYbE7WHX//EAB0RAAICAQUAAAAAAAAAAAAAAAECABEDECEiQlH/2gAIAQIBAT8AbKQBwMRnbpU28MqDT//EABwRAAICAgMAAAAAAAAAAAAAAAECABEDECJCUv/aAAgBAwEBPwBcVk8xHVU72ZR9CBquE3r/2Q==",
+    "themeDescription": "柔和的光、近处的温度，以及日常里安静停留的瞬间。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAYACQDASIAAhEBAxEB/8QAGgABAAIDAQAAAAAAAAAAAAAAAAMEAQIFBv/EABcBAQEBAQAAAAAAAAAAAAAAAAEDBAL/2gAMAwEAAhADEAAAAPMWZOlm1VMW+OOFZeEcomtYeQT/xAAgEAACAgIBBQEAAAAAAAAAAAABAgADBBEhEBITMTJB/9oACAEBAAE/ABew+lMTI16pMXLt/KDHybQNtVqNmjfzLLKtr6iZOOqjhZZm1hCV1MjO85C+ljeAGMwJHM700OYbE7WHX//EABwRAAMAAQUAAAAAAAAAAAAAAAABAhEDECJCgf/aAAgBAgEBPwCtVpLgyKuumDxmBbf/xAAcEQACAgIDAAAAAAAAAAAAAAABAgARAxAiQlL/2gAIAQMBAT8AXFZPMR1VO9mUfQgaE3r/2Q==",
     "title": "暖 09",
     "year": 2025,
     "date": "2025-11-20",
@@ -231,8 +231,8 @@
     "slug": "warm-09",
     "originalFile": "DSC_0494-已增强-降噪.jpg",
     "optimized": true,
-    "sizeBytes": 13198826,
-    "previewSizeBytes": 43089
+    "sizeBytes": 4574991,
+    "previewSizeBytes": 43028
   },
   {
     "src": "/images/photography/warm/warm-10.jpg",
@@ -245,8 +245,8 @@
     "category": "暖",
     "themeSlug": "warm",
     "themeSubtitle": "Apricity",
-    "themeDescription": "偏向柔和、亲近与温度的画面。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAXACQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAUDBAH/xAAXAQADAQAAAAAAAAAAAAAAAAACAwQB/9oADAMBAAIQAxAAAACB1zd5qqXk3AToIhqaW4JzOYfMG5//xAAhEAACAgICAQUAAAAAAAAAAAABAgADBBESQSEFEBQVUf/aAAgBAQABPwCzBRQNNKvS6WUEvPrcUQ4WKOo1GKD1LLbeKjcS+/gNT5dqkho+Xb+wuxOyZ4KqNRsiqqsDj5l+Qbute/8A/8QAHREBAAICAgMAAAAAAAAAAAAAAQACAxIQUhETIf/aAAgBAgEBPwCxl1+XhTN3nrt3ZqWQYAHg4//EAB4RAAIBAwUAAAAAAAAAAAAAAAECAAMSExARMkJS/9oACAEDAQE/AFxXcDC9AdJlTwJeygkQsWO50//Z",
+    "themeDescription": "柔和的光、近处的温度，以及日常里安静停留的瞬间。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAXACQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAUDBAH/xAAXAQADAQAAAAAAAAAAAAAAAAACAwQB/9oADAMBAAIQAxAAAACB1zd5qqXk3AToIhqaW4JzeUfMG5//xAAhEAACAgICAQUAAAAAAAAAAAABAgADBBESQQUQFBUhUf/aAAgBAQABPwCzBRQNNKvF0soJefG4ohwsUdRqMUHqWW28VG4l9/AanurVJDR8u39hdidkz6KqNRsiqqsDjsy/IN3WvX//xAAdEQEAAgICAwAAAAAAAAAAAAABAAIDEhBSERMh/9oACAECAQE/ALGXX5eFM3eeu3dmpZBgAeDj/8QAHhEAAgEDBQAAAAAAAAAAAAAAAQIAAxITEBEyQlL/2gAIAQMBAT8AXFdwML0B0mVPAl7KCRGYsdzp/9k=",
     "title": "暖 10",
     "year": 2025,
     "date": "2025-11-20",
@@ -258,8 +258,8 @@
     "slug": "warm-10",
     "originalFile": "DSC_0495-已增强-降噪.jpg",
     "optimized": true,
-    "sizeBytes": 14893154,
-    "previewSizeBytes": 32534
+    "sizeBytes": 4967634,
+    "previewSizeBytes": 32519
   },
   {
     "src": "/images/photography/warm/warm-11.jpg",
@@ -272,8 +272,8 @@
     "category": "暖",
     "themeSlug": "warm",
     "themeSubtitle": "Apricity",
-    "themeDescription": "偏向柔和、亲近与温度的画面。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAA2ACQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAQCAwUBBv/EABgBAAMBAQAAAAAAAAAAAAAAAAACAwEE/9oADAMBAAIQAxAAAABxRlbl6DpPceERXhymoxqaNgWHDNTu8/N13e46wbpgDLCwKz1soJVWAtH/xAAhEAACAwACAgIDAAAAAAAAAAABAgADERITBCIxQRAUM//aAAgBAQABPwDyQRjT9kQXoBFbtYAQDAIj9quGgFXwRD1ZuSkAI7xbmAzZU4raEqGOwMhGZHcBOMQesDhxyEsJlRPIQk8iDK29Yb1QhAJzV1wfOTxx1rrzmrcjBco+4LGzdlVz8wQTsve4H2JyG9wc0w2E/cQyj+wjKHB2XVBTo/H/xAAeEQACAQMFAAAAAAAAAAAAAAAAAQIQERMSITEyYf/aAAgBAgEBPwCJJlhJOW5JRTTVMZi1O9zF6PqyHNP/xAAdEQADAAICAwAAAAAAAAAAAAAAAQIQERMhMTJh/9oACAEDAQE/AKJRsbaXRLrTVYVjvXWjk+C9kX4x/9k=",
+    "themeDescription": "柔和的光、近处的温度，以及日常里安静停留的瞬间。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAA2ACQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAQBAwUCBv/EABgBAAMBAQAAAAAAAAAAAAAAAAACAwEE/9oADAMBAAIQAxAAAABxRlbl6CSzcdERX4imoxvtCwLCDNTu8/267s46wbpgDLxYFZ62UEqrAWj/AP/EACEQAAIDAAICAgMAAAAAAAAAAAECAAMREhMEIjFBEBQz/9oACAEBAAE/APJBGNP2RBegBit2sAIFwCI/argwCr4Ih6s3JSAEd4tzAZsqcVtCVDHYGQjMjuAnGIPWBw45CWEyonkISeRBlbesN6oQgE5q64PnJ446115zVuRguUfcFjZuyq5+YIJ2XvcD7E5De4OBjDYT9xDKP7CMocHZdUFOj8f/xAAeEQACAQMFAAAAAAAAAAAAAAAAAQIQERMSITEyYf/aAAgBAgEBPwCJJlhJOW5JRTTVMZi1O9zF6PqyHNP/xAAdEQADAAICAwAAAAAAAAAAAAAAAQIQERMhMTJh/9oACAEDAQE/AKJRsbaXRLrTVYVjvXWjk+C9kX4x/9k=",
     "title": "暖 11",
     "year": 2026,
     "date": "2026-02-22",
@@ -285,8 +285,8 @@
     "slug": "warm-11",
     "originalFile": "DSC_3077.jpg",
     "optimized": true,
-    "sizeBytes": 12895126,
-    "previewSizeBytes": 87095
+    "sizeBytes": 4758188,
+    "previewSizeBytes": 86623
   },
   {
     "src": "/images/photography/warm/warm-12.jpg",
@@ -299,8 +299,8 @@
     "category": "暖",
     "themeSlug": "warm",
     "themeSubtitle": "Apricity",
-    "themeDescription": "偏向柔和、亲近与温度的画面。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAA6ACQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAwQFAAL/xAAXAQEBAQEAAAAAAAAAAAAAAAABAgAD/9oADAMBAAIQAxAAAADixBrc7CylnSdexoFOKaapqH4TrQ8hW5NKaqLqJbBw9cHZks4oBAIe8tq3/8QAJRAAAgIBAgUFAQAAAAAAAAAAAQIAAxEEEgUiMTJREzNBYXFS/9oACAEBAAE/AOC+881/YIntH9ikFcS/S2Na5CkjM4XbsdpqrCyrC2EwPM07E3P9CLnHUCcNchpZaXXB8xCCphuem9yDDrqvkkmcNzvPjEqsJdx9yojYTLagxds9RB8/s01hpSLUq8wPdNEw5901TqocT1MEyvcSB5lVJJAZ5cSqkITnMtZ27jCBmCxT0MqcYPNMowyXjikjvmyj+zFlfYYvaYYZ/8QAGxEBAQACAwEAAAAAAAAAAAAAAQAQEQIiUWH/2gAIAQIBAT8AHrGS1ch9gwlq19v/xAAaEQADAQADAAAAAAAAAAAAAAAAARARAiJR/9oACAEDAQE/AM7DMjnFrwc02f/Z",
+    "themeDescription": "柔和的光、近处的温度，以及日常里安静停留的瞬间。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAA6ACQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAwQFAAL/xAAXAQEBAQEAAAAAAAAAAAAAAAABAgAD/9oADAMBAAIQAxAAAADixBrc7CylnSdexoFOKaapqH4TrQ8hW5NKaqLqJbBw90g7MlkKAQCHvLat/8QAJRAAAgIBAwMEAwAAAAAAAAAAAQIAAxEEEjIFMVEiM0FhE1Jx/9oACAEBAAE/AOi+881/ARPaP9ikFcS/S2Na5CkjM6XbsdpqrCyrC2EwPM07E3P9CLnHcCdNchpZaXXBiEFTDc9N7kGHXVfJJM6bnefGJVYS7j7lRGwmW1Bi7Z7iD5mmsNKRalX1A8pomHr3TVOqhxPyYJle4kDzKqSSAzy4lVIQnOZaztyMIGYLFPYypxgndMowyXjikjnNlH7mLK+Bi8TDD3n/xAAbEQEBAAIDAQAAAAAAAAAAAAABABARAiJRYf/aAAgBAgEBPwAesZLVyH2DCWrX2//EABkRAAMBAQEAAAAAAAAAAAAAAAABEBECIv/aAAgBAwEBPwDPQzI5y0OabP/Z",
     "title": "暖 12",
     "year": 2025,
     "date": "2025-07-08",
@@ -311,9 +311,9 @@
     "order": 12,
     "slug": "warm-12",
     "originalFile": "Z50_4364.jpg",
-    "optimized": false,
-    "sizeBytes": 10987608,
-    "previewSizeBytes": 122658
+    "optimized": true,
+    "sizeBytes": 5128183,
+    "previewSizeBytes": 122721
   },
   {
     "src": "/images/photography/warm/warm-13.jpg",
@@ -326,8 +326,8 @@
     "category": "暖",
     "themeSlug": "warm",
     "themeSubtitle": "Apricity",
-    "themeDescription": "偏向柔和、亲近与温度的画面。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAoACQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAwL/xAAWAQEBAQAAAAAAAAAAAAAAAAABAAL/2gAMAwEAAhADEAAAAMyMzl1m1cBQNCmqs6imqzXTSikVmwCLIhWABf/EACMQAAICAgIBBAMAAAAAAAAAAAECAAMEERIhMRMUIjMyQXH/2gAIAQEAAT8AotVUf+xsg/HqWqbCSRLKe4KZU7sNAxls0k4WdGXI2t6nJh+pg1fKaEVQY+tkQ1pvxMRWGzqKlhH4RKrfGp7ZN7dwIxxFOucry9/VjTlnOOkCyz1V+3J1HuxV82s09/SOhVP/xAAVEQEBAAAAAAAAAAAAAAAAAAAgEf/aAAgBAgEBPwAwf//EABURAQEAAAAAAAAAAAAAAAAAACAR/9oACAEDAQE/ADR//9k=",
+    "themeDescription": "柔和的光、近处的温度，以及日常里安静停留的瞬间。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAoACQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAQFAwL/xAAWAQEBAQAAAAAAAAAAAAAAAAABAAL/2gAMAwEAAhADEAAAAMyMzl1m1cBQNCmqs6imqzXTSikVmwCLIhWABf/EACEQAAICAgICAwEAAAAAAAAAAAECAAMEERIhFDEiMjNx/9oACAEBAAE/AKLVVH/sbIPx6lqmwkkSynuCmVO7DQMZbNJOFnRlyNrepyYTBq+U0Iqgx9bKw1pv1MRWGzqKlhH0iVW+tTxk3t3AjHEU65yvL3+WNOWc46QLLBav65Oo92Kvu1nnn0joVT//xAAVEQEBAAAAAAAAAAAAAAAAAAAgEf/aAAgBAgEBPwAwf//EABURAQEAAAAAAAAAAAAAAAAAACAR/9oACAEDAQE/ADR//9k=",
     "title": "暖 13",
     "year": 2025,
     "date": "2025-07-08",
@@ -338,9 +338,9 @@
     "order": 13,
     "slug": "warm-13",
     "originalFile": "Z50_4374.jpg",
-    "optimized": false,
-    "sizeBytes": 4864343,
-    "previewSizeBytes": 134044
+    "optimized": true,
+    "sizeBytes": 2296566,
+    "previewSizeBytes": 134199
   },
   {
     "src": "/images/photography/warm/warm-14.jpg",
@@ -353,17 +353,17 @@
     "category": "暖",
     "themeSlug": "warm",
     "themeSubtitle": "Apricity",
-    "themeDescription": "偏向柔和、亲近与温度的画面。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAZACQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAECAwUEBv/EABcBAAMBAAAAAAAAAAAAAAAAAAECAwD/2gAMAwEAAhADEAAAAPN7/BclNXswkGZhjJBTjSaIRGZYHf/EACAQAAICAQUAAwAAAAAAAAAAAAECAAMRBAUSMUEhMkL/2gAIAQEAAT8AWhwFcSpAVWV0Ixj0IlTMYNTWMjjFvXABETVIP1BuVdfsbeHetkj2tyPzOTzB9mFHcIHhhzG+0aN1Fgn/xAAaEQACAgMAAAAAAAAAAAAAAAAAAgEQERIh/9oACAECAQE/AIdjZjt4P//EABkRAAIDAQAAAAAAAAAAAAAAAAABERIgIv/aAAgBAwEBPwCiRySsf//Z",
+    "themeDescription": "柔和的光、近处的温度，以及日常里安静停留的瞬间。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAZACQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAECAwUEBv/EABcBAAMBAAAAAAAAAAAAAAAAAAECAwD/2gAMAwEAAhADEAAAAPN7/BclNXswkCzDGWCnGk0QiMywO//EACAQAAICAQUAAwAAAAAAAAAAAAECAAMRBAUSMUEhMkL/2gAIAQEAAT8AWhwFcSpAVWV0Ixj0IlTMYNTWMjjFvXABHUTVIP1BuVdfsbeHetkj2tyPzCzzB9mFHcIHjQ5jfaNG6iwT/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAIBIRAREv/aAAgBAgEBPwCHazpi86P/xAAZEQACAwEAAAAAAAAAAAAAAAAAARESICL/2gAIAQMBAT8AokckrH//2Q==",
     "title": "暖 14",
     "year": 2026,
     "featured": false,
     "order": 14,
     "slug": "warm-14",
     "originalFile": "Z50_4397.jpg",
-    "optimized": false,
-    "sizeBytes": 12965128,
-    "previewSizeBytes": 82198
+    "optimized": true,
+    "sizeBytes": 4999063,
+    "previewSizeBytes": 82108
   },
   {
     "src": "/images/photography/warm/warm-15.jpg",
@@ -376,8 +376,8 @@
     "category": "暖",
     "themeSlug": "warm",
     "themeSubtitle": "Apricity",
-    "themeDescription": "偏向柔和、亲近与温度的画面。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAsACQDASIAAhEBAxEB/8QAGwAAAgIDAQAAAAAAAAAAAAAAAAUDBAEGBwL/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAgH/2gAMAwEAAhADEAAAANPcqXg88M5CiMg5i3QyTXQ86mqnejmhGqEkZczVbdRmCQP/xAAnEAACAQIEBAcAAAAAAAAAAAABAgADEQQFEiEQIzFhExUiM0FTY//aAAgBAQABPwC3oEyYXqPGpm2wiYNNeorvPBijlTIhes8WnaKnaaO01KEAmSV6dKuxdocwwwHuRMywg61hPMMJ9oh3taUndHBAiYpAovTj1ufrtteHMvyWA2i1Cu9o2JqMLRiWJJ4GL1hUWnzCJ//EABgRAAMBAQAAAAAAAAAAAAAAAAABERAS/9oACAECAQE/ALDs7xKkZCTP/8QAGBEAAwEBAAAAAAAAAAAAAAAAABAREgH/2gAIAQMBAT8Al4YMOlLV/9k=",
+    "themeDescription": "柔和的光、近处的温度，以及日常里安静停留的瞬间。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAsACQDASIAAhEBAxEB/8QAGwAAAgIDAQAAAAAAAAAAAAAAAAUDBAEGBwL/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAgH/2gAMAwEAAhADEAAAANPcqXg88M5CiMg5i3QyTXQ86mqnejmhGqEkZczVbdRmCQP/xAAmEAACAQIFAgcAAAAAAAAAAAABAgADEQQFEiExI2EQExUiM1Nj/9oACAEBAAE/ALewTJhd3jUzbYRMGmvUV3nkRR0pkQvWeLTtFTtNHaalCATJK9OlXYu0OYYYD5ImZYQc1hPUMJ9oh3taUndHBAiYpAovTj1uvrtteHMvyWA2i1NO9o2JqMLRiWJJ8DF5hUWh5hE//8QAGBEAAwEBAAAAAAAAAAAAAAAAAAEREBL/2gAIAQIBAT8AsOzvEqRkJM//xAAYEQADAQEAAAAAAAAAAAAAAAAAEBESAf/aAAgBAwEBPwCXhgw6UtX/2Q==",
     "title": "暖 15",
     "year": 2025,
     "date": "2025-07-08",
@@ -388,9 +388,9 @@
     "order": 15,
     "slug": "warm-15",
     "originalFile": "Z50_4412-3.jpg",
-    "optimized": false,
-    "sizeBytes": 4584765,
-    "previewSizeBytes": 87493
+    "optimized": true,
+    "sizeBytes": 1812512,
+    "previewSizeBytes": 87549
   },
   {
     "src": "/images/photography/warm/warm-16.jpg",
@@ -403,8 +403,8 @@
     "category": "暖",
     "themeSlug": "warm",
     "themeSubtitle": "Apricity",
-    "themeDescription": "偏向柔和、亲近与温度的画面。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAkACQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAUCBAYDAf/EABgBAAIDAAAAAAAAAAAAAAAAAAEDAAIE/9oADAMBAAIQAxAAAADKSg/DE/FynkgehBcr6Vd0tXVZ0WpHQYtjogyaeCQLSiBoR//EAB4QAAEEAwEBAQAAAAAAAAAAAAEAAgMRBAUSEDEy/9oACAEBAAE/APvxc0LUT+CSQnG3E+A0tViQ5Jp7ls8RmPLy1V5SglkjcOHLImmlfb7KIKKjic8rXa6L9SLNx4Wg8tT2EdBGJ6haLCxSQ1ZhtSC0XEGl/8QAGxEAAgIDAQAAAAAAAAAAAAAAAQIAAxARMSH/2gAIAQIBAT8AJ1Ad4sdVHsRwwmxLeSvgx//EABgRAAMBAQAAAAAAAAAAAAAAAAABAhAR/9oACAEDAQE/AEujWTLKlo4ySs//2Q==",
+    "themeDescription": "柔和的光、近处的温度，以及日常里安静停留的瞬间。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAkACQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAUCBAYDAf/EABgBAAMBAQAAAAAAAAAAAAAAAAABAwIE/9oADAMBAAIQAxAAAADKSg/VE/FynCB6NFyvpZ7S1dVnVqkdCk2OiDk6eCQNFEC8P//EAB4QAAEEAwEBAQAAAAAAAAAAAAEAAgMRBAUSEDEy/9oACAEBAAE/APvxc0LUT+CSQnG3E+A0tViQ5Jp7ls8RmPLy1V5SglkjcOHLImmlfb7KIKKjic8rXa6L9SLNx4Wg8tT2EdBGJ6haLCxXENWYbUgtFxBpf//EABsRAAICAwEAAAAAAAAAAAAAAAECAAMQETEh/9oACAECAQE/ACdQHeLHVR7EcMJsS3kr4Mf/xAAYEQADAQEAAAAAAAAAAAAAAAAAAQIQEf/aAAgBAwEBPwBLo1kyypaOMkrP/9k=",
     "title": "暖 16",
     "year": 2025,
     "date": "2025-10-01",
@@ -415,9 +415,9 @@
     "order": 16,
     "slug": "warm-16",
     "originalFile": "Z50_5821-2.jpg",
-    "optimized": false,
-    "sizeBytes": 6530525,
-    "previewSizeBytes": 107349
+    "optimized": true,
+    "sizeBytes": 2606466,
+    "previewSizeBytes": 107342
   },
   {
     "src": "/images/photography/warm/warm-17.jpg",
@@ -430,8 +430,8 @@
     "category": "暖",
     "themeSlug": "warm",
     "themeSubtitle": "Apricity",
-    "themeDescription": "偏向柔和、亲近与温度的画面。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAkACQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAIBAwUEBv/EABcBAQEBAQAAAAAAAAAAAAAAAAEAAwL/2gAMAwEAAhADEAAAAPFTcsqmnmEAJ1W8MmmtkWuNQh1nAEPAUoFf/8QAIBAAAQQCAgMBAAAAAAAAAAAAAQACAxEQMQQSEyEigf/aAAgBAQABPwBUvWfFbewTQb0peERB5cxyhrSEJIwNKZ4dxx9/mBZVq/SZZ2VI5mgF2yCnbx//xAAbEQACAQUAAAAAAAAAAAAAAAAAAQIQERIgMf/aAAgBAgEBPwATT5SxFY6//8QAGxEBAAICAwAAAAAAAAAAAAAAAQACAxEQIDH/2gAIAQMBAT8AiJwX1Mly+nzr/9k=",
+    "themeDescription": "柔和的光、近处的温度，以及日常里安静停留的瞬间。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAkACQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAIBAwUEBv/EABcBAQEBAQAAAAAAAAAAAAAAAAEAAwL/2gAMAwEAAhADEAAAAPFTcsqmnmEAJ1W8MmmtkWuNQh1nAEPAUoFf/8QAIBAAAQQBBQEBAAAAAAAAAAAAAQACAxEQBBITITEigf/aAAgBAQABPwBUus8Vs3BNBvxS6IiDlzHKGtIQkjA8Uzw7Tj7/ADAsq1fSZZ9KkczoALdkFO9x/8QAGxEAAgEFAAAAAAAAAAAAAAAAAAECEBESIDH/2gAIAQIBAT8AE0+UsRWOv//EABsRAQACAgMAAAAAAAAAAAAAAAECEQADECAx/9oACAEDAQE/AKxE4J1myZOnzr//2Q==",
     "title": "暖 17",
     "year": 2025,
     "date": "2025-10-03",
@@ -442,9 +442,9 @@
     "order": 17,
     "slug": "warm-17",
     "originalFile": "Z50_5943.jpg",
-    "optimized": false,
-    "sizeBytes": 4368991,
-    "previewSizeBytes": 76681
+    "optimized": true,
+    "sizeBytes": 1358613,
+    "previewSizeBytes": 76440
   },
   {
     "src": "/images/photography/azure/azure-01.jpg",
@@ -457,8 +457,8 @@
     "category": "湛",
     "themeSlug": "azure",
     "themeSubtitle": "Azure",
-    "themeDescription": "更清透、冷静、带有空气感的影像。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAUACQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAEEBQYC/8QAFgEAAwAAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAADLsc7ZcbHvItJ3VNF8/JaSBID/xAAiEAABAwIGAwAAAAAAAAAAAAABAAIDBBEFEBITFEJBUWH/2gAIAQEAAT8Ajj+hbcgC2HuTaSQ+FwyhO8dkK6W1tSZWPHdNxOcdkcUnyGVytR9r/8QAGxEAAgIDAQAAAAAAAAAAAAAAAQIAAxIgQWH/2gAIAQIBAT8ALNwxms4RMrfNP//EABwRAAEEAwEAAAAAAAAAAAAAAAEAAgMSIEFRUv/aAAgBAwEBPwCjPKayPYKpF04f/9k=",
+    "themeDescription": "清透、冷静，保留天空与水面之间的呼吸感。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAUACQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAEEBQYC/8QAFgEAAwAAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAADLsc7ZcbHvItJ3VNF8/JaSBID/xAAiEAABAwIGAwAAAAAAAAAAAAABAAIDBBEFEBITFEJBUWH/2gAIAQEAAT8Ajj+hbcgC2HuTaSQ+FwyhO8dkK6W1tSZWSDum4nOOyOKT5DK5Wo+1/8QAGxEAAgIDAQAAAAAAAAAAAAAAAQIAAxIgQWH/2gAIAQIBAT8ALNwxms4RMrfNP//EABwRAAEEAwEAAAAAAAAAAAAAAAIAAQMSIEFSYf/aAAgBAwEBPwCgcoQj2zqkXuH/2Q==",
     "title": "湛 01",
     "year": 2025,
     "date": "2025-06-25",
@@ -469,9 +469,9 @@
     "order": 18,
     "slug": "azure-01",
     "originalFile": "1.jpg",
-    "optimized": false,
-    "sizeBytes": 9940047,
-    "previewSizeBytes": 48808
+    "optimized": true,
+    "sizeBytes": 3709793,
+    "previewSizeBytes": 48795
   },
   {
     "src": "/images/photography/azure/azure-02.jpg",
@@ -484,8 +484,8 @@
     "category": "湛",
     "themeSlug": "azure",
     "themeSubtitle": "Azure",
-    "themeDescription": "更清透、冷静、带有空气感的影像。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAgACQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAMBAgUGBP/EABcBAQEBAQAAAAAAAAAAAAAAAAEAAgP/2gAMAwEAAhADEAAAAOam6s6lMLSxQjq9Dn2dM6GY4rOPSD//xAAgEAACAwACAgMBAAAAAAAAAAABAgADEQQSEzEhMkFR/9oACAEBAAE/AKmBjWAGWXKcyeWF5TxLc01k7LaLUOdDGrsHtZ0aYf5KGKZrQX0P7UGciiq7SI3EA3fgQ0pv2iuf2K/WeciNb2XDMSf/xAAYEQADAQEAAAAAAAAAAAAAAAAAARIQEf/aAAgBAgEBPwDYRKOH/8QAGREAAgMBAAAAAAAAAAAAAAAAAAECEBFR/9oACAEDAQE/ALcn01mn/9k=",
+    "themeDescription": "清透、冷静，保留天空与水面之间的呼吸感。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAgACQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAIDBQYBBP/EABcBAQEBAQAAAAAAAAAAAAAAAAEAAgP/2gAMAwEAAhADEAAAAM114s67ARowhGrsM+/TNjWTFVx6Qf/EACAQAAIDAAEEAwAAAAAAAAAAAAECAAMREgQTMVEhMkH/2gAIAQEAAT8AqYGNaAZZcpzJ3YXlPSW5prJ2W0Woc4GNXYPKzg3qYfUoYpmtBfQ/lQTOooqu0iN0gG78CGld+0Ww/sV+M75Ea3kuGYk//8QAGBEAAwEBAAAAAAAAAAAAAAAAAAESEBH/2gAIAQIBAT8A2ESjh//EABkRAAIDAQAAAAAAAAAAAAAAAAABAhARUf/aAAgBAwEBPwC3J9NZp//Z",
     "title": "湛 02",
     "year": 2024,
     "date": "2024-10-02",
@@ -496,9 +496,9 @@
     "order": 19,
     "slug": "azure-02",
     "originalFile": "2.jpg",
-    "optimized": false,
-    "sizeBytes": 9232504,
-    "previewSizeBytes": 72527
+    "optimized": true,
+    "sizeBytes": 3314108,
+    "previewSizeBytes": 72569
   },
   {
     "src": "/images/photography/azure/azure-03.jpg",
@@ -511,8 +511,8 @@
     "category": "湛",
     "themeSlug": "azure",
     "themeSubtitle": "Azure",
-    "themeDescription": "更清透、冷静、带有空气感的影像。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAYACQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAIDBAEF/8QAGAEAAwEBAAAAAAAAAAAAAAAAAAECAwT/2gAMAwEAAhADEAAAAPAujd0Y8lRtazqka4oEFURMA//EAB4QAAICAgMBAQAAAAAAAAAAAAABAgMEERIUIRMi/9oACAEBAAE/AI17FSxUM67PgyGRA7Ven6Qyv1rl4W5ePxSjMlmQi9KRGRbI5jk2aZ//xAAbEQACAQUAAAAAAAAAAAAAAAAAAQMCEBETUf/aAAgBAgEBPwBTLhVMjbfB/8QAGhEAAQUBAAAAAAAAAAAAAAAAAQACAxNRIP/aAAgBAwEBPwAwHUyDSqm8f//Z",
+    "themeDescription": "清透、冷静，保留天空与水面之间的呼吸感。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAYACQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAIDBAEF/8QAGAEAAwEBAAAAAAAAAAAAAAAAAAECAwT/2gAMAwEAAhADEAAAAPAujd0Y8lRtazqka4oEFURMA//EAB4QAAIBBAMBAAAAAAAAAAAAAAABAgMEERITFCEi/9oACAEBAAE/AI08iosVBnXZwMhcQO1Tw/SF19Y28Kt3b6pRmSvIReFIjIqyNzZswz//xAAbEQACAQUAAAAAAAAAAAAAAAAAAQMCEBETUf/aAAgBAgEBPwBTLhVMjbfB/8QAGhEAAQUBAAAAAAAAAAAAAAAAAQACAxNRIP/aAAgBAwEBPwAwHUyDSqm8f//Z",
     "title": "湛 03",
     "year": 2024,
     "date": "2024-07-23",
@@ -523,9 +523,9 @@
     "order": 20,
     "slug": "azure-03",
     "originalFile": "3.jpg",
-    "optimized": false,
-    "sizeBytes": 8063499,
-    "previewSizeBytes": 48578
+    "optimized": true,
+    "sizeBytes": 2878491,
+    "previewSizeBytes": 48554
   },
   {
     "src": "/images/photography/azure/azure-04.jpg",
@@ -538,8 +538,8 @@
     "category": "湛",
     "themeSlug": "azure",
     "themeSubtitle": "Azure",
-    "themeDescription": "更清透、冷静、带有空气感的影像。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAtACQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAQCAwUBBv/EABcBAQEBAQAAAAAAAAAAAAAAAAIBAAP/2gAMAwEAAhADEAAAAMuabfQdo1BnCHAJhuFxVrta0wYBzXobYY6jiUcLThQW/wD/xAAiEAACAgEDBAMAAAAAAAAAAAABAgADEgQRMRATITIiQYH/2gAIAQEAAT8AJzYneCtbByAYdG/Ij0FPaERW+iCDKmA8MsS4cBZYllo2WuNTeD6CEV2MCBK6kPIiU1g+sQYiWqpc+YKCOIuQieANx+zUahgpFcezUFj8oAG4gVaxk0v1ebYiaq81VxrnJJ3m/aqBAl19j2bZRx2kLDmXXPYTken/xAAbEQADAAIDAAAAAAAAAAAAAAAAAQIREhBBUf/aAAgBAgEBPwCaaHTN16IdGo2KnjHXH//EABoRAAIDAQEAAAAAAAAAAAAAAAABAhAREkH/2gAIAQMBAT8AkkxRRzSRpg4rd9r/2Q==",
+    "themeDescription": "清透、冷静，保留天空与水面之间的呼吸感。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAtACQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAQBAwUCBv/EABcBAQEBAQAAAAAAAAAAAAAAAAIBAAP/2gAMAwEAAhADEAAAAMvtNvoJo1BnCHAJhvi4q12taaTz5zXobeMdRxKMHSCkt//EACIQAAICAQMEAwAAAAAAAAAAAAECAAMSBBExEBMhMiJBgf/aAAgBAQABPwAnNid4K1sHIBh0b8iPQU9oRFb6IIMqYDwyxLhwFliWWjZa41N4PoIRXYwIG0rqQ8iJTWD6xBiJaqFz5goI4i5CJ4A3H7NRqGCkVx7NSWPygAbiBVrGTS/V5tiJqrzVXGuckneb9qoECXX2PZjlHHaUsOZdc9jHI9P/xAAbEQADAAIDAAAAAAAAAAAAAAAAAQIREhBBUf/aAAgBAgEBPwCaaHTN16IdGo2KnjHXH//EABoRAAIDAQEAAAAAAAAAAAAAAAABAhAREkH/2gAIAQMBAT8AkkxRRzSRpg4rd9r/2Q==",
     "title": "湛 04",
     "year": 2025,
     "date": "2025-08-03",
@@ -550,9 +550,9 @@
     "order": 21,
     "slug": "azure-04",
     "originalFile": "4.jpg",
-    "optimized": false,
-    "sizeBytes": 14279314,
-    "previewSizeBytes": 163149
+    "optimized": true,
+    "sizeBytes": 4853355,
+    "previewSizeBytes": 163028
   },
   {
     "src": "/images/photography/azure/azure-05.jpg",
@@ -565,8 +565,8 @@
     "category": "湛",
     "themeSlug": "azure",
     "themeSubtitle": "Azure",
-    "themeDescription": "更清透、冷静、带有空气感的影像。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAaACQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEBQL/xAAXAQEBAQEAAAAAAAAAAAAAAAADAgEE/9oADAMBAAIQAxAAAADVTGlSrQ1VYkyi42jL6531ZkS5TiYQv//EACMQAAICAQQABwAAAAAAAAAAAAECAAMEECExQQURExUzQlH/2gAIAQEAAT8AfOXiHLU9w3Ox2BllpA3E9aWVKvZMV1r+hM91VR8Et8TqesqKN4bmBO0bMH5EyUPKiGyk9CO6dAQuvnwNFh4jE6f/xAAaEQEBAAIDAAAAAAAAAAAAAAABAAIQERJS/9oACAECAQE/ABLvl5uZxINf/8QAGxEAAgIDAQAAAAAAAAAAAAAAAAECERASUWH/2gAIAQMBAT8ApmkeleCkxvH/2Q==",
+    "themeDescription": "清透、冷静，保留天空与水面之间的呼吸感。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAaACQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEBQL/xAAXAQEBAQEAAAAAAAAAAAAAAAADAgEE/9oADAMBAAIQAxAAAADVTGlSrSxVYkyi42jL6531ZkS5TiYQ/wD/xAAjEAACAgEEAAcAAAAAAAAAAAABAgADMQQQIUEFERMVM0JR/9oACAEBAAE/AH1y4h1anuG52PAMstIyJ60epV7Jiutf0JnuqqPglvidT1lRRzDcwJ4jawfkTUocqIbKT0I7p0BC6+eBssOIxO3/xAAaEQEBAAIDAAAAAAAAAAAAAAABAAIQERJS/9oACAECAQE/ABLvl5uZxINf/8QAGxEAAgEFAAAAAAAAAAAAAAAAAAECEBESUWH/2gAIAQMBAT8AaZhHZbgpMbp//9k=",
     "title": "湛 05",
     "year": 2024,
     "date": "2024-08-30",
@@ -578,8 +578,8 @@
     "slug": "azure-05",
     "originalFile": "5.jpg",
     "optimized": true,
-    "sizeBytes": 12979596,
-    "previewSizeBytes": 148390
+    "sizeBytes": 4975332,
+    "previewSizeBytes": 148266
   },
   {
     "src": "/images/photography/azure/azure-06.jpg",
@@ -592,17 +592,17 @@
     "category": "湛",
     "themeSlug": "azure",
     "themeSubtitle": "Azure",
-    "themeDescription": "更清透、冷静、带有空气感的影像。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAA+ACQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAwUABAYCB//EABcBAQEBAQAAAAAAAAAAAAAAAAACAwH/2gAMAwEAAhADEAAAADOu7WkCWPKhno2lxVc+ZvstNgHKdjmYeJBdXs40ZKXlXhHLckG6uLoZgCDjqCnX/8QAIxAAAgIBBAICAwAAAAAAAAAAAQIAAxEEBRIhIjETQVFhYv/aAAgBAQABPwCug8vUo08eoCajTZ7EOn/mJjhlACZUxx5DEYBo9P7hTB+pt+pF6ji0Un8zJj5P3HZAx8xKL7aGDK2JVvrInS5MG/3888Jfvj21FQmDGvtLElzCBNFSHfOMiW6RHXpcS6lq+pxg7miDIcz5PGXcWEPv1K1UGK85+Md4WgiuZzOIzGZn/8QAHBEAAgICAwAAAAAAAAAAAAAAAAECEBESE1Jh/9oACAECAQE/AHJkWbGxskcnlNGZdaVf/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAEREiD/2gAIAQMBAT8ASGiEhDHf/9k=",
+    "themeDescription": "清透、冷静，保留天空与水面之间的呼吸感。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAA+ACQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAwUABAYCB//EABcBAQEBAQAAAAAAAAAAAAAAAAACAwH/2gAMAwEAAhADEAAAADOu7WkCWPKhno2lxVc+ZvstNgHKdjmYeJBcoM40ZKXlXhHLckG6uLoZgCDjqCnX/8QAIxAAAgIBBAICAwAAAAAAAAAAAQIAAxEEBRIhIjETQVFhYv/aAAgBAQABPwCug8vUo08eoCajTZ7EOn/mJjhlACZUxx5DEYBpZT+4UwfqbfqReoKtFJ/MyY+T9x2QMfMSi+2hgytiVb6yJ0uTBv8Afzzwl++PbUVCYMa+0sSXMIE0VId84yJbpEdelxLqWr6nGDuaIMhzPk8ZdxYQ+/UrVQYrzn4x3haCK5nM4jMZmf/EABwRAAICAgMAAAAAAAAAAAAAAAABAhAREhNSYf/aAAgBAgEBPwByZFmxsbJHJ5TRmXWlX//EABgRAAMBAQAAAAAAAAAAAAAAAAABERIg/9oACAEDAQE/AEhohIQx3//Z",
     "title": "湛 06",
     "year": 2026,
     "featured": false,
     "order": 23,
     "slug": "azure-06",
     "originalFile": "1782304071775.jpg",
-    "optimized": false,
-    "sizeBytes": 1078994,
-    "previewSizeBytes": 53687
+    "optimized": true,
+    "sizeBytes": 1347239,
+    "previewSizeBytes": 53679
   },
   {
     "src": "/images/photography/azure/azure-07.jpg",
@@ -615,17 +615,17 @@
     "category": "湛",
     "themeSlug": "azure",
     "themeSubtitle": "Azure",
-    "themeDescription": "更清透、冷静、带有空气感的影像。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAXACQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAEEBQIH/8QAGQEAAgMBAAAAAAAAAAAAAAAAAgMABAUB/9oADAMBAAIQAxAAAAChNydXEo86GaLIUSnegYxWt5mSAfInf//EAB4QAAIBBAMBAAAAAAAAAAAAAAABAgMEERITITEi/9oACAEBAAE/ANcGhqajicOFliotolR0WWV7qnDpDuMvLbHZQcGmXk4W3w/V4XW86MZbklT6STbJRmn4j//EABsRAAIDAAMAAAAAAAAAAAAAAAACARESEBMh/9oACAECAQE/ANLdWbVV9Y70JaZJ4//EABwRAAICAgMAAAAAAAAAAAAAAAECABEDEhAUIf/aAAgBAwEBPwAB6vUzV3c6pU6+SBFHgg4//9k=",
+    "themeDescription": "清透、冷静，保留天空与水面之间的呼吸感。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAXACQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAEEBQIH/8QAGQEAAgMBAAAAAAAAAAAAAAAAAgMABAUB/9oADAMBAAIQAxAAAAChNydXFo86GaJwolO9AxitbzMkA+RO/wD/xAAeEAACAQQDAQAAAAAAAAAAAAAAAQIDBBESEyExIv/aAAgBAQABPwDXBoamo4nDhZYqLaJUdFlle6pw6Q7jLy2x2UHBpl5OFt8P1eF1vOjGW5JU+kk2yUZp+I//xAAbEQACAwADAAAAAAAAAAAAAAAAAgEREhATIf/aAAgBAgEBPwDS3Vm1VfWO9CWmSeP/xAAbEQACAwADAAAAAAAAAAAAAAABAgAREgMQFP/aAAgBAwEBPwAB6vJmXdzlKnn5IEUChB1//9k=",
     "title": "湛 07",
     "year": 2026,
     "featured": false,
     "order": 24,
     "slug": "azure-07",
     "originalFile": "1782304071779.jpg",
-    "optimized": false,
-    "sizeBytes": 6859604,
-    "previewSizeBytes": 56061
+    "optimized": true,
+    "sizeBytes": 2192774,
+    "previewSizeBytes": 56021
   },
   {
     "src": "/images/photography/azure/azure-08.jpg",
@@ -638,8 +638,8 @@
     "category": "湛",
     "themeSlug": "azure",
     "themeSubtitle": "Azure",
-    "themeDescription": "更清透、冷静、带有空气感的影像。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAA2ACQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAQCAwUGAf/EABcBAAMBAAAAAAAAAAAAAAAAAAECAwT/2gAMAwEAAhADEAAAAOZ9i2ae32MQeJeROTp5O3uzsKslIxJlp8o7Y1m00L6SDJnFgVn1IRsxyYMMgBx//8QAIRAAAgICAQUBAQAAAAAAAAAAAQIAAwQRIQUSEzFRMiL/2gAIAQEAAT8AUgnUSsBuYTsj5DQtjgn1ACo0vAirrkxEL60IuISNniUKig7MJWJSGO5i1Vof6lq09vBMRB8g0B+ZTZphsSsB12pniPbyZ4mA4MCv9EXIffboTGyHR9zIvtb1ZrUtz8kV6gzMkD9mV4VuSAwKiJ0iwe3j9Lt9q4mTh3UAF14nkHwSrIfH0wJmJacmoOZa3YhPyZ/UrLN1jhZ5DP/EACIRAAIBAgUFAAAAAAAAAAAAAAABAhJSAxETQVEEIjFTYf/aAAgBAgEBPwBvdoljJRk13NbI1ur9bKK0/BhQcLWviMylXmXEzTdwhFT5P//EAB8RAAEDBAMBAAAAAAAAAAAAAAEAAhEDEjFRECJSE//aAAgBAwEBPwANt6gwDkqBc0DqIyVZQ9pzy2MlVHB+1Ck6U7avoPCPFo0v/9k=",
+    "themeDescription": "清透、冷静，保留天空与水面之间的呼吸感。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAA2ACQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAQCAwUGAf/EABcBAAMBAAAAAAAAAAAAAAAAAAECAwT/2gAMAwEAAhADEAAAAOZ9i2ae32MQeJeROTp5O3uzsKslIxJlp8o7Y1m00L6SDJnFgVn1IRsxyYMMgBx//8QAIRAAAgICAQUBAQAAAAAAAAAAAQIAAwQRIQUSEzFRMiL/2gAIAQEAAT8AUgnUSsBuYTsj5DQtjgn1ACo0vAirrkxEL60ImISNmUKig7MJWJSGO5i1Vof6lq09vBMRB8g0B+ZTZphsSsB12pniPbyZ4mA4MCv9EXIffboTGyHR9zIvtb1ZrUtz8kV6gzMkD9mV4VuSAwKiJ0iwe3j9Lt9q4mTh3UAF14nkHwSrIfH0wJmJacmoOZa3YhPyZ/UrLN1jhZ5DP//EACIRAAIBAgUFAAAAAAAAAAAAAAABAhJSAxETQVEEIjFTYf/aAAgBAgEBPwBvdoljJRk13NbI1ur9bKK0/BhQcLWviMylXmXEzTdwhFT5P//EAB8RAAEDBAMBAAAAAAAAAAAAAAEAAhEDEjFREyJSEP/aAAgBAwEBPwANt6gwDkqBc0DqIyVx0Pac8tjJVRwftQpOlO2rkHhH5aNL/9k=",
     "title": "湛 08",
     "year": 2025,
     "date": "2025-11-08",
@@ -651,8 +651,8 @@
     "slug": "azure-08",
     "originalFile": "DSC_0066.jpg",
     "optimized": true,
-    "sizeBytes": 15486134,
-    "previewSizeBytes": 99612
+    "sizeBytes": 4882225,
+    "previewSizeBytes": 99760
   },
   {
     "src": "/images/photography/azure/azure-09.jpg",
@@ -665,8 +665,8 @@
     "category": "湛",
     "themeSlug": "azure",
     "themeSubtitle": "Azure",
-    "themeDescription": "更清透、冷静、带有空气感的影像。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAA1ACQDASIAAhEBAxEB/8QAGgAAAwEBAQEAAAAAAAAAAAAAAAQGBQMCAf/EABgBAAMBAQAAAAAAAAAAAAAAAAACAwQB/9oADAMBAAIQAxAAAACWrZK5tnR5MoNPkPjpL2MK/l2+287uFKSocTczmVd7mvopRIaAw/oUn71QV84Dh//EACUQAAICAQMEAQUAAAAAAAAAAAECAAMRBCEiEiMxcVEFEBMyYf/aAAgBAQABPwCh2rsUiKnUin5ENUamNTvEHcX3ErC0oT8TVWrTUWBmi1D3lg0ZN5Se4nua69Do1AYZxLLnKdJYkT6WwFreoHrYZyIjlSDGvLgEwhmGwlBtpJYL5E/PehIEQAmFThcLtMp0gDYwuwhYk+IpAi6plGBK7+XIThjJE7f8+wifusY8ISc+Z//EABsRAAMAAgMAAAAAAAAAAAAAAAABEhARIVFh/9oACAECAQE/AE9FFDZa7K9GNI4w8f/EABwRAAICAgMAAAAAAAAAAAAAAAABAhIQUSExYf/aAAgBAwEBPwCUbFCgo9lHop4ITeznEcf/2Q==",
+    "themeDescription": "清透、冷静，保留天空与水面之间的呼吸感。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAA1ACQDASIAAhEBAxEB/8QAGgAAAwEBAQEAAAAAAAAAAAAAAAQGBQIDAf/EABgBAAMBAQAAAAAAAAAAAAAAAAACAwQB/9oADAMBAAIQAxAAAACWrZK5tnR8mUGn5D46S9jCv5dvbed7hSkqHE3M5lXe4W0UokNAYf0KT71QV84Dh//EACQQAAICAQMEAgMAAAAAAAAAAAECAAMRBBIhIiMxcQVREBMy/9oACAEBAAE/AKHauxSIqbkU/YhqjUxqeYg7i+4lYSlCfqaq1aaiwM0Woe8sGjJzKT3E9zXXodGoDc4llzlNpbifFsBa3qB62GdwiOVIMe8uATCGYcCUG2kltvkT996EgRACYVOBheJlNoA4MLsIWJPiKQIuqZRgSu/q6hOjGZ2/wIn9rGPRCTnzP//EABsRAAMAAgMAAAAAAAAAAAAAAAABEhARIVFh/9oACAECAQE/AE9FFDZa7K9GNI4w8f/EABwRAAICAgMAAAAAAAAAAAAAAAABAhIQUSExYf/aAAgBAwEBPwCUbFCgo9lHop4ITeznEcf/2Q==",
     "title": "湛 09",
     "year": 2026,
     "date": "2026-01-10",
@@ -678,8 +678,8 @@
     "slug": "azure-09",
     "originalFile": "DSC_1191.jpg",
     "optimized": true,
-    "sizeBytes": 11924279,
-    "previewSizeBytes": 81151
+    "sizeBytes": 4976901,
+    "previewSizeBytes": 81165
   },
   {
     "src": "/images/photography/azure/azure-10.jpg",
@@ -692,8 +692,8 @@
     "category": "湛",
     "themeSlug": "azure",
     "themeSubtitle": "Azure",
-    "themeDescription": "更清透、冷静、带有空气感的影像。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAA2ACQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAIBAwQG/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAECA//aAAwDAQACEAMQAAAA40eKSD6UYxgJvfcOjL0XMRQSa52CE1ooSpzoENIWQz0rgAgBH//EACAQAAEEAwEAAwEAAAAAAAAAAAEAAgMRBBAhEhMyQXH/2gAIAQEAAT8Arda881SkicImnxWmuIQiLvqCUMURs+R5T8mR48k8XEGsH4sbIELgaCnjgyoXSR8cB0Jw6V5Vq02ZzQaKsP8A6qcFatFytCUq9Hf/xAAdEQACAQQDAAAAAAAAAAAAAAABAgAQEiExICJR/9oACAECAQE/AKlsaignctai4nX08P/EAB4RAAEDBAMAAAAAAAAAAAAAAAIAARAREiFRICIx/9oACAEDAQE/AJYcoseK4dwTVXbTcP/Z",
+    "themeDescription": "清透、冷静，保留天空与水面之间的呼吸感。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAA2ACQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAIBAwQG/8QAFwEAAwEAAAAAAAAAAAAAAAAAAAECA//aAAwDAQACEAMQAAAA40eKSD6UYxgJvfcOjL0XMRQSaZ2CCrRQlVToELhZDPSuACAEf//EACIQAAEEAgIBBQAAAAAAAAAAAAEAAgMRBBIQIRMgMTJBcf/aAAgBAQABPwCua4164pSROETTpXDXEIRF3xBKGKI2eR5T8mR41J6XSDWD6WNkCFwNBTxwZULpI+nAeycOytVa2TZnNBoqw/8AVTgrVouVoSq/T//EAB0RAAIBBAMAAAAAAAAAAAAAAAECABASITEgIlH/2gAIAQIBAT8AqWxqKCdy1qLidfTw/8QAHhEAAgEDBQAAAAAAAAAAAAAAAQIAEBFREiAhIjH/2gAIAQMBAT8AqF5jWHk1LmjC87YGz//Z",
     "title": "湛 10",
     "year": 2026,
     "date": "2026-01-17",
@@ -705,22 +705,22 @@
     "slug": "azure-10",
     "originalFile": "DSC_1521-已增强-降噪.jpg",
     "optimized": true,
-    "sizeBytes": 12001346,
-    "previewSizeBytes": 62573
+    "sizeBytes": 5003449,
+    "previewSizeBytes": 62616
   },
   {
     "src": "/images/photography/azure/azure-11.jpg",
     "previewSrc": "/images/photography/azure/preview/azure-11-preview.jpg",
     "alt": "湛主题摄影作品 11",
-    "width": 5231,
-    "height": 7847,
+    "width": 4185,
+    "height": 6278,
     "previewWidth": 600,
     "previewHeight": 900,
     "category": "湛",
     "themeSlug": "azure",
     "themeSubtitle": "Azure",
-    "themeDescription": "更清透、冷静、带有空气感的影像。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAA2ACQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAMBBQYCBP/EABgBAAMBAQAAAAAAAAAAAAAAAAACAwEE/9oADAMBAAIQAxAAAACp5nnu4OmxYUigtRXz83K518For04WB4hXoyrXC+kM+vTSGaA6kEcaGCwNP//EACYQAAICAQQBAgcAAAAAAAAAAAECAAMRBAUSIVETQRAUFSIxMlL/2gAIAQEAAT8A+AWBYLHA/EadxMymsNF064/Wem2YQQe5Uw8SnkoGREeviItAzL9OMZgo4KpURcuOPvMmr7SMz6yP4j7uLBgrF3bTcAuIm50I/IS3dKmckCMqNkBe4KMnGIdE4h01g8z0bPMS3DFiO495x0O5TqbA3ZlmptYZnzR91n//xAAcEQACAgIDAAAAAAAAAAAAAAAAARESIkECEFH/2gAIAQIBAT8AlCrBh4NJIsSXb2TyMutks//EAB0RAAIDAAIDAAAAAAAAAAAAAAABAhESECEjQVL/2gAIAQMBAT8Aal2PVnl+hOTfaMlGIr0ZiVHmj//Z",
+    "themeDescription": "清透、冷静，保留天空与水面之间的呼吸感。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAA2ACQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAUCAwYBBP/EABgBAAMBAQAAAAAAAAAAAAAAAAACAwEE/9oADAMBAAIQAxAAAABTHse7glbxhSNA1FfP9c1zr4GlXpzWB4hWRiuEL6Mz9emkM0BLoI5aGFYGn//EACQQAAICAQQBBAMAAAAAAAAAAAECAAMRBAUSIVETFSJSMTJB/9oACAEBAAE/AIYFgWCxwPxGncTMprDRdOuP1nBs9CEEHuVMPEp5KBkRHr4iJQMy/TjGYKOAUqIuXHH+zJq+JGZ7yPpH3cWDBWLu2m4BcRNzoR+Qlu6VM5IWMqNkBe4KMnGIdE4h01g8z0bPMS7DFiO495x0O5TqbA3ZlmptYZzDqj9Z/8QAHBEAAgICAwAAAAAAAAAAAAAAAAEREiJBAhBR/9oACAECAQE/AJQqwYeDSSLEl29luRl1sln/xAAdEQACAwACAwAAAAAAAAAAAAAAAQIREhAhI0FS/9oACAEDAQE/AGpdj1Z5foTk32jJRiK9GYlR5o//2Q==",
     "title": "湛 11",
     "year": 2026,
     "date": "2026-01-18",
@@ -732,8 +732,8 @@
     "slug": "azure-11",
     "originalFile": "DSC_2883.jpg",
     "optimized": true,
-    "sizeBytes": 14691441,
-    "previewSizeBytes": 133566
+    "sizeBytes": 4895136,
+    "previewSizeBytes": 132373
   },
   {
     "src": "/images/photography/azure/azure-12.jpg",
@@ -746,8 +746,8 @@
     "category": "湛",
     "themeSlug": "azure",
     "themeSubtitle": "Azure",
-    "themeDescription": "更清透、冷静、带有空气感的影像。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAASACQDASIAAhEBAxEB/8QAGgAAAQUBAAAAAAAAAAAAAAAAAAIDBAUGAf/EABcBAAMBAAAAAAAAAAAAAAAAAAABAgP/2gAMAwEAAhADEAAAAIFtTS6y0NbAQD46TeddBWlAM4AL/8QAIxAAAgICAAUFAAAAAAAAAAAAAQIAAwQSBRETFUEQFDFCUv/aAAgBAQABPwAYFSV7M8wKqqV38wZi/Gpl9VeQ5rUmdrsH2nW3XkZ71K0Er4qpPILKc7p22WHzO8L+YkaACN6f/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAIRICH/2gAIAQIBAT8Aq0aHMf/EAB0RAAECBwAAAAAAAAAAAAAAAAABAgMQERIhIkH/2gAIAQMBAT8ApEtyMRxscn//2Q==",
+    "themeDescription": "清透、冷静，保留天空与水面之间的呼吸感。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAASACQDASIAAhEBAxEB/8QAGgAAAQUBAAAAAAAAAAAAAAAAAAIDBAUGAf/EABcBAAMBAAAAAAAAAAAAAAAAAAABAgP/2gAMAwEAAhADEAAAAIFtTS6y0NbAQD46TeddBWlAM4AL/8QAIxAAAgICAAUFAAAAAAAAAAAAAQMAAgQSBRAVIUERExRCUv/aAAgBAQABPwAYCqL2teYClJrv5gzKjtqY9S8i5XUmdLYPtC7evoZ82i6CL4rUntWJzvbaxh8zrFfzKS0AEty//8QAGBEAAwEBAAAAAAAAAAAAAAAAAAIRICH/2gAIAQIBAT8Aq0aHMf/EAB0RAAECBwAAAAAAAAAAAAAAAAABAgMQERIhIkH/2gAIAQMBAT8ApEtyMRxscn//2Q==",
     "title": "湛 12",
     "year": 2026,
     "date": "2026-02-22",
@@ -759,8 +759,8 @@
     "slug": "azure-12",
     "originalFile": "DSC_3276.jpg",
     "optimized": true,
-    "sizeBytes": 14193731,
-    "previewSizeBytes": 88397
+    "sizeBytes": 5206510,
+    "previewSizeBytes": 88421
   },
   {
     "src": "/images/photography/azure/azure-13.jpg",
@@ -773,8 +773,8 @@
     "category": "湛",
     "themeSlug": "azure",
     "themeSubtitle": "Azure",
-    "themeDescription": "更清透、冷静、带有空气感的影像。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAUACQDASIAAhEBAxEB/8QAGgABAAIDAQAAAAAAAAAAAAAAAAEEAgUGA//EABgBAQADAQAAAAAAAAAAAAAAAAIAAQME/9oADAMBAAIQAxAAAAC/d5O1oOmjQ5HTZOcSqsD548QvAWf/xAAeEAACAgIDAQEAAAAAAAAAAAABAgADBBESITIxQf/aAAgBAQABPwCkiKZuMRG1uV5Fij1KsqwgbeNlW6GmhyX17l2ZcHIBinqciEjX2BV7jXWa+zmx/Z//xAAXEQADAQAAAAAAAAAAAAAAAAAAAREg/9oACAECAQE/AGTP/8QAGREAAgMBAAAAAAAAAAAAAAAAAAECEBJh/9oACAEDAQE/AIzN8NCHX//Z",
+    "themeDescription": "清透、冷静，保留天空与水面之间的呼吸感。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAUACQDASIAAhEBAxEB/8QAGgABAAIDAQAAAAAAAAAAAAAAAAEEAgUGA//EABgBAQADAQAAAAAAAAAAAAAAAAIAAQME/9oADAMBAAIQAxAAAAC/d5O1oOmjQ5HTZOcSqsD548QvAWf/xAAeEAACAgIDAQEAAAAAAAAAAAABAgADBBESITIxQf/aAAgBAQABPwCkiKZuMRG1uV5Fij1KsqwgbeNlW6GmhyX17l2ZcHIBinqciEjX2BV7jXWa+zmx/Z//xAAXEQADAQAAAAAAAAAAAAAAAAAAAREg/9oACAECAQE/AGTP/8QAGREAAgMBAAAAAAAAAAAAAAAAAAECEBJh/9oACAEDAQE/AIzN8NiHX//Z",
     "title": "湛 13",
     "year": 2026,
     "date": "2026-02-22",
@@ -785,9 +785,9 @@
     "order": 30,
     "slug": "azure-13",
     "originalFile": "DSC_3304.jpg",
-    "optimized": false,
-    "sizeBytes": 14982362,
-    "previewSizeBytes": 35850
+    "optimized": true,
+    "sizeBytes": 4909937,
+    "previewSizeBytes": 35920
   },
   {
     "src": "/images/photography/azure/azure-14.jpg",
@@ -800,8 +800,8 @@
     "category": "湛",
     "themeSlug": "azure",
     "themeSubtitle": "Azure",
-    "themeDescription": "更清透、冷静、带有空气感的影像。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAA2ACQDASIAAhEBAxEB/8QAGgAAAwEBAQEAAAAAAAAAAAAAAAQFAwIGAf/EABgBAAMBAQAAAAAAAAAAAAAAAAABAgME/9oADAMBAAIQAxAAAADDbRms1eX8kIjA11T8y9j020E44WjyRedF6LtU1puCabIoVPICrr4AgBn/xAAhEAACAgIBBQEBAAAAAAAAAAAAAgEDBBESECEyQVETMf/aAAgBAQABPwBUIQ4EocBFFr2TXoZSVK2goZPZc1foZ1+k3V78oFtf6Y/62NCw5lrckyvMvm5V8iXs37FsMa/g8SZuRLTLC37TbD2rLEMJckT3kvyuXZTbdOc7P6RJM9P/xAAbEQACAgMBAAAAAAAAAAAAAAAAAQISESBRYf/aAAgBAgEBPwCxYsST6Ri+lfRoisLX/8QAHBEAAwACAwEAAAAAAAAAAAAAAAECElERICFh/9oACAEDAQE/AFBgYEudFUtGXwlvkr19f//Z",
+    "themeDescription": "清透、冷静，保留天空与水面之间的呼吸感。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAA2ACQDASIAAhEBAxEB/8QAGgAAAwEBAQEAAAAAAAAAAAAAAAQFAwIGAf/EABgBAAMBAQAAAAAAAAAAAAAAAAABAgME/9oADAMBAAIQAxAAAADDbRl5q8v5AiMDXVPzL2PTbnqRwtHki86L0XaprTcE02RQqeQFX0AQAz//xAAhEAACAgIBBAMAAAAAAAAAAAAAAgEDBBESITJBURATMf/aAAgBAQABPwBUIQ4EocBFFr2TXoZSVK2goZPJc1fgZ19k3V77oFtf2Y/22NCw5lrckyvMvm5V7iXs35FsMa/g8SZmRLTLC37TbD2rLEMJckT1kvyuXRTbfHOdn6RJMmz/xAAbEQACAgMBAAAAAAAAAAAAAAAAAQISESBRYf/aAAgBAgEBPwCxYsST6Ri+lfRoisLX/8QAHBEAAwACAwEAAAAAAAAAAAAAAAECElERICFh/9oACAEDAQE/AFBgYEudFUtGXwlvkr19f//Z",
     "title": "湛 14",
     "year": 2026,
     "featured": false,
@@ -809,8 +809,8 @@
     "slug": "azure-14",
     "originalFile": "DSC_3346.jpg",
     "optimized": true,
-    "sizeBytes": 12600871,
-    "previewSizeBytes": 50630
+    "sizeBytes": 5056059,
+    "previewSizeBytes": 50686
   },
   {
     "src": "/images/photography/azure/azure-15.jpg",
@@ -823,8 +823,8 @@
     "category": "湛",
     "themeSlug": "azure",
     "themeSubtitle": "Azure",
-    "themeDescription": "更清透、冷静、带有空气感的影像。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAYACQDASIAAhEBAxEB/8QAGgABAAMAAwAAAAAAAAAAAAAAAAIEBQEDBv/EABUBAQEAAAAAAAAAAAAAAAAAAAEA/9oADAMBAAIQAxAAAADynfeiM6W5XnFbBMCQU+SAr//EACIQAAICAQMEAwAAAAAAAAAAAAECAAMEBRESEyFBYRRSU//aAAgBAQABPwCup2PYQY7GVaRbZXuTMjBamwIvcmfCyfzMqalfM5KG39xNQThtGyka8WDwI+pnlOUDsPMFzLOv6nVH1n//xAAXEQEAAwAAAAAAAAAAAAAAAAABACAh/9oACAECAQE/AIOV/8QAGhEAAQUBAAAAAAAAAAAAAAAAAQACESAhQf/aAAgBAwEBPwAAdTmiRBxZT//Z",
+    "themeDescription": "清透、冷静，保留天空与水面之间的呼吸感。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAYACQDASIAAhEBAxEB/8QAGgABAAMAAwAAAAAAAAAAAAAAAAIEBQEDBv/EABUBAQEAAAAAAAAAAAAAAAAAAAEA/9oADAMBAAIQAxAAAADynfeiM6W5XnFbBMCQU+SAr//EACIQAAICAQMEAwAAAAAAAAAAAAECAAMEBRESEyFBYRRSU//aAAgBAQABPwCup2PYQY7GVaRbZXuTMjBamwIvcmfCyfzMqalfM5KG39xNQThtGyka8WDxH1I8pygZh5guZZ1/U6o+s//EABcRAQADAAAAAAAAAAAAAAAAAAEAICH/2gAIAQIBAT8AYOV//8QAGhEAAQUBAAAAAAAAAAAAAAAAAQACESAhQf/aAAgBAwEBPwAAdTmiRBxZT//Z",
     "title": "湛 15",
     "year": 2026,
     "date": "2026-03-19",
@@ -835,9 +835,9 @@
     "order": 32,
     "slug": "azure-15",
     "originalFile": "DSC_3389.jpg",
-    "optimized": false,
-    "sizeBytes": 15361534,
-    "previewSizeBytes": 54768
+    "optimized": true,
+    "sizeBytes": 4607534,
+    "previewSizeBytes": 54748
   },
   {
     "src": "/images/photography/azure/azure-16.jpg",
@@ -850,8 +850,8 @@
     "category": "湛",
     "themeSlug": "azure",
     "themeSubtitle": "Azure",
-    "themeDescription": "更清透、冷静、带有空气感的影像。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAA0ACQDASIAAhEBAxEB/8QAGgAAAQUBAAAAAAAAAAAAAAAAAAECAwUGBP/EABcBAQEBAQAAAAAAAAAAAAAAAAIBAAP/2gAMAwEAAhADEAAAAMbIy8KqE3uR0rScLhvqDuU3ONs6SxohzfHLD19CiP5ZXEJS+xDZtaGyAU//xAAjEAACAQMDBQEBAAAAAAAAAAABAgADBBESITEFEBNBcTNR/9oACAEBAAE/AFg+TSf5Cs0xBOn0qb41LneCytcfkJeIq3FQKMAGaYk6b6+zgS73uKn3sh3ltWenXTBlbqdXcLGcsSzckwsIuxEclSCJSckHJjPiFoDFp+QTwsBzGb1MxACwigASoSFh57f/xAAaEQADAQEBAQAAAAAAAAAAAAAAARECEBIx/9oACAECAQE/AJXDWHkp8ZvXpIg+Ti5//8QAGhEAAwEBAQEAAAAAAAAAAAAAAAECERASMf/aAAgBAwEBPwBvytItWYZqIlS2+SfDRD5//9k=",
+    "themeDescription": "清透、冷静，保留天空与水面之间的呼吸感。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAA0ACQDASIAAhEBAxEB/8QAGgAAAQUBAAAAAAAAAAAAAAAAAAECAwUGBP/EABcBAQEBAQAAAAAAAAAAAAAAAAIBAAP/2gAMAwEAAhADEAAAAMbI27KqE32Q0rScLhvqDuU3ONs6SxohzfHLD19CiP5ZXEJS+xDZtaGyAU//xAAjEAADAAEDAwUBAAAAAAAAAAAAAQIDBBEhBRIxEBMzQXFR/9oACAEBAAE/AJF+Ha/4OTtIR0/FjvbunfkWi0u3xI1kTOoyKVwmdpB036/TlI1fOoyfvpD5NNmvHnjZmbqWXlSVbp1VeWx0ieGi6ctNGK2022Vew6EycfuI9mkvJVfRuQk6RKSRkbUsfn0//8QAGhEAAwEBAQEAAAAAAAAAAAAAAAERAhASMf/aAAgBAgEBPwCVw1h5KfGb16SIPk4uf//EABoRAAMBAQEBAAAAAAAAAAAAAAABAhEQEjH/2gAIAQMBAT8Ab8rSLVmGaiJUtvknw0Q+f//Z",
     "title": "湛 16",
     "year": 2026,
     "date": "2026-04-30",
@@ -863,8 +863,8 @@
     "slug": "azure-16",
     "originalFile": "DSC_3549-已增强-降噪.jpg",
     "optimized": true,
-    "sizeBytes": 11337245,
-    "previewSizeBytes": 34432
+    "sizeBytes": 4564672,
+    "previewSizeBytes": 34395
   },
   {
     "src": "/images/photography/azure/azure-17.jpg",
@@ -877,17 +877,17 @@
     "category": "湛",
     "themeSlug": "azure",
     "themeSubtitle": "Azure",
-    "themeDescription": "更清透、冷静、带有空气感的影像。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAUACQDASIAAhEBAxEB/8QAGgABAQACAwAAAAAAAAAAAAAAAAQFBgECA//EABcBAQEBAQAAAAAAAAAAAAAAAAADAgH/2gAMAwEAAhADEAAAANijq6UlgJNq8NY1dlg5JXlrCYOf/8QAIhAAAQQBBAIDAAAAAAAAAAAAAQACAwQREhNBUgUhFCIz/9oACAEBAAE/ADI0eyVPfiYpvKTOP0an3bTxyvkWezlsR8uRrVecLYpDqppKcY9MBKNpmfxajI/sVqOM5UL3yyOa4nAT426VoC//xAAbEQACAgMBAAAAAAAAAAAAAAAAAQISEBNBUv/aAAgBAgEBPwC0TYuRLvyPP//EABoRAAICAwAAAAAAAAAAAAAAAAACARMQQWL/2gAIAQMBAT8AlXKm25X0Rn//2Q==",
+    "themeDescription": "清透、冷静，保留天空与水面之间的呼吸感。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAUACQDASIAAhEBAxEB/8QAGgABAQACAwAAAAAAAAAAAAAAAAQFBgECA//EABcBAAMBAAAAAAAAAAAAAAAAAAABAwL/2gAMAwEAAhADEAAAANhkq6UlgJNq8NY1dlgOSV5axKYB/8QAIhAAAQQBBAIDAAAAAAAAAAAAAQACAwQREiFBUgUTFCIz/9oACAEBAAE/ADK0bkqe/ExTeUmcfo1Pu2njlfIs9nL0R8uRrVecL0Ux1U0lOMbMBKNpmfxajI/sVqOM5UL3SyOa47BPjbpWgL//xAAbEQACAgMBAAAAAAAAAAAAAAAAAQISEBNBUv/aAAgBAgEBPwC0TYuRLvyPP//EABoRAAICAwAAAAAAAAAAAAAAAAACARMQQWL/2gAIAQMBAT8AlXKm2xX0Rn//2Q==",
     "title": "湛 17",
     "year": 2026,
     "featured": false,
     "order": 34,
     "slug": "azure-17",
     "originalFile": "IMG_20250614_153004.jpg",
-    "optimized": false,
-    "sizeBytes": 1399219,
-    "previewSizeBytes": 55701
+    "optimized": true,
+    "sizeBytes": 486213,
+    "previewSizeBytes": 55826
   },
   {
     "src": "/images/photography/azure/azure-18.jpg",
@@ -900,17 +900,17 @@
     "category": "湛",
     "themeSlug": "azure",
     "themeSubtitle": "Azure",
-    "themeDescription": "更清透、冷静、带有空气感的影像。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAYACQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAIEBQMG/8QAFwEBAQEBAAAAAAAAAAAAAAAAAgEAA//aAAwDAQACEAMQAAAAqxlkvltwvzLwGq089WI+1g0sAP8A/8QAIRAAAgMAAQMFAAAAAAAAAAAAAQIAAwQREyEiBRIxQVH/2gAIAQEAAT8ANQZOAJVnLHj2w4DDmFY7iNSzMSFl2xKB4rBpvWwuGmXdScoa4+UN9dyeA5EIP5NOxLgoC8cTrjn4iah0ypHaUbxn7fRh9UWf/8QAGBEBAQEBAQAAAAAAAAAAAAAAAQASAhH/2gAIAQIBAT8AFbbbLk8kEsc3/8QAGBEBAQEBAQAAAAAAAAAAAAAAAQASITH/2gAIAQMBAT8AQLBYnt5ab//Z",
+    "themeDescription": "清透、冷静，保留天空与水面之间的呼吸感。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAYACQDASIAAhEBAxEB/8QAGQABAAMBAQAAAAAAAAAAAAAAAAIEBQMG/8QAFwEBAQEBAAAAAAAAAAAAAAAAAgEAA//aAAwDAQACEAMQAAAAqxlkvltwvzLwGq089WI+1g0sAP8A/8QAIRAAAgMAAQMFAAAAAAAAAAAAAQIAAwQREyEiBRIxQVH/2gAIAQEAAT8ANQZOAJVnLHj2w4DDmFY7iNSzMSFl2xKB4rBpvWwuGmXdScoa4+UN9dyeA5EIP5NOxLgoC8cTrjn4iah0ypHaUbxn7fRjeqLP/8QAGREBAQADAQAAAAAAAAAAAAAAAQACERIT/9oACAECAQE/ABW7b0LE1IJcY3//xAAYEQEBAQEBAAAAAAAAAAAAAAABABIhMf/aAAgBAwEBPwBAsFie3lpv/9k=",
     "title": "湛 18",
     "year": 2026,
     "featured": false,
     "order": 35,
     "slug": "azure-18",
     "originalFile": "Z50_0234.jpg",
-    "optimized": false,
-    "sizeBytes": 10005107,
-    "previewSizeBytes": 51009
+    "optimized": true,
+    "sizeBytes": 3583061,
+    "previewSizeBytes": 51025
   },
   {
     "src": "/images/photography/azure/azure-19.jpg",
@@ -923,8 +923,8 @@
     "category": "湛",
     "themeSlug": "azure",
     "themeSubtitle": "Azure",
-    "themeDescription": "更清透、冷静、带有空气感的影像。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAZACQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAABAUAAwYBAv/EABcBAAMBAAAAAAAAAAAAAAAAAAABAwT/2gAMAwEAAhADEAAAAGYAjjVh9GJKJ21EwklZKV0NB1Y9wPJp4n//xAAhEAACAgIBBQEBAAAAAAAAAAABAgADBBESBSExMjNxFP/aAAgBAQABPwC/p1KLsPK90nYaf3FtbMpc3DYab49i4lPVlyWC2HUOJyUFHB3GXgSH7R+pLjgir2hycqwli5mmErz8ipdBzGzMi72eM3Egg7Mx8DKtqV/G5d7R4niJ9U/ZjfBPyf/EABkRAAMBAQEAAAAAAAAAAAAAAAACESEBUf/aAAgBAgEBPwBXyM1G4kwz0VqbSc8P/8QAGxEAAgIDAQAAAAAAAAAAAAAAAhEAAwEQIjH/2gAIAQMBAT8AKnpgCgZtfXke1P/Z",
+    "themeDescription": "清透、冷静，保留天空与水面之间的呼吸感。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAZACQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAABAUAAwYBAv/EABcBAAMBAAAAAAAAAAAAAAAAAAABAwT/2gAMAwEAAhADEAAAAGYAjjVh9GJKJ21EwklZKV0NB1Y9wPJp4n//xAAhEAACAgIBBQEBAAAAAAAAAAABAgADBBESBSExMjNxFP/aAAgBAQABPwC/p1KLsPK90nYaf3E62ZS5uGw03x7FxKerLksFsOocTkoKODuMvAkP2j9SXHBFXtDk5VhLFzNMJXn5FS6DmNmX3ezxm4kEHZmPgZVtSv43LvaPE8Sv6J+zF+Cfk//EABkRAAMBAQEAAAAAAAAAAAAAAAACESEBUf/aAAgBAgEBPwBXyM1G4kwz0VqbSc8P/8QAGxEAAgIDAQAAAAAAAAAAAAAAAhEAAwEQIjH/2gAIAQMBAT8AKnpgCgZtfXke1P/Z",
     "title": "湛 19",
     "year": 2025,
     "date": "2025-07-31",
@@ -935,9 +935,9 @@
     "order": 36,
     "slug": "azure-19",
     "originalFile": "Z50_5158.jpg",
-    "optimized": false,
-    "sizeBytes": 7096517,
-    "previewSizeBytes": 61317
+    "optimized": true,
+    "sizeBytes": 2496696,
+    "previewSizeBytes": 61367
   },
   {
     "src": "/images/photography/azure/azure-20.jpg",
@@ -950,8 +950,8 @@
     "category": "湛",
     "themeSlug": "azure",
     "themeSubtitle": "Azure",
-    "themeDescription": "更清透、冷静、带有空气感的影像。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAbACQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIFAwT/xAAYAQACAwAAAAAAAAAAAAAAAAAAAQIDBP/aAAwDAQACEAMQAAAAqbcT6M3dpOZOoSyMlKzVXTGogTikJ//EACQQAAIBAgUEAwAAAAAAAAAAAAABAgRSAxETFCESICJBQlFh/9oACAEBAAE/AI102Kqb9iqf0jUI1o/ZLBhGOakLChkvI0lcabXyOmVxOlxFBsVJNpcsVLK5m0dzNk72Lldv/8QAHBEAAQMFAAAAAAAAAAAAAAAAAAIhURAREiNS/9oACAECAQE/ANRZEmKOhoGp/8QAHREAAQIHAAAAAAAAAAAAAAAAAAISAxAhI1FSgf/aAAgBAwEBPwC6OiYHq1OlZf/Z",
+    "themeDescription": "清透、冷静，保留天空与水面之间的呼吸感。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAbACQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIFAwT/xAAYAQACAwAAAAAAAAAAAAAAAAAAAQIDBP/aAAwDAQACEAMQAAAAqbcT6M3dpOZOoSyMlKzVXTGogTikJ//EACQQAAIBAgUEAwAAAAAAAAAAAAABAgRSAxETFCESICJBQlFh/9oACAEBAAE/AI102Kqb9iqf0jUI1o/ZLBhGOakLChkvI0lcabXyOmVxOlxFBsVJNpcsVLK5m0dzNk72Lldv/8QAHBEAAQMFAAAAAAAAAAAAAAAAAAIhURAREiNS/9oACAECAQE/ANRZEmKehoGp/8QAHREAAQIHAAAAAAAAAAAAAAAAAAISAxAhI1FSgf/aAAgBAwEBPwC6OiYHq1OlZf/Z",
     "title": "湛 20",
     "year": 2025,
     "date": "2025-08-02",
@@ -962,9 +962,9 @@
     "order": 37,
     "slug": "azure-20",
     "originalFile": "Z50_5528.jpg",
-    "optimized": false,
-    "sizeBytes": 9865981,
-    "previewSizeBytes": 84881
+    "optimized": true,
+    "sizeBytes": 4155378,
+    "previewSizeBytes": 84941
   },
   {
     "src": "/images/photography/azure/azure-21.jpg",
@@ -977,8 +977,8 @@
     "category": "湛",
     "themeSlug": "azure",
     "themeSubtitle": "Azure",
-    "themeDescription": "更清透、冷静、带有空气感的影像。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAuACQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAgQAAwUB/8QAFwEBAQEBAAAAAAAAAAAAAAAAAgABA//aAAwDAQACEAMQAAAAZFk+ozzftO0wIEDpIbXoUibkZh29LG1inqCzuaSmtJf/xAAjEAACAgICAQQDAAAAAAAAAAABAgADESEEEiITMTJBQlFx/9oACAEBAAE/APMjWoa7T+c9BiflFp7ECLxKwNqICn2Z1zK6Sx3MVU+2zHfLElolIMCqq70I/IGMLoRuUhJAhZs6JjFKh+zL7ftz/BG72/WolODAsssCr2zkyl/WZiwzFDKDmX3JUCx94/M5DMSMzgc2w+DbEpJYnrqPY4Q7h83BbcAQD4Cf/8QAHhEAAgEDBQAAAAAAAAAAAAAAAAECAxESFDFRUmH/2gAIAQIBAT8AHMy9L3G47MyfBOrGLxY6tNM1MOp//8QAHBEAAgICAwAAAAAAAAAAAAAAAAECEhETIUFR/9oACAEDAQE/ACpUwc9FRRchQbNL9P/Z",
+    "themeDescription": "清透、冷静，保留天空与水面之间的呼吸感。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAuACQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAgQAAwUB/8QAFwEBAQEBAAAAAAAAAAAAAAAAAgABA//aAAwDAQACEAMQAAAAZFk+ozzftO0wIEDpIbXoUibkZh29LG1inqCzuaSmtJf/xAAjEAACAgICAQQDAAAAAAAAAAABAgADESEEEiITMTJBQlFx/9oACAEBAAE/APMjWoa7T+c9BiflFp7ECLxKwNqICn2Z1BldJY7mKqfbZjvliS0SkGBVVd6EfkDGF0I3KQkiFmzomMUqH7Mvt+3P8Ebvb9aiU4MCyywKvbOTKX9ZmLDMUMoOZfclQLH3j8zkFiRmcDm2HwbYlJJJ66j2OEO4fNwW3AEA+An/xAAeEQACAQMFAAAAAAAAAAAAAAAAAQIDERIUMVFSYf/aAAgBAgEBPwAczL0vcbjszJ8E6sYvFjq00zUw6n//xAAcEQACAgIDAAAAAAAAAAAAAAAAAQISERMhQVH/2gAIAQMBAT8AKlTBz0VFFyFCTNL9P//Z",
     "title": "湛 21",
     "year": 2025,
     "date": "2025-08-03",
@@ -989,9 +989,9 @@
     "order": 38,
     "slug": "azure-21",
     "originalFile": "Z50_5627.jpg",
-    "optimized": false,
-    "sizeBytes": 9323476,
-    "previewSizeBytes": 167069
+    "optimized": true,
+    "sizeBytes": 4371431,
+    "previewSizeBytes": 167093
   },
   {
     "src": "/images/photography/bloom/bloom-01.jpg",
@@ -1004,17 +1004,17 @@
     "category": "盛",
     "themeSlug": "bloom",
     "themeSubtitle": "Lush",
-    "themeDescription": "明亮、丰盛、带有展开感的瞬间。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAmACQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAQCAwUGAf/EABcBAQEBAQAAAAAAAAAAAAAAAAIBAAP/2gAMAwEAAhADEAAAAOVtnVCz5a1soPFmO6q6Hr6id7DRnl3JPBxc9QFIAKf/xAAiEAEAAgICAQQDAAAAAAAAAAABAAIDBBESFBMVMUEhIkL/2gAIAQEAAT8A5ZS7G33O7BU+IhY+Jx1Zhx+rYCe3Zn8hPC2D+ZXIExYzLNLVcf7PEqBOCOBmpr5LoVeCdjBQ7MpkLU7E8rhRZfMp1mvsOPqE2Nq2S/H0TSVx8svQbM//xAAaEQADAAMBAAAAAAAAAAAAAAAAARECEDEh/9oACAECAQE/AKmIh4xRa5DHuv/EABgRAAIDAAAAAAAAAAAAAAAAAAABECAx/9oACAEDAQE/AB2eR//Z",
+    "themeDescription": "明亮而丰盛，记录色彩舒展、生命向外生长的片刻。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAmACQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAQCAwUGAf/EABcBAQEBAQAAAAAAAAAAAAAAAAIBAAP/2gAMAwEAAhADEAAAAOVtnVCz5a1soPFmO6q6Hr6id7DRnl3JPBxc9QFIAKf/xAAiEAEAAgICAQQDAAAAAAAAAAABAAIDBBESExQhMUEVIkL/2gAIAQEAAT8A5ZS7G33PIwVPiIWPicdWYcflsBPx2Z9wnotg/mVyBMWMyzS1XH+zxKgT2jgZqa+S6FXgnYwUOzKZC1OxPVcKMvnU6zW2HH1CbG1bJfj6JpK4+WXoNmf/xAAaEQADAAMBAAAAAAAAAAAAAAAAARECITEQ/9oACAECAQE/AKmIhpiiNHIY98//xAAYEQACAwAAAAAAAAAAAAAAAAAAARAgMf/aAAgBAwEBPwAdnkf/2Q==",
     "title": "盛 01",
     "year": 2026,
     "featured": true,
     "order": 39,
     "slug": "bloom-01",
     "originalFile": "1782304072215.jpg",
-    "optimized": false,
-    "sizeBytes": 11559638,
-    "previewSizeBytes": 156056
+    "optimized": true,
+    "sizeBytes": 5239013,
+    "previewSizeBytes": 156120
   },
   {
     "src": "/images/photography/bloom/bloom-02.jpg",
@@ -1027,8 +1027,8 @@
     "category": "盛",
     "themeSlug": "bloom",
     "themeSubtitle": "Lush",
-    "themeDescription": "明亮、丰盛、带有展开感的瞬间。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAA2ACQDASIAAhEBAxEB/8QAGgAAAwEBAQEAAAAAAAAAAAAAAAQFBgIBA//EABgBAAMBAQAAAAAAAAAAAAAAAAACAwQB/9oADAMBAAIQAxAAAADEuJ6hGhLb7F8Ez6FE8pJid3E5d/LoyJwas/NOSMUqMxyNYYF5eAB3WCTyQKL/AP/EACcQAAICAgEDAgcBAAAAAAAAAAECAAMEESEFEhMQIxQgIjEyM0GB/9oACAEBAAE/AJiYvxLld6mTh24zaYTXr0tVRATMnHTKpIIl1D02MjCFINTDyfGwU/aUPtRozqlAZPIByISNyulbOFbmPTbSfqE6XkMR2kzMyEqR+7+iO6liQIvHO5Tkrcngt/xoqvi5CqzTqPuUK/qDzEKXr7j6YDifngsN77fkQdzATE/XahjjTsJ//8QAHxEAAgIBBAMAAAAAAAAAAAAAAQIAAxAREiExIjJh/9oACAECAQE/ALG2rK7Aw57wwBnKtNJpLB5I33NvpB0J/8QAHBEAAgICAwAAAAAAAAAAAAAAAQIAEBEhAxIy/9oACAEDAQE/AEGTHXqa2NzTLMUhyCL4/UM//9k=",
+    "themeDescription": "明亮而丰盛，记录色彩舒展、生命向外生长的片刻。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAA2ACQDASIAAhEBAxEB/8QAGgAAAwEBAQEAAAAAAAAAAAAAAAQFBgIBA//EABgBAAMBAQAAAAAAAAAAAAAAAAACAwQB/9oADAMBAAIQAxAAAADEuJ6hGhLb7F8Ez6FEKKYndxOXfy6MicGrPzTkjFKjMcjWGBeXgAd1gk8kCi//xAAnEAACAgIBAwIHAQAAAAAAAAABAgADBBEhBRITECMUICIxMjNBgf/aAAgBAQABPwCYmL8S5Xepk4duM2mE169LVUQEzJx0yaSCJdQ9NjIwhSDUw8nxsFP2lD7UaM6pQGTyAciEjcrpWzhW5j020n6hOl5DEdpMzMhKkfu/ojupYkCLxzuU5K3J4Lf8aKr4uQFZp1H3KFf1B5iFL19x9MBxPzwWG99vyIO5gJifrtQxxp2E/8QAHxEAAgICAQUAAAAAAAAAAAAAAQIAAxARMRIhIjJh/9oACAECAQE/ALG6VldgYd+cMAZoq01NSweSt9zb6QcCf//EABwRAAICAgMAAAAAAAAAAAAAAAECABARIQMSMv/aAAgBAwEBPwBBkx161sbmmWYpDkEXx+oZ/9k=",
     "title": "盛 02",
     "year": 2025,
     "date": "2025-11-29",
@@ -1039,9 +1039,9 @@
     "order": 40,
     "slug": "bloom-02",
     "originalFile": "DSC_0549.jpg",
-    "optimized": false,
-    "sizeBytes": 11858311,
-    "previewSizeBytes": 48620
+    "optimized": true,
+    "sizeBytes": 3848206,
+    "previewSizeBytes": 48588
   },
   {
     "src": "/images/photography/bloom/bloom-03.jpg",
@@ -1054,8 +1054,8 @@
     "category": "盛",
     "themeSlug": "bloom",
     "themeSubtitle": "Lush",
-    "themeDescription": "明亮、丰盛、带有展开感的瞬间。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAYACQDASIAAhEBAxEB/8QAGgABAAMAAwAAAAAAAAAAAAAAAAMEBQECBv/EABcBAQEBAQAAAAAAAAAAAAAAAAIBAAP/2gAMAwEAAhADEAAAAPMX54zLE0OjNktozk5Ib35AqQ6b/8QAIxAAAgICAgIBBQAAAAAAAAAAAQIAAxESBDETIQUUIkFhcf/aAAgBAQABPwAXMRgCcJLTltc/ueN87KoLD8iJ9ZZsDWPuHcNfMrOogq4tI6yxnnspDVpjUz4/kNW5XvMRr62JsYamMlLnYP3L+MQDYD6ignOT/JSzVnYmcjmX24Xb0J57l9bmf//EABgRAQADAQAAAAAAAAAAAAAAAAEAAhAx/9oACAECAQE/AFhlyD3P/8QAFREBAQAAAAAAAAAAAAAAAAAAEAL/2gAIAQMBAT8AZf/Z",
+    "themeDescription": "明亮而丰盛，记录色彩舒展、生命向外生长的片刻。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAYACQDASIAAhEBAxEB/8QAGgABAAMAAwAAAAAAAAAAAAAAAAMEBQECBv/EABcBAQEBAQAAAAAAAAAAAAAAAAIBAAP/2gAMAwEAAhADEAAAAPMX54zLE0OjNktozk5Ib35A6Q6T/8QAIxAAAgICAQQCAwAAAAAAAAAAAQIAAxESBBMhIjEFFEFhcf/aAAgBAQABPwAXMRgCcJLTltc/udN87KoLD8iJ9yzYGseQ9xq+ZWdRBVxaR6yxnXspDVpjUz4/kNW5X3mI19bE2MNTGSlzsH9y/jEA2AxQTnJ/kpZqzsTORzL7fHbsJ1717bmf/8QAGBEBAAMBAAAAAAAAAAAAAAAAAQACEDH/2gAIAQIBAT8AWGXIPc//xAAVEQEBAAAAAAAAAAAAAAAAAAAQAv/aAAgBAwEBPwBl/9k=",
     "title": "盛 03",
     "year": 2025,
     "date": "2025-11-29",
@@ -1067,22 +1067,22 @@
     "slug": "bloom-03",
     "originalFile": "DSC_0550.jpg",
     "optimized": true,
-    "sizeBytes": 12261806,
-    "previewSizeBytes": 57127
+    "sizeBytes": 4910194,
+    "previewSizeBytes": 57131
   },
   {
     "src": "/images/photography/bloom/bloom-04.jpg",
     "previewSrc": "/images/photography/bloom/preview/bloom-04-preview.jpg",
     "alt": "盛主题摄影作品 4",
-    "width": 4638,
-    "height": 6957,
+    "width": 3896,
+    "height": 5844,
     "previewWidth": 600,
     "previewHeight": 900,
     "category": "盛",
     "themeSlug": "bloom",
     "themeSubtitle": "Lush",
-    "themeDescription": "明亮、丰盛、带有展开感的瞬间。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAA2ACQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAMCBAUGAf/EABcBAAMBAAAAAAAAAAAAAAAAAAABAgP/2gAMAwEAAhADEAAAAOdi/wAwnUoWs1CxJoW5Wc5D6cl0Aoo03VW5zGr2/MWZJYG42QDTSCnMAZ//xAAlEAACAgIBAwMFAAAAAAAAAAABAgARAwQhEiMxBRNBEDJCUWH/2gAIAQEAAT8Aw65bESJjZuVqa6KgNDmpsdQYkyyZiyJjXzyRMKllv+xdg4h4mxnLtC5U1BobNFumwJgpXpzVTaz9RoeIoJYH4jkFjD6jl+1eI5brJPzDTRrH0FNyfMQq34xlyLfbjlyeVhUy1+Jrv3AJjOD2uVF1NtR7rUIRASZh8iLlfxc2V7av+4Z//8QAGhEBAAMBAQEAAAAAAAAAAAAAAQAQETEhIv/aAAgBAgEBPwDe7A+pjMU9gVjCzrX/xAAYEQACAwAAAAAAAAAAAAAAAAAAARARMP/aAAgBAwEBPwDCxz//2Q==",
+    "themeDescription": "明亮而丰盛，记录色彩舒展、生命向外生长的片刻。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAA2ACQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAMCBAUGAf/EABcBAQEBAQAAAAAAAAAAAAAAAAEAAgP/2gAMAwEAAhADEAAAAOc8f5wNShazQWJOlblZzidUkvUCjVpPqt55jV7fmN2SWBY2QrTSBnMAX//EACcQAAICAQMDAgcAAAAAAAAAAAECABEDBCExEiNBBRMQFCIyQlFh/9oACAEBAAE/AMOnLYiZjZt1qadFQEgEmpqOoMSZZmLImNTvuRMKki/7BqDiHE1Gcu0LkGp8hqaLdNgTBQb6zVTVZ+o0OIoJYHxHILGH1HL9q7Ry3WSfMNNGsfAU255iFW/GMuRb7ccuTusKmWtbTTv3APExnB7W6i6mrUe41CEQEmYeRFyvxc1S9tX/AHCZ/8QAGhEBAAMBAQEAAAAAAAAAAAAAAQAQETEhIv/aAAgBAgEBPwDewPqYzFPYFYws61//xAAZEQABBQAAAAAAAAAAAAAAAAAQAAERIDH/2gAIAQMBAT8AtolOf//Z",
     "title": "盛 04",
     "year": 2025,
     "date": "2025-11-29",
@@ -1094,8 +1094,8 @@
     "slug": "bloom-04",
     "originalFile": "DSC_0562.jpg",
     "optimized": true,
-    "sizeBytes": 13129556,
-    "previewSizeBytes": 141549
+    "sizeBytes": 4999167,
+    "previewSizeBytes": 140515
   },
   {
     "src": "/images/photography/bloom/bloom-05.jpg",
@@ -1108,8 +1108,8 @@
     "category": "盛",
     "themeSlug": "bloom",
     "themeSubtitle": "Lush",
-    "themeDescription": "明亮、丰盛、带有展开感的瞬间。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAA4ACQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAQBAgUDBv/EABkBAAMBAQEAAAAAAAAAAAAAAAECAwAEBf/aAAwDAQACEAMQAAAAyK30POvjaA4jefPRhTzjlGOxI6K9JUZEjBZ9pZ1unCGPQ5Fk1s4GFYAGAMP/xAAiEAACAgMAAgEFAAAAAAAAAAABAgADBBESITFhEyJCUVL/2gAIAQEAAT8A11eeRqW9qNFiZYFAUgH3LKvqBf3qPjWBj4gcNkJL0TkMZnIi0qVExmDGvf8AMuRC5hLC5Yz2FNE+JkupxQJiWBGQ7/GW5JLkmZNATLUA7EtKsmvmZiarXmYVXWi49CZFtS2kCI1ljr1Gr+0An2ZeqJUPO9SjOarsFY7K7FtSxUXIAVdaEvsZWGxMq/aidzfxMvLWy0upjWu/sz3NAQlZ/8QAHhEAAgICAgMAAAAAAAAAAAAAAQIAEQMhBDEQEiL/2gAIAQIBAT8AclHUEXqM5KBwOrg5RoahrUZUGI71Fxr6j4mRWDCupjS8RV92YBUPn//EABsRAAIDAQEBAAAAAAAAAAAAAAABAhESECET/9oACAEDAQE/AIq4mfWj5iNPQ5EKr0m1q1xd/9k=",
+    "themeDescription": "明亮而丰盛，记录色彩舒展、生命向外生长的片刻。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAA4ACQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAQBAwUCBv/EABkBAAMBAQEAAAAAAAAAAAAAAAECAwAEBf/aAAwDAQACEAMQAAAAyOe9Dzr42gOI3nz0YU845wx2JFitkqMiZgq+0s62JQhjYVFk1s4GHMADAGH/xAAhEAACAgMAAgIDAAAAAAAAAAABAgADBBESITETYSJCUv/aAAgBAQABPwDXV558S3tRosTLQoCkA+5ZV8gX3vUfGsDHxA4bISXonIYzORFpUqJjMGNe/wCZciFzGLC5Yz2caJ8TJdTigTEsCMh3+stySXJMyaAmWoB2JaVZNfczE1WvMwqutFx6EyLaltIERrLHXqNX+IBPsy9USoed6lGc1XYKyxldi2pYqLkDldaEvsZWGxMq/aidTf1MvLWy0upjWu/sz3NAQlZ//8QAHhEAAgICAgMAAAAAAAAAAAAAAQIAEQMhBDEQEiL/2gAIAQIBAT8AclHUVeozkoHA6uDlGhqGtRlQYjvUXGvqPiZFYMK6mNLxFX3ZgFQ9+f/EABwRAAIDAAMBAAAAAAAAAAAAAAABAhESEBMhYf/aAAgBAwEBPwBK4mfWjrEaehy+kKr0nJatcLn/2Q==",
     "title": "盛 05",
     "year": 2025,
     "date": "2025-11-29",
@@ -1121,8 +1121,8 @@
     "slug": "bloom-05",
     "originalFile": "DSC_0694.jpg",
     "optimized": true,
-    "sizeBytes": 12074270,
-    "previewSizeBytes": 123369
+    "sizeBytes": 4969525,
+    "previewSizeBytes": 123208
   },
   {
     "src": "/images/photography/bloom/bloom-06.jpg",
@@ -1135,8 +1135,8 @@
     "category": "盛",
     "themeSlug": "bloom",
     "themeSubtitle": "Lush",
-    "themeDescription": "明亮、丰盛、带有展开感的瞬间。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAyACQDASIAAhEBAxEB/8QAGwAAAgMBAQEAAAAAAAAAAAAAAAQCAwUBBgf/xAAYAQEBAQEBAAAAAAAAAAAAAAABAAIDBP/aAAwDAQACEAMQAAAArS7j+fppxzdDQ2SCe8v9A8E1/JKdOe8Ypm9HkrlpIYqSZSWXlQHtANACf//EACIQAAICAgICAgMAAAAAAAAAAAECAAMEERIhEBMiQTEyYf/aAAgBAQABPwD2O68i241wB0Z7F7IgJYjqC3Q/MOwhAjs2zPYwImETbYVMehlYjUapeB0PqGvleyf2X4RqRWmGCl4aPlfKMqLUVMucV5jn63MjOFqLK7vnGtJPQmHlWWbFhmdjhrGIhqMrXTdw7Ji2EdgkQ3M/RMJIBnICc5Z4s/XwZ//EABoRAAMBAAMAAAAAAAAAAAAAAAABEQIQIGH/2gAIAQIBAT8ASpCIwa84Snb/xAAaEQACAwEBAAAAAAAAAAAAAAAAAQIQETFB/9oACAEDAQE/AGzTWTI77Tlqt9d//9k=",
+    "themeDescription": "明亮而丰盛，记录色彩舒展、生命向外生长的片刻。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAyACQDASIAAhEBAxEB/8QAGwAAAgIDAQAAAAAAAAAAAAAAAAQDBQECBgf/xAAYAQADAQEAAAAAAAAAAAAAAAAAAQIDBP/aAAwDAQACEAMQAAAAjSzT8+tlitsKls2EPcv6BwTJ8bKaZ3xSknR1K4UkMRNbkIS8qA8wAGgA/wD/xAAiEAACAgICAgIDAAAAAAAAAAABAgADBBESIRATIkExMmH/2gAIAQEAAT8A9juvItuNcAdGexeyICWI6gt0PzDsIQI7Nsz2MCJhE22FTHoZW1qNUvA6H1DXu9k/svwjUitMMFLwY+V8oyotRUy5xXmOfrcyM4Wosru08a0k9CYeU9mxYZnY4axmENRla6fuHZMWwjsEiG5n6JhJAM5ATnLOh4s/XwZ//8QAGREAAwEBAQAAAAAAAAAAAAAAAAEREAJh/9oACAECAQE/AEqQiODrzEpq3//EABkRAAIDAQAAAAAAAAAAAAAAAAABAhARMf/aAAgBAwEBPwBs01kyO05arfb/AP/Z",
     "title": "盛 06",
     "year": 2026,
     "date": "2026-02-22",
@@ -1148,8 +1148,8 @@
     "slug": "bloom-06",
     "originalFile": "DSC_3258.jpg",
     "optimized": true,
-    "sizeBytes": 15035370,
-    "previewSizeBytes": 104200
+    "sizeBytes": 4666076,
+    "previewSizeBytes": 104156
   },
   {
     "src": "/images/photography/bloom/bloom-07.jpg",
@@ -1162,8 +1162,8 @@
     "category": "盛",
     "themeSlug": "bloom",
     "themeSubtitle": "Lush",
-    "themeDescription": "明亮、丰盛、带有展开感的瞬间。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAbACQDASIAAhEBAxEB/8QAGgABAAMAAwAAAAAAAAAAAAAABQADBAECBv/EABcBAQEBAQAAAAAAAAAAAAAAAAIDAAH/2gAMAwEAAhADEAAAACeSu3Z7MjYYdcoj1iBlxXp8Ru2VCorEf//EACMQAAICAQMDBQAAAAAAAAAAAAECAAMSBBEhEzFBEBQzQlH/2gAIAQEAAT8A92DEu6rY7y9cAZnwIzEmZSrPqrj3Jms0RFCue8sqdBuRNzAZpr0qwsYbkGWa6i+lv0+JWFetkaWUFXIHoPrG4biVfHMVPif/xAAaEQACAwEBAAAAAAAAAAAAAAAAAQIREgNR/9oACAECAQE/AJekOmiySsykjZ//xAAaEQADAAMBAAAAAAAAAAAAAAAAAQIREiFB/9oACAEDAQE/AJXg4aMC4OnTNT//2Q==",
+    "themeDescription": "明亮而丰盛，记录色彩舒展、生命向外生长的片刻。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAbACQDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAAMFBAIG/8QAFwEBAQEBAAAAAAAAAAAAAAAAAgMAAf/aAAwDAQACEAMQAAAAkkvrs9mS3DDWIHmUJjivT4pu2VJRVGf/xAAjEAACAgEDAwUAAAAAAAAAAAABAgADEgQRIRMxQRAUM0JR/9oACAEBAAE/APdgxLuq2O8vXAGZ8CMxJmUqz6q49yZrNERQrnvLKnQbkTcwGaa9KsLGG5Blmuovpb9PiVhXqZGllBVyB6D6xuG4lXxzFT4n/8QAGhEAAgMBAQAAAAAAAAAAAAAAAAECERIDUf/aAAgBAgEBPwCXpDposkrMpI2f/8QAGhEAAwADAQAAAAAAAAAAAAAAAAECERIhQf/aAAgBAwEBPwCV4OGjAuDp0zU//9k=",
     "title": "盛 07",
     "year": 2026,
     "date": "2026-04-30",
@@ -1174,9 +1174,9 @@
     "order": 45,
     "slug": "bloom-07",
     "originalFile": "DSC_3497.jpg",
-    "optimized": false,
-    "sizeBytes": 11377213,
-    "previewSizeBytes": 47877
+    "optimized": true,
+    "sizeBytes": 3130492,
+    "previewSizeBytes": 47863
   },
   {
     "src": "/images/photography/bloom/bloom-08.jpg",
@@ -1189,17 +1189,17 @@
     "category": "盛",
     "themeSlug": "bloom",
     "themeSubtitle": "Lush",
-    "themeDescription": "明亮、丰盛、带有展开感的瞬间。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAkACQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAQCBQYBA//EABcBAAMBAAAAAAAAAAAAAAAAAAABAgP/2gAMAwEAAhADEAAAAEbFmd4mdeUEiagVVhT9ed57Z2TNGUYFbwIuUQBkCY//xAAhEAEAAgIBBAMBAAAAAAAAAAABAAIDBBEFExRBEiExQv/aAAgBAQABPwCnRRmHpOvjl+zgr6I7uxi2GyrSbLe2VsYv2U2CxO+DN61rZatRSeNnzofHgmLXpTHWqChK5qP2Rzc+5TMe4bCTyYXTiOVIZ7HueTZf2G0zmLP5hKA1n//EABkRAAIDAQAAAAAAAAAAAAAAAAARARAgIf/aAAgBAgEBPwBUhjg5j//EABkRAAIDAQAAAAAAAAAAAAAAAAARARAhYf/aAAgBAwEBPwB9HoxCk0i//9k=",
+    "themeDescription": "明亮而丰盛，记录色彩舒展、生命向外生长的片刻。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAkACQDASIAAhEBAxEB/8QAGgABAAMBAQEAAAAAAAAAAAAAAAIEBQYBA//EABcBAAMBAAAAAAAAAAAAAAAAAAABAgP/2gAMAwEAAhADEAAAAKOjZneLnrtQVF1BVmMaTz3PtzsmdGwwZvhFyiBZEx//xAAgEAEAAwABBAMBAAAAAAAAAAABAAIDBAURFEETITFC/9oACAEBAAE/AKdFGY9J4+cv8OFfRHm8jLkNn7pOS3tq2Mv2U3LE+cGc61ra1aik8bfdBr2Jlx6UzrVBQldqP2R27+5TY9w5CTyYXTtHVIb2Pc8my/sOSwYs/mEoDWf/xAAZEQACAwEAAAAAAAAAAAAAAAAAEQEQICH/2gAIAQIBAT8AVIY4OY//xAAZEQACAwEAAAAAAAAAAAAAAAAAEQEQIWH/2gAIAQMBAT8AfR6MQpNIv//Z",
     "title": "盛 08",
     "year": 2026,
     "featured": false,
     "order": 46,
     "slug": "bloom-08",
     "originalFile": "Z50_4937.jpg",
-    "optimized": false,
-    "sizeBytes": 9116149,
-    "previewSizeBytes": 63802
+    "optimized": true,
+    "sizeBytes": 3643197,
+    "previewSizeBytes": 63873
   },
   {
     "src": "/images/photography/bloom/bloom-09.jpg",
@@ -1212,8 +1212,8 @@
     "category": "盛",
     "themeSlug": "bloom",
     "themeSubtitle": "Lush",
-    "themeDescription": "明亮、丰盛、带有展开感的瞬间。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAASACQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAYDBAUBAv/EABcBAQEBAQAAAAAAAAAAAAAAAAIDAAH/2gAMAwEAAhADEAAAAGmuj1sXqRL98W2YAVywE1LrgxKBQ//EACIQAAEDBAICAwAAAAAAAAAAAAEAAgMEBRESFCEyQRAiU//aAAgBAQABPwDdrfYUtxpY/KQKO60j3dPU10pYh55T7+dvqxS1lVJ0ZCtJHHvJXHdrlpwuNLjJGUaef8ymJi9hNA0b8f/EABoRAAICAwAAAAAAAAAAAAAAAAABAhIQETH/2gAIAQIBAT8AuizNyH0hj//EABkRAAMAAwAAAAAAAAAAAAAAAAABAhAREv/aAAgBAwEBPwBQzlGpEXj/2Q==",
+    "themeDescription": "明亮而丰盛，记录色彩舒展、生命向外生长的片刻。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAASACQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAYDBAUBAv/EABcBAQEBAQAAAAAAAAAAAAAAAAIDAAH/2gAMAwEAAhADEAAAAGmuj1sXqRL98W2YAVywE1LrgxKBQf/EACIQAAEEAgEEAwAAAAAAAAAAAAEAAgMRBBIFFCEyQRAiU//aAAgBAQABPwDdrfYUvI4sflIFHyuI91B6m5TFiHnafz52+jFLmZUnYyFaSOPeyunfrbTS6aWrItGCf80xMXsJoGjfj//EABoRAAICAwAAAAAAAAAAAAAAAAABAhIQETH/2gAIAQIBAT8AuizNyH0hj//EABkRAAIDAQAAAAAAAAAAAAAAAAABAhASEf/aAAgBAwEBPwDDMo5EROv/2Q==",
     "title": "盛 09",
     "year": 2025,
     "date": "2025-08-03",
@@ -1224,9 +1224,9 @@
     "order": 47,
     "slug": "bloom-09",
     "originalFile": "Z50_5668.jpg",
-    "optimized": false,
-    "sizeBytes": 8709143,
-    "previewSizeBytes": 69273
+    "optimized": true,
+    "sizeBytes": 3572752,
+    "previewSizeBytes": 69329
   },
   {
     "src": "/images/photography/umbrage/umbrage-01.jpg",
@@ -1239,8 +1239,8 @@
     "category": "郁",
     "themeSlug": "umbrage",
     "themeSubtitle": "Pall",
-    "themeDescription": "更深、更密、更内向的观看经验。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAXACQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAUBAgYDBP/EABcBAQEBAQAAAAAAAAAAAAAAAAIBAAP/2gAMAwEAAhADEAAAAMew7tTV1GldssXFH/rDk4kLMyAx/8QAHRAAAgMAAgMAAAAAAAAAAAAAAQIAAxEEIhIhM//aAAgBAQABPwBZXxmbIvGdWTToM5dHgeksBDe5TwFGFjEpSGwKQoWW/LMHkZeGFp2VuJ2C6Ij5G7b6nK+zT//EABYRAQEBAAAAAAAAAAAAAAAAABEAIP/aAAgBAgEBPwBnP//EABYRAQEBAAAAAAAAAAAAAAAAABEAIP/aAAgBAwEBPwAjP//Z",
+    "themeDescription": "更深、更密，把视线收回到阴影、纹理与未说完的部分。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAXACQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAUBAgYDBP/EABcBAQEBAQAAAAAAAAAAAAAAAAIAAQP/2gAMAwEAAhADEAAAAMew7tTq6jStZYuLH/rDm4kLMyAx/8QAHhAAAgMAAgMBAAAAAAAAAAAAAQIAAxEEIhIhMzH/2gAIAQEAAT8AWV8ZmyLxnVk06DOXR4HpLAQ3uU8BRhYxKUhsCkKFlvyzB5GXhha2xHE7BdER8/Y3bfU5X2af/8QAFhEBAQEAAAAAAAAAAAAAAAAAEQAg/9oACAECAQE/AGc//8QAFhEBAQEAAAAAAAAAAAAAAAAAEQAg/9oACAEDAQE/ACM//9k=",
     "title": "郁 01",
     "year": 2025,
     "date": "2025-07-08",
@@ -1251,9 +1251,9 @@
     "order": 48,
     "slug": "umbrage-01",
     "originalFile": "8.jpg",
-    "optimized": false,
-    "sizeBytes": 12648202,
-    "previewSizeBytes": 102575
+    "optimized": true,
+    "sizeBytes": 5096968,
+    "previewSizeBytes": 102658
   },
   {
     "src": "/images/photography/umbrage/umbrage-02.jpg",
@@ -1266,8 +1266,8 @@
     "category": "郁",
     "themeSlug": "umbrage",
     "themeSubtitle": "Pall",
-    "themeDescription": "更深、更密、更内向的观看经验。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAA2ACQDASIAAhEBAxEB/8QAGwAAAgIDAQAAAAAAAAAAAAAAAAUEBgECAwf/xAAWAQEBAQAAAAAAAAAAAAAAAAACAAH/2gAMAwEAAhADEAAAAKk/gTVWzz6/efRyYNtWyZsVa6RbKTZzAzcyYzRZhZPX0God3Zgz2ThXMAL/xAAjEAACAgIBBQADAQAAAAAAAAABAgADBBExBRASEyEyQVFy/9oACAEBAAE/AFRjwJ0S0pf4zI36bP8AMZvCxif7C+zuY19SJphOngNkiwTIJONYV51GVnsI/e4+kPjPYAmtTpJ3YJdaRTYF51PZ4NYzflGJJJMYh2mC5xrFDDmZzOtBdfnyWMWYk9gdGV2P7FPOpf1C6xCjRuZuAbmIihhuZCr5vDz2ExvsvRNGONHt/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAEQAhH/2gAIAQIBAT8AU6xdqQ5k1P/EABgRAQEBAQEAAAAAAAAAAAAAAAEQABEh/9oACAEDAQE/AEOHs5muI4n/2Q==",
+    "themeDescription": "更深、更密，把视线收回到阴影、纹理与未说完的部分。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAA2ACQDASIAAhEBAxEB/8QAGwAAAgIDAQAAAAAAAAAAAAAAAAUEBgECAwf/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAgH/2gAMAwEAAhADEAAAAKk/gTaWzz6/efJyYNatkzaatVJtlJOYGMyYzSswsnrwNSd3Zhedk4M5gRX/xAAjEAACAgIBBQADAQAAAAAAAAABAgADBBExBRASEyEyQVFy/9oACAEBAAE/AFRjwJ0S0pf4zI36bP8AMZvCxif7C+zuY19SJphOngNkiwTIJONYV51GVnsI/e4+kPjPYAmtTpJ3YJdafTYF51PZ4NYzflGJJJMYh2mC5xrFDDmZzOtBdfnyWMWYk9gdGV2P7FPOpf1C6xCjRuZuAbmIihhuZCr5vD2ExvsvRNGONHt//8QAGBEAAwEBAAAAAAAAAAAAAAAAAAEQAhH/2gAIAQIBAT8AU6LtSHMmp//EABgRAQEBAQEAAAAAAAAAAAAAAAEQABEh/9oACAEDAQE/AEOHs5muI4n/2Q==",
     "title": "郁 02",
     "year": 2025,
     "date": "2025-09-10",
@@ -1275,9 +1275,9 @@
     "order": 49,
     "slug": "umbrage-02",
     "originalFile": "9.jpg",
-    "optimized": false,
-    "sizeBytes": 3788536,
-    "previewSizeBytes": 72727
+    "optimized": true,
+    "sizeBytes": 1491432,
+    "previewSizeBytes": 72699
   },
   {
     "src": "/images/photography/umbrage/umbrage-03.jpg",
@@ -1290,31 +1290,31 @@
     "category": "郁",
     "themeSlug": "umbrage",
     "themeSubtitle": "Pall",
-    "themeDescription": "更深、更密、更内向的观看经验。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAzACQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAMCBAUGAf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAM+xpBgVeiSc+dGDvZSJV1QNYzwsSxFjkU6pqmcC3gTrgRAP/8QAIhAAAgIBBAMAAwAAAAAAAAAAAQIAAxEEEhMhMTJRFDNS/9oACAEBAAE/AFoyudsqrCr34moqVmyo6jU/JxH5AU8dCWaYt4IxLNG2BgSrTrv2YjUcbFSogZCMCo5m4J7dQa2sLtxmIzcuQMCNXS5yx7iU2Ujc7EzhW5csZiusnAh1ChvMFwYZ3iaf8k/tM1Fy1DqPqnYnOJyIfYiZq/qDWWu/vNRYzj6YwsI7hRvsVGx7TJ+xWbb5jMxTswzJn//EABQRAQAAAAAAAAAAAAAAAAAAADD/2gAIAQIBAT8AT//EABQRAQAAAAAAAAAAAAAAAAAAADD/2gAIAQMBAT8AT//Z",
+    "themeDescription": "更深、更密，把视线收回到阴影、纹理与未说完的部分。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAzACQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAMCBAUGAf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAM+xpBgVejQc+dGDvZTJVlQNYzwsSxFjkU6pqmeCngTrgRAP/8QAIhAAAgIBBAMAAwAAAAAAAAAAAQIAAxEEEhMhMTJRFDNS/9oACAEBAAE/AFoyudsqrCr34moqVmyo6jU/JxH5AU8dCWaYt2CMSzRtgYEq0679mI1HGxUqIGQjAqOZu2e3UGtrC7cZiM3LkDAjV0udzHuJTZSNzsTOFblyxmK6ycCHUAN5guDd7xNP+Sf2mai5ah1H1TsTnE5EPsRM1f1BrLXf3mosZx9MYWEdwo32KjY9pk/YrNt8xmYp2YZkz//EABQRAQAAAAAAAAAAAAAAAAAAADD/2gAIAQIBAT8AT//EABQRAQAAAAAAAAAAAAAAAAAAADD/2gAIAQMBAT8AT//Z",
     "title": "郁 03",
     "year": 2026,
     "featured": false,
     "order": 50,
     "slug": "umbrage-03",
     "originalFile": "1782304071673.jpg",
-    "optimized": false,
-    "sizeBytes": 13549316,
-    "previewSizeBytes": 136580
+    "optimized": true,
+    "sizeBytes": 5141051,
+    "previewSizeBytes": 136622
   },
   {
     "src": "/images/photography/umbrage/umbrage-04.jpg",
     "previewSrc": "/images/photography/umbrage/preview/umbrage-04-preview.jpg",
     "alt": "郁主题摄影作品 4",
-    "width": 8256,
-    "height": 5504,
+    "width": 6935,
+    "height": 4623,
     "previewWidth": 900,
     "previewHeight": 600,
     "category": "郁",
     "themeSlug": "umbrage",
     "themeSubtitle": "Pall",
-    "themeDescription": "更深、更密、更内向的观看经验。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAYACQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAQCAwUB/8QAFQEBAQAAAAAAAAAAAAAAAAAAAQD/2gAMAwEAAhADEAAAAMRuTiZd0WYxyRCjAVRwJXAH/8QAIBAAAgICAgIDAAAAAAAAAAAAAQMAAgQRISISEzFRUv/aAAgBAQABPwBd8i3wubzDU9JRTPGn63GqzCOTLKfvm0xnDULgakRbgL1H0Y3K4l37sYt5rBlGe/vuXeTDef/EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8AX//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQMBAT8AX//Z",
+    "themeDescription": "更深、更密，把视线收回到阴影、纹理与未说完的部分。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAYACQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAQCAwUB/8QAFQEBAQAAAAAAAAAAAAAAAAAAAQD/2gAMAwEAAhADEAAAAMRuTiZd0GoxyRCjAVRwJXAH/8QAIBAAAgICAgIDAAAAAAAAAAAAAQMAAgQRISISMRNRUv/aAAgBAQABPwBd8i3pc3lmp6SimeNf1viNVmEe5ZT982mM4ahcDUxbtXqPoxuVxLv7GLeawZRnz99y7yYbT//EABQRAQAAAAAAAAAAAAAAAAAAACD/2gAIAQIBAT8AX//EABcRAAMBAAAAAAAAAAAAAAAAAAABESD/2gAIAQMBAT8AWYf/2Q==",
     "title": "郁 04",
     "year": 2026,
     "date": "2026-02-18",
@@ -1326,8 +1326,8 @@
     "slug": "umbrage-04",
     "originalFile": "DSC_2990-2.jpg",
     "optimized": true,
-    "sizeBytes": 14549548,
-    "previewSizeBytes": 57492
+    "sizeBytes": 5188845,
+    "previewSizeBytes": 58557
   },
   {
     "src": "/images/photography/umbrage/umbrage-05.jpg",
@@ -1340,8 +1340,8 @@
     "category": "郁",
     "themeSlug": "umbrage",
     "themeSubtitle": "Pall",
-    "themeDescription": "更深、更密、更内向的观看经验。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAkACQDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAAMFBAIG/8QAFgEBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAADxzUbrhmCtMHDi4n1Zuqbu+Y3YFacjCuga6UAAL//EACEQAAMAAgEDBQAAAAAAAAAAAAABAgMREgQTMSEyM0OB/9oACAEBAAE/AJppGOtMpy/B9hwYjHg3o7LieXEr5f02kStv0OmuOK35R1fU48mKFEa0i3rKPKjCm2clj1R31SLe8g3KIprwOm0QyvcM/8QAFBEBAAAAAAAAAAAAAAAAAAAAMP/aAAgBAgEBPwAf/8QAGxEAAgIDAQAAAAAAAAAAAAAAABEBECExQVH/2gAIAQMBAT8AkSro2Y8J2R2v/9k=",
+    "themeDescription": "更深、更密，把视线收回到阴影、纹理与未说完的部分。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAkACQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAMCBAUGAf/EABYBAQEBAAAAAAAAAAAAAAAAAAABAv/aAAwDAQACEAMQAAAA45qL1wyhrZg4cXGfq5tqb3eYvUFaRGFTBr1QAAv/xAAhEAADAAIBAwUAAAAAAAAAAAAAAQIDERIEEzEhMjNDgf/aAAgBAQABPwCaaRjrTKcvwfYcGIx4N6Oy4nlxH8v6bSJW36HTXHFb8o6vqceTFCmNaRb1lY8qMKbZyWPVHfVIt7yDcoimvA6bRDK9wz//xAAUEQEAAAAAAAAAAAAAAAAAAAAw/9oACAECAQE/AB//xAAbEQADAAIDAAAAAAAAAAAAAAAAAREQMSFBUf/aAAgBAwEBPwBkmOy048HsW3j/2Q==",
     "title": "郁 05",
     "year": 2026,
     "date": "2026-02-18",
@@ -1352,23 +1352,23 @@
     "order": 52,
     "slug": "umbrage-05",
     "originalFile": "DSC_3012.jpg",
-    "optimized": false,
-    "sizeBytes": 9732133,
-    "previewSizeBytes": 57581
+    "optimized": true,
+    "sizeBytes": 2693660,
+    "previewSizeBytes": 57584
   },
   {
     "src": "/images/photography/umbrage/umbrage-06.jpg",
     "previewSrc": "/images/photography/umbrage/preview/umbrage-06-preview.jpg",
     "alt": "郁主题摄影作品 6",
-    "width": 5504,
-    "height": 8256,
+    "width": 4623,
+    "height": 6935,
     "previewWidth": 600,
     "previewHeight": 900,
     "category": "郁",
     "themeSlug": "umbrage",
     "themeSubtitle": "Pall",
-    "themeDescription": "更深、更密、更内向的观看经验。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAA2ACQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAUBAgQDBv/EABcBAAMBAAAAAAAAAAAAAAAAAAABAgP/2gAMAwEAAhADEAAAAPHzYqad+TapTEiZ2hmJZRnmDGMRVVou1C14LUVdBaZ601hthhgE6gB//8QAIhAAAgICAgICAwAAAAAAAAAAAQIAEQMEITESExAiQVFh/9oACAEBAAE/ACKnFS42VnxKldfDv5m5X1irZAmX0YNfwWi7dmGCVaAQr4QsT8JjtqmDSZq5mxgS6WNrFauLqiuVM1VS7ae31FWXo8GHVTPyjU0dcy5PBx1+Y2wFNTEP1MxB1T/DNbapO+R1NncbORHLg8mY8rLDlJwsIHKiBiOYzljc/8QAHBEAAQMFAAAAAAAAAAAAAAAAAAEQEQISEyBR/9oACAECAQE/ACCGkup6yqYtP//EAB0RAAIBBAMAAAAAAAAAAAAAAAABEQIQEhMgMVH/2gAIAQMBAT8AJtJBhV4JCS7Zu4f/2Q==",
+    "themeDescription": "更深、更密，把视线收回到阴影、纹理与未说完的部分。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAA2ACQDASIAAhEBAxEB/8QAGgAAAgMBAQAAAAAAAAAAAAAAAAUBAgQDBv/EABcBAAMBAAAAAAAAAAAAAAAAAAABAgP/2gAMAwEAAhADEAAAAPHzYqad+TapTEiZ3hkJZVlmDGMBVDRdrFqwWoq6i0z156w2wwwCcAB//8QAIhAAAgICAgICAwAAAAAAAAAAAQIAEQMEITESExAiQVFh/9oACAEBAAE/ACKnFS42VnwqldfDv5m5X1irZAmT0YNfwWi7dmHuCAWgEK+ELE/CY7apg0mYjmbOBLpY2sVq4uqK5UzVRLtp7fUVZejwYdVM/KNTR1zLk8HHX5jbIU1MQ/UzEHVP8M1tqk75HU2txs5EcvfJmPKyw5ScLCByogYjmM5Juf/EABwRAAIBBQEAAAAAAAAAAAAAAAARAQIQEhMgUf/aAAgBAgEBPwAQhDMqfbTJq4//xAAdEQACAQQDAAAAAAAAAAAAAAAAARECEBITIDFR/9oACAEDAQE/ACbSQYVeCQku2buH/9k=",
     "title": "郁 06",
     "year": 2026,
     "date": "2026-02-22",
@@ -1380,8 +1380,8 @@
     "slug": "umbrage-06",
     "originalFile": "DSC_3105.jpg",
     "optimized": true,
-    "sizeBytes": 13549868,
-    "previewSizeBytes": 61800
+    "sizeBytes": 4875714,
+    "previewSizeBytes": 62797
   },
   {
     "src": "/images/photography/umbrage/umbrage-07.jpg",
@@ -1394,16 +1394,16 @@
     "category": "郁",
     "themeSlug": "umbrage",
     "themeSubtitle": "Pall",
-    "themeDescription": "更深、更密、更内向的观看经验。",
-    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAbACQDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAAMFBAYC/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAN5ytpHRrKCOWiTkXM0mpObwaycH/8QAIRAAAgICAgEFAAAAAAAAAAAAAQIAAwQRITEFEhQiMkH/2gAIAQEAAT8AR2KgmWM4HxjZFgXrmXLl3sdz2N0oz7qv3YlGelo0e4zo0YsTwIA+u4CZUX9QIi3soEfOsU61B5EyhVO9iVgbA1LuLgBMj7LCBuf/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/AF//xAAWEQEBAQAAAAAAAAAAAAAAAAARECD/2gAIAQMBAT8AYY//2Q==",
+    "themeDescription": "更深、更密，把视线收回到阴影、纹理与未说完的部分。",
+    "placeholder": "data:image/jpeg;base64,/9j/2wBDABMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////2wBDARMTExMUExUYGBUeIB0gHiwoJSUoLEMwMzAzMENlP0o/P0o/ZVlsWFJYbFmhfnBwfqG6nJScuuHJyeH/////////wgARCAAbACQDASIAAhEBAxEB/8QAGQAAAwEBAQAAAAAAAAAAAAAAAAMFBAYC/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAH/2gAMAwEAAhADEAAAAN5ytpHRrKCOWiTkXM0mpObwaycH/8QAIRAAAgICAgEFAAAAAAAAAAAAAQIAAwQRITESBRQiMkH/2gAIAQEAAT8AR2KgmWM4HxjZFgXrmXLl3sdz2N0oz7qv3YlGelo0e4zo0YsTwIA+u4CZUX8gRFvZQI+dYp1qD1EyhVO9iVqPIDUu4uAEyPssIG5//8QAFBEBAAAAAAAAAAAAAAAAAAAAIP/aAAgBAgEBPwBf/8QAFhEBAQEAAAAAAAAAAAAAAAAAERAg/9oACAEDAQE/AGGP/9k=",
     "title": "郁 07",
     "year": 2026,
     "featured": false,
     "order": 54,
     "slug": "umbrage-07",
     "originalFile": "Z50_4904.jpg",
-    "optimized": false,
-    "sizeBytes": 8870427,
-    "previewSizeBytes": 53992
+    "optimized": true,
+    "sizeBytes": 3121451,
+    "previewSizeBytes": 53843
   }
 ]
