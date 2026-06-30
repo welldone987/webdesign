@@ -233,16 +233,14 @@ function ArchiveCard({
   prefersReducedMotion: boolean;
   onOpenThemeGallery: (themeSlug: string) => void;
 }) {
-  const colors = themeAccents[item.theme.slug as keyof typeof themeAccents] ?? themeAccents.warm;
-  const isDark = item.theme.slug === 'umbrage';
   const folderStyle = {
-    '--card-accent': colors.accent,
-    '--card-ink': isDark ? '#ffffff' : '#071b2f',
+    '--card-accent': (themeAccents[item.theme.slug as keyof typeof themeAccents] ?? themeAccents.warm).accent,
+    '--card-ink': '#ffffff',
   } as CSSProperties;
 
   return (
     <motion.button
-      className="group relative min-h-[248px] overflow-visible px-7 pb-6 pt-5 text-left text-[var(--card-ink)] outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-4 focus-visible:ring-offset-white sm:min-h-[226px] lg:min-h-[202px]"
+      className="group relative min-h-[200px] overflow-visible px-5 pb-5 pt-4 text-left text-[var(--card-ink)] outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-4 focus-visible:ring-offset-white sm:min-h-[214px] sm:px-6 sm:pb-6 sm:pt-5 lg:min-h-[202px] lg:px-7"
       initial={prefersReducedMotion ? false : { opacity: 0, y: 36 }}
       onClick={() => onOpenThemeGallery(item.theme.slug)}
       style={folderStyle}
@@ -254,30 +252,34 @@ function ArchiveCard({
     >
       <span
         aria-hidden="true"
-        className="absolute left-0 top-0 z-0 h-[50px] w-[48%] -translate-y-[70%] rounded-tr-[18px] border border-b-0 border-[#071b2f]/16 bg-[var(--card-accent)] [clip-path:polygon(0_0,calc(100%-28px)_0,100%_100%,0_100%)] transition-transform group-hover:-translate-y-[82%]"
+        className="absolute left-0 top-0 z-0 h-[42px] w-[48%] -translate-y-[70%] rounded-tr-[14px] border border-b-0 border-[#071b2f] bg-[var(--card-accent)] [clip-path:polygon(0_0,calc(100%-28px)_0,100%_100%,0_100%)] transition-transform group-hover:-translate-y-[82%] sm:h-[50px] sm:rounded-tr-[18px]"
       />
       <span
         aria-hidden="true"
-        className="absolute inset-0 z-0 rounded-r-[18px] border border-[#071b2f]/12 bg-[var(--card-accent)] shadow-[0_18px_40px_rgba(7,27,47,0.1)]"
+        className="absolute inset-0 z-0 rounded-r-[14px] border border-[#071b2f] bg-[var(--card-accent)] shadow-[0_18px_40px_rgba(7,27,47,0.1)] sm:rounded-r-[18px]"
       />
       <span
         aria-hidden="true"
-        className="absolute inset-x-0 bottom-0 top-[50px] z-[2] rounded-r-[18px] border border-[#071b2f]/16 bg-[var(--card-accent)] shadow-[0_18px_40px_rgba(7,27,47,0.08)] transition group-hover:border-[#071b2f] group-hover:shadow-[0_26px_70px_rgba(7,27,47,0.18)]"
+        className="absolute inset-x-0 bottom-0 top-[42px] z-[2] rounded-r-[14px] border border-[#071b2f] bg-[var(--card-accent)] shadow-[0_18px_40px_rgba(7,27,47,0.08)] transition group-hover:border-[#071b2f] group-hover:shadow-[0_26px_70px_rgba(7,27,47,0.18)] sm:top-[50px] sm:rounded-r-[18px]"
       />
-      <span className="relative z-[4] block border-b border-current pb-3 text-base">{String(index + 1).padStart(2, '0')}</span>
-      <span className="font-serif relative z-[4] mt-7 flex items-baseline gap-3">
-        <span className="text-[clamp(64px,5.8vw,98px)] font-light leading-[0.86]">{item.theme.name}</span>
-        <span className="text-[clamp(22px,2vw,34px)] font-light uppercase leading-none">{item.label}</span>
+      <span className="relative z-[4] block border-b border-[#071b2f] pb-3 text-sm sm:text-base">
+        {String(index + 1).padStart(2, '0')}
       </span>
-      <span className="relative z-[4] mt-6 block h-[9px] w-20 bg-current transition-all group-hover:w-full" />
-      <span className="relative z-[4] mt-5 block text-sm">进入 &gt;</span>
-      <span className="pointer-events-none absolute left-[18%] top-0 z-[1] hidden h-[246px] w-[190px] -translate-x-[16%] -translate-y-[26%] sm:block" aria-hidden="true">
+      <span className="font-serif relative z-[4] mt-6 flex items-baseline gap-3 sm:mt-7">
+        <span className="text-[clamp(52px,5.8vw,98px)] font-light leading-[0.86]">{item.theme.name}</span>
+        <span className="text-[clamp(20px,2vw,34px)] font-light uppercase leading-none">{item.label}</span>
+      </span>
+      <span className="relative z-[4] mt-5 block h-[8px] w-16 bg-white transition-all group-hover:w-full sm:mt-6 sm:h-[9px] sm:w-20" />
+      <span className="relative z-[4] ml-auto mt-5 flex min-h-11 w-fit items-center border border-white bg-white px-4 text-sm font-semibold text-[#071b2f] shadow-[0_8px_18px_rgba(7,27,47,0.12)] transition group-hover:bg-[#071b2f] group-hover:text-white">
+        进入 &gt;
+      </span>
+      <span className="pointer-events-none absolute left-[18%] top-0 z-[1] hidden h-[202px] w-[156px] -translate-x-[16%] -translate-y-[22%] sm:block lg:h-[246px] lg:w-[190px] lg:-translate-y-[26%]" aria-hidden="true">
         {[item.cover, item.peek].map((photo, photoIndex) => (
           <span
             className={`absolute inset-0 border-[7px] border-white bg-white opacity-0 shadow-[0_20px_44px_rgba(7,27,47,0.2)] transition duration-500 group-hover:opacity-100 ${
               photoIndex === 0
-                ? 'translate-y-7 rotate-[-2deg] scale-[0.82] group-hover:translate-x-1 group-hover:-translate-y-24 group-hover:rotate-[-11deg] group-hover:scale-100'
-                : 'translate-y-8 rotate-3 scale-[0.8] group-hover:translate-x-[120px] group-hover:-translate-y-[84px] group-hover:rotate-[9deg] group-hover:scale-[0.96]'
+                ? 'translate-y-7 rotate-[-2deg] scale-[0.78] group-hover:translate-x-1 group-hover:-translate-y-16 group-hover:rotate-[-11deg] group-hover:scale-[0.84] lg:group-hover:-translate-y-24 lg:group-hover:scale-100'
+                : 'translate-y-8 rotate-3 scale-[0.76] group-hover:translate-x-20 group-hover:-translate-y-14 group-hover:rotate-[9deg] group-hover:scale-[0.82] lg:group-hover:translate-x-[120px] lg:group-hover:-translate-y-[84px] lg:group-hover:scale-[0.96]'
             }`}
             key={`${photo.slug ?? photo.src}-${photoIndex}`}
           >
