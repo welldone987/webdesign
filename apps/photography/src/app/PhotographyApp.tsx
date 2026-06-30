@@ -1,24 +1,18 @@
 import { AnimatePresence } from 'framer-motion';
-import { useMemo, useRef, useState } from 'react';
-import photos from '../data/photos.json';
-import { buildThemes } from '../data/themes.ts';
-import { preloadImage } from '../lib/imagePreload.ts';
+import { useState } from 'react';
+import { allPhotos, defaultThemeSlug, getPhotosByTheme, themes } from '../data/photoCollection.ts';
 import { HomePage } from '../pages/HomePage.tsx';
 import { ThemeGalleryPage } from '../pages/ThemeGalleryPage.tsx';
 import { DetailOverlay } from '../patterns/DetailOverlay.tsx';
-import type { Photo } from '../types/photography.ts';
 import type { SitePage } from './pageState.ts';
-
-const allPhotos = photos as Photo[];
+import { usePhotoDetail } from './usePhotoDetail.ts';
 
 export function PhotographyApp() {
   const [page, setPage] = useState<SitePage>('home');
-  const [activeThemeSlug, setActiveThemeSlug] = useState(allPhotos[0]?.themeSlug ?? 'warm');
-  const [selectedPhoto, setSelectedPhoto] = useState<Photo | null>(null);
-  const photoTriggerRef = useRef<HTMLButtonElement | null>(null);
-  const themes = useMemo(() => buildThemes(allPhotos), []);
+  const [activeThemeSlug, setActiveThemeSlug] = useState(defaultThemeSlug);
+  const { selectedPhoto, openPhoto, selectPhoto, closePhoto } = usePhotoDetail();
   const activeTheme = themes.find((theme) => theme.slug === activeThemeSlug) ?? themes[0];
-  const activePhotos = allPhotos.filter((photo) => photo.themeSlug === activeTheme?.slug);
+  const activePhotos = getPhotosByTheme(activeTheme?.slug ?? defaultThemeSlug);
 
   const selectTheme = (themeSlug: string) => {
     setActiveThemeSlug(themeSlug);
@@ -28,22 +22,6 @@ export function PhotographyApp() {
     setActiveThemeSlug(themeSlug);
     setPage('theme-gallery');
     window.requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'smooth' }));
-  };
-
-  const openPhoto = (photo: Photo, trigger: HTMLButtonElement) => {
-    photoTriggerRef.current = trigger;
-    preloadImage(photo.src);
-    setSelectedPhoto(photo);
-  };
-
-  const selectPhoto = (photo: Photo) => {
-    preloadImage(photo.src);
-    setSelectedPhoto(photo);
-  };
-
-  const closePhoto = () => {
-    setSelectedPhoto(null);
-    window.requestAnimationFrame(() => photoTriggerRef.current?.focus());
   };
 
   return (

@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
 import { motion, useInView, useScroll, useSpring, useTransform } from 'framer-motion';
+import { getThemeDisplayLabels } from '../data/themeLabels.ts';
 import { themeAccents } from '../data/themes.ts';
 import { getPreviewHeight, getPreviewSrc, getPreviewWidth } from '../lib/photos.ts';
 import type { Photo, ThemeSummary } from '../types/photography.ts';
@@ -17,13 +18,6 @@ type ThemeArchiveItem = {
   cover: Photo;
   peek: Photo;
   label: string;
-};
-
-const themeLabels: Record<string, string> = {
-  warm: 'Apricity',
-  azure: 'Azure',
-  bloom: 'Lush',
-  umbrage: 'Pall',
 };
 
 const ribbonTexts = [
@@ -477,7 +471,7 @@ function buildArchiveItems(photos: Photo[], themes: ThemeSummary[]): ThemeArchiv
       theme,
       cover,
       peek,
-      label: themeLabels[theme.slug] ?? theme.subtitle,
+      label: getThemeDisplayLabels(theme.slug).english || theme.subtitle,
     };
   });
 }

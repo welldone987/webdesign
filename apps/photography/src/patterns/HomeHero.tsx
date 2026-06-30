@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
+import { getThemeDisplayLabels } from '../data/themeLabels.ts';
 import { themeAccents } from '../data/themes.ts';
 import { getPreviewSrc } from '../lib/photos.ts';
 import { preloadImage } from '../lib/imagePreload.ts';
@@ -16,20 +17,6 @@ type HomeHeroProps = {
 type HoverPreview = {
   theme: ThemeSummary;
   centerY: number;
-};
-
-const themeLabels: Record<string, string> = {
-  warm: '暖',
-  azure: '湛',
-  bloom: '盛',
-  umbrage: '郁',
-};
-
-const themeEnglishLabels: Record<string, string> = {
-  warm: 'Apricity',
-  azure: 'Azure',
-  bloom: 'Lush',
-  umbrage: 'Pall',
 };
 
 const heroTitleRows = [
@@ -242,6 +229,7 @@ type ThemeButtonProps = {
 function ThemeButton({ theme, index, activeThemeSlug, onSelectTheme, onOpenThemeGallery, onHoverTheme }: ThemeButtonProps) {
   const isActive = theme.slug === activeThemeSlug;
   const accent = themeAccents[theme.slug as keyof typeof themeAccents]?.accent ?? '#111';
+  const labels = getThemeDisplayLabels(theme.slug);
 
   return (
     <button
@@ -255,8 +243,8 @@ function ThemeButton({ theme, index, activeThemeSlug, onSelectTheme, onOpenTheme
       onMouseEnter={(event) => onHoverTheme?.(theme, event.currentTarget)}
       type="button"
     >
-      <span>{themeLabels[theme.slug] ?? theme.subtitle}</span>
-      <span className="text-[0.82em] tracking-[0.14em] text-black/42 sm:text-[0.9em]">{themeEnglishLabels[theme.slug] ?? theme.subtitle}</span>
+      <span>{labels.chinese || theme.subtitle}</span>
+      <span className="text-[0.82em] tracking-[0.14em] text-black/42 sm:text-[0.9em]">{labels.english || theme.subtitle}</span>
       {isActive ? (
         <span
           aria-hidden="true"
