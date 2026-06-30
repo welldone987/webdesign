@@ -52,6 +52,21 @@ a {
   background: transparent;
 }
 
+.home-ribbon-track {
+  animation: home-ribbon-slide var(--ribbon-duration, 20s) linear infinite alternate;
+  transform: translate3d(var(--ribbon-from, 0), 0, 0);
+}
+
+@keyframes home-ribbon-slide {
+  from {
+    transform: translate3d(var(--ribbon-from, 0), 0, 0);
+  }
+
+  to {
+    transform: translate3d(var(--ribbon-to, 0), 0, 0);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useScroll, useSpring, useTransform } from 'framer-motion';
 import { themeAccents } from '../data/themes.ts';
 import { getPreviewHeight, getPreviewSrc, getPreviewWidth } from '../lib/photos.ts';
 import type { Photo, ThemeSummary } from '../types/photography.ts';
@@ -68,8 +68,22 @@ export function HomeVisualSections({ photos, themes, prefersReducedMotion, onOpe
 }
 
 function HomeScrollLab({ prefersReducedMotion }: { prefersReducedMotion: boolean }) {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  });
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 80,
+    damping: 24,
+    mass: 0.22,
+  });
+
   return (
-    <section className="relative min-h-[760px] overflow-hidden border-b border-black/14 bg-white sm:min-h-[860px] lg:min-h-[min(900px,96vh)]">
+    <section
+      className="relative min-h-[760px] overflow-hidden border-b border-black/14 bg-white sm:min-h-[860px] lg:min-h-[min(900px,96vh)]"
+      ref={sectionRef}
+    >
       <div
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,transparent_0_14%,rgba(7,27,47,0.14)_14%_calc(14%+1px),transparent_calc(14%+1px)_28%),repeating-linear-gradient(to_bottom,transparent_0_132px,rgba(7,27,47,0.14)_132px_133px)]"
@@ -80,23 +94,19 @@ function HomeScrollLab({ prefersReducedMotion }: { prefersReducedMotion: boolean
       <div className="relative z-[2] grid min-h-[inherit] gap-8 px-4 pb-14 pt-8 sm:px-8 sm:pt-24 lg:grid-cols-[minmax(0,0.94fr)_minmax(320px,1fr)] lg:items-center lg:gap-16 lg:px-14 lg:pb-16">
         <div className="grid gap-0 sm:gap-1">
           {[
-            ['WHEN WHEN WHEN WHEN WHEN WHEN WHEN WHEN WHEN WHEN WHEN WHEN', -50, 18],
-            ['IT COMES IT COMES IT COMES IT COMES IT COMES IT COMES IT COMES', 0, 20],
-            ['TO LIGHT TO LIGHT TO LIGHT TO LIGHT TO LIGHT TO LIGHT TO LIGHT', -50, 22],
-          ].map(([text, target, duration], index) => (
-            <div
-              className="relative h-[clamp(74px,10vw,146px)] overflow-hidden border-t border-[#071b2f]/18 last:border-b"
+            ['WHEN WHEN WHEN WHEN WHEN WHEN WHEN WHEN WHEN WHEN WHEN WHEN', -52, 4],
+            ['IT COMES IT COMES IT COMES IT COMES IT COMES IT COMES IT COMES', 6, -42],
+            ['TO LIGHT TO LIGHT TO LIGHT TO LIGHT TO LIGHT TO LIGHT TO LIGHT', -48, 8],
+          ].map(([text, from, to], index) => (
+            <ScrollLabLine
+              from={Number(from)}
+              index={index}
               key={`${text}-${index}`}
-            >
-              <motion.span
-                animate={prefersReducedMotion ? undefined : { x: [`${target === 0 ? -50 : 0}%`, `${target}%`] }}
-                className="font-serif absolute top-1/2 block whitespace-nowrap text-[clamp(70px,11vw,168px)] font-light uppercase leading-[0.9]"
-                style={{ y: '-45%' }}
-                transition={prefersReducedMotion ? undefined : { duration: Number(duration), ease: 'linear', repeat: Infinity }}
-              >
-                {text}
-              </motion.span>
-            </div>
+              prefersReducedMotion={prefersReducedMotion}
+              progress={smoothProgress}
+              text={String(text)}
+              to={Number(to)}
+            />
           ))}
         </div>
         <div className="relative min-h-[360px] sm:min-h-[520px] lg:min-h-[640px]">
@@ -110,6 +120,30 @@ function HomeScrollLab({ prefersReducedMotion }: { prefersReducedMotion: boolean
         </div>
       </div>
     </section>
+  );
+}
+
+type ScrollLabLineProps = {
+  text: string;
+  from: number;
+  to: number;
+  index: number;
+  progress: ReturnType<typeof useSpring>;
+  prefersReducedMotion: boolean;
+};
+
+function ScrollLabLine({ text, from, to, index, progress, prefersReducedMotion }: ScrollLabLineProps) {
+  const x = useTransform(progress, [0, 1], [`${from}%`, `${to}%`]);
+
+  return (
+    <div className="relative h-[clamp(74px,10vw,146px)] overflow-hidden border-t border-[#071b2f]/18 last:border-b">
+      <motion.span
+        className="font-serif absolute top-1/2 block whitespace-nowrap text-[clamp(70px,11vw,168px)] font-light uppercase leading-[0.9] will-change-transform"
+        style={{ x: prefersReducedMotion ? 0 : x, y: '-45%' }}
+      >
+        {index % 2 === 0 ? text : `${text} ${text}`}
+      </motion.span>
+    </div>
   );
 }
 
@@ -324,8 +358,14 @@ function ArchiveCard({
 }
 
 function HomeZinePreview({ photos, prefersReducedMotion }: { photos: Photo[]; prefersReducedMotion: boolean }) {
+  const zineRef = useRef<HTMLElement>(null);
+  const isZineInView = useInView(zineRef, { amount: 0.18, margin: '18% 0px 18% 0px' });
+
   return (
-    <section className="relative grid min-h-[720px] items-center gap-8 overflow-hidden border-b border-black/14 bg-[radial-gradient(circle_at_76%_46%,rgba(235,215,191,0.62),transparent_34%),radial-gradient(circle_at_90%_70%,rgba(215,228,233,0.9),transparent_28%),#fff] px-4 py-16 text-[#071b2f] sm:px-8 lg:min-h-[860px] lg:grid-cols-[minmax(0,0.46fr)_minmax(520px,1fr)] lg:px-14 lg:py-24">
+    <section
+      className="relative grid min-h-[720px] items-center gap-8 overflow-hidden border-b border-black/14 bg-[radial-gradient(circle_at_76%_46%,rgba(235,215,191,0.62),transparent_34%),radial-gradient(circle_at_90%_70%,rgba(215,228,233,0.9),transparent_28%),#fff] px-4 py-16 text-[#071b2f] [content-visibility:auto] [contain-intrinsic-size:860px] sm:px-8 lg:min-h-[860px] lg:grid-cols-[minmax(0,0.46fr)_minmax(520px,1fr)] lg:px-14 lg:py-24"
+      ref={zineRef}
+    >
       <div className="relative z-[6]">
         <p className="mb-7 text-base text-[#071b2f]/62 sm:text-lg">Zine / 03</p>
         <h2 className="font-serif text-[clamp(62px,8.4vw,142px)] font-light uppercase leading-[0.88]">
@@ -345,10 +385,14 @@ function HomeZinePreview({ photos, prefersReducedMotion }: { photos: Photo[]; pr
           style={{ transform: 'translate(-50%, -50%) rotateX(68deg)' }}
         />
         <motion.div
-          animate={prefersReducedMotion ? undefined : { rotateX: -8, rotateY: -360 }}
+          animate={prefersReducedMotion || !isZineInView ? { rotateX: -8, rotateY: 0 } : { rotateX: -8, rotateY: -360 }}
           className="absolute inset-0 m-auto h-[min(74vw,760px)] w-[min(74vw,760px)] [transform-style:preserve-3d]"
           initial={{ rotateX: -8, rotateY: 0 }}
-          transition={prefersReducedMotion ? undefined : { duration: 20, ease: 'linear', repeat: Infinity }}
+          transition={
+            prefersReducedMotion || !isZineInView
+              ? { duration: 0.28, ease: 'easeOut' }
+              : { duration: 20, ease: 'linear', repeat: Infinity }
+          }
         >
           {photos.slice(0, 12).map((photo, index) => (
             <div
@@ -401,21 +445,25 @@ function RibbonLine({
   const speed = 180 + index * 24;
   const top = 104 + index * 94;
   const rotate = index % 2 === 0 ? 4 : -4;
+  const ribbonStyle = {
+    '--ribbon-from': `${dir * speed}px`,
+    '--ribbon-to': `${dir * -speed}px`,
+    '--ribbon-duration': `${18 + index * 2}s`,
+    top,
+    rotate: `${rotate}deg`,
+  } as CSSProperties;
 
   return (
-    <motion.div
+    <div
       className={`absolute left-[-60vw] flex w-[280vw] whitespace-nowrap font-serif text-[clamp(32px,3.6vw,74px)] font-light uppercase leading-none ${
         index % 2 === 0 ? 'text-[#c99567]/30' : 'text-[#071b2f]/28 mix-blend-multiply'
       }`}
-      style={{ top, rotate }}
+      style={ribbonStyle}
     >
-      <motion.span
-        animate={prefersReducedMotion ? undefined : { x: [dir * speed, dir * -speed] }}
-        transition={prefersReducedMotion ? undefined : { duration: 18 + index * 2, ease: 'linear', repeat: Infinity, repeatType: 'mirror' }}
-      >
+      <span className={prefersReducedMotion ? 'block' : 'home-ribbon-track block will-change-transform'}>
         {text.repeat(2)}
-      </motion.span>
-    </motion.div>
+      </span>
+    </div>
   );
 }
 

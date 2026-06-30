@@ -4,6 +4,7 @@ import { getPreviewSrc } from '../lib/photos.ts';
 import { preloadImage, requestIdleTask, shouldSkipIdlePreload } from '../lib/imagePreload.ts';
 import { useReducedMotionPreference } from '../motion/useReducedMotionPreference.ts';
 import { HomeHero } from '../patterns/HomeHero.tsx';
+import { HomePreloader } from '../patterns/HomePreloader.tsx';
 import { HomeVisualSections } from '../patterns/HomeVisualSections.tsx';
 import { ProfileFooter } from '../patterns/ProfileFooter.tsx';
 import type { Photo, ThemeSummary } from '../types/photography.ts';
@@ -37,6 +38,7 @@ export function HomeView({ photos, themes, activeThemeSlug, onSelectTheme, onOpe
       initial={{ opacity: 0 }}
       transition={{ duration: prefersReducedMotion ? 0 : 0.35 }}
     >
+      <HomePreloader prefersReducedMotion={prefersReducedMotion} />
       <HomeHero
         activeThemeSlug={activeThemeSlug}
         onOpenThemeGallery={onOpenThemeGallery}
