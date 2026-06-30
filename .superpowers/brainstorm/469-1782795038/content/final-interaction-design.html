@@ -1,0 +1,60 @@
+<h2>最终交互方向：轻裁切标题 + 主题 hover 预览</h2>
+<p class="subtitle">基于 C：不展示原引导页内容；主题目录作为筛选，图库立即露出。</p>
+
+<div class="mockup">
+  <div class="mockup-header">Desktop interaction model</div>
+  <div class="mockup-body">
+    <div style="height:580px;background:#fff;color:#000;border:1px solid #d6d6d6;position:relative;overflow:hidden;font-family:Arial,'Helvetica Neue',Helvetica,sans-serif">
+      <div style="position:absolute;left:14px;top:12px;font-size:12px;text-decoration:underline;z-index:5">InNothing, About</div>
+      <div style="position:absolute;right:14px;top:12px;font-size:12px;z-index:5">Contact</div>
+
+      <div style="position:absolute;left:23%;top:56px;width:122%;height:86px;overflow:hidden;border-top:1px solid #c9c9c9">
+        <div style="font-size:104px;font-weight:300;line-height:.82;text-transform:uppercase;white-space:nowrap;letter-spacing:0;transform:translateY(-8px)">INNOTHING</div>
+      </div>
+      <div style="position:absolute;left:39%;top:132px;width:95%;height:86px;overflow:hidden;border-top:1px solid #c9c9c9">
+        <div style="font-size:104px;font-weight:300;line-height:.82;text-transform:uppercase;white-space:nowrap;letter-spacing:0;transform:translateY(-8px)">SPACE</div>
+      </div>
+      <div style="position:absolute;right:-22px;top:264px;width:82%;height:82px;overflow:hidden;border-top:1px solid #c9c9c9;text-align:right">
+        <div style="font-size:96px;font-weight:300;line-height:.82;text-transform:uppercase;white-space:nowrap;letter-spacing:0;transform:translateY(-7px)">FOR PHOTOGRAPHY</div>
+      </div>
+      <div style="position:absolute;right:-18px;top:338px;width:82%;height:82px;overflow:hidden;border-top:1px solid #c9c9c9;text-align:right">
+        <div style="font-size:96px;font-weight:300;line-height:.82;text-transform:uppercase;white-space:nowrap;letter-spacing:0;transform:translateY(-7px)">AND MEMORY</div>
+      </div>
+
+      <div style="position:absolute;left:0;right:0;top:218px;border-top:1px solid #c9c9c9"></div>
+      <div style="position:absolute;left:0;right:0;top:420px;border-top:1px solid #c9c9c9"></div>
+      <div style="position:absolute;left:0;right:0;top:496px;border-top:1px solid #c9c9c9"></div>
+
+      <div style="position:absolute;left:14px;top:432px;width:30%;font-size:13px;line-height:1.55;z-index:6">
+        <div style="color:#aaa;margin-bottom:6px">Theme:</div>
+        <div>01 Warm <span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#111;margin-left:8px"></span></div>
+        <div style="border-bottom:1px solid #111;width:70%">02 Azure</div>
+        <div>03 Lush</div>
+        <div>04 Pall</div>
+      </div>
+
+      <div style="position:absolute;left:36%;top:386px;width:120px;height:146px;background:#f5f2ed;padding:12px;box-shadow:0 16px 40px rgba(0,0,0,.08);z-index:7">
+        <div style="height:92px;background:linear-gradient(135deg,#8c999c,#d7d0c8);"></div>
+        <div style="height:26px;margin-top:8px;background:#111;clip-path:polygon(0 0,100% 18%,84% 100%,8% 78%)"></div>
+      </div>
+
+      <div style="position:absolute;left:42%;right:12px;bottom:18px;display:grid;grid-template-columns:repeat(3,1fr);gap:9px;align-items:end;z-index:4">
+        <div style="height:78px;background:#111"></div>
+        <div style="height:108px;background:#7f8582"></div>
+        <div style="height:92px;background:#d4cbc2"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>Scroll motion</h3>
+  <p>红框组：`INNOTHING` 和 `SPACE` 随下滑左移。黄框组：`FOR PHOTOGRAPHY` 和 `AND MEMORY` 随下滑右移。</p>
+  <p>四行速度不同：短词 `SPACE` 最快，`AND MEMORY` 次快，`INNOTHING` 中等，最长的 `FOR PHOTOGRAPHY` 最慢。</p>
+</div>
+
+<div class="section">
+  <h3>Hover preview</h3>
+  <p>桌面端 hover 主题目录时，目录右侧浮现一个小封面预览，带轻微缩放/显出动画。封面图在首屏空闲时偷偷预加载。</p>
+  <p>移动端没有 hover，主题点击只切换筛选；封面预览不出现。</p>
+</div>

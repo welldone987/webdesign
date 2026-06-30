@@ -49,17 +49,17 @@ export function ShowcaseView({
   return (
     <motion.main
       animate={{ opacity: 1 }}
-      className="min-h-screen px-5 py-6 sm:px-8"
+      className="min-h-screen bg-white px-5 py-6 text-ink sm:px-8"
       exit={{ opacity: 0 }}
       id="main-content"
       initial={{ opacity: 0 }}
       transition={{ duration: 0.4 }}
     >
       <div className="mx-auto grid max-w-[1500px] min-w-0 gap-8 lg:grid-cols-[340px_minmax(0,1fr)]">
-        <aside className="sticky top-0 z-30 min-w-0 overflow-hidden bg-porcelain/95 py-2 backdrop-blur lg:top-8 lg:h-[calc(100vh-4rem)] lg:bg-transparent lg:py-0 lg:backdrop-blur-0">
+        <aside className="sticky top-0 z-30 min-w-0 overflow-hidden bg-white/95 py-2 text-ink backdrop-blur lg:top-8 lg:h-[calc(100vh-4rem)] lg:bg-transparent lg:py-0 lg:backdrop-blur-0">
           <nav
             aria-label="展示页目录"
-            className="min-w-0 border-b border-ink/10 pb-3 text-ink/64 lg:border-b-0 lg:border-r lg:pb-0 lg:pr-8"
+            className="min-w-0 border-b border-ink/10 pb-3 text-ink lg:border-b-0 lg:border-r lg:pb-0 lg:pr-8"
           >
             <div className="lg:hidden">
               <div className="grid grid-cols-3 gap-3 text-center">

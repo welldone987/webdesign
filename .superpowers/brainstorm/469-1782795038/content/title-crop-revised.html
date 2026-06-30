@@ -1,0 +1,51 @@
+<h2>标题裁切方式修正</h2>
+<p class="subtitle">先裁掉文字上沿，再让细横线贴合裁切边缘；线不是遮挡层，而是裁切口的边界。</p>
+
+<div class="mockup">
+  <div class="mockup-header">Crop-edge title concept</div>
+  <div class="mockup-body">
+    <div style="height:560px;background:#fff;color:#000;border:1px solid #d6d6d6;position:relative;overflow:hidden;font-family:Arial,Helvetica,sans-serif">
+      <div style="position:absolute;left:10px;top:8px;font-size:12px;text-decoration:underline;z-index:5">InNothing, About</div>
+      <div style="position:absolute;right:10px;top:8px;font-size:12px;z-index:5">Contact</div>
+
+      <div style="position:absolute;left:31%;top:58px;width:95%;height:82px;overflow:hidden;border-top:1px solid #cfcfcf">
+        <div style="font-size:86px;font-weight:900;line-height:.86;text-transform:uppercase;white-space:nowrap;transform:translateY(-17px)">INNOTHING</div>
+      </div>
+
+      <div style="position:absolute;left:38%;top:140px;width:95%;height:82px;overflow:hidden;border-top:1px solid #cfcfcf">
+        <div style="font-size:86px;font-weight:900;line-height:.86;text-transform:uppercase;white-space:nowrap;transform:translateY(-17px)">SPACE</div>
+      </div>
+
+      <div style="position:absolute;right:-20px;top:282px;width:70%;height:74px;overflow:hidden;border-top:1px solid #cfcfcf;text-align:right">
+        <div style="font-size:72px;font-weight:900;line-height:.86;text-transform:uppercase;white-space:nowrap;transform:translateY(-14px)">FOR PHOTOGRAPHY</div>
+      </div>
+
+      <div style="position:absolute;right:-14px;top:354px;width:70%;height:74px;overflow:hidden;border-top:1px solid #cfcfcf;text-align:right">
+        <div style="font-size:72px;font-weight:900;line-height:.86;text-transform:uppercase;white-space:nowrap;transform:translateY(-14px)">AND MEMORY</div>
+      </div>
+
+      <div style="position:absolute;left:0;right:0;top:222px;border-top:1px solid #cfcfcf"></div>
+      <div style="position:absolute;left:0;right:0;top:428px;border-top:1px solid #cfcfcf"></div>
+      <div style="position:absolute;left:0;right:0;top:504px;border-top:1px solid #cfcfcf"></div>
+
+      <div style="position:absolute;left:10px;top:438px;width:28%;font-size:12px;line-height:1.55;z-index:5">
+        <div style="color:#aaa;margin-bottom:6px">Theme:</div>
+        <div>01 Warm</div>
+        <div>02 Azure</div>
+        <div>03 Lush</div>
+        <div>04 Pall</div>
+      </div>
+      <div style="position:absolute;left:42%;right:12px;bottom:20px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;align-items:end;z-index:4">
+        <div style="height:88px;background:#111"></div>
+        <div style="height:128px;background:#7f8582"></div>
+        <div style="height:104px;background:#d4cbc2"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>实现含义</h3>
+  <p>每一行标题是一个固定高度的裁切窗口：窗口 `overflow:hidden`，文字向上偏移约 15-20%，所以顶部被切掉。</p>
+  <p>裁切窗口自身设置 `border-top: 1px solid`，横线自然与裁切上沿对齐；整页再补足贯穿页面的参考线。</p>
+</div>
