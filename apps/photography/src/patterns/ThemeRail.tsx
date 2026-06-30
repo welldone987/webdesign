@@ -13,7 +13,7 @@ export function ThemeRail({ themes, activeThemeSlug, onSelectTheme }: ThemeRailP
       {themes.map((theme) => (
         <button
           aria-pressed={theme.slug === activeThemeSlug}
-          className="grid min-h-11 min-w-[5.75rem] shrink-0 place-items-center border bg-white px-2.5 py-1.5 font-serif text-sm font-normal leading-none text-ink transition hover:text-ink focus:outline-none focus:ring-2 focus:ring-umber lg:block lg:w-full lg:px-3 lg:py-2 lg:text-left"
+          className="grid min-h-11 min-w-[5.75rem] shrink-0 place-items-center border-2 bg-white px-2.5 py-1.5 font-serif text-sm font-normal leading-none text-ink transition hover:text-ink focus:outline-none focus:ring-2 focus:ring-umber lg:block lg:w-full lg:px-3 lg:py-2 lg:text-left"
           key={theme.slug}
           onClick={() => onSelectTheme(theme.slug)}
           style={
@@ -27,7 +27,7 @@ export function ThemeRail({ themes, activeThemeSlug, onSelectTheme }: ThemeRailP
           type="button"
         >
           <span className={theme.slug === activeThemeSlug ? 'text-ink' : undefined}>{theme.name}</span>
-          <span className="mt-1 block font-sans text-[0.68rem] tracking-[0.12em] opacity-45 lg:ml-3 lg:mt-0 lg:inline lg:text-xs lg:tracking-[0.14em]">
+          <span className="font-serif mt-1 block text-[0.68rem] font-light tracking-[0.12em] opacity-45 lg:ml-3 lg:mt-0 lg:inline lg:text-xs lg:tracking-[0.14em]">
             {theme.subtitle}
           </span>
         </button>

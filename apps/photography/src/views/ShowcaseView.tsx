@@ -149,7 +149,7 @@ export function ShowcaseView({
                   <p className="font-serif text-sm uppercase tracking-[0.32em] text-ink/45">Photography Archive</p>
                   <h1 className="mt-5 flex items-baseline gap-7 text-ink">
                     <span className="font-serif text-6xl leading-none xl:text-7xl">{activeTheme.name}</span>
-                    <span className="font-sans text-5xl leading-none tracking-normal xl:text-6xl">
+                    <span className="font-serif text-5xl font-light leading-none tracking-normal xl:text-6xl">
                       {activeTheme.subtitle}
                     </span>
                   </h1>

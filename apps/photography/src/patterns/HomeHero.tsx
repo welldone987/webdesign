@@ -64,7 +64,7 @@ export function HomeHero({
   return (
     <section
       aria-labelledby="home-title"
-      className="relative min-h-[720px] overflow-hidden border-b border-black/14 bg-white sm:min-h-[760px] lg:h-screen lg:min-h-[820px]"
+      className="relative min-h-[720px] overflow-visible border-b border-black/14 bg-white sm:min-h-[760px] lg:h-screen lg:min-h-[820px]"
       ref={heroRef}
     >
       <h1 className="sr-only" id="home-title">
@@ -85,7 +85,7 @@ export function HomeHero({
 
       <motion.svg
         aria-hidden="true"
-        className="absolute inset-0 hidden h-full w-full sm:block"
+        className="absolute inset-0 hidden h-full w-full [overflow:visible] sm:block"
         preserveAspectRatio="xMidYMin slice"
         viewBox="0 0 1440 900"
       >
@@ -126,8 +126,8 @@ export function HomeHero({
               fontSize="150"
               initial={prefersReducedMotion ? false : { opacity: 0, x: 44 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              x="350"
-              y="102"
+              x="430"
+              y="76"
             >
               INNOTHING
             </motion.text>
@@ -139,8 +139,8 @@ export function HomeHero({
               fontSize="150"
               initial={prefersReducedMotion ? false : { opacity: 0, x: -56 }}
               transition={{ delay: 0.08, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              x="660"
-              y="222"
+              x="740"
+              y="196"
             >
               SPACE
             </motion.text>
@@ -152,8 +152,8 @@ export function HomeHero({
               fontSize="136"
               initial={prefersReducedMotion ? false : { opacity: 0, x: -38 }}
               transition={{ delay: 0.16, duration: 0.82, ease: [0.22, 1, 0.36, 1] }}
-              x="395"
-              y="384"
+              x="475"
+              y="354"
             >
               FOR PHOTOGRAPHY
             </motion.text>
@@ -165,8 +165,8 @@ export function HomeHero({
               fontSize="136"
               initial={prefersReducedMotion ? false : { opacity: 0, x: 50 }}
               transition={{ delay: 0.24, duration: 0.82, ease: [0.22, 1, 0.36, 1] }}
-              x="820"
-              y="504"
+              x="900"
+              y="474"
             >
               AND MEMORY
             </motion.text>
@@ -179,17 +179,17 @@ export function HomeHero({
           initial={prefersReducedMotion ? undefined : { opacity: 0, y: 24 }}
           transition={{ delay: 0.42, duration: 0.7, ease: 'easeOut' }}
         >
-          <g transform="translate(755 612) rotate(-17 135 90)">
+          <g transform="translate(765 640) rotate(-17 135 90)">
             <rect fill="#d3c8bd" height="170" width="260" x="0" y="0" />
             <rect fill="#fff" height="92" width="190" x="32" y="36" />
             <path d="M62 92 L106 66 L145 98 L178 74 L208 126 L52 126 Z" fill="#111" opacity=".82" />
           </g>
-          <g transform="translate(875 609) rotate(8 122 92)">
+          <g transform="translate(885 637) rotate(8 122 92)">
             <rect fill="#f8f5ef" height="175" width="230" x="0" y="0" />
             <rect fill="#aeb7b5" height="108" width="182" x="24" y="24" />
             <path d="M25 149 L205 142 L188 167 L41 171 Z" fill="#111" />
           </g>
-          <g transform="translate(1000 657) rotate(-4 132 78)">
+          <g transform="translate(1010 685) rotate(-4 132 78)">
             <rect fill="#111" height="150" width="255" x="0" y="0" />
             <rect fill="#d2c8bd" height="100" width="198" x="28" y="24" />
             <g fill="#fff">
@@ -201,13 +201,13 @@ export function HomeHero({
               ))}
             </g>
           </g>
-          <g fill="none" stroke="#111" strokeWidth="2" transform="translate(1110 609)">
+          <g fill="none" stroke="#111" strokeWidth="2" transform="translate(1120 637)">
             <path d="M0 0 H86 M0 0 V86" />
             <path d="M230 0 H144 M230 0 V86" />
             <path d="M0 185 H86 M0 185 V99" />
             <path d="M230 185 H144 M230 185 V99" />
           </g>
-          <g transform="translate(1235 675) rotate(13 80 70)">
+          <g transform="translate(1245 703) rotate(13 80 70)">
             <rect fill="#fff" height="130" stroke="#111" strokeWidth="2" width="160" x="0" y="0" />
             <rect fill="#858d89" height="75" width="120" x="20" y="18" />
             <circle cx="126" cy="108" fill="#111" r="8" />

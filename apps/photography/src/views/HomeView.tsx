@@ -32,7 +32,7 @@ export function HomeView({ photos, themes, activeThemeSlug, onSelectTheme, onOpe
   return (
     <motion.main
       animate={{ opacity: 1 }}
-      className="min-h-screen overflow-hidden bg-white text-black"
+      className="min-h-screen overflow-x-hidden bg-white text-black"
       id="main-content"
       initial={{ opacity: 0 }}
       transition={{ duration: prefersReducedMotion ? 0 : 0.35 }}
