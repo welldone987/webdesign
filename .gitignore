@@ -1,19 +1,48 @@
+# Dependencies
 node_modules/
+
+# Build output
 dist/
-.agents/
-.tmp/
+build/
+.cache/
+.vite/
+*.tsbuildinfo
+
+# Environment and secrets
+.env
+.env.*
+!.env.example
+!.env.*.example
+.dev.vars
+.dev.vars.*
+
+# Local source assets
 资源/
+
+# Test and preview output
+coverage/
+playwright-report/
+test-results/
+.playwright/
+.playwright-cli/
+.preview/
+
+# Local AI/editor/tool state
+.agents/
+.codex/
+.superpowers/
+.tmp/
 .vscode/
-.env.local
-.env.*.local
-.DS_Store
-Thumbs.db
-Desktop.ini
+
+# Logs
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-coverage/
-.playwright-cli/
-playwright-report/
-test-results/
+pnpm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+Desktop.ini
