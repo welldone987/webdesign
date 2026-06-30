@@ -6,7 +6,7 @@
 
 - 当前唯一站点：`apps/photography`。
 - 不新增主页站、简历站、后台、数据库、登录、访问统计或服务端依赖。
-- 技术栈：React + Vite + TypeScript + Tailwind CSS + Framer Motion。
+- 固定技术栈：React + Vite + TypeScript + Tailwind CSS + Playwright。
 - 包管理：npm workspace，提交 `package-lock.json`。
 - Node：遵循 `.nvmrc` 与根 `package.json` engines。
 - 部署：Cloudflare Pages，Root directory 为 `apps/photography`，Build command 为 `npm run build`，Output 为 `dist`。
@@ -36,9 +36,9 @@ apps/
 apps/photography/
   public/images/photography/   # 站点实际加载图片
   scripts/
-    prepare-photos.mjs         # 从资源目录生成站点图片与元数据
-    diff-photos.mjs            # 只检查资源、public、photos.json 的差异
-    validate-photos.mjs        # 校验元数据、图片尺寸、路径、大小和重复
+    prepare-photos.ts          # 从资源目录生成站点图片与元数据
+    diff-photos.ts             # 只检查资源、public、photos.json 的差异
+    validate-photos.ts         # 校验元数据、图片尺寸、路径、大小和重复
   src/
     App.tsx                    # 兼容入口，只导出 PhotographyApp
     main.tsx
@@ -52,6 +52,7 @@ apps/photography/
     motion/                    # reduced motion 与动效工具
     styles/                    # 全局样式
     types/                     # TypeScript 类型
+    tests/                     # Playwright 测试与视口回归检查
 ```
 
 依赖方向：`app -> pages -> views -> patterns -> components/lib/data/types`。禁止 `components` 依赖 `views` 或 `pages`，禁止 `lib` 依赖 UI，禁止组件硬编码单张照片。
@@ -102,6 +103,7 @@ npm run validate:photos
 ## 6. 代码风格
 
 - TypeScript 保持 `strict`。
+- 业务源码统一使用 TypeScript，组件使用 `.tsx`，纯逻辑使用 `.ts`；不得新增 `.js` 或 `.jsx` 业务源码。
 - React 使用函数组件、typed props、清晰单向数据流。
 - 组件名使用 `PascalCase`，hooks 和普通函数使用 `camelCase`。
 - 页面结构放 `views/`，组合交互放 `patterns/`，小控件放 `components/`。
@@ -153,6 +155,7 @@ npm run build:photography
 - 图片、资源、`photos.json`、脚本变更：运行 `npm run diff:photos` 与 `npm run validate:photos`。
 - 功能性或结构性变更：运行 `npm run check:photography`。
 - UI 或交互变更：除固定验收外，使用浏览器或 Playwright 检查 320 / 390 / 430 / 1440 视口，无横向溢出、重叠、按钮不可触达或弹层失焦。
+- Playwright 作为固定端到端与视口回归验证工具；新增交互回归优先补充 Playwright 测试。
 - 若某项验证无法运行，交付说明必须写明原因和替代检查。
 
 ## 10. 提交规则

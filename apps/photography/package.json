@@ -10,9 +10,9 @@
     "typecheck": "tsc --noEmit",
     "test:e2e": "playwright test --config ../../playwright.config.ts",
     "test:e2e:ui": "playwright test --config ../../playwright.config.ts --ui",
-    "prepare:photos": "node scripts/prepare-photos.mjs",
-    "diff:photos": "node scripts/diff-photos.mjs",
-    "validate:photos": "node scripts/validate-photos.mjs"
+    "prepare:photos": "node scripts/prepare-photos.ts",
+    "diff:photos": "node scripts/diff-photos.ts",
+    "validate:photos": "node scripts/validate-photos.ts"
   },
   "dependencies": {
     "framer-motion": "^12.42.0",

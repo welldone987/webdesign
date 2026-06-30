@@ -2,7 +2,66 @@ import { copyFile, mkdir, readdir, rename, rm, stat, writeFile } from 'node:fs/p
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import exifr from 'exifr';
-import sharp from 'sharp';
+import sharp, { type Metadata } from 'sharp';
+
+type Theme = {
+  name: string;
+  slug: string;
+  subtitle: string;
+  description: string;
+};
+
+type ExifData = {
+  date?: string;
+  aperture?: string;
+  shutterSpeed?: string;
+  iso?: string;
+};
+
+type CompressionResult = {
+  optimized: boolean;
+  quality: number;
+  resized: boolean;
+  bytes: number;
+};
+
+type CopyResult = CompressionResult & {
+  sourceBytes: number;
+};
+
+type PreviewResult = {
+  width: number;
+  height: number;
+  bytes: number;
+};
+
+type PhotoRecord = {
+  src: string;
+  previewSrc: string;
+  alt: string;
+  width: number;
+  height: number;
+  previewWidth: number;
+  previewHeight: number;
+  category: string;
+  themeSlug: string;
+  themeSubtitle: string;
+  themeDescription: string;
+  placeholder: string;
+  title: string;
+  year: number;
+  date?: string;
+  aperture?: string;
+  shutterSpeed?: string;
+  iso?: string;
+  featured: boolean;
+  order: number;
+  slug: string;
+  originalFile: string;
+  optimized: boolean;
+  sizeBytes: number;
+  previewSizeBytes: number;
+};
 
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const appRoot = path.resolve(scriptDir, '..');
@@ -14,7 +73,7 @@ const maxBytes = 5 * 1024 * 1024;
 const previewMaxSize = 900;
 const placeholderWidth = 36;
 
-const themes = [
+const themes: Theme[] = [
   {
     name: '暖',
     slug: 'warm',
@@ -42,13 +101,13 @@ const themes = [
 ];
 
 const imageExtensions = new Set(['.jpg', '.jpeg', '.png', '.webp']);
-const excludedSourceIndexes = new Map([
+const excludedSourceIndexes = new Map<string, Set<number>>([
   ['warm', new Set([1, 4, 5])],
   ['bloom', new Set([9])],
   ['umbrage', new Set([5])],
 ]);
 
-function formatDate(value) {
+function formatDate(value: unknown): string | undefined {
   if (!value) {
     return undefined;
   }
@@ -62,7 +121,11 @@ function formatDate(value) {
   return match ? `${match[1]}-${match[2]}-${match[3]}` : text;
 }
 
-function formatShutter(value) {
+function formatShutter(value: unknown): string | undefined {
+  if (typeof value !== 'number') {
+    return undefined;
+  }
+
   if (!Number.isFinite(value) || value <= 0) {
     return undefined;
   }
@@ -75,21 +138,29 @@ function formatShutter(value) {
   return `${Number(value.toFixed(1))}s`;
 }
 
-function formatAperture(value) {
+function formatAperture(value: unknown): string | undefined {
+  if (typeof value !== 'number') {
+    return undefined;
+  }
+
   return Number.isFinite(value) ? `f/${Number(value.toFixed(1))}` : undefined;
 }
 
-function formatIso(value) {
+function formatIso(value: unknown): string | undefined {
+  if (typeof value !== 'number') {
+    return undefined;
+  }
+
   return Number.isFinite(value) ? `ISO ${Math.round(value)}` : undefined;
 }
 
-async function readExif(inputFile) {
+async function readExif(inputFile: string): Promise<ExifData> {
   try {
-    const data = await exifr.parse(inputFile, {
+    const data = (await exifr.parse(inputFile, {
       tiff: true,
       exif: true,
       pick: ['DateTimeOriginal', 'CreateDate', 'ModifyDate', 'FNumber', 'ExposureTime', 'ISO'],
-    });
+    })) as Record<string, unknown> | undefined;
 
     return {
       date: formatDate(data?.DateTimeOriginal ?? data?.CreateDate ?? data?.ModifyDate),
@@ -102,7 +173,11 @@ async function readExif(inputFile) {
   }
 }
 
-async function optimizeJpegToBudget(inputFile, outputFile, imageMetadata) {
+async function optimizeJpegToBudget(
+  inputFile: string,
+  outputFile: string,
+  imageMetadata: Metadata,
+): Promise<CompressionResult> {
   const qualities = [92, 90, 88, 86, 84, 82, 80, 78, 76];
   const base = sharp(inputFile, { limitInputPixels: false }).rotate();
   const tempFile = `${outputFile}.${process.pid}.tmp`;
@@ -177,12 +252,17 @@ async function optimizeJpegToBudget(inputFile, outputFile, imageMetadata) {
   throw new Error(`Unable to compress ${inputFile} below 5MB.`);
 }
 
-async function copyOrCompress(inputFile, outputFile, sourceStats, imageMetadata) {
+async function copyOrCompress(
+  inputFile: string,
+  outputFile: string,
+  sourceStats: { size: number },
+  imageMetadata: Metadata,
+): Promise<CopyResult> {
   const result = await optimizeJpegToBudget(inputFile, outputFile, imageMetadata);
   return { ...result, sourceBytes: sourceStats.size };
 }
 
-async function createPreview(inputFile, outputFile) {
+async function createPreview(inputFile: string, outputFile: string): Promise<PreviewResult> {
   await sharp(inputFile, { limitInputPixels: false })
     .rotate()
     .resize({
@@ -198,13 +278,13 @@ async function createPreview(inputFile, outputFile) {
   const previewMetadata = await sharp(outputFile, { limitInputPixels: false }).metadata();
 
   return {
-    width: previewMetadata.width,
-    height: previewMetadata.height,
+    width: previewMetadata.width ?? 0,
+    height: previewMetadata.height ?? 0,
     bytes: previewStats.size,
   };
 }
 
-async function createPlaceholder(inputFile) {
+async function createPlaceholder(inputFile: string): Promise<string> {
   const buffer = await sharp(inputFile, { limitInputPixels: false })
     .rotate()
     .resize({
@@ -221,8 +301,8 @@ async function createPlaceholder(inputFile) {
 await rm(publicRoot, { recursive: true, force: true });
 await mkdir(publicRoot, { recursive: true });
 
-const photos = [];
-const seenOriginalFiles = new Set();
+const photos: PhotoRecord[] = [];
+const seenOriginalFiles = new Set<string>();
 
 for (const theme of themes) {
   const sourceDir = path.join(sourceRoot, theme.name);
@@ -269,8 +349,8 @@ for (const theme of themes) {
       src: `/images/photography/${theme.slug}/${outputName}`,
       previewSrc: `/images/photography/${theme.slug}/preview/${previewName}`,
       alt: `${theme.name}主题摄影作品 ${themeIndex}`,
-      width: outputMetadata.width,
-      height: outputMetadata.height,
+      width: outputMetadata.width ?? 0,
+      height: outputMetadata.height ?? 0,
       previewWidth: preview.width,
       previewHeight: preview.height,
       category: theme.name,

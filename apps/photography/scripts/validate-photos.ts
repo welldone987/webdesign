@@ -3,9 +3,24 @@ import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-const requiredFields = ['src', 'alt', 'width', 'height', 'category', 'title', 'year'];
+type PhotoRecord = {
+  src?: string;
+  previewSrc?: string;
+  alt?: string;
+  width?: number;
+  height?: number;
+  previewWidth?: number;
+  previewHeight?: number;
+  category?: string;
+  title?: string;
+  year?: number;
+  slug?: string;
+  placeholder?: string;
+};
+
+const requiredFields = ['src', 'alt', 'width', 'height', 'category', 'title', 'year'] as const;
 const fileUrl = new URL('../src/data/photos.json', import.meta.url);
-const photos = JSON.parse(await readFile(fileUrl, 'utf8'));
+const photos: unknown = JSON.parse(await readFile(fileUrl, 'utf8'));
 const appRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const maxBytes = 5 * 1024 * 1024;
 
@@ -13,10 +28,11 @@ if (!Array.isArray(photos)) {
   throw new Error('photos.json must contain an array.');
 }
 
-const slugs = new Set();
-const imageHashes = new Map();
+const photoRecords = photos as PhotoRecord[];
+const slugs = new Set<string>();
+const imageHashes = new Map<string, string>();
 
-for (const [index, photo] of photos.entries()) {
+for (const [index, photo] of photoRecords.entries()) {
   for (const field of requiredFields) {
     if (photo[field] === undefined || photo[field] === '') {
       throw new Error(`Photo at index ${index} is missing required field: ${field}`);
@@ -31,10 +47,10 @@ for (const [index, photo] of photos.entries()) {
     throw new Error(`Photo at index ${index} must use a public photography image path.`);
   }
 
-  const imagePath = path.join(appRoot, 'public', photo.src.replace(/^\//, ''));
+  const imagePath = path.join(appRoot, 'public', String(photo.src).replace(/^\//, ''));
   const imageStats = await stat(imagePath);
   if (imageStats.size > maxBytes) {
-    throw new Error(`Photo at index ${index} exceeds 5MB: ${photo.src}`);
+    throw new Error(`Photo at index ${index} exceeds 5MB: ${String(photo.src)}`);
   }
 
   const imageHash = createHash('sha256').update(await readFile(imagePath)).digest('hex');
@@ -42,7 +58,7 @@ for (const [index, photo] of photos.entries()) {
   if (duplicateSrc) {
     throw new Error(`Duplicate image content: ${duplicateSrc} and ${photo.src}`);
   }
-  imageHashes.set(imageHash, photo.src);
+  imageHashes.set(imageHash, String(photo.src));
 
   if (photo.slug) {
     if (slugs.has(photo.slug)) {
@@ -60,7 +76,7 @@ for (const [index, photo] of photos.entries()) {
       throw new Error(`Photo at index ${index} must use numeric previewWidth and previewHeight.`);
     }
 
-    const previewPath = path.join(appRoot, 'public', photo.previewSrc.replace(/^\//, ''));
+    const previewPath = path.join(appRoot, 'public', String(photo.previewSrc).replace(/^\//, ''));
     const previewStats = await stat(previewPath);
     if (previewStats.size > maxBytes) {
       throw new Error(`Photo preview at index ${index} exceeds 5MB: ${photo.previewSrc}`);
@@ -72,4 +88,4 @@ for (const [index, photo] of photos.entries()) {
   }
 }
 
-console.log(`Validated ${photos.length} photo records.`);
+console.log(`Validated ${photoRecords.length} photo records.`);

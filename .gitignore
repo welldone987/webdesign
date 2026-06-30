@@ -3,6 +3,7 @@ dist/
 .agents/
 .tmp/
 资源/
+.vscode/
 .env.local
 .env.*.local
 .DS_Store

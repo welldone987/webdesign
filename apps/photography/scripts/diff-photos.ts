@@ -3,6 +3,21 @@ import { readdir, readFile, stat } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
+type Theme = {
+  name: string;
+  slug: string;
+  subtitle: string;
+};
+
+type PhotoRecord = {
+  src?: string;
+  previewSrc?: string;
+  originalFile?: string;
+  slug?: string;
+  themeSlug?: string;
+  themeSubtitle?: string;
+};
+
 const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const appRoot = path.resolve(scriptDir, '..');
 const repoRoot = path.resolve(appRoot, '..', '..');
@@ -11,32 +26,32 @@ const publicRoot = path.join(appRoot, 'public', 'images', 'photography');
 const photosFile = path.join(appRoot, 'src', 'data', 'photos.json');
 const imageExtensions = new Set(['.jpg', '.jpeg', '.png', '.webp']);
 
-const themes = [
+const themes: Theme[] = [
   { name: '暖', slug: 'warm', subtitle: 'Apricity' },
   { name: '湛', slug: 'azure', subtitle: 'Azure' },
   { name: '盛', slug: 'bloom', subtitle: 'Lush' },
   { name: '郁', slug: 'umbrage', subtitle: 'Pall' },
 ];
 
-const excludedSourceIndexes = new Map([
+const excludedSourceIndexes = new Map<string, Set<number>>([
   ['warm', new Set([1, 4, 5])],
   ['bloom', new Set([9])],
   ['umbrage', new Set([5])],
 ]);
 
-async function pathExists(filePath) {
+async function pathExists(filePath: string): Promise<boolean> {
   try {
     await stat(filePath);
     return true;
   } catch (error) {
-    if (error?.code === 'ENOENT') {
+    if (error instanceof Error && 'code' in error && error.code === 'ENOENT') {
       return false;
     }
     throw error;
   }
 }
 
-async function listSourceFiles(theme) {
+async function listSourceFiles(theme: Theme): Promise<string[]> {
   const sourceDir = path.join(sourceRoot, theme.name);
   const entries = await readdir(sourceDir, { withFileTypes: true });
   const sourceFiles = entries
@@ -48,12 +63,12 @@ async function listSourceFiles(theme) {
   return sourceFiles.filter((_, index) => !excludedIndexes.has(index + 1));
 }
 
-async function listPublicImages(directory) {
+async function listPublicImages(directory: string): Promise<string[]> {
   if (!(await pathExists(directory))) {
     return [];
   }
 
-  const results = [];
+  const results: string[] = [];
   const entries = await readdir(directory, { withFileTypes: true });
 
   for (const entry of entries) {
@@ -68,25 +83,26 @@ async function listPublicImages(directory) {
   return results;
 }
 
-async function hashFile(filePath) {
+async function hashFile(filePath: string): Promise<string> {
   return createHash('sha256').update(await readFile(filePath)).digest('hex');
 }
 
-const photos = JSON.parse(await readFile(photosFile, 'utf8'));
+const photos: unknown = JSON.parse(await readFile(photosFile, 'utf8'));
 if (!Array.isArray(photos)) {
   throw new Error('photos.json must contain an array.');
 }
 
-const problems = [];
-const warnings = [];
-const expectedPublicPaths = new Set();
+const photoRecords = photos as PhotoRecord[];
+const problems: string[] = [];
+const warnings: string[] = [];
+const expectedPublicPaths = new Set<string>();
 const currentOriginalFiles = new Set(
-  photos
+  photoRecords
     .map((photo) => (photo.originalFile ? String(photo.originalFile).toLowerCase() : undefined))
     .filter(Boolean),
 );
 
-for (const photo of photos) {
+for (const photo of photoRecords) {
   if (photo.src) {
     expectedPublicPaths.add(path.resolve(appRoot, 'public', String(photo.src).replace(/^\//, '')));
   }
@@ -98,7 +114,7 @@ for (const photo of photos) {
 for (const theme of themes) {
   const sourceFiles = await listSourceFiles(theme);
   const sourceSet = new Set(sourceFiles.map((fileName) => fileName.toLowerCase()));
-  const themePhotos = photos.filter((photo) => photo.themeSlug === theme.slug);
+  const themePhotos = photoRecords.filter((photo) => photo.themeSlug === theme.slug);
   const currentOriginals = new Set(
     themePhotos
       .map((photo) => (photo.originalFile ? String(photo.originalFile).toLowerCase() : undefined))
@@ -128,15 +144,16 @@ for (const theme of themes) {
   warnings.push(`${theme.name}/${theme.subtitle}: 源图 ${sourceFiles.length} 张，数据 ${themePhotos.length} 条`);
 }
 
-for (const photo of photos) {
-  for (const field of ['src', 'previewSrc']) {
-    if (!photo[field]) {
+for (const photo of photoRecords) {
+  for (const field of ['src', 'previewSrc'] as const) {
+    const asset = photo[field];
+    if (!asset) {
       continue;
     }
 
-    const assetPath = path.resolve(appRoot, 'public', String(photo[field]).replace(/^\//, ''));
+    const assetPath = path.resolve(appRoot, 'public', asset.replace(/^\//, ''));
     if (!(await pathExists(assetPath))) {
-      problems.push(`photos.json 引用的资源不存在：${photo[field]}`);
+      problems.push(`photos.json 引用的资源不存在：${asset}`);
     }
   }
 }
@@ -148,7 +165,7 @@ for (const publicImage of publicImages) {
   }
 }
 
-const sourceHashes = new Map();
+const sourceHashes = new Map<string, string>();
 for (const theme of themes) {
   const sourceFiles = await listSourceFiles(theme);
   for (const fileName of sourceFiles) {
@@ -175,4 +192,4 @@ if (problems.length > 0) {
   process.exit(1);
 }
 
-console.log(`Photo drift check passed for ${photos.length} records.`);
+console.log(`Photo drift check passed for ${photoRecords.length} records.`);
