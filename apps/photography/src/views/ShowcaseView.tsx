@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import { getPreviewSrc } from '../lib/photos.ts';
 import { preloadImage, requestIdleTask, shouldSkipIdlePreload } from '../lib/imagePreload.ts';
@@ -26,6 +26,7 @@ export function ShowcaseView({
   onOpenPhoto,
 }: ShowcaseViewProps) {
   const [activeSection, setActiveSection] = useState<ShowcaseSection>('presentation');
+  const presentationTopRef = useRef<HTMLDivElement>(null);
   const activeTheme = themes.find((theme) => theme.slug === activeThemeSlug) ?? themes[0];
   const topLevelItemClass =
     'min-h-11 px-1 font-serif text-base font-semibold leading-none transition hover:text-ink focus:outline-none focus-visible:ring-2 focus-visible:ring-umber';
@@ -45,6 +46,10 @@ export function ShowcaseView({
   const handleSelectTheme = (themeSlug: string) => {
     setActiveSection('presentation');
     onSelectTheme(themeSlug);
+    window.requestAnimationFrame(() => {
+      const top = presentationTopRef.current?.getBoundingClientRect().top ?? 0;
+      window.scrollTo({ top: window.scrollY + top - 16, behavior: 'auto' });
+    });
   };
 
   return (
@@ -143,13 +148,13 @@ export function ShowcaseView({
 
         <section className="min-w-0 pb-16">
           {activeSection === 'presentation' ? (
-            <>
+            <div ref={presentationTopRef}>
               {activeTheme ? (
                 <header className="hidden border-b border-ink/10 pb-8 lg:block">
                   <p className="font-serif text-sm uppercase tracking-[0.32em] text-ink/45">Photography Archive</p>
                   <h1 className="mt-5 flex items-baseline gap-7 text-ink">
                     <span className="font-serif text-6xl leading-none xl:text-7xl">{activeTheme.name}</span>
-                    <span className="font-serif text-5xl font-light leading-none tracking-normal xl:text-6xl">
+                    <span className="font-serif text-2xl font-light leading-none tracking-normal xl:text-3xl">
                       {activeTheme.subtitle}
                     </span>
                   </h1>
@@ -158,7 +163,7 @@ export function ShowcaseView({
               <div className={activeTheme ? 'lg:pt-11' : undefined}>
                 <MasonryGallery onOpenPhoto={onOpenPhoto} photos={photos} />
               </div>
-            </>
+            </div>
           ) : null}
 
           {activeSection === 'profile' ? (

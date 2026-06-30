@@ -1,6 +1,6 @@
-import { useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import type { CSSProperties } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { themeAccents } from '../data/themes.ts';
 import { getPreviewHeight, getPreviewSrc, getPreviewWidth } from '../lib/photos.ts';
 import type { Photo, ThemeSummary } from '../types/photography.ts';
@@ -20,7 +20,7 @@ type ThemeArchiveItem = {
 };
 
 const themeLabels: Record<string, string> = {
-  warm: 'Warm',
+  warm: 'Apricity',
   azure: 'Azure',
   bloom: 'Lush',
   umbrage: 'Pall',
@@ -101,7 +101,7 @@ function HomeScrollLab({ prefersReducedMotion }: { prefersReducedMotion: boolean
         </div>
         <div className="relative min-h-[360px] sm:min-h-[520px] lg:min-h-[640px]">
           <LightStudySvg prefersReducedMotion={prefersReducedMotion} />
-          <div className="font-serif absolute bottom-5 right-0 w-[min(350px,82vw)] border-2 border-[#071b2f]/35 bg-white/92 p-4 text-[#071b2f] shadow-[0_28px_86px_rgba(7,27,47,0.22)] sm:bottom-8 sm:right-[8%] sm:p-5">
+          <div className="font-serif absolute bottom-5 right-0 w-[min(350px,82vw)] border-2 border-[#071b2f]/35 bg-white p-4 text-[#071b2f] shadow-[0_28px_86px_rgba(7,27,47,0.22)] sm:bottom-8 sm:right-[8%] sm:p-5">
             <strong className="block text-4xl font-light leading-[0.9] sm:text-5xl">关于网站：</strong>
             <span className="mt-5 block text-base leading-7 sm:text-lg sm:leading-8">
               nothing的小站，记录光影，分享回忆，学习设计与美
@@ -185,13 +185,9 @@ function HomeThemeArchive({
   prefersReducedMotion: boolean;
   onOpenThemeGallery: (themeSlug: string) => void;
 }) {
-  const sectionRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start end', 'end start'] });
-
   return (
     <section
-      className="relative overflow-hidden border-b border-black/14 bg-[linear-gradient(90deg,rgba(215,228,233,0.42),transparent_38%),#fff] px-4 py-14 text-[#071b2f] sm:px-8 sm:py-20 lg:min-h-[850px] lg:px-14"
-      ref={sectionRef}
+      className="relative overflow-hidden border-b border-black/14 bg-[linear-gradient(90deg,rgba(215,228,233,0.42),transparent_38%),#fff] px-8 py-14 text-[#071b2f] sm:px-8 sm:py-20 lg:min-h-[850px] lg:px-14"
     >
       <div className="relative mx-auto max-w-[1500px]">
         <p className="mb-8 text-base sm:mb-14 sm:text-lg">Theme / 02</p>
@@ -201,12 +197,11 @@ function HomeThemeArchive({
               index={index}
               key={text}
               prefersReducedMotion={prefersReducedMotion}
-              scrollYProgress={scrollYProgress}
               text={text}
             />
           ))}
         </div>
-        <div className="relative z-[5] grid gap-7 sm:grid-cols-2 sm:gap-x-4 sm:gap-y-12 lg:ml-auto lg:max-w-[820px]">
+        <div className="relative z-[5] grid gap-14 sm:grid-cols-2 sm:gap-x-4 sm:gap-y-12 lg:ml-auto lg:max-w-[820px]">
           {items.map((item, index) => (
             <ArchiveCard
               index={index}
@@ -234,22 +229,38 @@ function ArchiveCard({
   onOpenThemeGallery: (themeSlug: string) => void;
 }) {
   const [isPreviewVisible, setIsPreviewVisible] = useState(false);
+  const [isMobilePreview, setIsMobilePreview] = useState(false);
+  const cardRef = useRef<HTMLButtonElement>(null);
+  const isScrollPreviewVisible = useInView(cardRef, {
+    amount: 0.72,
+    margin: '-8% 0px -30% 0px',
+  });
   const folderStyle = {
     '--card-accent': (themeAccents[item.theme.slug as keyof typeof themeAccents] ?? themeAccents.warm).accent,
     '--card-ink': '#071b2f',
   } as CSSProperties;
-  const cardLayer = item.theme.slug === 'umbrage' ? 'z-[6]' : 'z-[3]';
-  const peekLayer = item.theme.slug === 'umbrage' ? 'z-[30]' : 'z-[1]';
+  const isPreviewOpen = isPreviewVisible || (isMobilePreview && isScrollPreviewVisible);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 639px)');
+    const updatePreviewMode = () => setIsMobilePreview(mediaQuery.matches);
+
+    updatePreviewMode();
+    mediaQuery.addEventListener('change', updatePreviewMode);
+
+    return () => mediaQuery.removeEventListener('change', updatePreviewMode);
+  }, []);
 
   return (
     <motion.button
-      className={`group relative ${cardLayer} min-h-[200px] overflow-visible px-5 pb-5 pt-4 text-left text-[var(--card-ink)] outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-4 focus-visible:ring-offset-white sm:min-h-[214px] sm:px-6 sm:pb-6 sm:pt-5 lg:min-h-[202px] lg:px-7`}
+      className="group relative z-[3] min-h-[164px] overflow-visible px-4 pb-4 pt-3 text-left text-[var(--card-ink)] outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-4 focus-visible:ring-offset-white sm:min-h-[214px] sm:px-6 sm:pb-6 sm:pt-5 lg:min-h-[202px] lg:px-7"
       onBlur={() => setIsPreviewVisible(false)}
       initial={prefersReducedMotion ? false : { opacity: 0, y: 36 }}
       onClick={() => onOpenThemeGallery(item.theme.slug)}
       onFocus={() => setIsPreviewVisible(true)}
       onMouseEnter={() => setIsPreviewVisible(true)}
       onMouseLeave={() => setIsPreviewVisible(false)}
+      ref={cardRef}
       style={folderStyle}
       transition={{ delay: index * 0.06, duration: 0.55, ease: 'easeOut' }}
       type="button"
@@ -259,7 +270,7 @@ function ArchiveCard({
     >
       <span
         aria-hidden="true"
-        className="absolute left-0 top-0 z-0 h-[42px] w-[48%] -translate-y-[70%] rounded-tr-[14px] border border-b-0 border-[#071b2f] bg-[var(--card-accent)] [clip-path:polygon(0_0,calc(100%-28px)_0,100%_100%,0_100%)] transition-transform group-hover:-translate-y-[82%] sm:h-[50px] sm:rounded-tr-[18px]"
+        className="absolute left-0 top-0 z-0 h-[34px] w-[48%] -translate-y-[70%] rounded-tr-[14px] border border-b-0 border-[#071b2f] bg-[var(--card-accent)] [clip-path:polygon(0_0,calc(100%-28px)_0,100%_100%,0_100%)] transition-transform group-hover:-translate-y-[82%] sm:h-[50px] sm:rounded-tr-[18px]"
       />
       <span
         aria-hidden="true"
@@ -267,30 +278,30 @@ function ArchiveCard({
       />
       <span
         aria-hidden="true"
-        className="absolute inset-x-0 bottom-0 top-[42px] z-[2] rounded-r-[14px] border border-[#071b2f] bg-[var(--card-accent)] shadow-[0_18px_40px_rgba(7,27,47,0.08)] transition group-hover:border-[#071b2f] group-hover:shadow-[0_26px_70px_rgba(7,27,47,0.18)] sm:top-[50px] sm:rounded-r-[18px]"
+        className="absolute inset-x-0 bottom-0 top-[34px] z-[2] rounded-r-[14px] border border-[#071b2f] bg-[var(--card-accent)] shadow-[0_18px_40px_rgba(7,27,47,0.08)] transition group-hover:border-[#071b2f] group-hover:shadow-[0_26px_70px_rgba(7,27,47,0.18)] sm:top-[50px] sm:rounded-r-[18px]"
       />
       <span className="relative z-[4] block pb-3 text-sm sm:text-base">
         {String(index + 1).padStart(2, '0')}
       </span>
       <span className="font-serif relative z-[4] mt-6 flex items-baseline gap-3 sm:mt-7">
-        <span className="text-[clamp(52px,5.8vw,98px)] font-light leading-[0.86]">{item.theme.name}</span>
+        <span className="text-[clamp(44px,5.8vw,98px)] font-light leading-[0.86]">{item.theme.name}</span>
         <span className="text-[clamp(20px,2vw,34px)] font-light uppercase leading-none">{item.label}</span>
       </span>
       <span className="relative z-[4] mt-5 block h-[8px] w-16 bg-[#071b2f] transition-all group-hover:w-full sm:mt-6 sm:h-[9px] sm:w-20" />
       <span className="relative z-[4] ml-auto mt-5 flex min-h-11 w-fit items-center border border-white bg-white px-4 text-sm font-semibold text-[#071b2f] shadow-[0_8px_18px_rgba(7,27,47,0.12)] transition group-hover:bg-[#071b2f] group-hover:text-white">
         进入 &gt;
       </span>
-      <span className={`pointer-events-none absolute left-[18%] top-0 ${peekLayer} hidden h-[202px] w-[156px] -translate-x-[16%] -translate-y-[22%] sm:block lg:h-[246px] lg:w-[190px] lg:-translate-y-[26%]`} aria-hidden="true">
+      <span className="pointer-events-none absolute left-[18%] top-0 z-[1] block h-[168px] w-[130px] -translate-x-[16%] -translate-y-[22%] sm:h-[202px] sm:w-[156px] lg:h-[246px] lg:w-[190px] lg:-translate-y-[26%]" aria-hidden="true">
         {[item.cover, item.peek].map((photo, photoIndex) => (
           <span
             className={`absolute inset-0 border-[7px] border-white bg-white shadow-[0_20px_44px_rgba(7,27,47,0.2)] transition duration-500 ${
-              isPreviewVisible ? 'opacity-100' : 'opacity-0'
+              isPreviewOpen ? 'opacity-100' : 'opacity-0'
             } ${
               photoIndex === 0
-                ? isPreviewVisible
+                ? isPreviewOpen
                   ? 'translate-x-1 -translate-y-16 rotate-[-11deg] scale-[0.84] lg:-translate-y-24 lg:scale-100'
                   : 'translate-y-7 rotate-[-2deg] scale-[0.78]'
-                : isPreviewVisible
+                : isPreviewOpen
                   ? 'translate-x-20 -translate-y-14 rotate-[9deg] scale-[0.82] lg:translate-x-[120px] lg:-translate-y-[84px] lg:scale-[0.96]'
                   : 'translate-y-8 rotate-3 scale-[0.76]'
             }`}
@@ -322,7 +333,11 @@ function HomeZinePreview({ photos, prefersReducedMotion }: { photos: Photo[]; pr
           <br />
           Coming Soon
         </h2>
-        <span className="font-serif mt-7 block text-[clamp(28px,3.2vw,54px)] font-light">待更新ZINE/萃取中...</span>
+        <span className="font-serif mt-7 block text-left text-[clamp(28px,3.2vw,54px)] font-light leading-tight">
+          待更新 ZINE
+          <br />
+          萃取中...
+        </span>
       </div>
       <div className="relative hidden h-[clamp(500px,58vw,720px)] [perspective-origin:50%_48%] [perspective:1120px] lg:block" aria-label="ZINE 照片轨道预览">
         <div
@@ -377,16 +392,13 @@ function RibbonLine({
   text,
   index,
   prefersReducedMotion,
-  scrollYProgress,
 }: {
   text: string;
   index: number;
   prefersReducedMotion: boolean;
-  scrollYProgress: ReturnType<typeof useScroll>['scrollYProgress'];
 }) {
   const dir = index % 2 === 0 ? -1 : 1;
   const speed = 180 + index * 24;
-  const x = useTransform(scrollYProgress, [0, 1], [dir * speed, dir * -speed]);
   const top = 104 + index * 94;
   const rotate = index % 2 === 0 ? 4 : -4;
 
@@ -397,7 +409,12 @@ function RibbonLine({
       }`}
       style={{ top, rotate }}
     >
-      <motion.span style={{ x: prefersReducedMotion ? 0 : x }}>{text.repeat(2)}</motion.span>
+      <motion.span
+        animate={prefersReducedMotion ? undefined : { x: [dir * speed, dir * -speed] }}
+        transition={prefersReducedMotion ? undefined : { duration: 18 + index * 2, ease: 'linear', repeat: Infinity, repeatType: 'mirror' }}
+      >
+        {text.repeat(2)}
+      </motion.span>
     </motion.div>
   );
 }

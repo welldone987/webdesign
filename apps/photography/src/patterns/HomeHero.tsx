@@ -1,5 +1,5 @@
-import { useId, useRef, useState } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 import { themeAccents } from '../data/themes.ts';
 import { getPreviewSrc } from '../lib/photos.ts';
 import { preloadImage } from '../lib/imagePreload.ts';
@@ -35,16 +35,6 @@ export function HomeHero({
   const [hoverPreview, setHoverPreview] = useState<HoverPreview | null>(null);
   const directoryRef = useRef<HTMLDivElement>(null);
   const heroRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: heroRef,
-    offset: ['start start', 'end start'],
-  });
-  const clipId = useId().replace(/:/g, '');
-
-  const inNothingX = useTransform(scrollYProgress, [0, 1], [0, prefersReducedMotion ? 0 : -80]);
-  const spaceX = useTransform(scrollYProgress, [0, 1], [0, prefersReducedMotion ? 0 : -150]);
-  const photographyX = useTransform(scrollYProgress, [0, 1], [0, prefersReducedMotion ? 0 : 60]);
-  const memoryX = useTransform(scrollYProgress, [0, 1], [0, prefersReducedMotion ? 0 : 120]);
 
   const updateHoverPreview = (theme: ThemeSummary, element: HTMLElement) => {
     const directoryRect = directoryRef.current?.getBoundingClientRect();
@@ -81,139 +71,31 @@ export function HomeHero({
         Contact
       </a>
 
-      <MobileHeroSvg clipId={clipId} prefersReducedMotion={prefersReducedMotion} />
-
-      <motion.svg
+      <div
         aria-hidden="true"
-        className="absolute inset-0 hidden h-full w-full [overflow:visible] sm:block"
-        preserveAspectRatio="xMidYMin slice"
-        viewBox="0 0 1440 900"
-      >
-        <rect fill="#fff" height="900" width="1440" />
-        <g stroke="#cfcfcf" strokeWidth="1">
-          <line x1="0" x2="1440" y1="138" y2="138" />
-          <line x1="0" x2="1440" y1="258" y2="258" />
-          <line x1="0" x2="1440" y1="378" y2="378" />
-          <line x1="0" x2="1440" y1="418" y2="418" />
-          <line x1="0" x2="1440" y1="538" y2="538" />
-          <line x1="0" x2="1440" y1="668" y2="668" />
-          <line x1="0" x2="1440" y1="790" y2="790" />
-        </g>
+        className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_bottom,transparent_0_110px,#d4d4d4_110px_111px,transparent_111px_196px,#d4d4d4_196px_197px,transparent_197px_286px,#d4d4d4_286px_287px,transparent_287px_384px,#d4d4d4_384px_385px,transparent_385px_482px,#d4d4d4_482px_483px,transparent_483px_650px,#d4d4d4_650px_651px,transparent_651px),#fff] sm:bg-[linear-gradient(to_bottom,transparent_0_138px,#cfcfcf_138px_139px,transparent_139px_258px,#cfcfcf_258px_259px,transparent_259px_378px,#cfcfcf_378px_379px,transparent_379px_418px,#cfcfcf_418px_419px,transparent_419px_538px,#cfcfcf_538px_539px,transparent_539px_668px,#cfcfcf_668px_669px,transparent_669px_790px,#cfcfcf_790px_791px,transparent_791px),#fff]"
+      />
 
-        <defs>
-          <clipPath id={`${clipId}-innothing`}>
-            <rect height="120" width="1440" x="0" y="138" />
-          </clipPath>
-          <clipPath id={`${clipId}-space`}>
-            <rect height="112" width="1440" x="0" y="258" />
-          </clipPath>
-          <clipPath id={`${clipId}-photo`}>
-            <rect height="108" width="1440" x="0" y="418" />
-          </clipPath>
-          <clipPath id={`${clipId}-memory`}>
-            <rect height="108" width="1440" x="0" y="538" />
-          </clipPath>
-          <filter height="360" id={`${clipId}-stack-shadow`} width="560" x="-80" y="-80">
-            <feDropShadow dx="0" dy="22" floodColor="#000" floodOpacity=".1" stdDeviation="26" />
-          </filter>
-        </defs>
-
-        <g fill="#000" fontFamily="Arial, Helvetica Neue, Helvetica, sans-serif" fontWeight="225" letterSpacing="0">
-          <motion.g clipPath={`url(#${clipId}-innothing)`} style={{ x: inNothingX }}>
-            <motion.text
+      <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 top-[102px] z-10 px-4 sm:top-[76px] sm:px-8 lg:px-14">
+        <div className="mx-auto grid max-w-[1440px] gap-5 sm:gap-4">
+          {[
+            ['INNOTHING', 'ml-0 sm:ml-[28%]', 0, 28],
+            ['SPACE', 'ml-[24%] sm:ml-[52%]', 0.08, -34],
+            ['FOR PHOTOGRAPHY', 'mt-10 ml-0 sm:mt-16 sm:ml-[30%]', 0.16, 24],
+            ['AND MEMORY', 'ml-[20%] sm:ml-[62%]', 0.24, -28],
+          ].map(([text, className, delay, x]) => (
+            <motion.span
               animate={{ opacity: 1, x: 0 }}
-              dominantBaseline="hanging"
-              fontSize="150"
-              initial={prefersReducedMotion ? false : { opacity: 0, x: 44 }}
-              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              x="430"
-              y="76"
+              className={`block whitespace-nowrap font-sans text-[clamp(31px,9.8vw,150px)] font-[225] uppercase leading-[0.82] text-black sm:text-[clamp(92px,9.8vw,140px)] ${className}`}
+              initial={prefersReducedMotion ? false : { opacity: 0, x: Number(x) }}
+              key={String(text)}
+              transition={{ delay: Number(delay), duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             >
-              INNOTHING
-            </motion.text>
-          </motion.g>
-          <motion.g clipPath={`url(#${clipId}-space)`} style={{ x: spaceX }}>
-            <motion.text
-              animate={{ opacity: 1, x: 0 }}
-              dominantBaseline="hanging"
-              fontSize="150"
-              initial={prefersReducedMotion ? false : { opacity: 0, x: -56 }}
-              transition={{ delay: 0.08, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-              x="740"
-              y="196"
-            >
-              SPACE
-            </motion.text>
-          </motion.g>
-          <motion.g clipPath={`url(#${clipId}-photo)`} style={{ x: photographyX }}>
-            <motion.text
-              animate={{ opacity: 1, x: 0 }}
-              dominantBaseline="hanging"
-              fontSize="136"
-              initial={prefersReducedMotion ? false : { opacity: 0, x: -38 }}
-              transition={{ delay: 0.16, duration: 0.82, ease: [0.22, 1, 0.36, 1] }}
-              x="475"
-              y="354"
-            >
-              FOR PHOTOGRAPHY
-            </motion.text>
-          </motion.g>
-          <motion.g clipPath={`url(#${clipId}-memory)`} style={{ x: memoryX }}>
-            <motion.text
-              animate={{ opacity: 1, x: 0 }}
-              dominantBaseline="hanging"
-              fontSize="136"
-              initial={prefersReducedMotion ? false : { opacity: 0, x: 50 }}
-              transition={{ delay: 0.24, duration: 0.82, ease: [0.22, 1, 0.36, 1] }}
-              x="900"
-              y="474"
-            >
-              AND MEMORY
-            </motion.text>
-          </motion.g>
-        </g>
-
-        <motion.g
-          animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
-          filter={`url(#${clipId}-stack-shadow)`}
-          initial={prefersReducedMotion ? undefined : { opacity: 0, y: 24 }}
-          transition={{ delay: 0.42, duration: 0.7, ease: 'easeOut' }}
-        >
-          <g transform="translate(765 640) rotate(-17 135 90)">
-            <rect fill="#d3c8bd" height="170" width="260" x="0" y="0" />
-            <rect fill="#fff" height="92" width="190" x="32" y="36" />
-            <path d="M62 92 L106 66 L145 98 L178 74 L208 126 L52 126 Z" fill="#111" opacity=".82" />
-          </g>
-          <g transform="translate(885 637) rotate(8 122 92)">
-            <rect fill="#f8f5ef" height="175" width="230" x="0" y="0" />
-            <rect fill="#aeb7b5" height="108" width="182" x="24" y="24" />
-            <path d="M25 149 L205 142 L188 167 L41 171 Z" fill="#111" />
-          </g>
-          <g transform="translate(1010 685) rotate(-4 132 78)">
-            <rect fill="#111" height="150" width="255" x="0" y="0" />
-            <rect fill="#d2c8bd" height="100" width="198" x="28" y="24" />
-            <g fill="#fff">
-              {[16, 43, 70, 97].map((y) => (
-                <rect height="9" key={`film-left-${y}`} width="10" x="10" y={y} />
-              ))}
-              {[16, 43, 70, 97].map((y) => (
-                <rect height="9" key={`film-right-${y}`} width="10" x="235" y={y} />
-              ))}
-            </g>
-          </g>
-          <g fill="none" stroke="#111" strokeWidth="2" transform="translate(1120 637)">
-            <path d="M0 0 H86 M0 0 V86" />
-            <path d="M230 0 H144 M230 0 V86" />
-            <path d="M0 185 H86 M0 185 V99" />
-            <path d="M230 185 H144 M230 185 V99" />
-          </g>
-          <g transform="translate(1245 703) rotate(13 80 70)">
-            <rect fill="#fff" height="130" stroke="#111" strokeWidth="2" width="160" x="0" y="0" />
-            <rect fill="#858d89" height="75" width="120" x="20" y="18" />
-            <circle cx="126" cy="108" fill="#111" r="8" />
-          </g>
-        </motion.g>
-      </motion.svg>
+              {text}
+            </motion.span>
+          ))}
+        </div>
+      </div>
 
       <div
         className="absolute bottom-8 left-5 z-20 w-[min(18rem,52vw)] sm:bottom-10 sm:left-8 sm:w-[min(18rem,42vw)] lg:bottom-16 lg:left-10"
@@ -237,109 +119,6 @@ export function HomeHero({
         <HoverCoverPreview hoverPreview={hoverPreview} />
       </div>
     </section>
-  );
-}
-
-function MobileHeroSvg({ clipId, prefersReducedMotion }: { clipId: string; prefersReducedMotion: boolean }) {
-  return (
-    <motion.svg
-      aria-hidden="true"
-      className="absolute inset-0 h-full w-full sm:hidden"
-      preserveAspectRatio="none"
-      viewBox="0 0 390 760"
-    >
-      <rect fill="#fff" height="760" width="390" />
-      <g stroke="#d4d4d4" strokeWidth="1">
-        <line x1="0" x2="390" y1="110" y2="110" />
-        <line x1="0" x2="390" y1="196" y2="196" />
-        <line x1="0" x2="390" y1="286" y2="286" />
-        <line x1="0" x2="390" y1="384" y2="384" />
-        <line x1="0" x2="390" y1="482" y2="482" />
-        <line x1="0" x2="390" y1="650" y2="650" />
-      </g>
-
-      <defs>
-        <clipPath id={`${clipId}-mobile-innothing`}>
-          <rect height="70" width="390" x="0" y="110" />
-        </clipPath>
-        <clipPath id={`${clipId}-mobile-space`}>
-          <rect height="68" width="390" x="0" y="196" />
-        </clipPath>
-        <clipPath id={`${clipId}-mobile-photo`}>
-          <rect height="62" width="390" x="0" y="384" />
-        </clipPath>
-        <clipPath id={`${clipId}-mobile-memory`}>
-          <rect height="62" width="390" x="0" y="482" />
-        </clipPath>
-      </defs>
-
-      <g fill="#000" fontFamily="Arial, Helvetica Neue, Helvetica, sans-serif" fontWeight="300" letterSpacing="0">
-        <g clipPath={`url(#${clipId}-mobile-innothing)`}>
-          <motion.text
-            animate={{ opacity: 1, x: 0 }}
-            dominantBaseline="hanging"
-            fontSize="72"
-            initial={prefersReducedMotion ? false : { opacity: 0, x: 22 }}
-            transition={{ duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
-            x="-18"
-            y="103"
-          >
-            INNOTHING
-          </motion.text>
-        </g>
-        <g clipPath={`url(#${clipId}-mobile-space)`}>
-          <motion.text
-            animate={{ opacity: 1, x: 0 }}
-            dominantBaseline="hanging"
-            fontSize="72"
-            initial={prefersReducedMotion ? false : { opacity: 0, x: -24 }}
-            transition={{ delay: 0.08, duration: 0.72, ease: [0.22, 1, 0.36, 1] }}
-            x="74"
-            y="189"
-          >
-            SPACE
-          </motion.text>
-        </g>
-        <g clipPath={`url(#${clipId}-mobile-photo)`}>
-          <motion.text
-            animate={{ opacity: 1, x: 0 }}
-            dominantBaseline="hanging"
-            fontSize="56"
-            initial={prefersReducedMotion ? false : { opacity: 0, x: -20 }}
-            transition={{ delay: 0.16, duration: 0.76, ease: [0.22, 1, 0.36, 1] }}
-            x="-28"
-            y="379"
-          >
-            FOR PHOTOGRAPHY
-          </motion.text>
-        </g>
-        <g clipPath={`url(#${clipId}-mobile-memory)`}>
-          <motion.text
-            animate={{ opacity: 1, x: 0 }}
-            dominantBaseline="hanging"
-            fontSize="56"
-            initial={prefersReducedMotion ? false : { opacity: 0, x: 24 }}
-            transition={{ delay: 0.24, duration: 0.76, ease: [0.22, 1, 0.36, 1] }}
-            x="74"
-            y="477"
-          >
-            AND MEMORY
-          </motion.text>
-        </g>
-      </g>
-
-      <motion.g
-        animate={prefersReducedMotion ? undefined : { opacity: 0.8, y: 0 }}
-        initial={prefersReducedMotion ? undefined : { opacity: 0, y: 14 }}
-        transition={{ delay: 0.42, duration: 0.6, ease: 'easeOut' }}
-      >
-        <g transform="translate(238 610) rotate(-8 74 48)">
-          <rect fill="#f8f5ef" height="105" width="126" x="0" y="0" />
-          <rect fill="#aeb7b5" height="62" width="94" x="16" y="14" />
-          <path d="M16 89 L110 84 L100 101 L25 103 Z" fill="#111" />
-        </g>
-      </motion.g>
-    </motion.svg>
   );
 }
 
