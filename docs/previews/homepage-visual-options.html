@@ -199,7 +199,7 @@
         bottom: 8%;
         width: min(350px, 62vw);
         border: 1px solid rgba(7, 27, 47, 0.24);
-        background: rgba(255, 255, 255, 0.74);
+        background: rgba(255, 255, 255, 0.9);
         padding: 18px;
         box-shadow: var(--shadow);
         font-family: Georgia, "Times New Roman", "Songti SC", "SimSun", serif;
@@ -215,7 +215,7 @@
 
       .lab-note span {
         display: block;
-        font-size: 15px;
+        font-size: 18px;
         line-height: 1.75;
       }
 
@@ -232,7 +232,7 @@
       .theme-section {
         position: relative;
         min-height: 850px;
-        overflow: hidden;
+        overflow: visible;
         border-bottom: 1px solid var(--line);
         background:
           linear-gradient(90deg, rgba(215, 228, 233, 0.42), transparent 38%),
@@ -268,7 +268,7 @@
         color: rgba(7, 27, 47, 0.52);
         font-family: Georgia, "Times New Roman", serif;
         font-size: clamp(32px, 3.6vw, 74px);
-        font-weight: 300;
+        font-weight: 250;
         line-height: 1;
         text-transform: uppercase;
         transform-origin: center;
@@ -288,56 +288,68 @@
 
       .ribbon.back {
         z-index: 1;
-        color: rgba(201, 149, 103, 0.34);
+        color: rgba(201, 149, 103, 0.3);
       }
 
       .ribbon.front {
         z-index: 8;
-        color: rgba(7, 27, 47, 0.3);
+        color: rgba(7, 27, 47, 0.27);
         mix-blend-mode: multiply;
       }
 
       .ribbon.r1 {
-        top: 34px;
+        top: 186px;
         transform: rotate(5deg);
       }
 
       .ribbon.r2 {
-        top: 142px;
+        top: 292px;
         transform: rotate(-4deg);
       }
 
       .ribbon.r3 {
-        top: 258px;
+        top: 402px;
         transform: rotate(2deg);
       }
 
       .ribbon.r4 {
-        top: 388px;
+        top: 516px;
         transform: rotate(-5deg);
       }
 
       .ribbon.r5 {
-        top: 514px;
+        top: 632px;
         transform: rotate(4deg);
       }
 
       .ribbon.r6 {
-        top: 640px;
+        top: 742px;
         transform: rotate(-4deg);
-        opacity: 0.8;
+        opacity: 0.72;
       }
 
       .ribbon.r7 {
-        top: 334px;
+        top: 496px;
         transform: rotate(82deg);
-        opacity: 0.48;
+        opacity: 0.34;
       }
 
       .ribbon.r8 {
-        top: 214px;
+        top: 386px;
         transform: rotate(98deg);
-        opacity: 0.4;
+        opacity: 0.3;
+      }
+
+      .ribbon.r9 {
+        top: 244px;
+        transform: rotate(-2deg);
+        opacity: 0.62;
+      }
+
+      .ribbon.r10 {
+        top: 690px;
+        transform: rotate(2deg);
+        opacity: 0.58;
       }
 
       .archive-grid {
@@ -353,13 +365,12 @@
       .archive-card {
         position: relative;
         min-height: 202px;
-        border: 1px solid rgba(7, 27, 47, 0.16);
-        border-radius: 0 18px 18px 0;
-        background: var(--card-accent);
+        border: 0;
+        border-radius: 0;
+        background: transparent;
         padding: 22px 24px 20px 34px;
         color: var(--card-ink, var(--ink));
         text-align: left;
-        box-shadow: 0 18px 40px rgba(7, 27, 47, 0.13);
         cursor: pointer;
         isolation: isolate;
         overflow: visible;
@@ -388,27 +399,46 @@
         background: var(--card-accent);
         clip-path: polygon(0 0, calc(100% - 28px) 0, 100% 100%, 0 100%);
         transform: translateY(-70%);
+        z-index: 0;
         transition:
           background 220ms ease,
           transform 220ms ease;
       }
 
+      .archive-card .folder-base {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        border: 1px solid rgba(7, 27, 47, 0.12);
+        border-radius: 0 18px 18px 0;
+        background: var(--card-accent);
+        box-shadow: 0 18px 40px rgba(7, 27, 47, 0.1);
+      }
+
       .archive-card::after {
         content: "";
         position: absolute;
-        inset: 50px 18px auto;
-        height: 1px;
-        background: currentColor;
-        opacity: 0.24;
+        inset: 50px 0 0;
+        z-index: 2;
+        border: 1px solid rgba(7, 27, 47, 0.16);
+        border-radius: 0 18px 18px 0;
+        background: var(--card-accent);
+        box-shadow: 0 18px 40px rgba(7, 27, 47, 0.08);
+        transition:
+          border-color 220ms ease,
+          box-shadow 220ms ease;
       }
 
       .archive-card:hover,
       .archive-card:focus-visible {
         transform: translateY(-8px);
-        border-color: var(--ink);
-        background: var(--card-accent);
-        box-shadow: 0 26px 70px rgba(7, 27, 47, 0.18);
         outline: none;
+      }
+
+      .archive-card:hover::after,
+      .archive-card:focus-visible::after {
+        border-color: var(--ink);
+        box-shadow: 0 26px 70px rgba(7, 27, 47, 0.18);
       }
 
       .archive-card:nth-child(odd):hover,
@@ -423,10 +453,17 @@
 
       .archive-card .num {
         display: block;
+        position: relative;
+        z-index: 4;
+        margin-right: 6px;
+        padding-bottom: 14px;
+        border-bottom: 1px solid currentColor;
         font-size: 16px;
       }
 
       .theme-title {
+        position: relative;
+        z-index: 4;
         display: flex;
         align-items: baseline;
         gap: 12px;
@@ -448,6 +485,8 @@
       }
 
       .archive-card .accent {
+        position: relative;
+        z-index: 4;
         display: block;
         width: 76px;
         height: 9px;
@@ -462,6 +501,8 @@
       }
 
       .archive-card .enter {
+        position: relative;
+        z-index: 4;
         display: block;
         margin-top: 22px;
         font-size: 14px;
@@ -472,10 +513,10 @@
         position: absolute;
         left: 18%;
         top: 0;
-        z-index: -1;
+        z-index: 1;
         width: 190px;
         height: 246px;
-        transform: translate(-16%, -34%);
+        transform: translate(-16%, -26%);
         transform-style: preserve-3d;
       }
 
@@ -813,7 +854,9 @@
 
         .ribbon.r6,
         .ribbon.r7,
-        .ribbon.r8 {
+        .ribbon.r8,
+        .ribbon.r9,
+        .ribbon.r10 {
           display: none;
         }
 
@@ -923,18 +966,21 @@
         <div class="theme-wrap">
           <p class="theme-label">Theme / 02</p>
           <div class="ribbon-field" aria-hidden="true">
-            <div class="ribbon back r1" data-dir="-1" data-speed="0.34"><span>FRAME QUIET LIGHT / STUDY BEAUTY / COLLECT MEMORY / FRAME QUIET LIGHT / STUDY BEAUTY / COLLECT MEMORY / FRAME QUIET LIGHT / STUDY BEAUTY / COLLECT MEMORY /</span></div>
-            <div class="ribbon front r2" data-dir="1" data-speed="0.28"><span>MAKE PHOTOGRAPHS FEEL LIKE ART / HOLD A SOFT AFTERIMAGE / MAKE PHOTOGRAPHS FEEL LIKE ART / HOLD A SOFT AFTERIMAGE / MAKE PHOTOGRAPHS FEEL LIKE ART /</span></div>
-            <div class="ribbon back r3" data-dir="-1" data-speed="0.22"><span>TRACE COLOR / OPEN THE ARCHIVE / FIND SILENCE / TRACE COLOR / OPEN THE ARCHIVE / FIND SILENCE / TRACE COLOR / OPEN THE ARCHIVE / FIND SILENCE /</span></div>
-            <div class="ribbon front r4" data-dir="1" data-speed="0.38"><span>DESIGN WITH MEMORY / LOOK SLOWLY / KEEP THE LIGHT / DESIGN WITH MEMORY / LOOK SLOWLY / KEEP THE LIGHT / DESIGN WITH MEMORY / LOOK SLOWLY /</span></div>
-            <div class="ribbon back r5" data-dir="-1" data-speed="0.3"><span>WARM APRICITY / AZURE AIR / LUSH BLOOM / PALL STILLNESS / WARM APRICITY / AZURE AIR / LUSH BLOOM / PALL STILLNESS / WARM APRICITY /</span></div>
-            <div class="ribbon back r6" data-dir="1" data-speed="0.18"><span>SHARE BEAUTY / STUDY FORM / RECORD DAYS / SHARE BEAUTY / STUDY FORM / RECORD DAYS / SHARE BEAUTY / STUDY FORM / RECORD DAYS /</span></div>
-            <div class="ribbon front r7" data-dir="-1" data-speed="0.2"><span>PHOTOGRAPHY AS MEMORY / ART AS PRACTICE / PHOTOGRAPHY AS MEMORY / ART AS PRACTICE / PHOTOGRAPHY AS MEMORY / ART AS PRACTICE /</span></div>
-            <div class="ribbon back r8" data-dir="1" data-speed="0.16"><span>NOTHING SMALL SITE / LIGHT MEMORY BEAUTY / NOTHING SMALL SITE / LIGHT MEMORY BEAUTY / NOTHING SMALL SITE / LIGHT MEMORY BEAUTY /</span></div>
+            <div class="ribbon back r1" data-dir="-1" data-speed="0.34"><span>LEONARDO DA VINCI CONSIDERED ART A WAY OF STUDYING THE SEEN WORLD, WHERE PATIENCE, OBSERVATION, AND THE HAND LEARN TO THINK TOGETHER ACROSS LIGHT, SHADOW, ANATOMY, WATER, AIR, AND TIME /</span></div>
+            <div class="ribbon front r2" data-dir="1" data-speed="0.28"><span>SUSAN SONTAG WROTE ABOUT PHOTOGRAPHS AS FRAGMENTS OF EXPERIENCE, OBJECTS THAT BOTH PRESERVE AND TRANSFORM MEMORY, ASKING THE VIEWER TO NOTICE HOW LOOKING CAN BECOME A MORAL AND AESTHETIC ACT /</span></div>
+            <div class="ribbon back r3" data-dir="-1" data-speed="0.22"><span>JOHN BERGER TREATED SEEING AS A RELATIONSHIP BETWEEN IMAGE, HISTORY, AND POWER, REMINDING US THAT EVERY PHOTOGRAPH IS NOT ONLY A VIEW BUT ALSO A WAY OF CHOOSING WHAT MAY BE REMEMBERED /</span></div>
+            <div class="ribbon front r4" data-dir="1" data-speed="0.38"><span>GEORGIA OKEEFFE INSISTED ON SLOW ATTENTION, ENLARGING A FLOWER, A BONE, A HORIZON, UNTIL ORDINARY FORMS BECAME INTIMATE MONUMENTS OF COLOR, SILENCE, AND PERSONAL SCALE /</span></div>
+            <div class="ribbon back r5" data-dir="-1" data-speed="0.3"><span>ROLAND BARTHES DESCRIBED THE PHOTOGRAPH AS A MEETING OF TIME AND WOUND, A SMALL EVIDENCE OF WHAT HAS BEEN THERE, WHERE AN UNEXPECTED DETAIL CAN PUNCTURE THE SURFACE OF MEMORY /</span></div>
+            <div class="ribbon back r6" data-dir="1" data-speed="0.18"><span>AGNES MARTIN PURSUED QUIETNESS, ORDER, AND INNER FEELING, SUGGESTING THAT BEAUTY CAN ARRIVE THROUGH RESTRAINT, REPETITION, LIGHT PRESSURE, AND THE HUMBLE DISCIPLINE OF A LINE /</span></div>
+            <div class="ribbon front r7" data-dir="-1" data-speed="0.2"><span>HENRI CARTIER BRESSON BELIEVED THE CAMERA COULD JOIN EYE, MIND, AND HEART IN A SINGLE INSTANT, TURNING DAILY LIFE INTO A COMPOSITION THAT FEELS BOTH ACCIDENTAL AND EXACT /</span></div>
+            <div class="ribbon back r8" data-dir="1" data-speed="0.16"><span>VIRGINIA WOOLF RETURNED TO MOMENTS OF BEING, SMALL FLASHES WHEN THE WORLD SUDDENLY FEELS WHOLE, AND THAT SAME SENSIBILITY CAN GUIDE A PHOTOGRAPH TOWARD MEMORY AND FORM /</span></div>
+            <div class="ribbon front r9" data-dir="-1" data-speed="0.31"><span>WASSILY KANDINSKY THOUGHT OF COLOR AND FORM AS INNER NECESSITY, A LANGUAGE THAT DOES NOT ONLY REPRESENT THE WORLD BUT VIBRATES WITH MOOD, RHYTHM, AND SPIRITUAL TENSION /</span></div>
+            <div class="ribbon back r10" data-dir="1" data-speed="0.26"><span>RILKE ASKED ARTISTS TO LIVE THE QUESTIONS, TO LET EXPERIENCE RIPEN SLOWLY, AND THAT PATIENCE BELONGS TO PHOTOGRAPHY TOO, WHERE LIGHT BECOMES A RECORD OF ATTENTION /</span></div>
           </div>
 
           <div class="archive-grid">
             <button class="archive-card" style="--card-accent: var(--warm); --card-ink: #071b2f" type="button">
+              <span class="folder-base" aria-hidden="true"></span>
               <span class="num">01</span>
               <span class="theme-title"><span class="han">暖</span><span class="eng">Warm</span></span>
               <span class="accent"></span>
@@ -945,6 +991,7 @@
               </span>
             </button>
             <button class="archive-card" style="--card-accent: var(--azure); --card-ink: #071b2f" type="button">
+              <span class="folder-base" aria-hidden="true"></span>
               <span class="num">02</span>
               <span class="theme-title"><span class="han">湛</span><span class="eng">Azure</span></span>
               <span class="accent"></span>
@@ -955,6 +1002,7 @@
               </span>
             </button>
             <button class="archive-card" style="--card-accent: var(--lush); --card-ink: #071b2f" type="button">
+              <span class="folder-base" aria-hidden="true"></span>
               <span class="num">03</span>
               <span class="theme-title"><span class="han">盛</span><span class="eng">Lush</span></span>
               <span class="accent"></span>
@@ -965,6 +1013,7 @@
               </span>
             </button>
             <button class="archive-card" style="--card-accent: var(--pall); --card-ink: #ffffff" type="button">
+              <span class="folder-base" aria-hidden="true"></span>
               <span class="num">04</span>
               <span class="theme-title"><span class="han">郁</span><span class="eng">Pall</span></span>
               <span class="accent"></span>
