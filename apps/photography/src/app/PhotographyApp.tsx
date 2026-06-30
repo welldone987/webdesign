@@ -61,6 +61,7 @@ export function PhotographyApp() {
             key="home"
             onOpenThemeGallery={openThemeGallery}
             onSelectTheme={selectTheme}
+            photos={allPhotos}
             themes={themes}
           />
         ) : (
