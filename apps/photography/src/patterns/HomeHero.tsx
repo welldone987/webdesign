@@ -19,17 +19,24 @@ type HoverPreview = {
 };
 
 const themeLabels: Record<string, string> = {
-  warm: 'Warm',
+  warm: '暖',
+  azure: '湛',
+  bloom: '盛',
+  umbrage: '郁',
+};
+
+const themeEnglishLabels: Record<string, string> = {
+  warm: 'Apricity',
   azure: 'Azure',
   bloom: 'Lush',
   umbrage: 'Pall',
 };
 
 const heroTitleRows = [
-  { text: 'INNOTHING', className: 'left-[45%] max-sm:left-[20%]', from: -54, to: 32 },
-  { text: 'SPACE FOR', className: 'left-[54%] max-sm:left-[34%]', from: 34, to: -46 },
-  { text: 'PHOTOGRAPHY', className: 'left-[40%] max-sm:left-[12%]', from: -72, to: 52 },
-  { text: 'AND MEMORY', className: 'left-[58%] max-sm:left-[32%]', from: 48, to: -64 },
+  { text: 'INNOTHING', className: 'left-[45%] max-sm:left-[20%]', from: -54, to: 120 },
+  { text: 'SPACE FOR', className: 'left-[47%] max-sm:left-[22%]', from: 34, to: -210 },
+  { text: 'PHOTOGRAPHY', className: 'left-[40%] max-sm:left-[12%]', from: -72, to: 142 },
+  { text: 'AND MEMORY', className: 'left-[49%] max-sm:left-[20%]', from: 48, to: -240 },
 ] as const;
 
 export function HomeHero({
@@ -83,8 +90,13 @@ export function HomeHero({
       >
         InNothing, About
       </a>
-      <a className="absolute right-4 top-4 z-30 flex min-h-11 items-center text-base font-medium sm:right-[2vw] sm:text-[13px]" href="mailto:">
-        Contact
+      <a
+        className="absolute right-4 top-4 z-30 flex min-h-11 items-center text-base font-medium underline decoration-black underline-offset-4 sm:right-[2vw] sm:text-[13px]"
+        href="https://www.xiaohongshu.com/user/profile/64e37b32000000000200f65a"
+        rel="noreferrer"
+        target="_blank"
+      >
+        小红书
       </a>
 
       <div aria-hidden="true" className="pointer-events-none absolute left-0 top-[15%] z-10 flex w-full flex-col sm:top-[10%]">
@@ -103,12 +115,12 @@ export function HomeHero({
       <PhotographyObjectPile />
 
       <div
-        className="absolute bottom-[84px] left-5 z-20 w-[min(18rem,62vw)] sm:bottom-[6vh] sm:left-[2vw] sm:w-[min(22rem,38vw)] lg:bottom-[8vh]"
+        className="absolute bottom-12 left-4 z-20 w-fit sm:bottom-[6vh] sm:left-[2vw] sm:w-[min(22rem,38vw)] lg:bottom-[8vh]"
         onMouseLeave={() => setHoverPreview(null)}
         ref={directoryRef}
       >
-        <p className="text-base text-black sm:text-lg">Theme:</p>
-        <nav aria-label="首页主题筛选" className="mt-5 space-y-0.5">
+        <p className="font-serif text-2xl leading-none text-black underline decoration-black underline-offset-8 sm:text-[1.9rem]">呈现</p>
+        <nav aria-label="首页主题筛选" className="mt-5 space-y-4 sm:mt-8 sm:space-y-6">
           {themes.map((theme, index) => (
             <ThemeButton
               activeThemeSlug={activeThemeSlug}
@@ -234,22 +246,21 @@ function ThemeButton({ theme, index, activeThemeSlug, onSelectTheme, onOpenTheme
   return (
     <button
       aria-pressed={isActive}
-      className="group flex min-h-11 w-full items-center gap-3 border-b border-transparent text-left text-lg leading-none text-black transition hover:border-black focus:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-4 focus-visible:ring-offset-white sm:text-xl"
+      className="group flex min-h-11 w-fit items-center gap-3 text-left font-serif text-[1.18rem] leading-none text-black transition focus:outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-4 focus-visible:ring-offset-white sm:gap-4 sm:text-[1.6rem]"
       onClick={() => {
         onSelectTheme(theme.slug);
         onOpenThemeGallery?.(theme.slug);
       }}
       onFocus={(event) => onHoverTheme?.(theme, event.currentTarget)}
       onMouseEnter={(event) => onHoverTheme?.(theme, event.currentTarget)}
-      style={{ borderBottomColor: isActive ? '#111' : undefined }}
       type="button"
     >
-      <span>{String(index + 1).padStart(2, '0')}</span>
       <span>{themeLabels[theme.slug] ?? theme.subtitle}</span>
+      <span className="text-[0.82em] tracking-[0.14em] text-black/42 sm:text-[0.9em]">{themeEnglishLabels[theme.slug] ?? theme.subtitle}</span>
       {isActive ? (
         <span
           aria-hidden="true"
-          className="ml-2 h-2.5 w-2.5 rounded-full bg-black"
+          className="h-2 w-2 rounded-full bg-black sm:h-2.5 sm:w-2.5"
           style={{ backgroundColor: accent === '#C99567' ? '#111' : accent }}
         />
       ) : null}

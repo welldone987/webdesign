@@ -10,6 +10,9 @@ export function ProfileFooter() {
           以及画面里没有被立即说完的部分。
         </p>
       </section>
+      <p className="mt-8 text-center text-[0.68rem] tracking-[0.12em] text-black/38">
+        email:innothing987@163.com
+      </p>
       <p className="mt-5 text-center text-[0.68rem] tracking-[0.12em] text-black/38">
         ©2026 InNothing. All Rights Reserved.
       </p>
