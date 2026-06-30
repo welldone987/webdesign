@@ -3,10 +3,10 @@ import type { Photo, ThemeSummary } from '../types/photography.ts';
 export const allCollectionSlug = 'all';
 
 export const themeAccents = {
-  warm: { accent: '#C99567', soft: '#EBD7BF' },
+  apricity: { accent: '#C99567', soft: '#EBD7BF' },
   azure: { accent: '#7F9FB0', soft: '#D7E4E9' },
-  bloom: { accent: '#8F9F76', soft: '#DEE7D2' },
-  umbrage: { accent: '#8F8B84', soft: '#E0DDD7' },
+  lush: { accent: '#8F9F76', soft: '#DEE7D2' },
+  pall: { accent: '#8F8B84', soft: '#E0DDD7' },
 } as const;
 
 export function buildThemes(items: Photo[]): ThemeSummary[] {

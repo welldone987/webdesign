@@ -76,7 +76,7 @@ const placeholderWidth = 36;
 const themes: Theme[] = [
   {
     name: '暖',
-    slug: 'warm',
+    slug: 'apricity',
     subtitle: 'Apricity',
     description: '柔和的光、近处的温度，以及日常里安静停留的瞬间。',
   },
@@ -88,13 +88,13 @@ const themes: Theme[] = [
   },
   {
     name: '盛',
-    slug: 'bloom',
+    slug: 'lush',
     subtitle: 'Lush',
     description: '明亮而丰盛，记录色彩舒展、生命向外生长的片刻。',
   },
   {
     name: '郁',
-    slug: 'umbrage',
+    slug: 'pall',
     subtitle: 'Pall',
     description: '更深、更密，把视线收回到阴影、纹理与未说完的部分。',
   },
@@ -102,9 +102,9 @@ const themes: Theme[] = [
 
 const imageExtensions = new Set(['.jpg', '.jpeg', '.png', '.webp']);
 const excludedSourceIndexes = new Map<string, Set<number>>([
-  ['warm', new Set([1, 4, 5])],
-  ['bloom', new Set([9])],
-  ['umbrage', new Set([5])],
+  ['apricity', new Set([1, 4, 5])],
+  ['lush', new Set([9])],
+  ['pall', new Set([5])],
 ]);
 
 function formatDate(value: unknown): string | undefined {
@@ -305,7 +305,7 @@ const photos: PhotoRecord[] = [];
 const seenOriginalFiles = new Set<string>();
 
 for (const theme of themes) {
-  const sourceDir = path.join(sourceRoot, theme.name);
+  const sourceDir = path.join(sourceRoot, theme.subtitle);
   const outputDir = path.join(publicRoot, theme.slug);
   const previewDir = path.join(outputDir, 'preview');
   await mkdir(outputDir, { recursive: true });

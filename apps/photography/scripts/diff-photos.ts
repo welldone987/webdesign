@@ -27,16 +27,16 @@ const photosFile = path.join(appRoot, 'src', 'data', 'photos.json');
 const imageExtensions = new Set(['.jpg', '.jpeg', '.png', '.webp']);
 
 const themes: Theme[] = [
-  { name: '暖', slug: 'warm', subtitle: 'Apricity' },
+  { name: '暖', slug: 'apricity', subtitle: 'Apricity' },
   { name: '湛', slug: 'azure', subtitle: 'Azure' },
-  { name: '盛', slug: 'bloom', subtitle: 'Lush' },
-  { name: '郁', slug: 'umbrage', subtitle: 'Pall' },
+  { name: '盛', slug: 'lush', subtitle: 'Lush' },
+  { name: '郁', slug: 'pall', subtitle: 'Pall' },
 ];
 
 const excludedSourceIndexes = new Map<string, Set<number>>([
-  ['warm', new Set([1, 4, 5])],
-  ['bloom', new Set([9])],
-  ['umbrage', new Set([5])],
+  ['apricity', new Set([1, 4, 5])],
+  ['lush', new Set([9])],
+  ['pall', new Set([5])],
 ]);
 
 async function pathExists(filePath: string): Promise<boolean> {
@@ -52,7 +52,7 @@ async function pathExists(filePath: string): Promise<boolean> {
 }
 
 async function listSourceFiles(theme: Theme): Promise<string[]> {
-  const sourceDir = path.join(sourceRoot, theme.name);
+  const sourceDir = path.join(sourceRoot, theme.subtitle);
   const entries = await readdir(sourceDir, { withFileTypes: true });
   const sourceFiles = entries
     .filter((entry) => entry.isFile() && imageExtensions.has(path.extname(entry.name).toLowerCase()))
@@ -124,16 +124,16 @@ for (const theme of themes) {
   for (const fileName of sourceFiles) {
     if (!currentOriginals.has(fileName.toLowerCase())) {
       if (currentOriginalFiles.has(fileName.toLowerCase())) {
-        warnings.push(`跳过重复源图：${theme.name}/${fileName}`);
+        warnings.push(`跳过重复源图：${theme.subtitle}/${fileName}`);
       } else {
-        problems.push(`新增源图未生成到 photos.json：${theme.name}/${fileName}`);
+        problems.push(`新增源图未生成到 photos.json：${theme.subtitle}/${fileName}`);
       }
     }
   }
 
   for (const photo of themePhotos) {
     if (photo.originalFile && !sourceSet.has(String(photo.originalFile).toLowerCase())) {
-      problems.push(`photos.json 引用已不存在的源图：${theme.name}/${photo.originalFile}`);
+      problems.push(`photos.json 引用已不存在的源图：${theme.subtitle}/${photo.originalFile}`);
     }
 
     if (photo.themeSubtitle !== theme.subtitle) {
@@ -169,13 +169,13 @@ const sourceHashes = new Map<string, string>();
 for (const theme of themes) {
   const sourceFiles = await listSourceFiles(theme);
   for (const fileName of sourceFiles) {
-    const sourcePath = path.join(sourceRoot, theme.name, fileName);
+    const sourcePath = path.join(sourceRoot, theme.subtitle, fileName);
     const hash = await hashFile(sourcePath);
     const existing = sourceHashes.get(hash);
     if (existing) {
-      warnings.push(`资源目录中存在重复图片：${existing} 与 ${theme.name}/${fileName}`);
+      warnings.push(`资源目录中存在重复图片：${existing} 与 ${theme.subtitle}/${fileName}`);
     } else {
-      sourceHashes.set(hash, `${theme.name}/${fileName}`);
+      sourceHashes.set(hash, `${theme.subtitle}/${fileName}`);
     }
   }
 }

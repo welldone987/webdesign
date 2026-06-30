@@ -5,6 +5,7 @@
 ## 1. 项目定位
 
 - 当前唯一站点：`apps/photography`。
+- 站点正式名称：`無影集 | SEEN BY NOTHING`，浏览器标题、Open Graph 标题和首页品牌文字必须保持一致。
 - 不新增主页站、简历站、后台、数据库、登录、访问统计或服务端依赖。
 - 固定技术栈：React + Vite + TypeScript + Tailwind CSS + Playwright。
 - 包管理：npm workspace，提交 `package-lock.json`。
@@ -28,9 +29,14 @@
 apps/
   photography/                 # 唯一活跃站点
 资源/                          # 用户手动管理的外部素材，不参与构建和版本管理
+  摄影图片/
+    Apricity/                  # 暖主题源图
+    Azure/                     # 湛主题源图
+    Lush/                      # 盛主题源图
+    Pall/                      # 郁主题源图
 ```
 
-`资源/` 必须被 `.gitignore` 排除。代码、CSS、Markdown、测试和构建配置不得直接引用 `资源/`。需要使用素材时，先通过脚本生成到 `apps/photography/public/images/photography/`。
+`资源/` 必须被 `.gitignore` 排除。代码、CSS、Markdown、测试和构建配置不得直接引用 `资源/`。需要使用素材时，先通过脚本生成到 `apps/photography/public/images/photography/`。`资源/摄影图片` 下的主题目录固定使用 `Apricity`、`Azure`、`Lush`、`Pall`，不得使用中文目录名或旧英文名。
 
 ```text
 apps/photography/
@@ -63,6 +69,7 @@ apps/photography/
 - `homepage` 是多屏滚动首页，不再承担相册瀑布流本体；它可以通过滑动呈现视觉导向、动画导向、平面设计式内容，并通过主题目录、主题卡片等控件跳转到相册展示页。
 - 基于主题的相册展示页负责照片浏览、主题切换和图片详情弹层，不与 `homepage` 内容混写。
 - 四个主题：`暖 / Apricity`、`湛 / Azure`、`盛 / Lush`、`郁 / Pall`。
+- 主题 slug 和 public 图片目录固定为小写英文：`apricity`、`azure`、`lush`、`pall`；不得再使用旧 slug `warm`、`bloom`、`umbrage`。
 - 展示页桌面端保留目录与三列瀑布流；移动端使用顶部主题轨道与两列瀑布流，不做桌面侧栏压缩版。
 - 图片详情弹层：背景虚化，桌面左右布局，移动端优先保证大图、关闭和切换按钮可触达。
 - 缺失 EXIF 字段显示 `已消失`，并显示“不过回忆还在”。
@@ -96,7 +103,7 @@ npm run validate:photos
 
 - `diff:photos` 只报告，不改文件，用于确认资源变化。
 - `prepare:photos` 从 `资源/摄影图片` 生成站点图片和 `photos.json`。
-- `validate:photos` 校验路径、尺寸、大小、slug、重复、主题代号和 public 引用。
+- `validate:photos` 校验路径、尺寸、大小、slug、重复、主题代号和 public 引用，并拒绝主题 slug 与路径不一致的数据。
 - 当前单张站点主图和预览图都必须不超过 5MB；`prepare:photos` 会统一以高保真 JPEG 重编码并在必要时等比缩放，不能绕过脚本手动放入未压缩大图。
 - 所有可见照片必须有具体、有意义的 `alt`。
 

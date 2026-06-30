@@ -14,6 +14,8 @@ type PhotoRecord = {
   category?: string;
   title?: string;
   year?: number;
+  themeSlug?: string;
+  themeSubtitle?: string;
   slug?: string;
   placeholder?: string;
 };
@@ -23,6 +25,12 @@ const fileUrl = new URL('../src/data/photos.json', import.meta.url);
 const photos: unknown = JSON.parse(await readFile(fileUrl, 'utf8'));
 const appRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const maxBytes = 5 * 1024 * 1024;
+const themeSubtitles = new Map([
+  ['apricity', 'Apricity'],
+  ['azure', 'Azure'],
+  ['lush', 'Lush'],
+  ['pall', 'Pall'],
+]);
 
 if (!Array.isArray(photos)) {
   throw new Error('photos.json must contain an array.');
@@ -45,6 +53,23 @@ for (const [index, photo] of photoRecords.entries()) {
 
   if (!String(photo.src).startsWith('/images/photography/')) {
     throw new Error(`Photo at index ${index} must use a public photography image path.`);
+  }
+
+  const themeSubtitle = themeSubtitles.get(String(photo.themeSlug));
+  if (!themeSubtitle) {
+    throw new Error(`Photo at index ${index} uses an unknown themeSlug: ${String(photo.themeSlug)}`);
+  }
+
+  if (photo.themeSubtitle !== themeSubtitle) {
+    throw new Error(`Photo at index ${index} has mismatched themeSubtitle: ${String(photo.themeSubtitle)}`);
+  }
+
+  if (!String(photo.src).startsWith(`/images/photography/${String(photo.themeSlug)}/`)) {
+    throw new Error(`Photo at index ${index} src does not match themeSlug: ${String(photo.src)}`);
+  }
+
+  if (photo.slug && !String(photo.slug).startsWith(`${String(photo.themeSlug)}-`)) {
+    throw new Error(`Photo at index ${index} slug does not match themeSlug: ${String(photo.slug)}`);
   }
 
   const imagePath = path.join(appRoot, 'public', String(photo.src).replace(/^\//, ''));
@@ -70,6 +95,10 @@ for (const [index, photo] of photoRecords.entries()) {
   if (photo.previewSrc) {
     if (!String(photo.previewSrc).startsWith('/images/photography/')) {
       throw new Error(`Photo at index ${index} must use a public photography preview path.`);
+    }
+
+    if (!String(photo.previewSrc).startsWith(`/images/photography/${String(photo.themeSlug)}/preview/`)) {
+      throw new Error(`Photo at index ${index} previewSrc does not match themeSlug: ${String(photo.previewSrc)}`);
     }
 
     if (typeof photo.previewWidth !== 'number' || typeof photo.previewHeight !== 'number') {

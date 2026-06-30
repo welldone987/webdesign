@@ -46,7 +46,7 @@ Themes:
 暖 / Apricity
 湛 / Azure
 盛 / Lush
-郁 / Penumbra
+郁 / Pall
 ```
 
 Theme colors:
@@ -55,7 +55,7 @@ Theme colors:
 Apricity accent #C99567, soft #EBD7BF
 Azure     accent #7F9FB0, soft #D7E4E9
 Lush      accent #8F9F76, soft #DEE7D2
-Penumbra  accent #8F8B84, soft #E0DDD7
+Pall      accent #8F8B84, soft #E0DDD7
 ```
 
 ## 4. Figma File Architecture
@@ -130,8 +130,8 @@ primitive/color/paper          #EFE9DF
 primitive/color/ink            #1C1B18
 primitive/color/ink-soft       #4A4740
 primitive/color/mist           #D7E4E2
-primitive/color/warm-accent    #C99567
-primitive/color/warm-soft      #EBD7BF
+primitive/color/apricity-accent #C99567
+primitive/color/apricity-soft   #EBD7BF
 primitive/color/azure-accent   #7F9FB0
 primitive/color/azure-soft     #D7E4E9
 primitive/color/lush-accent    #8F9F76
@@ -150,8 +150,8 @@ color/text/secondary   -> primitive/color/ink-soft
 color/border/subtle    -> rgba ink 0.12
 color/border/strong    -> primitive/color/ink
 color/focus/default    -> primitive/color/ink
-color/theme/warm       -> primitive/color/warm-accent
-color/theme/warm-soft  -> primitive/color/warm-soft
+color/theme/apricity      -> primitive/color/apricity-accent
+color/theme/apricity-soft -> primitive/color/apricity-soft
 color/theme/azure      -> primitive/color/azure-accent
 color/theme/azure-soft -> primitive/color/azure-soft
 color/theme/lush       -> primitive/color/lush-accent
@@ -315,7 +315,7 @@ Properties:
 Variants:
 
 ```text
-Theme = Apricity | Azure | Lush | Penumbra
+Theme = Apricity | Azure | Lush | Pall
 State = Default | Hover | Active | Focus
 Viewport = Desktop | Mobile
 ```
@@ -339,7 +339,7 @@ Variants:
 
 ```text
 Orientation = Portrait | Landscape | Square | Tall
-Theme = Apricity | Azure | Lush | Penumbra | Neutral
+Theme = Apricity | Azure | Lush | Pall | Neutral
 State = Placeholder | Loading | Loaded | Focus
 ```
 

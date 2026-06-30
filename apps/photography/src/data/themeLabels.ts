@@ -4,10 +4,10 @@ const fallbackThemeLabels = {
 } as const;
 
 export const themeDisplayLabels = {
-  warm: { chinese: '暖', english: 'Apricity' },
+  apricity: { chinese: '暖', english: 'Apricity' },
   azure: { chinese: '湛', english: 'Azure' },
-  bloom: { chinese: '盛', english: 'Lush' },
-  umbrage: { chinese: '郁', english: 'Pall' },
+  lush: { chinese: '盛', english: 'Lush' },
+  pall: { chinese: '郁', english: 'Pall' },
 } as const;
 
 export function getThemeDisplayLabels(themeSlug: string) {

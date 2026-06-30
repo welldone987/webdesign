@@ -11,7 +11,7 @@ export default {
         umber: '#8f7763',
         moss: '#6f776a',
         theme: {
-          warm: {
+          apricity: {
             accent: '#C99567',
             soft: '#EBD7BF',
           },
@@ -19,11 +19,11 @@ export default {
             accent: '#7F9FB0',
             soft: '#D7E4E9',
           },
-          bloom: {
+          lush: {
             accent: '#8F9F76',
             soft: '#DEE7D2',
           },
-          umbrage: {
+          pall: {
             accent: '#8F8B84',
             soft: '#E0DDD7',
           },

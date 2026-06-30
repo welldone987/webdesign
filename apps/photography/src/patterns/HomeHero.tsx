@@ -68,14 +68,14 @@ export function HomeHero({
       ref={heroRef}
     >
       <h1 className="sr-only" id="home-title">
-        INNOTHING SPACE FOR PHOTOGRAPHY AND MEMORY
+        無影集 | SEEN BY NOTHING
       </h1>
 
       <a
         className="absolute left-4 top-4 z-30 flex min-h-11 items-center text-base font-medium underline decoration-black underline-offset-4 sm:left-[2vw] sm:text-[13px]"
         href="#profile"
       >
-        InNothing, About
+        無影集 | SEEN BY NOTHING
       </a>
       <a
         className="absolute right-4 top-4 z-30 flex min-h-11 items-center text-base font-medium underline decoration-black underline-offset-4 sm:right-[2vw] sm:text-[13px]"

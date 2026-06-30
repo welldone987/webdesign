@@ -264,7 +264,7 @@ function ArchiveCard({
     margin: '-8% 0px -30% 0px',
   });
   const folderStyle = {
-    '--card-accent': (themeAccents[item.theme.slug as keyof typeof themeAccents] ?? themeAccents.warm).accent,
+    '--card-accent': (themeAccents[item.theme.slug as keyof typeof themeAccents] ?? themeAccents.apricity).accent,
     '--card-ink': '#071b2f',
   } as CSSProperties;
   const isPreviewOpen = isPreviewVisible || (isMobilePreview && isScrollPreviewVisible);
