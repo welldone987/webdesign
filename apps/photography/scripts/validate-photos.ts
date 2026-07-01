@@ -2,6 +2,7 @@ import { readFile, stat } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import sharp from 'sharp';
 
 type PhotoRecord = {
   src?: string;
@@ -18,6 +19,7 @@ type PhotoRecord = {
   themeSlug?: string;
   themeSubtitle?: string;
   slug?: string;
+  originalFile?: string;
   placeholder?: string;
 };
 
@@ -25,6 +27,8 @@ const requiredFields = ['src', 'alt', 'width', 'height', 'category', 'title', 'y
 const fileUrl = new URL('../src/data/photos.json', import.meta.url);
 const photos: unknown = JSON.parse(await readFile(fileUrl, 'utf8'));
 const appRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const repoRoot = path.resolve(appRoot, '..', '..');
+const sourceRoot = path.join(repoRoot, '资源', '摄影图片');
 const maxBytes = 5 * 1024 * 1024;
 const themeSubtitles = new Map([
   ['apricity', 'Apricity'],
@@ -32,6 +36,12 @@ const themeSubtitles = new Map([
   ['lush', 'Lush'],
   ['pall', 'Pall'],
 ]);
+const hashedPhotoPathPattern = /^\/images\/photography\/([a-z]+)\/\1-\d{2}-[a-f0-9]{10}\.jpg$/;
+const hashedPreviewPathPattern = /^\/images\/photography\/([a-z]+)\/preview\/\1-\d{2}-[a-f0-9]{10}-preview\.jpg$/;
+
+async function createSourceHash(inputFile: string): Promise<string> {
+  return createHash('sha256').update(await readFile(inputFile)).digest('hex').slice(0, 10);
+}
 
 if (!Array.isArray(photos)) {
   throw new Error('photos.json must contain an array.');
@@ -64,6 +74,10 @@ for (const [index, photo] of photoRecords.entries()) {
     throw new Error(`Photo at index ${index} must use a public photography image path.`);
   }
 
+  if (!hashedPhotoPathPattern.test(String(photo.src))) {
+    throw new Error(`Photo at index ${index} must use a content-hashed image path: ${String(photo.src)}`);
+  }
+
   const themeSubtitle = themeSubtitles.get(String(photo.themeSlug));
   if (!themeSubtitle) {
     throw new Error(`Photo at index ${index} uses an unknown themeSlug: ${String(photo.themeSlug)}`);
@@ -71,6 +85,15 @@ for (const [index, photo] of photoRecords.entries()) {
 
   if (photo.themeSubtitle !== themeSubtitle) {
     throw new Error(`Photo at index ${index} has mismatched themeSubtitle: ${String(photo.themeSubtitle)}`);
+  }
+
+  if (!photo.originalFile) {
+    throw new Error(`Photo at index ${index} is missing originalFile.`);
+  }
+
+  const sourceHash = await createSourceHash(path.join(sourceRoot, themeSubtitle, String(photo.originalFile)));
+  if (!String(photo.src).includes(`-${sourceHash}.jpg`) || !String(photo.previewSrc).includes(`-${sourceHash}-preview.jpg`)) {
+    throw new Error(`Photo at index ${index} paths do not match source content hash: ${String(photo.originalFile)}`);
   }
 
   if (!String(photo.src).startsWith(`/images/photography/${String(photo.themeSlug)}/`)) {
@@ -85,6 +108,13 @@ for (const [index, photo] of photoRecords.entries()) {
   const imageStats = await stat(imagePath);
   if (imageStats.size > maxBytes) {
     throw new Error(`Photo at index ${index} exceeds 5MB: ${String(photo.src)}`);
+  }
+
+  const imageMetadata = await sharp(imagePath, { limitInputPixels: false }).metadata();
+  if (imageMetadata.width !== photo.width || imageMetadata.height !== photo.height) {
+    throw new Error(
+      `Photo at index ${index} has mismatched dimensions: ${String(photo.src)} json=${photo.width}x${photo.height} actual=${imageMetadata.width}x${imageMetadata.height}`,
+    );
   }
 
   const imageHash = createHash('sha256').update(await readFile(imagePath)).digest('hex');
@@ -106,6 +136,10 @@ for (const [index, photo] of photoRecords.entries()) {
       throw new Error(`Photo at index ${index} must use a public photography preview path.`);
     }
 
+    if (!hashedPreviewPathPattern.test(String(photo.previewSrc))) {
+      throw new Error(`Photo at index ${index} must use a content-hashed preview path: ${String(photo.previewSrc)}`);
+    }
+
     if (!String(photo.previewSrc).startsWith(`/images/photography/${String(photo.themeSlug)}/preview/`)) {
       throw new Error(`Photo at index ${index} previewSrc does not match themeSlug: ${String(photo.previewSrc)}`);
     }
@@ -118,6 +152,13 @@ for (const [index, photo] of photoRecords.entries()) {
     const previewStats = await stat(previewPath);
     if (previewStats.size > maxBytes) {
       throw new Error(`Photo preview at index ${index} exceeds 5MB: ${photo.previewSrc}`);
+    }
+
+    const previewMetadata = await sharp(previewPath, { limitInputPixels: false }).metadata();
+    if (previewMetadata.width !== photo.previewWidth || previewMetadata.height !== photo.previewHeight) {
+      throw new Error(
+        `Photo at index ${index} has mismatched preview dimensions: ${String(photo.previewSrc)} json=${photo.previewWidth}x${photo.previewHeight} actual=${previewMetadata.width}x${previewMetadata.height}`,
+      );
     }
   }
 

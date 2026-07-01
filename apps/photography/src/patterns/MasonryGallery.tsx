@@ -19,6 +19,8 @@ export function MasonryGallery({ photos, onOpenPhoto }: MasonryGalleryProps) {
         <motion.button
           animate={prefersReducedMotion ? undefined : { opacity: 1, y: 0 }}
           className="group mb-3 block w-full break-inside-avoid text-left focus:outline-none focus:ring-2 focus:ring-umber focus:ring-offset-4 focus:ring-offset-porcelain lg:mb-5"
+          data-photo-slug={photo.slug}
+          data-testid="masonry-photo"
           initial={prefersReducedMotion ? undefined : { opacity: 0, y: 18 }}
           key={photo.slug ?? photo.src}
           onClick={(event) => onOpenPhoto(photo, event.currentTarget)}

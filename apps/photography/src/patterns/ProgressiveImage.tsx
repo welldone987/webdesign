@@ -56,6 +56,7 @@ export function ProgressiveImage({ photo, priority = false }: ProgressiveImagePr
   return (
     <span
       className="relative block w-full overflow-hidden bg-paper"
+      data-testid="photo-preview-frame"
       ref={containerRef}
       style={{ aspectRatio: `${previewWidth} / ${previewHeight}` }}
     >
@@ -72,6 +73,7 @@ export function ProgressiveImage({ photo, priority = false }: ProgressiveImagePr
         <img
           alt={photo.alt}
           className="absolute inset-0 h-full w-full object-cover transition group-hover:brightness-[0.94]"
+          data-testid="photo-preview-image"
           decoding="async"
           height={previewHeight}
           loading={priority ? 'eager' : 'lazy'}
@@ -96,7 +98,6 @@ type ProgressiveDetailImageProps = {
 export function ProgressiveDetailImage({ photo, className }: ProgressiveDetailImageProps) {
   const [largeLoaded, setLargeLoaded] = useState(false);
   const [largeFailed, setLargeFailed] = useState(false);
-  const prefersReducedMotion = useReducedMotionPreference();
   const previewSrc = getPreviewSrc(photo);
 
   useEffect(() => {
@@ -118,31 +119,18 @@ export function ProgressiveDetailImage({ photo, className }: ProgressiveDetailIm
     };
   }, [photo.src]);
 
+  const displayFullImage = largeLoaded && !largeFailed;
+
   return (
-    <span className="relative block">
-      <img
-        alt={photo.alt}
-        className={className}
-        decoding="async"
-        height={getPreviewHeight(photo)}
-        src={previewSrc}
-        width={getPreviewWidth(photo)}
-      />
-      {!largeFailed ? (
-        <img
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 h-full w-full object-contain transition-opacity"
-          decoding="async"
-          height={photo.height}
-          src={photo.src}
-          style={{
-            opacity: largeLoaded ? 1 : 0,
-            transitionDuration: prefersReducedMotion ? '1ms' : '450ms',
-          }}
-          width={photo.width}
-        />
-      ) : null}
-    </span>
+    <img
+      alt={photo.alt}
+      className={className}
+      data-full-loaded={displayFullImage ? 'true' : 'false'}
+      data-testid="photo-detail-image"
+      decoding="async"
+      height={displayFullImage ? photo.height : getPreviewHeight(photo)}
+      src={displayFullImage ? photo.src : previewSrc}
+      width={displayFullImage ? photo.width : getPreviewWidth(photo)}
+    />
   );
 }
