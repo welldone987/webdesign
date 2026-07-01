@@ -25,6 +25,7 @@ const sourceRoot = path.join(repoRoot, '资源', '摄影图片');
 const publicRoot = path.join(appRoot, 'public', 'images', 'photography');
 const photosFile = path.join(appRoot, 'src', 'data', 'photos.json');
 const imageExtensions = new Set(['.jpg', '.jpeg', '.png', '.webp']);
+const imageExtensionLabels = ['jpg', 'jpeg', 'png', 'webp'];
 
 const themes: Theme[] = [
   { name: '暖', slug: 'apricity', subtitle: 'Apricity' },
@@ -55,12 +56,40 @@ async function listSourceFiles(theme: Theme): Promise<string[]> {
   const sourceDir = path.join(sourceRoot, theme.subtitle);
   const entries = await readdir(sourceDir, { withFileTypes: true });
   const sourceFiles = entries
-    .filter((entry) => entry.isFile() && imageExtensions.has(path.extname(entry.name).toLowerCase()))
-    .map((entry) => entry.name)
+    .filter((entry) => entry.isFile() && !entry.name.startsWith('.'))
+    .map((entry) => {
+      assertValidSourceName(theme, entry.name);
+      return entry.name;
+    })
     .sort((a, b) => a.localeCompare(b, 'zh-CN', { numeric: true }));
 
   const excludedIndexes = excludedSourceIndexes.get(theme.slug) ?? new Set();
   return sourceFiles.filter((_, index) => !excludedIndexes.has(index + 1));
+}
+
+function assertValidSourceName(theme: Theme, fileName: string): void {
+  const baseName = path.basename(fileName, path.extname(fileName));
+  const extension = path.extname(fileName).toLowerCase();
+  const relativeName = `${theme.subtitle}/${fileName}`;
+
+  if (!imageExtensions.has(extension)) {
+    const lowerName = fileName.toLowerCase();
+    const looksLikeMissingDot = imageExtensionLabels.some((label) => lowerName.endsWith(label));
+    const hint = looksLikeMissingDot
+      ? '文件名末尾像是漏写了扩展名前的点号'
+      : `仅支持 ${imageExtensionLabels.map((label) => `.${label}`).join('、')} 图片`;
+
+    throw new Error(
+      `源图文件名格式无效：${relativeName}。${hint}。请改为类似「小憩；澳门-路环半岛.jpg」的格式。`,
+    );
+  }
+
+  const separatorCount = (baseName.match(/；/g) ?? []).length;
+  if (separatorCount !== 1) {
+    throw new Error(
+      `源图文件名格式无效：${relativeName}。必须且只能使用一个中文分号「；」分隔照片名与地点，格式为「照片名；地点.扩展名」。`,
+    );
+  }
 }
 
 async function listPublicImages(directory: string): Promise<string[]> {
