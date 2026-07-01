@@ -29,13 +29,13 @@ export function DetailOverlay({ photos, selectedPhoto, onSelectPhoto, onClose }:
   const nextPhoto = selectedIndex >= 0 && selectedIndex < photos.length - 1 ? photos[selectedIndex + 1] : undefined;
   const isLandscape = selectedPhoto ? selectedPhoto.width >= selectedPhoto.height : false;
   const detailCardClass = isLandscape
-    ? 'relative grid max-h-[calc(100vh-9rem)] w-full max-w-5xl overflow-y-auto bg-porcelain shadow-2xl md:h-[min(72vh,760px)] md:w-[min(78vw,1240px)] md:max-h-[760px] md:grid-cols-[0.75fr_1.25fr] md:overflow-hidden'
+    ? 'relative grid max-h-[calc(100vh-9rem)] w-full overflow-y-auto bg-porcelain shadow-2xl md:h-[min(86vh,860px)] md:w-[min(84vw,1480px)] md:max-h-[860px] md:grid-cols-[0.68fr_1.32fr] md:overflow-hidden xl:w-[min(80vw,1560px)]'
     : 'relative grid max-h-[calc(100vh-9rem)] w-full max-w-6xl overflow-y-auto bg-porcelain shadow-2xl md:max-h-[calc(100vh-4rem)] md:grid-cols-[0.82fr_1.18fr] md:overflow-hidden';
   const infoPanelClass = isLandscape
-    ? 'order-2 overflow-y-auto p-5 font-serif text-ink sm:p-7 md:order-1 md:p-10 lg:p-12'
+    ? 'order-2 overflow-y-auto p-5 font-serif text-ink sm:p-7 md:order-1 md:p-9 lg:p-11'
     : 'order-2 overflow-y-auto p-5 font-serif text-ink sm:p-7 md:order-1 md:p-10';
   const figureClass = isLandscape
-    ? 'order-1 flex min-h-[240px] items-center justify-center bg-porcelain p-3 sm:min-h-[280px] sm:p-6 md:order-2 md:h-full md:min-h-0 md:p-10'
+    ? 'order-1 flex min-h-[240px] items-center justify-center bg-porcelain p-3 sm:min-h-[280px] sm:p-6 md:order-2 md:h-full md:min-h-0 md:p-8 lg:p-10'
     : 'order-1 flex min-h-0 items-center justify-center bg-porcelain p-4 sm:p-6 md:order-2 md:p-8';
   const imageClass = isLandscape
     ? 'max-h-[48vh] w-full object-contain md:max-h-full'
@@ -161,8 +161,8 @@ export function DetailOverlay({ photos, selectedPhoto, onSelectPhoto, onClose }:
     ? [
         ['光圈', selectedPhoto.aperture],
         ['快门', selectedPhoto.shutterSpeed],
-        ['感光度', selectedPhoto.iso],
         ['拍摄日期', selectedPhoto.date],
+        ['地点', selectedPhoto.location],
       ]
     : [];
   const hasMissing = details.some(([, value]) => !value);
@@ -193,15 +193,22 @@ export function DetailOverlay({ photos, selectedPhoto, onSelectPhoto, onClose }:
           <motion.div
             animate={prefersReducedMotion ? undefined : { opacity: 1, scale: 1, y: 0 }}
             className={detailCardClass}
+            data-testid="photo-detail-card"
             exit={prefersReducedMotion ? undefined : { opacity: 0, scale: 0.98, y: 12 }}
             initial={prefersReducedMotion ? undefined : { opacity: 0, scale: 0.98, y: 12 }}
             transition={{ duration: 0.28, ease: 'easeOut' }}
           >
             <section className={infoPanelClass}>
               <p className="text-sm tracking-[0.2em] text-moss">{selectedPhoto.category}</p>
-              <h2 className="mt-5 text-4xl leading-tight" id="photo-detail-title">
-                <span>{selectedPhoto.category}</span>
-                <span className="font-numeric-serif ml-4">{selectedPhoto.title.replace(selectedPhoto.category, '').trim()}</span>
+              <h2 className="mt-5 min-h-[2.75rem] text-4xl leading-tight" id="photo-detail-title">
+                {selectedPhoto.title ? (
+                  selectedPhoto.title
+                ) : (
+                  <>
+                    <span aria-hidden="true">&nbsp;</span>
+                    <span className="sr-only">无名照片</span>
+                  </>
+                )}
               </h2>
               <dl className="mt-10 space-y-5 text-lg leading-8">
                 {details.map(([label, value]) => (

@@ -54,6 +54,7 @@ type PhotoRecord = {
   aperture?: string;
   shutterSpeed?: string;
   iso?: string;
+  location?: string;
   featured: boolean;
   order: number;
   slug: string;
@@ -152,6 +153,19 @@ function formatIso(value: unknown): string | undefined {
   }
 
   return Number.isFinite(value) ? `ISO ${Math.round(value)}` : undefined;
+}
+
+function parseSourceName(fileName: string): { title: string; location?: string } {
+  const baseName = path.basename(fileName, path.extname(fileName));
+  const [rawTitle = '', rawLocation = ''] = baseName.split('；');
+  const title = rawTitle.trim();
+  const location = rawLocation.trim();
+  const hasSpecificTitle = title.length > 0 && !/^\d+$/.test(title);
+
+  return {
+    title: hasSpecificTitle ? title : '',
+    location: location || undefined,
+  };
 }
 
 async function readExif(inputFile: string): Promise<ExifData> {
@@ -343,7 +357,7 @@ for (const theme of themes) {
     const outputMetadata = await sharp(outputFile, { limitInputPixels: false }).metadata();
     const preview = await createPreview(outputFile, previewFile);
     const placeholder = await createPlaceholder(outputFile);
-    const title = `${theme.name} ${String(themeIndex).padStart(2, '0')}`;
+    const { title, location } = parseSourceName(fileName);
 
     photos.push({
       src: `/images/photography/${theme.slug}/${outputName}`,
@@ -364,6 +378,7 @@ for (const theme of themes) {
       aperture: exif.aperture,
       shutterSpeed: exif.shutterSpeed,
       iso: exif.iso,
+      location,
       featured: themeIndex === 1,
       order: photos.length + 1,
       slug: `${theme.slug}-${String(themeIndex).padStart(2, '0')}`,

@@ -13,6 +13,7 @@ type PhotoRecord = {
   previewHeight?: number;
   category?: string;
   title?: string;
+  location?: string;
   year?: number;
   themeSlug?: string;
   themeSubtitle?: string;
@@ -42,9 +43,17 @@ const imageHashes = new Map<string, string>();
 
 for (const [index, photo] of photoRecords.entries()) {
   for (const field of requiredFields) {
-    if (photo[field] === undefined || photo[field] === '') {
+    if (photo[field] === undefined || (field !== 'title' && photo[field] === '')) {
       throw new Error(`Photo at index ${index} is missing required field: ${field}`);
     }
+  }
+
+  if (typeof photo.title !== 'string') {
+    throw new Error(`Photo at index ${index} must use a string title.`);
+  }
+
+  if (photo.location !== undefined && typeof photo.location !== 'string') {
+    throw new Error(`Photo at index ${index} must use a string location.`);
   }
 
   if (typeof photo.width !== 'number' || typeof photo.height !== 'number') {
