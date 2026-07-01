@@ -375,7 +375,7 @@ function HomeZinePreview({ photos, prefersReducedMotion }: { photos: Photo[]; pr
           萃取中...
         </span>
       </div>
-      <div className="relative hidden h-[clamp(500px,58vw,720px)] [perspective-origin:50%_48%] [perspective:1120px] lg:block" aria-label="ZINE 照片轨道预览">
+      <div className="relative hidden h-[clamp(500px,58vw,720px)] [perspective-origin:50%_48%] [perspective:1120px] lg:block lg:translate-x-[clamp(56px,4vw,92px)]" aria-label="ZINE 照片轨道预览">
         <div
           className="absolute left-1/2 top-1/2 h-[min(24vw,250px)] w-[min(74vw,760px)] rounded-[50%] border border-[#071b2f]/16"
           style={{ transform: 'translate(-50%, -50%) rotateX(68deg)' }}
