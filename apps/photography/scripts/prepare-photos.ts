@@ -1,4 +1,5 @@
-import { copyFile, mkdir, readdir, rename, rm, stat, writeFile } from 'node:fs/promises';
+import { createHash } from 'node:crypto';
+import { copyFile, mkdir, readFile, readdir, rename, rm, stat, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import exifr from 'exifr';
@@ -166,6 +167,11 @@ function parseSourceName(fileName: string): { title: string; location?: string }
     title: hasSpecificTitle ? title : '',
     location: location || undefined,
   };
+}
+
+async function createSourceHash(inputFile: string): Promise<string> {
+  const buffer = await readFile(inputFile);
+  return createHash('sha256').update(buffer).digest('hex').slice(0, 10);
 }
 
 async function readExif(inputFile: string): Promise<ExifData> {
@@ -344,8 +350,9 @@ for (const theme of themes) {
     themeIndex += 1;
 
     const inputFile = path.join(sourceDir, fileName);
-    const outputName = `${theme.slug}-${String(themeIndex).padStart(2, '0')}.jpg`;
-    const previewName = `${theme.slug}-${String(themeIndex).padStart(2, '0')}-preview.jpg`;
+    const sourceHash = await createSourceHash(inputFile);
+    const outputName = `${theme.slug}-${String(themeIndex).padStart(2, '0')}-${sourceHash}.jpg`;
+    const previewName = `${theme.slug}-${String(themeIndex).padStart(2, '0')}-${sourceHash}-preview.jpg`;
     const outputFile = path.join(outputDir, outputName);
     const previewFile = path.join(previewDir, previewName);
     const sourceStats = await stat(inputFile);

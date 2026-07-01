@@ -120,6 +120,9 @@ npm run validate:photos
 - `diff:photos` 只报告，不改文件，用于确认资源变化。
 - `prepare:photos` 从 `资源/摄影图片` 生成站点图片和 `photos.json`。
 - `validate:photos` 校验路径、尺寸、大小、slug、重复、主题代号和 public 引用，并拒绝主题 slug 与路径不一致的数据。
+- 新增、删除、替换、重命名源图后，必须重新运行 `prepare:photos`，让脚本完整重建 `apps/photography/public/images/photography/` 与 `photos.json`；不得手动移动、复用或改名 public 图片。
+- public 主图和预览图文件名必须包含源图内容 hash，例如 `azure-03-185d4ec11c.jpg` 与 `azure-03-185d4ec11c-preview.jpg`；禁止回退到纯编号文件名，避免浏览器或 CDN 使用旧图缓存造成元数据、预览图和详情图错配。
+- `diff:photos` 必须能发现新增源图未生成、已删除/重命名源图仍被 `photos.json` 引用、public 存在未引用图片等漂移；`validate:photos` 必须校验 JSON 记录尺寸与 public 实际图片尺寸一致。
 - 当前单张站点主图和预览图都必须不超过 5MB；`prepare:photos` 会统一以高保真 JPEG 重编码并在必要时等比缩放，不能绕过脚本手动放入未压缩大图。
 - 所有可见照片必须有具体、有意义的 `alt`。
 
