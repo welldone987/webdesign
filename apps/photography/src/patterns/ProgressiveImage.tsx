@@ -95,42 +95,90 @@ type ProgressiveDetailImageProps = {
   className: string;
 };
 
+type VisibleDetailImage = {
+  src: string;
+  width: number;
+  height: number;
+  fullLoaded: boolean;
+  photoSrc: string;
+};
+
+function createPreviewDetailImage(photo: Photo): VisibleDetailImage {
+  return {
+    src: getPreviewSrc(photo),
+    width: getPreviewWidth(photo),
+    height: getPreviewHeight(photo),
+    fullLoaded: false,
+    photoSrc: photo.src,
+  };
+}
+
+async function decodeImage(src: string): Promise<void> {
+  const image = new Image();
+  image.decoding = 'async';
+  image.src = src;
+
+  if (image.decode) {
+    await image.decode();
+    return;
+  }
+
+  await new Promise<void>((resolve, reject) => {
+    image.onload = () => resolve();
+    image.onerror = () => reject(new Error(`Failed to load image: ${src}`));
+  });
+}
+
 export function ProgressiveDetailImage({ photo, className }: ProgressiveDetailImageProps) {
-  const [largeLoaded, setLargeLoaded] = useState(false);
-  const [largeFailed, setLargeFailed] = useState(false);
+  const [visibleImage, setVisibleImage] = useState<VisibleDetailImage>(() => createPreviewDetailImage(photo));
   const previewSrc = getPreviewSrc(photo);
 
   useEffect(() => {
-    setLargeLoaded(false);
-    setLargeFailed(false);
+    let cancelled = false;
+    const previewImage = createPreviewDetailImage(photo);
 
-    const image = new Image();
-    image.decoding = 'async';
-    image.onload = () => setLargeLoaded(true);
-    image.onerror = () => {
-      setLargeFailed(true);
-      console.warn(`Failed to load full-size photo: ${photo.src}`);
-    };
-    image.src = photo.src;
+    void decodeImage(previewSrc)
+      .catch(() => undefined)
+      .then(() => {
+        if (!cancelled) {
+          setVisibleImage((current) => (current.photoSrc === photo.src ? current : previewImage));
+        }
+      });
+
+    void decodeImage(photo.src)
+      .then(() => {
+        if (!cancelled) {
+          setVisibleImage({
+            src: photo.src,
+            width: photo.width,
+            height: photo.height,
+            fullLoaded: true,
+            photoSrc: photo.src,
+          });
+        }
+      })
+      .catch(() => {
+        if (!cancelled) {
+          setVisibleImage(previewImage);
+        }
+        console.warn(`Failed to load full-size photo: ${photo.src}`);
+      });
 
     return () => {
-      image.onload = null;
-      image.onerror = null;
+      cancelled = true;
     };
-  }, [photo.src]);
-
-  const displayFullImage = largeLoaded && !largeFailed;
+  }, [photo, photo.src, previewSrc]);
 
   return (
     <img
       alt={photo.alt}
       className={className}
-      data-full-loaded={displayFullImage ? 'true' : 'false'}
+      data-full-loaded={visibleImage.fullLoaded ? 'true' : 'false'}
       data-testid="photo-detail-image"
       decoding="async"
-      height={displayFullImage ? photo.height : getPreviewHeight(photo)}
-      src={displayFullImage ? photo.src : previewSrc}
-      width={displayFullImage ? photo.width : getPreviewWidth(photo)}
+      height={visibleImage.height}
+      src={visibleImage.src}
+      width={visibleImage.width}
     />
   );
 }

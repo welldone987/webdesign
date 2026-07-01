@@ -36,6 +36,15 @@ type PreviewResult = {
   bytes: number;
 };
 
+type PreparedAsset = {
+  mode: 'reused' | 'copied' | 'optimized';
+  result: CopyResult;
+  preview: PreviewResult;
+  placeholder: string;
+  width: number;
+  height: number;
+};
+
 type PhotoRecord = {
   src: string;
   previewSrc: string;
@@ -103,6 +112,8 @@ const themes: Theme[] = [
 ];
 
 const imageExtensions = new Set(['.jpg', '.jpeg', '.png', '.webp']);
+const imageExtensionLabels = ['jpg', 'jpeg', 'png', 'webp'];
+const sourceHashPattern = /-([a-f0-9]{10})(?:-preview)?\.jpg$/;
 const excludedSourceIndexes = new Map<string, Set<number>>([
   ['apricity', new Set([1, 4, 5])],
   ['lush', new Set([9])],
@@ -156,6 +167,31 @@ function formatIso(value: unknown): string | undefined {
   return Number.isFinite(value) ? `ISO ${Math.round(value)}` : undefined;
 }
 
+function assertValidSourceName(theme: Theme, fileName: string): void {
+  const baseName = path.basename(fileName, path.extname(fileName));
+  const extension = path.extname(fileName).toLowerCase();
+  const relativeName = `${theme.subtitle}/${fileName}`;
+
+  if (!imageExtensions.has(extension)) {
+    const lowerName = fileName.toLowerCase();
+    const looksLikeMissingDot = imageExtensionLabels.some((label) => lowerName.endsWith(label));
+    const hint = looksLikeMissingDot
+      ? '文件名末尾像是漏写了扩展名前的点号'
+      : `仅支持 ${imageExtensionLabels.map((label) => `.${label}`).join('、')} 图片`;
+
+    throw new Error(
+      `源图文件名格式无效：${relativeName}。${hint}。请改为类似「小憩；澳门-路环半岛.jpg」的格式。`,
+    );
+  }
+
+  const separatorCount = (baseName.match(/；/g) ?? []).length;
+  if (separatorCount !== 1) {
+    throw new Error(
+      `源图文件名格式无效：${relativeName}。必须且只能使用一个中文分号「；」分隔照片名与地点，格式为「照片名；地点.扩展名」。`,
+    );
+  }
+}
+
 function parseSourceName(fileName: string): { title: string; location?: string } {
   const baseName = path.basename(fileName, path.extname(fileName));
   const [rawTitle = '', rawLocation = ''] = baseName.split('；');
@@ -167,6 +203,59 @@ function parseSourceName(fileName: string): { title: string; location?: string }
     title: hasSpecificTitle ? title : '',
     location: location || undefined,
   };
+}
+
+function getPublicPath(publicSrc: string): string {
+  return path.resolve(appRoot, 'public', publicSrc.replace(/^\//, ''));
+}
+
+function getSourceHashFromPath(publicSrc: string | undefined): string | undefined {
+  const match = publicSrc?.match(sourceHashPattern);
+  return match?.[1];
+}
+
+async function pathExists(filePath: string): Promise<boolean> {
+  try {
+    await stat(filePath);
+    return true;
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
+      return false;
+    }
+    throw error;
+  }
+}
+
+async function readExistingPhotos(): Promise<PhotoRecord[]> {
+  try {
+    const value: unknown = JSON.parse(await readFile(photosFile, 'utf8'));
+    return Array.isArray(value) ? (value as PhotoRecord[]) : [];
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
+      return [];
+    }
+    throw error;
+  }
+}
+
+async function listPublicImages(directory: string): Promise<string[]> {
+  if (!(await pathExists(directory))) {
+    return [];
+  }
+
+  const results: string[] = [];
+  const entries = await readdir(directory, { withFileTypes: true });
+
+  for (const entry of entries) {
+    const entryPath = path.join(directory, entry.name);
+    if (entry.isDirectory()) {
+      results.push(...(await listPublicImages(entryPath)));
+    } else if (entry.isFile() && imageExtensions.has(path.extname(entry.name).toLowerCase())) {
+      results.push(entryPath);
+    }
+  }
+
+  return results;
 }
 
 async function createSourceHash(inputFile: string): Promise<string> {
@@ -318,11 +407,103 @@ async function createPlaceholder(inputFile: string): Promise<string> {
   return `data:image/jpeg;base64,${buffer.toString('base64')}`;
 }
 
-await rm(publicRoot, { recursive: true, force: true });
 await mkdir(publicRoot, { recursive: true });
 
+async function prepareAsset(
+  inputFile: string,
+  outputFile: string,
+  previewFile: string,
+  cachedPhoto: PhotoRecord | undefined,
+): Promise<PreparedAsset> {
+  const cachedOutputFile = cachedPhoto ? getPublicPath(cachedPhoto.src) : undefined;
+  const cachedPreviewFile = cachedPhoto ? getPublicPath(cachedPhoto.previewSrc) : undefined;
+  const canReuseMetadata = Boolean(
+    cachedPhoto?.placeholder &&
+      cachedPhoto.width &&
+      cachedPhoto.height &&
+      cachedPhoto.previewWidth &&
+      cachedPhoto.previewHeight &&
+      cachedPhoto.sizeBytes &&
+      cachedPhoto.previewSizeBytes,
+  );
+
+  if (cachedPhoto && cachedOutputFile && cachedPreviewFile && canReuseMetadata) {
+    const targetExists = (await pathExists(outputFile)) && (await pathExists(previewFile));
+    if (targetExists) {
+      return {
+        mode: 'reused',
+        result: {
+          optimized: cachedPhoto.optimized,
+          quality: 0,
+          resized: false,
+          bytes: cachedPhoto.sizeBytes,
+          sourceBytes: 0,
+        },
+        preview: {
+          width: cachedPhoto.previewWidth,
+          height: cachedPhoto.previewHeight,
+          bytes: cachedPhoto.previewSizeBytes,
+        },
+        placeholder: cachedPhoto.placeholder,
+        width: cachedPhoto.width,
+        height: cachedPhoto.height,
+      };
+    }
+
+    if ((await pathExists(cachedOutputFile)) && (await pathExists(cachedPreviewFile))) {
+      await copyFile(cachedOutputFile, outputFile);
+      await copyFile(cachedPreviewFile, previewFile);
+      return {
+        mode: 'copied',
+        result: {
+          optimized: cachedPhoto.optimized,
+          quality: 0,
+          resized: false,
+          bytes: cachedPhoto.sizeBytes,
+          sourceBytes: 0,
+        },
+        preview: {
+          width: cachedPhoto.previewWidth,
+          height: cachedPhoto.previewHeight,
+          bytes: cachedPhoto.previewSizeBytes,
+        },
+        placeholder: cachedPhoto.placeholder,
+        width: cachedPhoto.width,
+        height: cachedPhoto.height,
+      };
+    }
+  }
+
+  const sourceStats = await stat(inputFile);
+  const sourceImage = sharp(inputFile, { limitInputPixels: false });
+  const inputMetadata = await sourceImage.metadata();
+  const result = await copyOrCompress(inputFile, outputFile, sourceStats, inputMetadata);
+  const outputMetadata = await sharp(outputFile, { limitInputPixels: false }).metadata();
+  const preview = await createPreview(outputFile, previewFile);
+  const placeholder = await createPlaceholder(outputFile);
+
+  return {
+    mode: 'optimized',
+    result,
+    preview,
+    placeholder,
+    width: outputMetadata.width ?? 0,
+    height: outputMetadata.height ?? 0,
+  };
+}
+
 const photos: PhotoRecord[] = [];
+const existingPhotos = await readExistingPhotos();
+const cachedPhotosByHash = new Map<string, PhotoRecord>();
+const expectedPublicPaths = new Set<string>();
 const seenOriginalFiles = new Set<string>();
+
+for (const photo of existingPhotos) {
+  const hash = getSourceHashFromPath(photo.src);
+  if (hash && !cachedPhotosByHash.has(hash)) {
+    cachedPhotosByHash.set(hash, photo);
+  }
+}
 
 for (const theme of themes) {
   const sourceDir = path.join(sourceRoot, theme.subtitle);
@@ -332,8 +513,11 @@ for (const theme of themes) {
   await mkdir(previewDir, { recursive: true });
 
   const sourceFiles = (await readdir(sourceDir, { withFileTypes: true }))
-    .filter((entry) => entry.isFile() && imageExtensions.has(path.extname(entry.name).toLowerCase()))
-    .map((entry) => entry.name)
+    .filter((entry) => entry.isFile() && !entry.name.startsWith('.'))
+    .map((entry) => {
+      assertValidSourceName(theme, entry.name);
+      return entry.name;
+    })
     .sort((a, b) => a.localeCompare(b, 'zh-CN', { numeric: true }));
 
   const excludedIndexes = excludedSourceIndexes.get(theme.slug) ?? new Set();
@@ -355,30 +539,25 @@ for (const theme of themes) {
     const previewName = `${theme.slug}-${String(themeIndex).padStart(2, '0')}-${sourceHash}-preview.jpg`;
     const outputFile = path.join(outputDir, outputName);
     const previewFile = path.join(previewDir, previewName);
-    const sourceStats = await stat(inputFile);
-    const sourceImage = sharp(inputFile, { limitInputPixels: false });
-    const inputMetadata = await sourceImage.metadata();
+    expectedPublicPaths.add(path.resolve(outputFile));
+    expectedPublicPaths.add(path.resolve(previewFile));
     const exif = await readExif(inputFile);
-
-    const result = await copyOrCompress(inputFile, outputFile, sourceStats, inputMetadata);
-    const outputMetadata = await sharp(outputFile, { limitInputPixels: false }).metadata();
-    const preview = await createPreview(outputFile, previewFile);
-    const placeholder = await createPlaceholder(outputFile);
+    const prepared = await prepareAsset(inputFile, outputFile, previewFile, cachedPhotosByHash.get(sourceHash));
     const { title, location } = parseSourceName(fileName);
 
     photos.push({
       src: `/images/photography/${theme.slug}/${outputName}`,
       previewSrc: `/images/photography/${theme.slug}/preview/${previewName}`,
       alt: `${theme.name}主题摄影作品 ${themeIndex}`,
-      width: outputMetadata.width ?? 0,
-      height: outputMetadata.height ?? 0,
-      previewWidth: preview.width,
-      previewHeight: preview.height,
+      width: prepared.width,
+      height: prepared.height,
+      previewWidth: prepared.preview.width,
+      previewHeight: prepared.preview.height,
       category: theme.name,
       themeSlug: theme.slug,
       themeSubtitle: theme.subtitle,
       themeDescription: theme.description,
-      placeholder,
+      placeholder: prepared.placeholder,
       title,
       year: exif.date ? Number(exif.date.slice(0, 4)) : 2026,
       date: exif.date,
@@ -390,16 +569,19 @@ for (const theme of themes) {
       order: photos.length + 1,
       slug: `${theme.slug}-${String(themeIndex).padStart(2, '0')}`,
       originalFile: fileName,
-      optimized: result.optimized,
-      sizeBytes: result.bytes,
-      previewSizeBytes: preview.bytes,
+      optimized: prepared.result.optimized,
+      sizeBytes: prepared.result.bytes,
+      previewSizeBytes: prepared.preview.bytes,
     });
 
-    console.log(
-      `${theme.name} ${themeIndex}/${files.length}: ${fileName} -> ${outputName} ${
-        result.optimized ? 'optimized' : 'copied'
-      }`,
-    );
+    console.log(`${theme.name} ${themeIndex}/${files.length}: ${fileName} -> ${outputName} ${prepared.mode}`);
+  }
+}
+
+for (const publicImage of await listPublicImages(publicRoot)) {
+  if (!expectedPublicPaths.has(path.resolve(publicImage))) {
+    await rm(publicImage, { force: true });
+    console.log(`removed stale public image: ${path.relative(publicRoot, publicImage)}`);
   }
 }
 

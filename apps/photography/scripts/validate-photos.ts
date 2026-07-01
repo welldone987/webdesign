@@ -30,6 +30,8 @@ const appRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 const repoRoot = path.resolve(appRoot, '..', '..');
 const sourceRoot = path.join(repoRoot, '资源', '摄影图片');
 const maxBytes = 5 * 1024 * 1024;
+const imageExtensions = new Set(['.jpg', '.jpeg', '.png', '.webp']);
+const imageExtensionLabels = ['jpg', 'jpeg', 'png', 'webp'];
 const themeSubtitles = new Map([
   ['apricity', 'Apricity'],
   ['azure', 'Azure'],
@@ -41,6 +43,31 @@ const hashedPreviewPathPattern = /^\/images\/photography\/([a-z]+)\/preview\/\1-
 
 async function createSourceHash(inputFile: string): Promise<string> {
   return createHash('sha256').update(await readFile(inputFile)).digest('hex').slice(0, 10);
+}
+
+function assertValidSourceName(themeSubtitle: string, fileName: string): void {
+  const baseName = path.basename(fileName, path.extname(fileName));
+  const extension = path.extname(fileName).toLowerCase();
+  const relativeName = `${themeSubtitle}/${fileName}`;
+
+  if (!imageExtensions.has(extension)) {
+    const lowerName = fileName.toLowerCase();
+    const looksLikeMissingDot = imageExtensionLabels.some((label) => lowerName.endsWith(label));
+    const hint = looksLikeMissingDot
+      ? '文件名末尾像是漏写了扩展名前的点号'
+      : `仅支持 ${imageExtensionLabels.map((label) => `.${label}`).join('、')} 图片`;
+
+    throw new Error(
+      `源图文件名格式无效：${relativeName}。${hint}。请改为类似「小憩；澳门-路环半岛.jpg」的格式。`,
+    );
+  }
+
+  const separatorCount = (baseName.match(/；/g) ?? []).length;
+  if (separatorCount !== 1) {
+    throw new Error(
+      `源图文件名格式无效：${relativeName}。必须且只能使用一个中文分号「；」分隔照片名与地点，格式为「照片名；地点.扩展名」。`,
+    );
+  }
 }
 
 if (!Array.isArray(photos)) {
@@ -90,6 +117,7 @@ for (const [index, photo] of photoRecords.entries()) {
   if (!photo.originalFile) {
     throw new Error(`Photo at index ${index} is missing originalFile.`);
   }
+  assertValidSourceName(themeSubtitle, String(photo.originalFile));
 
   const sourceHash = await createSourceHash(path.join(sourceRoot, themeSubtitle, String(photo.originalFile)));
   if (!String(photo.src).includes(`-${sourceHash}.jpg`) || !String(photo.previewSrc).includes(`-${sourceHash}-preview.jpg`)) {
