@@ -106,7 +106,7 @@ function HomeScrollLab({ prefersReducedMotion }: { prefersReducedMotion: boolean
         <div className="relative min-h-[360px] sm:min-h-[520px] lg:min-h-[640px]">
           <LightStudySvg prefersReducedMotion={prefersReducedMotion} />
           <div className="font-serif absolute bottom-5 right-0 w-[min(350px,82vw)] border-2 border-[#071b2f]/35 bg-white p-4 text-[#071b2f] shadow-[0_28px_86px_rgba(7,27,47,0.22)] sm:bottom-8 sm:right-[8%] sm:p-5">
-            <strong className="block text-4xl font-light leading-[0.9] sm:text-5xl">关于网站：</strong>
+            <strong className="block text-4xl font-semibold leading-[0.9] sm:text-5xl">关于网站：</strong>
             <span className="mt-5 block text-base leading-7 sm:text-lg sm:leading-8">
               nothing的小站，记录光影，分享回忆，学习设计与美
             </span>
@@ -132,7 +132,7 @@ function ScrollLabLine({ text, from, to, index, progress, prefersReducedMotion }
   return (
     <div className="relative h-[clamp(74px,10vw,146px)] overflow-hidden border-t border-[#071b2f]/18 last:border-b">
       <motion.span
-        className="font-serif absolute top-1/2 block whitespace-nowrap text-[clamp(70px,11vw,168px)] font-light uppercase leading-[0.9] will-change-transform"
+        className="font-serif absolute top-1/2 block whitespace-nowrap text-[clamp(70px,11vw,168px)] font-semibold uppercase leading-[0.9] will-change-transform"
         style={{ x: prefersReducedMotion ? 0 : x, y: '-45%' }}
       >
         {index % 2 === 0 ? text : `${text} ${text}`}
@@ -312,8 +312,8 @@ function ArchiveCard({
         {String(index + 1).padStart(2, '0')}
       </span>
       <span className="font-serif relative z-[4] mt-6 flex items-baseline gap-3 sm:mt-7">
-        <span className="text-[clamp(44px,5.8vw,98px)] font-light leading-[0.86]">{item.theme.name}</span>
-        <span className="text-[clamp(20px,2vw,34px)] font-light uppercase leading-none">{item.label}</span>
+        <span className="text-[clamp(44px,5.8vw,98px)] font-semibold leading-[0.86]">{item.theme.name}</span>
+        <span className="text-[clamp(20px,2vw,34px)] font-semibold uppercase leading-none">{item.label}</span>
       </span>
       <span className="relative z-[4] mt-5 block h-[8px] w-16 bg-[#071b2f] transition-all group-hover:w-full sm:mt-6 sm:h-[9px] sm:w-20" />
       <span className="relative z-[4] ml-auto mt-5 flex min-h-11 w-fit items-center border border-white bg-white px-4 text-sm font-semibold text-[#071b2f] shadow-[0_8px_18px_rgba(7,27,47,0.12)] transition group-hover:bg-[#071b2f] group-hover:text-white">
@@ -362,12 +362,12 @@ function HomeZinePreview({ photos, prefersReducedMotion }: { photos: Photo[]; pr
     >
       <div className="relative z-[6]">
         <p className="mb-7 text-base text-[#071b2f]/62 sm:text-lg">Zine / 03</p>
-        <h2 className="font-serif text-[clamp(62px,8.4vw,142px)] font-light uppercase leading-[0.88]">
+        <h2 className="font-serif text-[clamp(62px,8.4vw,142px)] font-semibold uppercase leading-[0.88]">
           Zine
           <br />
           Coming Soon
         </h2>
-        <span className="font-serif mt-7 block text-left text-[clamp(28px,3.2vw,54px)] font-light leading-tight">
+        <span className="font-serif mt-7 block text-left text-[clamp(28px,3.2vw,54px)] font-semibold leading-tight">
           待更新 ZINE
           <br />
           萃取中...
@@ -449,7 +449,7 @@ function RibbonLine({
 
   return (
     <div
-      className={`absolute left-[-60vw] flex w-[280vw] whitespace-nowrap font-serif text-[clamp(32px,3.6vw,74px)] font-light uppercase leading-none ${
+      className={`absolute left-[-60vw] flex w-[280vw] whitespace-nowrap font-serif text-[clamp(32px,3.6vw,74px)] font-semibold uppercase leading-none ${
         index % 2 === 0 ? 'text-[#c99567]/30' : 'text-[#071b2f]/28 mix-blend-multiply'
       }`}
       style={ribbonStyle}

@@ -2,9 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Crimson Text";
+  font-style: normal;
+  font-display: block;
+  font-weight: 400;
+  src: url("@fontsource/crimson-text/files/crimson-text-latin-400-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Crimson Text";
+  font-style: normal;
+  font-display: block;
+  font-weight: 600;
+  src: url("@fontsource/crimson-text/files/crimson-text-latin-600-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Encode Sans Semi Expanded";
+  font-style: normal;
+  font-display: block;
+  font-weight: 300;
+  src: url("@fontsource/encode-sans-semi-expanded/files/encode-sans-semi-expanded-latin-300-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Noto Serif SC";
+  font-style: normal;
+  font-display: block;
+  font-weight: 400;
+  src: url("@fontsource/noto-serif-sc/files/noto-serif-sc-chinese-simplified-400-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Noto Serif SC";
+  font-style: normal;
+  font-display: block;
+  font-weight: 600;
+  src: url("@fontsource/noto-serif-sc/files/noto-serif-sc-chinese-simplified-600-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Noto Sans SC";
+  font-style: normal;
+  font-display: block;
+  font-weight: 400;
+  src: url("@fontsource/noto-sans-sc/files/noto-sans-sc-chinese-simplified-400-normal.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Noto Sans SC";
+  font-style: normal;
+  font-display: block;
+  font-weight: 600;
+  src: url("@fontsource/noto-sans-sc/files/noto-sans-sc-chinese-simplified-600-normal.woff2") format("woff2");
+}
+
 :root {
   color-scheme: light;
-  font-family: "Aptos", "Segoe UI", sans-serif;
+  --font-serif: "Crimson Text", "Noto Serif SC", serif;
+  --font-sans: "Encode Sans Semi Expanded", "Noto Sans SC", sans-serif;
+  font-family: var(--font-sans);
+  font-weight: 400;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -27,11 +86,25 @@ a {
 }
 
 .font-serif {
-  font-family: Georgia, "Times New Roman", "Songti SC", "SimSun", serif;
+  font-family: var(--font-serif);
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3,
+strong,
+.font-serif.font-semibold,
+.font-sans.font-semibold {
+  font-weight: 600;
+}
+
+.font-sans {
+  font-family: var(--font-sans);
 }
 
 .font-numeric-serif {
-  font-family: Cambria, "Times New Roman", Georgia, serif;
+  font-family: var(--font-serif);
   font-variant-numeric: lining-nums tabular-nums;
 }
 

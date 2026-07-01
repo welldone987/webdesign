@@ -27,7 +27,7 @@ export function ThemeRail({ themes, activeThemeSlug, onSelectTheme }: ThemeRailP
           type="button"
         >
           <span className={theme.slug === activeThemeSlug ? 'text-ink' : undefined}>{theme.name}</span>
-          <span className="font-serif mt-1 block text-[0.68rem] font-light tracking-[0.12em] opacity-45 lg:ml-3 lg:mt-0 lg:inline lg:text-xs lg:tracking-[0.14em]">
+          <span className="font-serif mt-1 block text-[0.68rem] font-normal tracking-[0.12em] opacity-45 lg:ml-3 lg:mt-0 lg:inline lg:text-xs lg:tracking-[0.14em]">
             {theme.subtitle}
           </span>
         </button>

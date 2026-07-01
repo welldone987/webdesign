@@ -15,12 +15,17 @@
     "validate:photos": "node scripts/validate-photos.ts"
   },
   "dependencies": {
+    "@fontsource/crimson-text": "^5.2.7",
+    "@fontsource/encode-sans-semi-expanded": "^5.2.8",
+    "@fontsource/noto-sans-sc": "^5.2.9",
+    "@fontsource/noto-serif-sc": "^5.2.9",
     "framer-motion": "^12.42.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7"
   },
   "devDependencies": {
     "@playwright/test": "^1.61.1",
+    "@types/node": "^26.0.1",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.3",
