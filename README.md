@@ -5,8 +5,7 @@
 [![React Version](https://img.shields.io/badge/react-19.x-61DAFB?logo=react&logoColor=black)]()
 [![Vite](https://img.shields.io/badge/vite-8.x-646CFF?logo=vite&logoColor=white)]()
 
-> 「无影，则万物皆影。」
->
+
 > **無影集 (SEEN BY NOTHING)** 是一个长期维护的静态摄影作品集网站。网址为https://innothing.top/
 项目致力于通过黑白主导的极简主义设计、克制的色彩搭配以及平面设计式的排版，构建一个沉浸且充满艺术感的个人摄影与未来 ZINE 作品展示空间。
 
@@ -68,14 +67,6 @@
 └── playwright.config.ts          # E2E 回归测试配置
 ```
 
-### 🧱 依赖规则边界
-为了防止代码腐化，请严格遵守以下模块引用方向：
-$$\text{app} \longrightarrow \text{pages} \longrightarrow \text{views} \longrightarrow \text{patterns} \longrightarrow \text{components / lib / data / types}$$
-- **禁止** `components` 依赖 `views` 或 `pages`。
-- **禁止** `lib` 依赖 UI 组件.
-- **禁止** 组件中硬编码单张照片 (必须由 `photos.json` 驱动)。
-
----
 
 ## ⚡ 图片与元数据流水线 (Asset Pipeline)
 

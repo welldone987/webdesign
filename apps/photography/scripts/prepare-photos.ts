@@ -114,11 +114,6 @@ const themes: Theme[] = [
 const imageExtensions = new Set(['.jpg', '.jpeg', '.png', '.webp']);
 const imageExtensionLabels = ['jpg', 'jpeg', 'png', 'webp'];
 const sourceHashPattern = /-([a-f0-9]{10})(?:-preview)?\.jpg$/;
-const excludedSourceIndexes = new Map<string, Set<number>>([
-  ['apricity', new Set([1, 4, 5])],
-  ['lush', new Set([9])],
-  ['pall', new Set([5])],
-]);
 
 function formatDate(value: unknown): string | undefined {
   if (!value) {
@@ -520,8 +515,7 @@ for (const theme of themes) {
     })
     .sort((a, b) => a.localeCompare(b, 'zh-CN', { numeric: true }));
 
-  const excludedIndexes = excludedSourceIndexes.get(theme.slug) ?? new Set();
-  const files = sourceFiles.filter((_, index) => !excludedIndexes.has(index + 1));
+  const files = sourceFiles;
   let themeIndex = 0;
 
   for (const fileName of files) {

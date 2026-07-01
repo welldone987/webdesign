@@ -33,6 +33,7 @@ test-results/
 .superpowers/
 .tmp/
 .vscode/
+rebuild-photography.ps1
 
 # Logs
 logs/
