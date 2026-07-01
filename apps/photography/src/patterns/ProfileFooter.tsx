@@ -10,12 +10,21 @@ export function ProfileFooter() {
           以及画面里没有被立即说完的部分。
         </p>
       </section>
-      <p className="mt-8 text-center text-[0.68rem] tracking-[0.12em] text-black/38">
-        email:innothing987@163.com
-      </p>
-      <p className="mt-5 text-center text-[0.68rem] tracking-[0.12em] text-black/38">
-        ©2026 InNothing. All Rights Reserved.
-      </p>
+      <address className="mt-8 space-y-1 text-center text-[0.68rem] not-italic leading-5 tracking-[0.12em] text-black/38">
+        <p>
+          GitHub项目地址：
+          <a
+            className="transition hover:text-black/62 focus:outline-none focus-visible:ring-2 focus-visible:ring-black"
+            href="https://github.com/welldone987/webdesign"
+            rel="noreferrer"
+            target="_blank"
+          >
+            welldone987/webdesign
+          </a>
+        </p>
+        <p>email:innothing987@163.com</p>
+        <p>©2026 InNothing. All Rights Reserved.</p>
+      </address>
     </footer>
   );
 }

@@ -3,19 +3,29 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Crimson Text";
+  font-family: "Seen Serif";
   font-style: normal;
   font-display: block;
   font-weight: 400;
-  src: url("@fontsource/crimson-text/files/crimson-text-latin-400-normal.woff2") format("woff2");
+  src: url("@fontsource/libre-caslon-text/files/libre-caslon-text-latin-400-normal.woff2") format("woff2");
+  unicode-range:
+    U+0000-00FF,
+    U+0100-024F,
+    U+1E00-1EFF,
+    U+2000-206F;
 }
 
 @font-face {
-  font-family: "Crimson Text";
+  font-family: "Seen Serif";
   font-style: normal;
   font-display: block;
   font-weight: 600;
-  src: url("@fontsource/crimson-text/files/crimson-text-latin-600-normal.woff2") format("woff2");
+  src: url("@fontsource/libre-caslon-text/files/libre-caslon-text-latin-400-normal.woff2") format("woff2");
+  unicode-range:
+    U+0000-00FF,
+    U+0100-024F,
+    U+1E00-1EFF,
+    U+2000-206F;
 }
 
 @font-face {
@@ -27,19 +37,33 @@
 }
 
 @font-face {
-  font-family: "Noto Serif SC";
+  font-family: "Seen Serif";
   font-style: normal;
   font-display: block;
   font-weight: 400;
   src: url("@fontsource/noto-serif-sc/files/noto-serif-sc-chinese-simplified-400-normal.woff2") format("woff2");
+  unicode-range:
+    U+2E80-2EFF,
+    U+3000-303F,
+    U+3400-4DBF,
+    U+4E00-9FFF,
+    U+F900-FAFF,
+    U+FF00-FFEF;
 }
 
 @font-face {
-  font-family: "Noto Serif SC";
+  font-family: "Seen Serif";
   font-style: normal;
   font-display: block;
   font-weight: 600;
   src: url("@fontsource/noto-serif-sc/files/noto-serif-sc-chinese-simplified-600-normal.woff2") format("woff2");
+  unicode-range:
+    U+2E80-2EFF,
+    U+3000-303F,
+    U+3400-4DBF,
+    U+4E00-9FFF,
+    U+F900-FAFF,
+    U+FF00-FFEF;
 }
 
 @font-face {
@@ -60,7 +84,7 @@
 
 :root {
   color-scheme: light;
-  --font-serif: "Crimson Text", "Noto Serif SC", serif;
+  --font-serif: "Seen Serif", serif;
   --font-sans: "Encode Sans Semi Expanded", "Noto Sans SC", sans-serif;
   font-family: var(--font-sans);
   font-weight: 400;

@@ -15,8 +15,8 @@
     "validate:photos": "node scripts/validate-photos.ts"
   },
   "dependencies": {
-    "@fontsource/crimson-text": "^5.2.7",
     "@fontsource/encode-sans-semi-expanded": "^5.2.8",
+    "@fontsource/libre-caslon-text": "^5.2.7",
     "@fontsource/noto-sans-sc": "^5.2.9",
     "@fontsource/noto-serif-sc": "^5.2.9",
     "framer-motion": "^12.42.0",

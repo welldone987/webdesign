@@ -280,74 +280,76 @@ function ArchiveCard({
   }, []);
 
   return (
-    <motion.button
-      className="group relative z-[3] min-h-[164px] overflow-visible px-4 pb-4 pt-3 text-left text-[var(--card-ink)] outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-4 focus-visible:ring-offset-white sm:min-h-[214px] sm:px-6 sm:pb-6 sm:pt-5 lg:min-h-[202px] lg:px-7"
-      onBlur={() => setIsPreviewVisible(false)}
-      initial={prefersReducedMotion ? false : { opacity: 0, y: 36 }}
-      onClick={() => onOpenThemeGallery(item.theme.slug)}
-      onFocus={() => setIsPreviewVisible(true)}
-      onMouseEnter={() => setIsPreviewVisible(true)}
-      onMouseLeave={() => setIsPreviewVisible(false)}
-      ref={cardRef}
-      style={folderStyle}
-      transition={{ delay: index * 0.06, duration: 0.55, ease: 'easeOut' }}
-      type="button"
-      viewport={{ amount: 0.25, once: true }}
-      whileHover={prefersReducedMotion ? undefined : { y: index % 2 === 0 ? 10 : -8 }}
-      whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: index % 2 === 0 ? 18 : 0 }}
-    >
-      <span
-        aria-hidden="true"
-        className="absolute left-0 top-0 z-0 h-[34px] w-[48%] -translate-y-[70%] rounded-tr-[14px] border border-b-0 border-[#071b2f] bg-[var(--card-accent)] [clip-path:polygon(0_0,calc(100%-28px)_0,100%_100%,0_100%)] transition-transform group-hover:-translate-y-[82%] sm:h-[50px] sm:rounded-tr-[18px]"
-      />
-      <span
-        aria-hidden="true"
-        className="absolute inset-0 z-0 rounded-r-[14px] border border-[#071b2f] bg-[var(--card-accent)] shadow-[0_18px_40px_rgba(7,27,47,0.1)] sm:rounded-r-[18px]"
-      />
-      <span
-        aria-hidden="true"
-        className="absolute inset-x-0 bottom-0 top-[34px] z-[2] rounded-r-[14px] border border-[#071b2f] bg-[var(--card-accent)] shadow-[0_18px_40px_rgba(7,27,47,0.08)] transition group-hover:border-[#071b2f] group-hover:shadow-[0_26px_70px_rgba(7,27,47,0.18)] sm:top-[50px] sm:rounded-r-[18px]"
-      />
-      <span className="relative z-[4] block pb-3 text-sm sm:text-base">
-        {String(index + 1).padStart(2, '0')}
-      </span>
-      <span className="font-serif relative z-[4] mt-6 flex items-baseline gap-3 sm:mt-7">
-        <span className="text-[clamp(44px,5.8vw,98px)] font-semibold leading-[0.86]">{item.theme.name}</span>
-        <span className="text-[clamp(20px,2vw,34px)] font-semibold uppercase leading-none">{item.label}</span>
-      </span>
-      <span className="relative z-[4] mt-5 block h-[8px] w-16 bg-[#071b2f] transition-all group-hover:w-full sm:mt-6 sm:h-[9px] sm:w-20" />
-      <span className="relative z-[4] ml-auto mt-5 flex min-h-11 w-fit items-center border border-white bg-white px-4 text-sm font-semibold text-[#071b2f] shadow-[0_8px_18px_rgba(7,27,47,0.12)] transition group-hover:bg-[#071b2f] group-hover:text-white">
-        进入 &gt;
-      </span>
-      <span className="pointer-events-none absolute left-[18%] top-0 z-[1] block h-[168px] w-[130px] -translate-x-[16%] -translate-y-[22%] sm:h-[202px] sm:w-[156px] lg:h-[246px] lg:w-[190px] lg:-translate-y-[26%]" aria-hidden="true">
-        {[item.cover, item.peek].map((photo, photoIndex) => (
-          <span
-            className={`absolute inset-0 border-[7px] border-white bg-white shadow-[0_20px_44px_rgba(7,27,47,0.2)] transition duration-500 ${
-              isPreviewOpen ? 'opacity-100' : 'opacity-0'
-            } ${
-              photoIndex === 0
-                ? isPreviewOpen
-                  ? 'translate-x-1 -translate-y-16 rotate-[-11deg] scale-[0.84] lg:-translate-y-24 lg:scale-100'
-                  : 'translate-y-7 rotate-[-2deg] scale-[0.78]'
-                : isPreviewOpen
-                  ? 'translate-x-20 -translate-y-14 rotate-[9deg] scale-[0.82] lg:translate-x-[120px] lg:-translate-y-[84px] lg:scale-[0.96]'
-                  : 'translate-y-8 rotate-3 scale-[0.76]'
-            }`}
-            key={`${photo.slug ?? photo.src}-${photoIndex}`}
-          >
-            <img
-              alt=""
-              className="h-full w-full object-cover"
-              decoding="async"
-              height={getPreviewHeight(photo)}
-              loading="lazy"
-              src={getPreviewSrc(photo)}
-              width={getPreviewWidth(photo)}
-            />
-          </span>
-        ))}
-      </span>
-    </motion.button>
+    <div className="relative z-[3] origin-center sm:scale-[0.8]">
+      <motion.button
+        className="group relative min-h-[164px] w-full overflow-visible px-4 pb-4 pt-3 text-left text-[var(--card-ink)] outline-none focus-visible:ring-2 focus-visible:ring-black focus-visible:ring-offset-4 focus-visible:ring-offset-white sm:min-h-[214px] sm:px-6 sm:pb-6 sm:pt-5 lg:min-h-[202px] lg:px-7"
+        onBlur={() => setIsPreviewVisible(false)}
+        initial={prefersReducedMotion ? false : { opacity: 0, y: 36 }}
+        onClick={() => onOpenThemeGallery(item.theme.slug)}
+        onFocus={() => setIsPreviewVisible(true)}
+        onMouseEnter={() => setIsPreviewVisible(true)}
+        onMouseLeave={() => setIsPreviewVisible(false)}
+        ref={cardRef}
+        style={folderStyle}
+        transition={{ delay: index * 0.06, duration: 0.55, ease: 'easeOut' }}
+        type="button"
+        viewport={{ amount: 0.25, once: true }}
+        whileHover={prefersReducedMotion ? undefined : { y: index % 2 === 0 ? 10 : -8 }}
+        whileInView={prefersReducedMotion ? undefined : { opacity: 1, y: index % 2 === 0 ? 18 : 0 }}
+      >
+        <span
+          aria-hidden="true"
+          className="absolute left-0 top-0 z-0 h-[34px] w-[48%] -translate-y-[70%] rounded-tr-[14px] border border-b-0 border-[#071b2f] bg-[var(--card-accent)] [clip-path:polygon(0_0,calc(100%-28px)_0,100%_100%,0_100%)] transition-transform group-hover:-translate-y-[82%] sm:h-[50px] sm:rounded-tr-[18px]"
+        />
+        <span
+          aria-hidden="true"
+          className="absolute inset-0 z-0 rounded-r-[14px] border border-[#071b2f] bg-[var(--card-accent)] shadow-[0_18px_40px_rgba(7,27,47,0.1)] sm:rounded-r-[18px]"
+        />
+        <span
+          aria-hidden="true"
+          className="absolute inset-x-0 bottom-0 top-[34px] z-[2] rounded-r-[14px] border border-[#071b2f] bg-[var(--card-accent)] shadow-[0_18px_40px_rgba(7,27,47,0.08)] transition group-hover:border-[#071b2f] group-hover:shadow-[0_26px_70px_rgba(7,27,47,0.18)] sm:top-[50px] sm:rounded-r-[18px]"
+        />
+        <span className="relative z-[4] block pb-3 text-sm sm:text-base">
+          {String(index + 1).padStart(2, '0')}
+        </span>
+        <span className="font-serif relative z-[4] mt-6 flex items-baseline gap-3 sm:mt-7">
+          <span className="text-[clamp(44px,5.8vw,98px)] font-semibold leading-[0.86]">{item.theme.name}</span>
+          <span className="text-[clamp(20px,2vw,34px)] font-semibold uppercase leading-none">{item.label}</span>
+        </span>
+        <span className="relative z-[4] mt-5 block h-[8px] w-16 bg-[#071b2f] transition-all group-hover:w-full sm:mt-6 sm:h-[9px] sm:w-20" />
+        <span className="relative z-[4] ml-auto mt-5 flex min-h-11 w-fit items-center border border-white bg-white px-4 text-sm font-semibold text-[#071b2f] shadow-[0_8px_18px_rgba(7,27,47,0.12)] transition group-hover:bg-[#071b2f] group-hover:text-white">
+          进入 &gt;
+        </span>
+        <span className="pointer-events-none absolute left-[18%] top-0 z-[1] block h-[168px] w-[130px] -translate-x-[16%] -translate-y-[22%] sm:h-[202px] sm:w-[156px] lg:h-[246px] lg:w-[190px] lg:-translate-y-[26%]" aria-hidden="true">
+          {[item.cover, item.peek].map((photo, photoIndex) => (
+            <span
+              className={`absolute inset-0 border-[7px] border-white bg-white shadow-[0_20px_44px_rgba(7,27,47,0.2)] transition duration-500 ${
+                isPreviewOpen ? 'opacity-100' : 'opacity-0'
+              } ${
+                photoIndex === 0
+                  ? isPreviewOpen
+                    ? 'translate-x-1 -translate-y-16 rotate-[-11deg] scale-[0.84] lg:-translate-y-24 lg:scale-100'
+                    : 'translate-y-7 rotate-[-2deg] scale-[0.78]'
+                  : isPreviewOpen
+                    ? 'translate-x-20 -translate-y-14 rotate-[9deg] scale-[0.82] lg:translate-x-[120px] lg:-translate-y-[84px] lg:scale-[0.96]'
+                    : 'translate-y-8 rotate-3 scale-[0.76]'
+              }`}
+              key={`${photo.slug ?? photo.src}-${photoIndex}`}
+            >
+              <img
+                alt=""
+                className="h-full w-full object-cover"
+                decoding="async"
+                height={getPreviewHeight(photo)}
+                loading="lazy"
+                src={getPreviewSrc(photo)}
+                width={getPreviewWidth(photo)}
+              />
+            </span>
+          ))}
+        </span>
+      </motion.button>
+    </div>
   );
 }
 
