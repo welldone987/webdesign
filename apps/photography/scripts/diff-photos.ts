@@ -34,12 +34,6 @@ const themes: Theme[] = [
   { name: '郁', slug: 'pall', subtitle: 'Pall' },
 ];
 
-const excludedSourceIndexes = new Map<string, Set<number>>([
-  ['apricity', new Set([1, 4, 5])],
-  ['lush', new Set([9])],
-  ['pall', new Set([5])],
-]);
-
 async function pathExists(filePath: string): Promise<boolean> {
   try {
     await stat(filePath);
@@ -63,8 +57,7 @@ async function listSourceFiles(theme: Theme): Promise<string[]> {
     })
     .sort((a, b) => a.localeCompare(b, 'zh-CN', { numeric: true }));
 
-  const excludedIndexes = excludedSourceIndexes.get(theme.slug) ?? new Set();
-  return sourceFiles.filter((_, index) => !excludedIndexes.has(index + 1));
+  return sourceFiles;
 }
 
 function assertValidSourceName(theme: Theme, fileName: string): void {
